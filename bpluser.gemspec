@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth"
   s.add_dependency "omniauth-ldap"
   s.add_dependency "omniauth-facebook"
+  s.add_dependency "hydra-role-management"
   #s.add_dependency 'omniauth-polaris', :git => 'https://github.com/boston-library/omniauth-polaris.git'
   # s.add_dependency "jquery-rails"
 

@@ -9,6 +9,7 @@ class BpluserGenerator < Rails::Generators::Base
 
   argument :model_name, :type => :string , :default => "user"
   class_option :devise , :type => :boolean, :default => false, :aliases => "-d", :desc => "Use Devise as authentication logic (this is default)."
+  class_option :role_management , :type => :boolean, :default => false, :aliases => "-r", :desc => "Use Hydra Role Management as authentication logic (this is default)."
 
 
   desc """
@@ -60,6 +61,17 @@ Thank you for Installing BPLUser.
   end
 
 
+  #Add gem dependenceies
+  def add_the_gems
+    gem 'omniauth'
+    gem 'omniauth-ldap'
+    gem 'omniauth-facebook'
+    gem 'omniauth-polaris', :git => 'https://github.com/boston-library/omniauth-polaris.git'
+    Bundler.with_clean_env do
+      run "bundle install"
+    end
+  end
+
 
   # Copy all files in templates/config directory to host config
   def create_configuration_files
@@ -75,14 +87,6 @@ Thank you for Installing BPLUser.
       copy_file "omniauth-polaris.yml", "omniauth-polaris.yml"
     end
 
-  end
-
-  #Add gem dependenceies
-  def add_the_gems
-    gem 'omniauth'
-    gem 'omniauth-ldap'
-    gem 'omniauth-facebook'
-    gem 'omniauth-polaris', :git => 'https://github.com/boston-library/omniauth-polaris.git'
   end
 
   # Setup the database migrations
@@ -103,6 +107,26 @@ Thank you for Installing BPLUser.
     route('mount Bpluser::Engine => "/bpluser"')
     route('Bpluser.add_routes(self)')
   end
+
+
+
+
+  # Install Hydra Role Management?
+  def generate_hydra_role_management
+    if options[:role_management]
+      if Rails::VERSION::MAJOR == 4
+        #gem "devise", github:'plataformatec/devise', branch: 'rails4'
+      else
+        gem "hydra-role-management"
+      end
+      generate "roles"
+      Bundler.with_clean_env do
+        run "bundle install"
+      end
+    end
+  end
+
+
 
   private
 
