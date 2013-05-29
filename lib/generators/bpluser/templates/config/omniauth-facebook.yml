@@ -1,0 +1,14 @@
+test:
+  facebook_key: --------
+  facebook_secret: --------
+  facebook_scope: email
+
+development:
+  facebook_key: --------
+  facebook_secret: --------
+  facebook_scope: email
+
+production:
+  facebook_key: --------
+  facebook_secret: --------
+  facebook_scope: email
