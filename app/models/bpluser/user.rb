@@ -4,7 +4,7 @@ module Bpluser::User
   def self.included(base)
     base.send :devise, :database_authenticatable, :registerable,
               :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:ldap, :polaris, :facebook, :password]
-    base.send :attr_accessible, :provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name
+    base.send :attr_accessible, :provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :uid
     base.send :has_many, :user_institutions, :class_name => "Bpluser::UserInstitution"
     base.send :has_many, :folders, :dependent => :destroy, :class_name => "Bpluser::Folder"
     base.extend(ClassMethods)
@@ -18,18 +18,19 @@ module Bpluser::User
       ldap_raw_details = auth_response[:extra][:raw_info]
       ldap_info_details = auth_response[:info]
 
-      user = User.where(:provider => auth_response.provider, :username => ldap_raw_details.samaccountname[0].downcase).first
+      user = User.where(:provider => auth_response.provider, :uid => ldap_raw_details.samaccountname[0].downcase).first
 
       #first_name:ldap_info_details.first_name,
       #last_name:ldap_info_details.last_name,
       unless user
         user = User.create(provider:auth_response.provider,
+                           uid:ldap_raw_details.samaccountname[0].downcase,
                            username:ldap_raw_details.samaccountname[0].downcase,
                            email:ldap_raw_details.mail[0].to_s.downcase,
                            password:Devise.friendly_token[0,20],
-                           display_name: ldap_info_details.first_name[0] + " " + ldap_info_details.last_name[0],
-                           first_name: ldap_info_details.first_name[0],
-                           last_name: ldap_info_details.last_name[0]
+                           display_name: ldap_info_details.first_name + " " + ldap_info_details.last_name,
+                           first_name: ldap_info_details.first_name,
+                           last_name: ldap_info_details.last_name
         )
       end
       groups = user.ldap_groups
@@ -53,12 +54,13 @@ module Bpluser::User
       polaris_raw_details = auth_response[:extra][:raw_info]
       polaris_info_details = auth_response[:info]
 
-      user = User.where(:provider => auth_response.provider, :username => auth_response[:uid]).first
+      user = User.where(:provider => auth_response.provider, :uid => auth_response[:uid]).first
 
       #first_name:ldap_info_details.first_name,
       #last_name:ldap_info_details.last_name,
       unless user
         user = User.create(provider:auth_response.provider,
+                           uid:auth_response[:uid],
                            username:auth_response[:uid],
                            email:auth_response[:uid]+"@doesnotexist.com",
                            password:Devise.friendly_token[0,20],
@@ -70,13 +72,16 @@ module Bpluser::User
     end
 
     def find_for_facebook_oauth(auth, signed_in_resource=nil)
-      user = User.where(:provider => auth.provider, :username => auth.uid).first
+      user = User.where(:provider => auth.provider, :uid => auth.uid).first
       unless user
         user = User.create(display_name:auth.extra.raw_info.name,
+                           uid:auth.uid,
                            provider:auth.provider,
-                           username:auth.uid,
+                           username:auth.info.nickname,
                            email:auth.info.email,
-                           password:Devise.friendly_token[0,20]
+                           password:Devise.friendly_token[0,20] ,
+                           first_name:auth.extra.raw_info.first_name,
+                           last_name:auth.extra.raw_info.last_name
         )
       end
       user
@@ -106,7 +111,7 @@ module Bpluser::User
     end
 
     def name
-      return self.display_name.titleize || self.username rescue self.username
+      return self.username rescue self.display_name.titleize
     end
 
     def user_key
