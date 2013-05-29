@@ -3,9 +3,9 @@ module Bpluser::User
 
   def self.included(base)
     base.send :devise, :database_authenticatable, :registerable,
-              :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:ldap, :polaris]
-    base.send :attr_accessible, :provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
-    base.send :has_many, :upload_files
+              :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:ldap, :polaris, :facebook, :password]
+    base.send :attr_accessible, :provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name
+    base.send :has_many, :user_institutions, :class_name => "Bpluser::UserInstitution"
     base.send :has_many, :folders, :dependent => :destroy, :class_name => "Bpluser::Folder"
     base.extend(ClassMethods)
     base.send :include, InstanceMethods
@@ -26,9 +26,26 @@ module Bpluser::User
         user = User.create(provider:auth_response.provider,
                            username:ldap_raw_details.samaccountname[0].downcase,
                            email:ldap_raw_details.mail[0].to_s.downcase,
-                           password:Devise.friendly_token[0,20]
+                           password:Devise.friendly_token[0,20],
+                           display_name: ldap_info_details.first_name[0] + " " + ldap_info_details.last_name[0],
+                           first_name: ldap_info_details.first_name[0],
+                           last_name: ldap_info_details.last_name[0]
         )
       end
+      groups = user.ldap_groups
+      groups.each do |group|
+        if(group == "Repository Administrators")
+          admin_role = Role.where(:name=>'admin')
+          if(admin_role.length == 0)
+            Role.create(:name=>"admin")
+            admin_role = Role.where(:name=>'admin')
+          end
+          user.roles << admin_role[0] unless user.roles.include?(admin_role[0])
+          user.save!
+        end
+
+      end
+
       user
     end
 
@@ -44,6 +61,21 @@ module Bpluser::User
         user = User.create(provider:auth_response.provider,
                            username:auth_response[:uid],
                            email:auth_response[:uid]+"@doesnotexist.com",
+                           password:Devise.friendly_token[0,20],
+                           display_name:auth_response[:uid]
+        )
+
+      end
+      user
+    end
+
+    def find_for_facebook_oauth(auth, signed_in_resource=nil)
+      user = User.where(:provider => auth.provider, :username => auth.uid).first
+      unless user
+        user = User.create(display_name:auth.extra.raw_info.name,
+                           provider:auth.provider,
+                           username:auth.uid,
+                           email:auth.info.email,
                            password:Devise.friendly_token[0,20]
         )
       end
@@ -81,7 +113,8 @@ module Bpluser::User
       send(Devise.authentication_keys.first)
     end
 
-    def groups
+
+    def ldap_groups
       #Hydra::LDAP.groups_for_user(username + ",dc=psu,dc=edu")
       #['archivist', 'admin_policy_object_editor']
 

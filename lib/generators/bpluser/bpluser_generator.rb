@@ -67,6 +67,7 @@ Thank you for Installing BPLUser.
     gem 'omniauth-ldap'
     gem 'omniauth-facebook'
     gem 'omniauth-polaris', :git => 'https://github.com/boston-library/omniauth-polaris.git'
+    gem 'omniauth-password'
     Bundler.with_clean_env do
       run "bundle install"
     end
@@ -78,13 +79,18 @@ Thank you for Installing BPLUser.
     copy_file "config/initializers/devise.rb", "config/initializers/devise.rb"
     copy_file "controllers/users/omniauth_callbacks_controller.rb", "app/controllers/users/omniauth_callbacks_controller.rb"
     copy_file "models/user.rb", "app/models/user.rb"
+    copy_file "models/ability.rb", "app/models/ability.rb"
 
     if !File.exists?("config/hydra-ldap.yml")
       copy_file "config/hydra-ldap.yml", "config/hydra-ldap.yml"
     end
 
     if !File.exists?("config/omniauth-polaris.yml")
-      copy_file "omniauth-polaris.yml", "omniauth-polaris.yml"
+      copy_file "config/omniauth-polaris.yml", "config/omniauth-polaris.yml"
+    end
+
+    if !File.exists?("config/omniauth-facebook.yml")
+      copy_file "config/omniauth-facebook.yml", "config/omniauth-facebook.yml"
     end
 
   end
@@ -95,20 +101,8 @@ Thank you for Installing BPLUser.
     better_migration_template "add_fields_to_user.rb"
     better_migration_template "add_folders_to_user.rb"
     better_migration_template "add_folder_items_to_folder.rb"
+    better_migration_template "create_institutions_for_users.rb"
   end
-
-
-  def inject_bpluser_routes
-    # These will end up in routes.rb file in reverse order
-    # we add em, since each is added at the top of file.
-    # we want "root" to be FIRST for optimal url generation.
-    #route('devise_for :users, :controllers => { :omniauth_callbacks => "bpluser/users/omniauth_callbacks" }')
-    route('devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }')
-    route('mount Bpluser::Engine => "/bpluser"')
-    route('Bpluser.add_routes(self)')
-  end
-
-
 
 
   # Install Hydra Role Management?
@@ -126,6 +120,16 @@ Thank you for Installing BPLUser.
     end
   end
 
+  def inject_bpluser_routes
+    # These will end up in routes.rb file in reverse order
+    # we add em, since each is added at the top of file.
+    # we want "root" to be FIRST for optimal url generation.
+    #route('devise_for :users, :controllers => { :omniauth_callbacks => "bpluser/users/omniauth_callbacks" }')
+    gsub_file("config/routes.rb", "devise_for :users", "")
+    route('devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }')
+    route('mount Bpluser::Engine => "/bpluser"')
+    route('Bpluser.add_routes(self)')
+  end
 
 
   private

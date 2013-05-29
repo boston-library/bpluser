@@ -214,12 +214,18 @@ Devise.setup do |config|
                   :bind_dn => Hydra::LDAP.ldap_config[:username],
                   :password => Hydra::LDAP.ldap_config[:password]
 
+  config.omniauth :password, :title => 'BPL local account login',
+                  :login_field => :username
+
   OMNIAUTH_POLARIS_GLOBAL = YAML.load_file(Rails.root.join('config', 'omniauth-polaris.yml'))[Rails.env]
   config.omniauth :polaris, :title => OMNIAUTH_POLARIS_GLOBAL['title'],
                   :http_uri => OMNIAUTH_POLARIS_GLOBAL['http_uri'],
                   :access_key => OMNIAUTH_POLARIS_GLOBAL['access_key'],
                   :access_id => OMNIAUTH_POLARIS_GLOBAL['access_id'],
                   :method => OMNIAUTH_POLARIS_GLOBAL['method']
+
+  OMNIAUTH_FACEBOOK_GLOBAL = YAML.load_file(Rails.root.join('config', 'omniauth-facebook.yml'))[Rails.env]
+  config.omniauth :facebook, OMNIAUTH_FACEBOOK_GLOBAL['facebook_key'], OMNIAUTH_FACEBOOK_GLOBAL['facebook_secret'], :scope=>OMNIAUTH_FACEBOOK_GLOBAL['facebook_scope']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

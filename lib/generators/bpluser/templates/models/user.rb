@@ -1,4 +1,3 @@
-#class User < Bpluser::User
 class User < ActiveRecord::Base
   require 'base64'
   require 'cgi'
