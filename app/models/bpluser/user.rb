@@ -61,10 +61,13 @@ module Bpluser::User
       unless user
         user = User.create(provider:auth_response.provider,
                            uid:auth_response[:uid],
-                           username:auth_response[:uid],
-                           email:auth_response[:uid]+"@doesnotexist.com",
+                           username:polaris_info_details[:first_name],
+                           email:polaris_info_details[:email],
                            password:Devise.friendly_token[0,20],
-                           display_name:auth_response[:uid]
+                           display_name:polaris_info_details[:first_name] + " " + polaris_info_details[:last_name],
+                           first_name: polaris_info_details[:first_name],
+                           last_name: polaris_info_details[:last_name]
+
         )
 
       end
