@@ -105,7 +105,6 @@ Thank you for Installing BPLUser.
     better_migration_template "add_folders_to_user.rb"
     better_migration_template "add_folder_items_to_folder.rb"
     better_migration_template "create_institutions_for_users.rb"
-    better_migration_template "add_uid_to_user.rb"
   end
 
 
