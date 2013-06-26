@@ -90,6 +90,23 @@ module Bpluser::User
       user
     end
 
+    def find_for_local_auth(auth, signed_in_resource=nil)
+      user = User.where(:provider => auth.provider, :uid => auth.uid).first
+      unless user
+        user = User.create(display_name:auth.extra.raw_info.name,
+                           uid:auth.uid,
+                           provider:auth.provider,
+                           username:auth.info.nickname,
+                           email:auth.info.email,
+                           password:Devise.friendly_token[0,20] ,
+                           first_name:auth.extra.raw_info.first_name,
+                           last_name:auth.extra.raw_info.last_name
+        )
+      end
+      user
+    end
+
+
     # This method should find User objects using the user_key you've chosen.
     # By default, uses the unique identifier specified in by devise authentication_keys (ie. find_by_id, or find_by_email).
     # You must have that find method implemented on your user class, or must override find_by_user_key

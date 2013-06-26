@@ -80,6 +80,9 @@ Thank you for Installing BPLUser.
     copy_file "controllers/users/omniauth_callbacks_controller.rb", "app/controllers/users/omniauth_callbacks_controller.rb"
     copy_file "models/user.rb", "app/models/user.rb"
     copy_file "models/ability.rb", "app/models/ability.rb"
+    copy_file "views/devise/registrations/new.html.erb", "app/views/devise/registrations/new.html.erb"
+    copy_file "views/devise/registrations/edit.html.erb", "app/views/devise/registrations/edit.html.erb"
+    copy_file "views/devise/sessions/new.html.erb", "app/views/devise/sessions/new.html.erb"
 
     if !File.exists?("config/hydra-ldap.yml")
       copy_file "config/hydra-ldap.yml", "config/hydra-ldap.yml"
