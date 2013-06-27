@@ -68,6 +68,7 @@ Thank you for Installing BPLUser.
     gem 'omniauth-facebook'
     gem 'omniauth-polaris', :git => 'https://github.com/boston-library/omniauth-polaris.git'
     gem 'omniauth-password'
+    gem 'bootstrap_forms'
     Bundler.with_clean_env do
       run "bundle install"
     end
@@ -78,6 +79,8 @@ Thank you for Installing BPLUser.
   def create_configuration_files
     copy_file "config/initializers/devise.rb", "config/initializers/devise.rb"
     copy_file "controllers/users/omniauth_callbacks_controller.rb", "app/controllers/users/omniauth_callbacks_controller.rb"
+    copy_file "controllers/users/registrations_controller.rb", "app/controllers/users/registrations_controller.rb"
+    copy_file "controllers/users/sessions_controller.rb", "app/controllers/users/sessions_controller.rb"
     copy_file "models/user.rb", "app/models/user.rb"
     copy_file "models/ability.rb", "app/models/ability.rb"
     copy_file "views/devise/registrations/new.html.erb", "app/views/devise/registrations/new.html.erb"
@@ -129,7 +132,7 @@ Thank you for Installing BPLUser.
     # we want "root" to be FIRST for optimal url generation.
     #route('devise_for :users, :controllers => { :omniauth_callbacks => "bpluser/users/omniauth_callbacks" }')
     gsub_file("config/routes.rb", "devise_for :users", "")
-    route('devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }')
+    route('devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations", :sessions => "users/sessions"}')
     route('mount Bpluser::Engine => "/bpluser"')
     route('Bpluser.add_routes(self)')
   end

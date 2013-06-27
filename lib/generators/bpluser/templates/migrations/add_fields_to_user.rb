@@ -7,7 +7,7 @@ class AddFieldsToUser < ActiveRecord::Migration
     add_column :users, :first_name, :string
     add_column :users, :last_name, :string
     add_column :users, :uid, :string
-
+    add_index :users, [:uid, :provider]
   end
 
   def self.down
@@ -17,5 +17,6 @@ class AddFieldsToUser < ActiveRecord::Migration
     remove_column :users, :first_name
     remove_column :users, :last_name
     remove_column :users, :uid
+    remove_index :users, [:uid, :provider]
   end
 end

@@ -6,7 +6,12 @@ module Bpluser::Ability
 
   module InstanceMethods
     def initialize(user)
-      can :read, :all
+      #can :read, :all
+      if user.superuser?
+        can [:create, :show, :add_user, :remove_user, :index], Role
+      end
+
+
     end
   end
 
