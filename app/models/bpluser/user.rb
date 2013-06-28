@@ -38,10 +38,16 @@ module Bpluser::User
         if(group == "Repository Administrators")
           superuser_role = Role.where(:name=>'superuser')
           if(superuser_role.length == 0)
-            Role.create(:name=>"superuser")
-            superuser_role = Role.where(:name=>'superuser')
+            superuser_role = Role.create(:name=>"superuser")
           end
-          user.roles << superuser_role[0] unless user.roles.include?(superuser_role[0])
+          user.roles << superuser_role unless user.roles.include?(superuser_role)
+          user.save!
+
+          admin_role = Role.where(:name=>'admin')
+          if(admin_role.length == 0)
+            admin_role = Role.create(:name=>"admin")
+          end
+          user.roles << admin_role unless user.roles.include?(admin_role)
           user.save!
         end
 
