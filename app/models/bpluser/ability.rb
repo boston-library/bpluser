@@ -8,8 +8,8 @@ module Bpluser::Ability
     def initialize(user)
       #can :read, :all
       if user.superuser?
-        can [:create, :show, :add_user, :remove_user, :index], Role
-        can [:create, :show, :add_user, :remove_user, :index], Institution
+        can [:create, :show, :add_user, :edit, :remove_user, :index], Role
+        can [:create, :show, :add_user, :edit, :remove_user, :index], Institution
       end
 
 
