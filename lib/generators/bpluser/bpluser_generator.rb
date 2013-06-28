@@ -9,8 +9,8 @@ class BpluserGenerator < Rails::Generators::Base
 
   argument :model_name, :type => :string , :default => "user"
   class_option :devise , :type => :boolean, :default => false, :aliases => "-d", :desc => "Use Devise as authentication logic (this is default)."
-  class_option :role_management , :type => :boolean, :default => false, :aliases => "-r", :desc => "Use Hydra Role Management as authentication logic (this is default)."
-
+  class_option :role_management , :type => :boolean, :default => true, :aliases => "-r", :desc => "Use Hydra Role Management as authentication logic (this is default)."
+  class_option :institution_management , :type => :boolean, :default => true, :aliases => "-i", :desc => "Use BPL Institution Management as authentication logic (this is default)."
 
   desc """
 This generator makes the following changes to your application:
@@ -107,7 +107,7 @@ Thank you for Installing BPLUser.
     better_migration_template "add_fields_to_user.rb"
     better_migration_template "add_folders_to_user.rb"
     better_migration_template "add_folder_items_to_folder.rb"
-    better_migration_template "create_institutions_for_users.rb"
+    #better_migration_template "create_institutions_for_users.rb"
   end
 
 
@@ -119,12 +119,40 @@ Thank you for Installing BPLUser.
       else
         gem "hydra-role-management"
       end
+
+      Bundler.with_clean_env do
+        run "bundle install"
+      end
+
       generate "roles"
+
       Bundler.with_clean_env do
         run "bundle install"
       end
     end
   end
+
+  # Install BPL Institution management?
+  def generate_bpl_institution_management
+    if options[:institution_management]
+      if Rails::VERSION::MAJOR == 4
+        #gem "devise", github:'plataformatec/devise', branch: 'rails4'
+      else
+        gem 'bpl-institution-management', :git => 'https://github.com/boston-library/bpl-institution-management.git'
+      end
+
+      Bundler.with_clean_env do
+        run "bundle install"
+      end
+
+      generate "institutions"
+
+      Bundler.with_clean_env do
+        run "bundle install"
+      end
+    end
+  end
+
 
   def inject_bpluser_routes
     # These will end up in routes.rb file in reverse order

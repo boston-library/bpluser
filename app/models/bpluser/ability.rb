@@ -9,6 +9,7 @@ module Bpluser::Ability
       #can :read, :all
       if user.superuser?
         can [:create, :show, :add_user, :remove_user, :index], Role
+        can [:create, :show, :add_user, :remove_user, :index], Institution
       end
 
 
