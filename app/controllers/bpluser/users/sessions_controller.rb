@@ -8,6 +8,7 @@ module Bpluser::Users::SessionsController
     # GET /resource/sign_in
     def new
       if params[:user]
+        #TODO: FIX THIS
         params[:user][:provider] = "local"
       end
 
