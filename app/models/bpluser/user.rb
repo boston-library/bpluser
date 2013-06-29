@@ -36,14 +36,14 @@ module Bpluser::User
       groups = user.ldap_groups
       groups.each do |group|
         if(group == "Repository Administrators")
-          superuser_role = Role.where(:name=>'superuser')
+          superuser_role = Role.where(:name=>'superuser').first
           if(superuser_role.length == 0)
             superuser_role = Role.create(:name=>"superuser")
           end
           user.roles << superuser_role unless user.roles.include?(superuser_role)
           user.save!
 
-          admin_role = Role.where(:name=>'admin')
+          admin_role = Role.where(:name=>'admin').first
           if(admin_role.length == 0)
             admin_role = Role.create(:name=>"admin")
           end
