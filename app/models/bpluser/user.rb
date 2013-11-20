@@ -15,8 +15,12 @@ module Bpluser::User
   module ClassMethods
     def find_for_ldap_oauth(auth_response, signed_in_resource=nil)
 
+
       ldap_raw_details = auth_response[:extra][:raw_info]
       ldap_info_details = auth_response[:info]
+
+      puts 'IN LDAP OAUTH'
+      puts ldap_raw_details.samaccountname[0].downcase
 
       user = User.where(:provider => auth_response.provider, :uid => ldap_raw_details.samaccountname[0].downcase).first
 

@@ -15,5 +15,9 @@ module Bpluser::Users::SessionsController
       super
     end
 
+    def resource_params
+      params.require(:user).permit(:username, :email, :first_name, :last_name, :provider, :display_name, :password, :password_confirmation, :uid)
+    end
+
   end
 end
