@@ -7,7 +7,8 @@ module Bpluser
     validates :user_id, :presence => true
     validates :title, :presence => true, :length => {:maximum => 40}
     validates :description, :length => {:maximum => 250}
+    validates :visibility, :inclusion  => {:in => %w(public, private)}
 
-    attr_accessible :id, :title, :description
+    attr_accessible :id, :title, :description, :visibility
   end
 end
