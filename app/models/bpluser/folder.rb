@@ -11,14 +11,10 @@ module Bpluser
 
     attr_accessible :id, :title, :description, :visibility
 
-    module InstanceMethods
-
-      def has_folder_item (document_id)
-        self.folder_items.find do |fldr_itm|
-          return fldr_itm if fldr_itm.document_id == document_id
-        end
+    def has_folder_item (document_id)
+      self.folder_items.find do |fldr_itm|
+        return fldr_itm if fldr_itm.document_id == document_id
       end
-
     end
 
   end
