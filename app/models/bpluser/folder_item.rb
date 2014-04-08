@@ -1,6 +1,6 @@
 module Bpluser
   class FolderItem < ActiveRecord::Base
-    attr_accessible :document_id
+    #attr_accessible :document_id
 
     belongs_to :folder, :class_name => "Bpluser::Folder"
 

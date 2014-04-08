@@ -1,10 +1,13 @@
 module Bpluser::Users::OmniauthCallbacksController
 
+
   def self.included(base)
     base.send :include, InstanceMethods
   end
 
   module InstanceMethods
+
+
     def ldap
 
       puts request.env["omniauth.auth"]

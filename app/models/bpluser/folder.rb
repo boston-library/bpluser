@@ -8,6 +8,6 @@ module Bpluser
     validates :title, :presence => true, :length => {:maximum => 40}
     validates :description, :length => {:maximum => 250}
 
-    attr_accessible :id, :title, :description
+    #attr_accessible :id, :title, :description
   end
 end
