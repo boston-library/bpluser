@@ -12,7 +12,7 @@ module Bpluser::Ability
         can [:create, :show, :add_user, :edit, :remove_user, :index], Role
         can [:create, :show, :add_user, :edit, :remove_user, :index], Institution
       else
-        can [:show], Institution
+        can [:show, :index], Institution
       end
 
 
