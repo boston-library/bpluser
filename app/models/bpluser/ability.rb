@@ -7,9 +7,12 @@ module Bpluser::Ability
   module InstanceMethods
     def initialize(user)
       #can :read, :all
+      user ||= User.new # guest user (not logged in)
       if user.superuser?
         can [:create, :show, :add_user, :edit, :remove_user, :index], Role
         can [:create, :show, :add_user, :edit, :remove_user, :index], Institution
+      else
+        can [:show], Institution
       end
 
 
