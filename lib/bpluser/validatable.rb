@@ -33,6 +33,7 @@ module BplUser
         validates_presence_of     :password, if: :password_required?
         validates_confirmation_of :password, if: :password_required?
         validates_length_of       :password, within: password_length, allow_blank: true
+      end
     end
 
     def self.assert_validations_api!(base) #:nodoc:
