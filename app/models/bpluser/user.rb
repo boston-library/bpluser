@@ -23,7 +23,6 @@ module Bpluser::User
       ldap_raw_details = auth_response[:extra][:raw_info]
       ldap_info_details = auth_response[:info]
 
-      puts 'IN LDAP OAUTH'
       puts ldap_raw_details.samaccountname[0].downcase
 
       user = User.where(:provider => auth_response.provider, :uid => ldap_raw_details.samaccountname[0].downcase).first
@@ -65,15 +64,11 @@ module Bpluser::User
     end
 
     def find_for_polaris_oauth(auth_response, signed_in_resource=nil)
-      debug_user_logger = Logger.new('log/digital_stacks_create.log')
-      debug_user_logger.level = Logger::DEBUG
-
       polaris_raw_details = auth_response[:extra][:raw_info]
       polaris_info_details = auth_response[:info]
 
       user = User.where(:provider => auth_response.provider, :uid => auth_response[:uid]).first
 
-      debug_user_logger.debug "User from exist check is: #{user.to_yaml}"
       #first_name:ldap_info_details.first_name,
       #last_name:ldap_info_details.last_name,
       unless user
@@ -90,7 +85,6 @@ module Bpluser::User
         )
         user.save!
 
-        debug_user_logger.debug "User from create check is: #{user.to_yaml}"
       end
       user
     end
