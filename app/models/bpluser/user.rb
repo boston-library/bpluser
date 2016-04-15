@@ -83,6 +83,8 @@ module Bpluser::User
                            last_name: polaris_info_details[:last_name]
 
         )
+        #For some reason, User.create has no id set despite that intending to be autocreated. Unsure what is up with that.
+        user = User.where(:provider => auth_response.provider, :uid => auth_response[:uid]).first
         debug_user_logger.debug "User from create check is: #{user.to_yaml}"
       end
       user
