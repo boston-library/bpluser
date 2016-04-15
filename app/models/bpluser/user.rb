@@ -11,6 +11,9 @@ module Bpluser::User
     base.extend(ClassMethods)
     base.send :include, InstanceMethods
 
+    #Include custom validation that doesn't require email to be uniqe. Based on: https://github.com/plataformatec/devise/blob/master/lib/devise/models/validatable.rb
+    base.send :include, Bpluser::Validatable
+
   end
 
   module ClassMethods

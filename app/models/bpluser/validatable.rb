@@ -1,5 +1,5 @@
 #By default, devise requires an email to be unique. I want the email checks but need to remove the uniqueness...
-module BplUser
+module Bpluser::Validatable
   # Validatable creates all needed validations for a user email and password.
   # It's optional, given you may want to create the validations by yourself.
   # Automatically validate if the email is present, unique and its format is
@@ -12,7 +12,6 @@ module BplUser
   #   * +email_regexp+: the regular expression used to validate e-mails;
   #   * +password_length+: a range expressing password length. Defaults to 8..72.
   #
-  module Validatable
     # All validations used by this module.
     VALIDATIONS = [:validates_presence_of, :validates_format_of,
                    :validates_confirmation_of, :validates_length_of].freeze
@@ -62,4 +61,3 @@ module BplUser
       ::Devise::Models.config(self, :email_regexp, :password_length)
     end
   end
-end
