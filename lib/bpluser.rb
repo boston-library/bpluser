@@ -1,5 +1,4 @@
 require "bpluser/engine"
-require "bpluser/validatable"
 
 module Bpluser
   autoload :Routes, 'bpluser/routes'
