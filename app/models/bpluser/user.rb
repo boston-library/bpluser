@@ -73,7 +73,8 @@ module Bpluser::User
       #first_name:ldap_info_details.first_name,
       #last_name:ldap_info_details.last_name,
       unless user
-        user = User.create(provider:auth_response.provider,
+        #For some reason, User.create has no id set despite that intending to be autocreated. Unsure what is up with that. So trying this.
+        user = User.new(provider:auth_response.provider,
                            uid:auth_response[:uid],
                            username:polaris_info_details[:first_name],
                            email:polaris_info_details[:email],
@@ -83,8 +84,8 @@ module Bpluser::User
                            last_name: polaris_info_details[:last_name]
 
         )
-        #For some reason, User.create has no id set despite that intending to be autocreated. Unsure what is up with that.
-        user = User.where(:provider => auth_response.provider, :uid => auth_response[:uid]).first
+        user.save!
+
         debug_user_logger.debug "User from create check is: #{user.to_yaml}"
       end
       user
