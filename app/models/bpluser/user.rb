@@ -23,8 +23,6 @@ module Bpluser::User
       ldap_raw_details = auth_response[:extra][:raw_info]
       ldap_info_details = auth_response[:info]
 
-      puts ldap_raw_details.samaccountname[0].downcase
-
       user = User.where(:provider => auth_response.provider, :uid => ldap_raw_details.samaccountname[0].downcase).first
 
       #first_name:ldap_info_details.first_name,
@@ -108,18 +106,20 @@ module Bpluser::User
     def find_for_local_auth(auth, signed_in_resource=nil)
       user = User.where(:provider => auth.provider, :uid => auth.uid).first
       unless user
-        user = User.create(display_name:auth.extra.raw_info.name,
+        user = User.create(display_name:auth.full_name,
                            uid:auth.uid,
                            provider:auth.provider,
-                           username:auth.info.nickname,
-                           email:auth.info.email,
-                           password:Devise.friendly_token[0,20] ,
-                           first_name:auth.extra.raw_info.first_name,
-                           last_name:auth.extra.raw_info.last_name
+                           username:auth.uid,
+                           email:auth.email,
+                           password:auth.password,
+                           first_name:auth.first_name,
+                           last_name:auth.last_name
         )
       end
       user
     end
+
+
 
 
     # This method should find User objects using the user_key you've chosen.
@@ -195,6 +195,10 @@ module Bpluser::User
 
     def superuser?
       roles.where(name: 'superuser').exists?
+    end
+
+    def permanent_account?
+      return self.provider != 'digital_stacks_temporary'
     end
 
   end

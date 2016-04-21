@@ -25,9 +25,9 @@ module Bpluser::Validatable
       assert_validations_api!(base)
 
       base.class_eval do
-        validates_presence_of   :email, if: :email_required?
+        validates_presence_of   :email, if: [:email_required?, :permanent_account?]
         #validates_uniqueness_of :email, allow_blank: true, if: :email_changed?
-        validates_format_of     :email, with: email_regexp, allow_blank: true, if: :email_changed?
+        validates_format_of     :email, with: email_regexp, allow_blank: true, if: [:email_changed?, :permanent_account?]
 
         validates_presence_of     :password, if: :password_required?
         validates_confirmation_of :password, if: :password_required?
