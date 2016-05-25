@@ -202,7 +202,10 @@ module Bpluser::User
     end
 
     def email_not_required?
-      return (self.provider != 'digital_stacks_temporary' and self.provider != 'polaris')
+      if self.provider != 'digital_stacks_temporary' and self.provider != 'polaris'
+        return true
+      end
+      return false
     end
 
   end
