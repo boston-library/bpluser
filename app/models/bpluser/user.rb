@@ -70,11 +70,12 @@ module Bpluser::User
       #first_name:ldap_info_details.first_name,
       #last_name:ldap_info_details.last_name,
       unless user
+        email_value = polaris_info_details[:email].present? ? polaris_info_details[:email] : ''
         #For some reason, User.create has no id set despite that intending to be autocreated. Unsure what is up with that. So trying this.
         user = User.new(provider:auth_response.provider,
                            uid:auth_response[:uid],
                            username:polaris_info_details[:first_name],
-                           email:polaris_info_details[:email],
+                           email:email_value,
                            password:Devise.friendly_token[0,20],
                            display_name:polaris_info_details[:first_name] + " " + polaris_info_details[:last_name],
                            first_name: polaris_info_details[:first_name],
