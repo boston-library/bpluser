@@ -19,7 +19,7 @@ module Bpluser::Users::RegistrationsController
       params[:user][:username] = params[:user][:uid]
       params[:user][:display_name] = params[:user][:first_name] + " " + params[:user][:last_name]
       if User.where(:provider => params[:user][:provider], :uid => params[:user][:email]).present?
-        flash[:error] = "This email address of #{params[:user][:email]} already has an account. Please sign in below or click the \"Forgot your password?\" link."
+        flash[:error] = "An account with that email (#{params[:user][:email]}) already exists. Please sign in or click the \"Forgot your password?\" link below."
         redirect_to new_user_session_path
       else
         super
