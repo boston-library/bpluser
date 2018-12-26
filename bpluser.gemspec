@@ -8,23 +8,30 @@ Gem::Specification.new do |s|
   s.name        = "bpluser"
   s.version     = Bpluser::VERSION
   s.authors     = ["Boston Public Library Web Services"]
-  s.email       = ["sanderson@bpl.org"]
+  s.email       = ['sanderson@bpl.org', 'bbarber@bpl.org' ]
   s.homepage    = "http://www.bpl.org"
   s.summary     = "Shared user access gem of BPL"
   s.description = "Shared user access gem of BPL"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.files         = `git ls-files -z`.split("\x0")
+  s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ['lib']
 
-  s.add_dependency "rails"
-  s.add_dependency "omniauth"
-  s.add_dependency "omniauth-ldap"
-  s.add_dependency "omniauth-facebook"
-  s.add_dependency "hydra-role-management"
-  s.add_dependency "bootstrap_forms"
-  s.add_dependency 'devise', '~> 3.4.1'
+  s.required_ruby_version = '~> 2.4'
+
+  s.add_dependency "rails", '>= 5', '< 6'
+  s.add_dependency "omniauth", '~> 1.8.1'
+  s.add_dependency "omniauth-ldap", '~> 2.0.0'
+  s.add_dependency "omniauth-facebook", '~> 5.0.0'
+  s.add_dependency "hydra-role-management", '1.0.0'
+  s.add_dependency 'devise', '~> 4.5.0'
+  s.add_dependency 'devise-guests', '~>0.6.0'
   #s.add_dependency 'omniauth-polaris', :git => 'https://github.com/boston-library/omniauth-polaris.git'
-  # s.add_dependency "jquery-rails"
 
+  s.add_development_dependency 'bundler', '>= 1.3.0'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec-rails', '~> 3.8'
+  s.add_development_dependency 'awesome_print'
   s.add_development_dependency "sqlite3"
 end

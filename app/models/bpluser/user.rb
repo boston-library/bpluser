@@ -6,7 +6,7 @@ module Bpluser::User
     base.send :devise, :database_authenticatable, :registerable,
               :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:ldap, :polaris, :facebook]
     #base.send :attr_accessible, :provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :uid
-    base.send :has_many, :user_institutions, :class_name => "Bpluser::UserInstitution"
+    base.send :has_many, :user_institutions, inverse_of: :user, dependent: :destroy, :class_name => "Bpluser::UserInstitution"
     base.send :has_many, :folders, :dependent => :destroy, :class_name => "Bpluser::Folder"
     base.extend(ClassMethods)
     base.send :include, InstanceMethods

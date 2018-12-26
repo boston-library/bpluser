@@ -1,7 +1,7 @@
 module Bpluser::Users::RegistrationsController
 #< Devise::RegistrationsController
   def self.included(base)
-    base.send :before_filter, :update_sanitized_params, :if => :devise_controller?
+    base.send :before_action, :update_sanitized_params, :if => :devise_controller?
     base.send :include, InstanceMethods
   end
 
@@ -30,6 +30,5 @@ module Bpluser::Users::RegistrationsController
     def resource_params
       params.require(:user).permit(:username, :email, :first_name, :last_name, :provider, :display_name, :password, :password_confirmation, :uid)
     end
-
   end
 end
