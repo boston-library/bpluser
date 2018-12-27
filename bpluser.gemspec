@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-facebook", '~> 5.0.0'
   s.add_dependency "hydra-role-management", '1.0.0'
   s.add_dependency 'devise', '~> 4.5.0'
-  s.add_dependency 'devise-guests', '~>0.6.0'
+  s.add_dependency 'devise-guests', '~> 0.6.0'
   #s.add_dependency 'omniauth-polaris', :git => 'https://github.com/boston-library/omniauth-polaris.git'
 
   s.add_development_dependency 'bundler', '>= 1.3.0'
