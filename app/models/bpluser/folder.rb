@@ -1,8 +1,8 @@
 module Bpluser
-  class Folder < ActiveRecord::Base
+  class Folder < ApplicationRecord
 
-    belongs_to :user, class_name: "User"
-    has_many :folder_items, :dependent => :destroy, :class_name => "Bpluser::FolderItem"
+    belongs_to :user, inverse_of: :folders, class_name: "::User"
+    has_many :folder_items, inverse_of: :folder ,:dependent => :destroy, :class_name => "Bpluser::FolderItem"
 
     validates :user_id, :presence => true
     #validates :title, :presence => true, :length => {:maximum => 40}
@@ -13,9 +13,7 @@ module Bpluser
     #attr_accessible :id, :title, :description, :visibility
 
     def has_folder_item (document_id)
-      self.folder_items.find do |fldr_itm|
-        return fldr_itm if fldr_itm.document_id == document_id
-      end
+      self.folder_items.where(document_id: document_id) if self.folder_items.where(document_id: document_id).exists?
     end
 
   end
