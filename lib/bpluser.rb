@@ -1,5 +1,9 @@
-require "bpluser/engine"
-
+require 'base64'
+require 'cgi'
+require 'openssl'
+require 'rest_client'
+require 'bpluser/models'
+require 'bpluser/engine'
 module Bpluser
   autoload :Routes, 'bpluser/routes'
 
