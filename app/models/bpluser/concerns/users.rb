@@ -1,8 +1,9 @@
 module Bpluser
-  module Models
+  module Concerns
     module Users
       #Changed this to a concern so the modules can resolve better
       extend ActiveSupport::Concern
+      include Validatable
       #included
       included do
         devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:ldap, :polaris, :facebook]
