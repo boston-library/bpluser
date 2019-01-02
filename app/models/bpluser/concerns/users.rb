@@ -62,7 +62,7 @@ module Bpluser
         end
 
         def get_folder_item (document_id)
-          self.folder_items.where(document_id: document_id) if self.folder_items.where(document_id: document_id).exists?
+          self.folder_items.where(document_id: document_id).first if self.folder_items.where(document_id: document_id).exists?
         end
 
         def superuser?
