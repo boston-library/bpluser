@@ -1,12 +1,9 @@
 source "https://rubygems.org"
 
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Declare your gem's dependencies in bpluser.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
 gemspec
-
-gem 'omniauth-polaris', github: 'boston-library/omniauth-polaris', branch: 'update-5.2', require: false
 gem 'bootsnap', require: false
 # jquery-rails is used by the dummy application
 group :development, :test do
