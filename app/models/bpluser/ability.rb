@@ -1,5 +1,5 @@
 module Bpluser::Ability
-
+  #TODO Move this into concern
   def self.included(base)
     base.send :include, InstanceMethods
   end

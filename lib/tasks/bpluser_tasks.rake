@@ -3,7 +3,7 @@
 #   # Task goes here
 # end
 
-APP_ROOT = File.expand_path("../..", __FILE__)
+# APP_ROOT = File.expand_path("../..", __FILE__)
 
 namespace :bpluser do
 

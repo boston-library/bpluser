@@ -40,7 +40,8 @@ bpl_config.yml
 *.dll
 *.sqlite
 *.sql
-
+*.sqlite3
+*.log
 # Specific Files to ignore #
 ############################
 Thumbs.db

@@ -1,7 +1,8 @@
 module Bpluser::Users::RegistrationsController
+#TODO Make this an actual controller
 #< Devise::RegistrationsController
   def self.included(base)
-    base.send :before_filter, :update_sanitized_params, :if => :devise_controller?
+    base.send :before_action, :update_sanitized_params, :if => :devise_controller?
     base.send :include, InstanceMethods
   end
 
@@ -18,7 +19,7 @@ module Bpluser::Users::RegistrationsController
       params[:user][:uid] = params[:user][:email]
       params[:user][:username] = params[:user][:uid]
       params[:user][:display_name] = params[:user][:first_name] + " " + params[:user][:last_name]
-      if User.where(:provider => params[:user][:provider], :uid => params[:user][:email]).present?
+      if User.where(:provider => params[:user][:provider], :uid => params[:user][:email]).exists?
         flash[:error] = "An account with that email (#{params[:user][:email]}) already exists. Please sign in or click the \"Forgot your password?\" link below."
         redirect_to new_user_session_path
       else
@@ -30,6 +31,5 @@ module Bpluser::Users::RegistrationsController
     def resource_params
       params.require(:user).permit(:username, :email, :first_name, :last_name, :provider, :display_name, :password, :password_confirmation, :uid)
     end
-
   end
 end
