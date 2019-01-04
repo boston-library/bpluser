@@ -2,6 +2,7 @@ module Bpluser::Users::RegistrationsController
 #TODO Make this an actual controller
 #< Devise::RegistrationsController
   def self.included(base)
+    base.send :include, Devise::Controllers::Helpers
     base.send :before_action, :update_sanitized_params, :if => :devise_controller?
     base.send :include, InstanceMethods
   end

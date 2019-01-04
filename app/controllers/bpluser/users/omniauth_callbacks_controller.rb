@@ -2,6 +2,7 @@ module Bpluser::Users::OmniauthCallbacksController
 
 
   def self.included(base)
+    base.send :include, Devise::Controllers::Helpers
     base.send :include, InstanceMethods
   end
 
