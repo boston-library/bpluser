@@ -2,15 +2,14 @@ module Bpluser::Users::RegistrationsController
 #TODO Make this an actual controller
 #< Devise::RegistrationsController
   def self.included(base)
-    base.send :include, Devise::Controllers::Helpers
     base.send :before_action, :update_sanitized_params, :if => :devise_controller?
     base.send :include, InstanceMethods
   end
 
   module InstanceMethods
     def update_sanitized_params
-      devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :uid)}
-      devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :uid, :current_password)}
+      devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :uid)}
+      devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :uid, :current_password)}
     end
 
     # POST /resource
