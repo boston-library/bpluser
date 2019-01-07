@@ -8,7 +8,7 @@ module Bpluser
       included do
         devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:ldap, :polaris, :facebook]
 
-        has_many :user_institutions, inverse_of: :user, dependent: :destroy, :class_name => "Bpluser::UserInstitution"
+        has_many :user_institutions, inverse_of: :user, :class_name => "Bpluser::UserInstitution"
 
         has_many :folders, inverse_of: :user, :dependent => :destroy, :class_name => "Bpluser::Folder"
         has_many :folder_items, through: :folders, class_name: "Bpluser::FolderItem"
