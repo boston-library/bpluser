@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'devise-guests', '0.6.1'
   s.add_dependency 'omniauth-polaris', '1.0.5'
 
-  s.add_development_dependency 'bundler', '~> 1.3', '>= 1.3.0'
+  s.add_development_dependency 'bundler', '>= 1.3.0'
   s.add_development_dependency 'rake', '~> 12.3', '>= 12.3.0'
   s.add_development_dependency 'rspec-rails', '~> 3.8'
   s.add_development_dependency 'awesome_print', '~> 1.8'

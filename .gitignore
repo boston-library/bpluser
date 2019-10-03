@@ -52,6 +52,7 @@ ehthumbs.db
 .idea # Rubymine config files
 /.idea/*
 Gemfile.lock
+.ruby-version
 
 # Directories to ignore #
 #########################
