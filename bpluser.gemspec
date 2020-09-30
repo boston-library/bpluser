@@ -19,15 +19,14 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '~> 2.4'
 
-  s.add_dependency "rails", '>= 5', '< 6'
-  s.add_dependency "omniauth", '~> 1.8.1', '< 1.9.0'
+  s.add_dependency "rails", '~> 6.0.3'
+  s.add_dependency "omniauth", '~> 1.8.1'
   s.add_dependency "omniauth-ldap", '2.0.0'
   s.add_dependency "omniauth-facebook", '5.0.0'
-  s.add_dependency "hydra-role-management", '1.0.0'
-  s.add_dependency 'active-fedora', '>= 8.0.1', '< 9'
+  s.add_dependency "hydra-role-management", '1.0.2'
   s.add_dependency 'hydra-ldap', '0.1.0'
-  s.add_dependency 'devise', '4.5.0'
-  s.add_dependency 'devise-guests', '0.6.1'
+  s.add_dependency 'devise', '~> 4.7.0'
+  s.add_dependency 'devise-guests', '0.7.0'
   s.add_dependency 'omniauth-polaris', '1.0.5'
 
   s.add_development_dependency 'bundler', '>= 1.3.0'

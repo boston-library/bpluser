@@ -34,6 +34,7 @@ module Bpluser
           Hydra::LDAP.groups_for_user(Net::LDAP::Filter.eq('samaccountname', self.username), ['memberOf'])  { |result| result.first[:memberOf].select{ |y| y.starts_with? 'CN=' }.map{ |x| x.sub(/^CN=/, '').sub(/,OU=Private Groups,DC=private,DC=bpl,DC=org/, '').sub(/,OU=Distribution Lists/, '').sub(/,OU=Security Groups/, '') } } rescue []
         end
 
+        # TODO: remove, no longer needed?
         def populate_attributes
         end
 
@@ -42,19 +43,22 @@ module Bpluser
           #['public', 'test']
         end
 
+        # TODO: remove, no longer needed?
         def get_uploads_collection
-          query="rightsMetadata_edit_access_machine_person_t:#{uid} AND title_s:Uploads AND has_model_s:info\\:fedora/afmodel\\:DILCollection"
-          ActiveFedora::SolrService.query(query, {:fl=>'id title_t'})
+          # query="rightsMetadata_edit_access_machine_person_t:#{uid} AND title_s:Uploads AND has_model_s:info\\:fedora/afmodel\\:DILCollection"
+          # ActiveFedora::SolrService.query(query, {:fl=>'id title_t'})
         end
 
+        # TODO: remove, no longer needed?
         def get_details_collection
-          query="rightsMetadata_edit_access_machine_person_t:#{uid} AND title_s:Details AND has_model_s:info\\:fedora/afmodel\\:DILCollection"
-          ActiveFedora::SolrService.query(query, {:fl=>'id title_t'})
+          # query="rightsMetadata_edit_access_machine_person_t:#{uid} AND title_s:Details AND has_model_s:info\\:fedora/afmodel\\:DILCollection"
+          # ActiveFedora::SolrService.query(query, {:fl=>'id title_t'})
         end
 
+        # TODO: remove, no longer needed?
         def collections
-          query="rightsMetadata_edit_access_machine_person_t:#{uid} AND NOT title_t:Uploads AND NOT title_t:Details AND has_model_s:info\\:fedora/afmodel\\:DILCollection"
-          ActiveFedora::SolrService.query(query, {:fl=>'id title_t'})
+          #query="rightsMetadata_edit_access_machine_person_t:#{uid} AND NOT title_t:Uploads AND NOT title_t:Details AND has_model_s:info\\:fedora/afmodel\\:DILCollection"
+          # ActiveFedora::SolrService.query(query, {:fl=>'id title_t'})
         end
 
         def existing_folder_item_for (document_id)
