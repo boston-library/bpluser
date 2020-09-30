@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '~> 2.4'
 
   s.add_dependency "rails", '~> 6.0.3'
+  s.add_dependency 'blacklight', '~> 7.8.1'
   s.add_dependency "omniauth", '~> 1.8.1'
   s.add_dependency "omniauth-ldap", '2.0.0'
   s.add_dependency "omniauth-facebook", '5.0.0'
@@ -29,9 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'devise-guests', '0.7.0'
   s.add_dependency 'omniauth-polaris', '1.0.5'
 
-  s.add_development_dependency 'bundler', '>= 1.3.0'
-  s.add_development_dependency 'rake', '~> 12.3', '>= 12.3.0'
-  s.add_development_dependency 'rspec-rails', '~> 3.8'
+  s.add_development_dependency 'rspec-rails', '~> 3.9', '< 4.0'
+  s.add_development_dependency 'engine_cart', '~> 2.2'
   s.add_development_dependency 'awesome_print', '~> 1.8'
-  s.add_development_dependency "sqlite3", '~> 1.3', '>= 1.3.0'
 end
