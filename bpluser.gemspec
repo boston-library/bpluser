@@ -31,6 +31,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'omniauth-polaris', '1.0.5'
 
   s.add_development_dependency 'rspec-rails', '~> 3.9', '< 4.0'
-  s.add_development_dependency 'engine_cart', '~> 2.2'
   s.add_development_dependency 'awesome_print', '~> 1.8'
 end

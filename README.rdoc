@@ -1,3 +1,0 @@
-= Bpluser
-
-This project rocks.
