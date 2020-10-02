@@ -6,10 +6,12 @@ module Bpluser
 
     desc "UserGenerator Bpluser"
 
-    def omniauth
-      return if IO.read("app/models/user.rb").include?('Bpluser')
+    argument :user_model_path, type: :string, default: "app/models/user.rb"
 
-      insert_into_file "app/models/user.rb", after: 'include Blacklight::User' do
+    def omniauth
+      return if IO.read(user_model_path).include?('Bpluser')
+
+      insert_into_file user_model_path, after: 'include Blacklight::User' do
         "\n\n  # Connects this user object to the BPL omniauth service" \
         "\n  include Bpluser::Concerns::Users" \
         "\n  self.table_name = 'users'\n"
@@ -17,7 +19,8 @@ module Bpluser
     end
 
     def add_trackable_to_devise
-      return if IO.read("app/models/user.rb").include?('trackable')
+      # check for :trackable, but only if not in comments
+      return if IO.read(user_model_path) =~ /^[\s]+[:a-z,\s]*trackable/
 
       insert_into_file 'app/models/user.rb', after: 'devise :' do
         'trackable, :'

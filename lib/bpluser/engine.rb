@@ -1,4 +1,5 @@
 begin
+  require 'blacklight'
   require 'base64'
   require 'cgi'
   require 'openssl'

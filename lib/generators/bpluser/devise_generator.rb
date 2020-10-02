@@ -8,11 +8,6 @@ module Bpluser
 
     argument :devise_initializer, type: :string, default: "config/initializers/devise.rb"
 
-    def mailer_sender
-      gsub_file(devise_initializer, /^[\s#]*config.mailer_sender[^\n]*/,
-                "  config.mailer_sender = CONTACT_EMAILS['site_admin']")
-    end
-
     def keys
       gsub_file(devise_initializer, /^[\s#]*config.authentication_keys[^\n]*/,
                 '  config.authentication_keys = [ :uid ]')
