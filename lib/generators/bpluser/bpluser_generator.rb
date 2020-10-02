@@ -154,15 +154,9 @@ Thank you for Installing BPLUser.
   end
 
 
-  def inject_bpluser_routes
-    # These will end up in routes.rb file in reverse order
-    # we add em, since each is added at the top of file.
-    # we want "root" to be FIRST for optimal url generation.
-    #route('devise_for :users, :controllers => { :omniauth_callbacks => "bpluser/users/omniauth_callbacks" }')
-    gsub_file("config/routes.rb", "devise_for :users", "")
-    route('devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations", :sessions => "users/sessions"}')
-    route('mount Bpluser::Engine => "/bpluser"')
-    route('Bpluser.add_routes(self)')
+  def inject_user_routes
+    gsub_file("config/routes.rb", 'devise_for :users',
+              "devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations', sessions: 'users/sessions' }")
   end
 
 

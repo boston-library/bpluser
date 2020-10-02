@@ -2,6 +2,7 @@ require 'bpluser/engine'
 require 'bpluser/version'
 
 module Bpluser
+  require 'bpluser/controller'
   #autoload :Routes, 'bpluser/routes'
 
   #def self.add_routes(router, options = {})
