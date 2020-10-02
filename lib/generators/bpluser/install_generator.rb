@@ -15,15 +15,21 @@ module Bpluser
     end
 
     def verify_devise_installed
-      return if IO.read('app/models/user.rb')&.include?('devise')
+      user_model = 'app/models/user.rb'
+      return if !File.exist?(user_model) || IO.read(user_model).include?('devise')
 
       generate 'blacklight:user --devise'
     end
 
     def copy_yml_files
-      copy_file 'config/omniauth-facebook.yml' unless File::exists?('config/omniauth-facebook.yml')
-      copy_file 'config/omniauth-polaris.yml' unless File::exists?('config/omniauth-polaris.yml')
-      copy_file 'config/hydra-ldap.yml' unless File::exists?('config/hydra-ldap.yml')
+      %w(omniauth-facebook omniauth-polaris hydra-ldap).each do |yml|
+        source_dest = "config/#{yml}.yml"
+        copy_file source_dest, source_dest unless File.exist?(source_dest)
+      end
+    end
+
+    def copy_locale
+      copy_file 'config/locales/devise.en.yml', 'config/locales/devise.en.yml'
     end
 
     def insert_to_user_model
@@ -39,7 +45,12 @@ module Bpluser
     end
 
     def insert_to_controllers
-      generate 'bpluser:controller', controller_name
+      generate 'bpluser:controller'
+    end
+
+    def inject_user_routes
+      gsub_file("config/routes.rb", 'devise_for :users',
+                "devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations', sessions: 'users/sessions' }")
     end
 
     def bundle_install

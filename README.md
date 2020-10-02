@@ -14,6 +14,8 @@ $ bundle install
 $ rails generate bpluser:install
 ```
 
+TK add note about overwrite of local app config/locales/devise.en.yml
+
 TK more info about what is included in this gem.
 
 To add administrative user functionality: 

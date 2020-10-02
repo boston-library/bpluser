@@ -154,10 +154,7 @@ Thank you for Installing BPLUser.
   end
 
 
-  def inject_user_routes
-    gsub_file("config/routes.rb", 'devise_for :users',
-              "devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations', sessions: 'users/sessions' }")
-  end
+
 
 
   private
