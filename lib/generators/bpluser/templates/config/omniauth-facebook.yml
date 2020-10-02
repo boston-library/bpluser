@@ -1,14 +1,14 @@
 test:
-  facebook_key: --------
-  facebook_secret: --------
+  facebook_key: yourfacebookkey
+  facebook_secret: yourfacebooksecret
   facebook_scope: email
 
 development:
-  facebook_key: --------
-  facebook_secret: --------
+  facebook_key:
+  facebook_secret:
   facebook_scope: email
 
 production:
-  facebook_key: --------
-  facebook_secret: --------
+  facebook_key:
+  facebook_secret:
   facebook_scope: email
