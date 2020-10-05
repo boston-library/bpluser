@@ -1,8 +1,9 @@
 # Bpluser
 
-Rails engine for providing Devise-based user models and functionality for [CommonwealthVlrEngine](https://github.com
-/boston
--library/commonwealth-vlr-engine)-based digital repository applications.
+Rails engine for providing Devise-based user models and functionality for digital repository applications using
+ [CommonwealthVlrEngine](https://github.com/boston-library/commonwealth-vlr-engine).
+
+This includes bookmarks (Blacklight default), custom folders, and saved searches.
 
 To install, add the following to your Gemfile:
 ```ruby
@@ -14,18 +15,4 @@ $ bundle install
 $ rails generate bpluser:install
 ```
 
-TK add note about overwrite of local app config/locales/devise.en.yml
-
-TK more info about what is included in this gem.
-
-To add administrative user functionality: 
-1. Add this to `app/models/user.rb`:
-```ruby
-# Connects this user object to Hydra behaviors.
-include Hydra::User
-# Connects this user object to Institution-management behaviors.
-include Bpl::InstitutionManagement::UserInstitutions
-# Connects this user object to Role-management behaviors.
-include Hydra::RoleManagement::UserRoles
-```
-2. Copy `lib/generators/bpluser/templates/models/ability.rb` from this project to your app's `app/models` directory.
+(Note that the installer will ask to overwrite your local `config/locales/devise.en.yml`).

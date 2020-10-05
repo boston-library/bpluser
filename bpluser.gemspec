@@ -7,8 +7,8 @@ require "bpluser/version"
 Gem::Specification.new do |s|
   s.name        = "bpluser"
   s.version     = Bpluser::VERSION
-  s.authors     = ["Boston Public Library Web Services"]
-  s.email       = ['sanderson@bpl.org', 'bbarber@bpl.org' ]
+  s.authors     = ["Boston Public Library Repository Services"]
+  s.email       = ['sanderson@bpl.org', 'bbarber@bpl.org', 'eenglish@bpl.org']
   s.homepage    = "http://www.bpl.org"
   s.summary     = "Shared user access gem of BPL"
   s.description = "Shared user access gem of BPL"
@@ -24,7 +24,6 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth", '~> 1.8.1'
   s.add_dependency "omniauth-ldap", '2.0.0'
   s.add_dependency "omniauth-facebook", '5.0.0'
-  s.add_dependency "hydra-role-management", '1.0.2'
   s.add_dependency 'hydra-ldap', '0.1.0'
   s.add_dependency 'devise', '~> 4.7.0'
   s.add_dependency 'devise-guests', '0.7.0'
