@@ -13,5 +13,15 @@ module Bpluser
         end
       end
     end
+
+    def add_folders_show_tool
+      target_file = 'app/controllers/catalog_controller.rb'
+      unless IO.read(target_file).include?('folder_item_control')
+        marker = 'configure_blacklight do |config|'
+        insert_into_file target_file, after: marker do
+          "\nconfig.add_show_tools_partial :folder_items, partial: 'folder_item_control'"
+        end
+      end
+    end
   end
 end
