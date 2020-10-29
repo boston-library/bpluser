@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '~> 2.4'
 
   s.add_dependency "rails", '~> 6.0.3'
-  s.add_dependency 'blacklight', '~> 7.8.1'
+  s.add_dependency 'blacklight', '~> 7.8'
   s.add_dependency "omniauth", '~> 1.8.1'
   s.add_dependency "omniauth-ldap", '2.0.0'
   s.add_dependency "omniauth-facebook", '5.0.0'
