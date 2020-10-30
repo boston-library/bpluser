@@ -1,20 +1,15 @@
-test:
+default: &default
   title: BPL Polaris Login
-  http_uri:
-  access_key:
-  access_id:
+  http_uri: <%= ENV.fetch('POLARIS_URI', '') %>
+  access_key: <%= ENV.fetch('POLARIS_KEY', '') %>
+  access_id: <%= ENV.fetch('POLARIS_ID', '') %>
   method: GET
 
 development:
-  title: BPL Polaris Login
-  http_uri:
-  access_key:
-  access_id:
-  method: GET
+  <<: *default
+
+test:
+  <<: *default
 
 production:
-  title: BPL Polaris Login
-  http_uri:
-  access_key:
-  access_id:
-  method: GET
+  <<: *default

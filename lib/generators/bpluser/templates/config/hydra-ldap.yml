@@ -1,33 +1,18 @@
-test:
-  host: #######.bpl.org
-  port: 389
-  #group_base: nil
-  base: dc=bpl,dc=org
-  uid: #######
-  username: #####
-  password: #####
-  admin_base: dc=bpl,dc=org
+default: &default
+  host: <%= ENV.fetch('LDAP_HOST', '') %>
+  port: <%= ENV.fetch('LDAP_PORT', '') %>
+  # group_base: nil
+  base: <%= ENV.fetch('LDAP_BASE', '') %>
+  uid: <%= ENV.fetch('LDAP_UID', '') %>
+  username: <%= ENV.fetch('LDAP_USERNAME', '') %>
+  password: <%= ENV.fetch('LDAP_PASSWORD', '') %>
+  admin_base: <%= ENV.fetch('LDAP_ADMIN_BASE', '') %>
 
 development:
-  host: #######.bpl.org
-  port: 389
-  #group_base: nil
-  base: dc=bpl,dc=org
-  uid: #######
-  username: #####
-  password: #####
-  group_member: uniquemember  # attribute name in a group to identify a member
-  group_owner: owner          # attribute name to identify group owner
-  admin_base: dc=bpl,dc=org
+  <<: *default
+
+test:
+  <<: *default
 
 production:
-  host: #######.bpl.org
-  port: 389
-  #group_base: nil
-  base: dc=bpl,dc=org
-  uid: #######
-  username: #####
-  password: #####
-  group_member: uniquemember  # attribute name in a group to identify a member
-  group_owner: owner          # attribute name to identify group owner
-  admin_base: dc=bpl,dc=org
+  <<: *default
