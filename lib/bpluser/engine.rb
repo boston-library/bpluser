@@ -19,5 +19,13 @@ end
 module Bpluser
   class Engine < ::Rails::Engine
     isolate_namespace Bpluser
+
+    # as of sprockets >= 4 have to explicitly declare each file
+    initializer 'bpluser.assets.precompile' do |app|
+      asset_base_path = File.join(Bpluser.root, 'app', 'assets')
+      Dir.glob(File.join(asset_base_path, 'javascripts', 'bpluser', '*')).each do |asset|
+        app.config.assets.precompile << "bpluser/#{asset.split('/').last}"
+      end
+    end
   end
 end
