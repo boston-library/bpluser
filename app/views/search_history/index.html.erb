@@ -26,16 +26,13 @@
         <p>Search for items by entering keywords in the search bar at the top right.</p>
       </div>
 <% else %>
-    <h3>
-      <%=t('blacklight.search_history.recent')%>
-      <small>
-        [<%= link_to t('blacklight.search_history.clear.action_title'),
-                     blacklight.clear_search_history_path,
-                     id: 'clear_search_history',
-                     method: :delete,
-                     data: { confirm: t('blacklight.search_history.clear.action_confirm') } %>]
-      </small>
-    </h3>
+    <%= link_to t('blacklight.search_history.clear.action_title'),
+                blacklight.clear_search_history_path,
+                method: :delete,
+                id: 'clear_search_history',
+                data: { confirm: t('blacklight.search_history.clear.action_confirm') },
+                class: 'btn btn-warning float-md-right' %>
+    <h3><%=t('blacklight.search_history.recent')%></h3>
     <table id="searches_list" class="table search_history">
       <% @searches.each_with_index do |search, index| %>
         <tr id="document_<%= index + 1 %>">

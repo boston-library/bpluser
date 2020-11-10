@@ -28,16 +28,12 @@
       </div>
 
 <% else %>
-    <h3>
-      <%= t('blacklight.saved_searches.list_title') %>
-      <small>
-        [<%= link_to t('blacklight.saved_searches.clear.action_title'),
-                     clear_saved_searches_path,
-                     class: 'clear_all',
-                     method: :delete,
-                     data: { confirm: t('blacklight.saved_searches.clear.action_confirm') } %>]
-      </small>
-    </h3>
+    <%= link_to t('blacklight.saved_searches.clear.action_title'),
+                clear_saved_searches_path,
+                method: :delete,
+                data: { confirm: t('blacklight.saved_searches.clear.action_confirm') },
+                class: 'clear_all btn btn-warning float-md-right' %>
+    <h3><%= t('blacklight.saved_searches.list_title') %></h3>
     <table class="table">
       <%- @searches.each do |search| -%>
           <tr>

@@ -100,7 +100,7 @@ en:
         success: 'Search removed.'
         failure: 'There was a problem removing your search.'
       clear:
-        action_title: 'clear all'
+        action_title: 'Clear All'
         action_confirm: 'Clear your saved searches?'
         success: 'Cleared your saved searches.'
         failure: 'There was a problem clearing your searches.'
