@@ -1,3 +1,3 @@
 module Bpluser
-  VERSION = "0.1.19".freeze
+  VERSION = '0.2.0'
 end

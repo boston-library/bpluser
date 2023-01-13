@@ -4,9 +4,9 @@
 module Bpluser
   module SavedSearches
     extend ActiveSupport::Concern
-    include Blacklight::Configurable
 
     included do
+      include Blacklight::Configurable
       copy_blacklight_config_from(CatalogController)
       before_action :require_user_authentication_provider
       before_action :verify_user

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Bpluser
   module Registrations
     def self.included(base)
@@ -25,7 +27,6 @@ module Bpluser
           super
         end
       end
-
 
       def resource_params
         params.require(:user).permit(:username, :email, :first_name, :last_name, :provider, :display_name, :password, :password_confirmation, :uid)

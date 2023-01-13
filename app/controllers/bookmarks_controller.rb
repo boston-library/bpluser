@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class BookmarksController < CatalogController
   include Blacklight::Bookmarks
 
@@ -36,6 +37,6 @@ class BookmarksController < CatalogController
   end
 
   def folder_item_actions
-    redirect_to action: "index"
+    redirect_to action: 'index'
   end
 end

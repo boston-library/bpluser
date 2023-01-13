@@ -1,6 +1,5 @@
 module Bpluser
   class FolderItem < ApplicationRecord
-    #attr_accessible :document_id
 
     belongs_to :folder, inverse_of: :folder_items, :class_name => "Bpluser::Folder"
 
@@ -8,8 +7,7 @@ module Bpluser
     validates :document_id, :presence => true
 
     def document
-      SolrDocument.new SolrDocument.unique_key => :document_id
+      SolrDocument.new(SolrDocument.unique_key => :document_id)
     end
-
   end
 end

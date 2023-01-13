@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Bpluser
   module Sessions
     def self.included(base)

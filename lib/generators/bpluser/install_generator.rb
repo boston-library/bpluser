@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails/generators'
 
 module Bpluser
@@ -5,7 +7,7 @@ module Bpluser
 
     source_root File.expand_path('../templates', __FILE__)
 
-    desc "InstallGenerator Bpluser"
+    desc 'InstallGenerator Bpluser'
 
     def verify_blacklight_installed
       return if IO.read('app/controllers/application_controller.rb').include?('include Blacklight::Controller')
@@ -22,7 +24,7 @@ module Bpluser
     end
 
     def copy_yml_files
-      %w(omniauth-facebook omniauth-polaris hydra-ldap).each do |yml|
+      %w(omniauth-polaris).each do |yml|
         source_dest = "config/#{yml}.yml"
         copy_file source_dest, source_dest unless File.exist?(source_dest)
       end
@@ -37,7 +39,7 @@ module Bpluser
     end
 
     def copy_migrations
-      rake 'railties:install:migrations'
+      rake 'bpluser:install:migrations'
     end
 
     def configure_devise

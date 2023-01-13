@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe FolderItemsActionsController do
-
   render_views
 
   before(:each) do

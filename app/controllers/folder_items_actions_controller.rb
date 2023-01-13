@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # use to share folder item actions (email, cite, delete) between folders and bookmarks
 class FolderItemsActionsController < ApplicationController
 

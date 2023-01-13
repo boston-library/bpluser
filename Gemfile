@@ -1,13 +1,21 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
 
 # Declare your gem's dependencies in bpluser.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
 gemspec
+
 gem 'bootsnap', require: false
 # jquery-rails is used by the dummy application
 group :development, :test do
-  gem "jquery-rails"
+  gem 'sqlite3'
+  gem 'jquery-rails'
+  gem 'bootstrap', '~> 4'
+  gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
+  gem 'sprockets' , '> 4'
+  gem 'sprockets-rails'
 end
 
 # Declare any dependencies that are still in development here instead of in

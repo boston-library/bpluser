@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddFolderItemsToFolder < ActiveRecord::Migration[4.2]
   def self.up
     create_table :bpluser_folder_items do |t|
@@ -9,7 +11,6 @@ class AddFolderItemsToFolder < ActiveRecord::Migration[4.2]
 
     add_index :bpluser_folder_items, :folder_id
     add_index :bpluser_folder_items, :document_id
-
   end
 
   def self.down
