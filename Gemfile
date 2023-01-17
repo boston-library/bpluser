@@ -10,9 +10,10 @@ gemspec
 gem 'bootsnap', require: false
 # jquery-rails is used by the dummy application
 group :development, :test do
-  gem 'sqlite3'
-  gem 'jquery-rails'
   gem 'bootstrap', '~> 4'
+  gem 'dotenv-rails', '~> 2.8'
+  gem 'jquery-rails'
+  gem 'pry'
   gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
   gem 'sprockets' , '> 4'
   gem 'sprockets-rails'

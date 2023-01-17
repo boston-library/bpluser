@@ -4,7 +4,6 @@
 # this module is mixed-in to local app's ApplicationController on installation.
 module Bpluser
   module Controller
-
     extend ActiveSupport::Concern
 
     included do

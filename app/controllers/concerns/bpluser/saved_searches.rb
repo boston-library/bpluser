@@ -18,6 +18,7 @@ module Bpluser
 
     def save
       current_user.searches << searches_from_history.find(params[:id])
+
       if current_user.save
         flash[:notice] = I18n.t('blacklight.saved_searches.add.success')
       else
@@ -55,7 +56,7 @@ module Bpluser
     # Only dereferences the user rather than removing the items in case they
     # are in the session[:history]
     def clear
-      if current_user.searches.update_all("user_id = NULL")
+      if current_user.searches.update_all(user_id: nil)
         flash[:notice] = I18n.t('blacklight.saved_searches.clear.success')
       else
         flash[:error] = I18n.t('blacklight.saved_searches.clear.failure')

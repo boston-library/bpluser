@@ -22,7 +22,7 @@ module Bpluser
       end
 
       def name
-        self.username rescue self.display_name&.titleize
+        self.username rescue display_name.to_s.titleize
       end
 
       def user_key
@@ -53,31 +53,23 @@ module Bpluser
         polaris_raw_details = auth_response[:extra][:raw_info]
         polaris_info_details = auth_response[:info]
 
-        user = User.where(provider: auth_response.provider, uid: auth_response[:uid]).first
-
-        #first_name:ldap_info_details.first_name,
-        #last_name:ldap_info_details.last_name,
-        unless user
-          email_value = polaris_info_details[:email].present? ? polaris_info_details[:email] : ''
-          #For some reason, User.create has no id set despite that intending to be autocreated. Unsure what is up with that. So trying this.
-          user = User.new(provider:auth_response.provider,
-                             uid:auth_response[:uid],
-                             username:polaris_info_details[:first_name],
-                             email:email_value,
-                             password:Devise.friendly_token[0,20],
-                             display_name:polaris_info_details[:first_name] + " " + polaris_info_details[:last_name],
-                             first_name: polaris_info_details[:first_name],
-                             last_name: polaris_info_details[:last_name]
-
-          )
-          user.save!
-
+        User.where(provider: auth_response.provider, uid: auth_response.uid).first_or_create do |user|
+          user.provider = auth_response.provider
+          user.uid = auth_response.uid
+          user.username = polaris_info_details[:first_name]
+          user.email = polaris_info_details[:email] || ''
+          user.password = Devise.friendly_token[0,20]
+          user.display_name = "#{polaris_info_details[:first_name]} #{polaris_info_details[:last_name]}"
+          user.first_name = polaris_info_details[:first_name]
+          user.last_name = polaris_info_details[:last_name]
         end
-        user
       end
 
       def find_for_local_auth(auth, signed_in_resource=nil)
-        user = User.where(:provider => auth.provider, :uid => auth.uid).first
+        User.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+          user.provider = auth.provider
+          user.uid = auth.uid
+        end
         unless user
           user = User.create(display_name:auth.full_name,
                              uid:auth.uid,

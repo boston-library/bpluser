@@ -20,9 +20,7 @@ describe FolderItemsActionsController do
   end
 
   describe "folder_item_actions: remove" do
-
     describe "success" do
-
       it "should remove the selected items" do
         expect {
           put :folder_item_actions, params: {
@@ -34,20 +32,16 @@ describe FolderItemsActionsController do
           expect(response).to be_redirect
         }.to change(@folder.folder_items, :count).by(-2)
       end
-
     end
-
   end
 
   describe "folder_item_actions: copy" do
-
     before(:each) do
       @test_folder2_attr = {:title => "Other Test Folder Title", :visibility => 'private'}
       @folder2 = @test_user.folders.create!(@test_folder2_attr)
     end
 
     describe "success" do
-
       it "should copy the selected items to folder2" do
         expect {
           @request.env['HTTP_REFERER'] = '/folders/' + @folder.id.to_s
@@ -59,15 +53,11 @@ describe FolderItemsActionsController do
           expect(response).to be_redirect
         }.to change(@folder2.folder_items, :count).by(2)
       end
-
     end
-
   end
 
   describe "folder_item_actions: cite" do
-
     describe "success" do
-
       it "should redirect to the cite url" do
         put :folder_item_actions, params: {
               :commit => "Cite",
@@ -77,15 +67,11 @@ describe FolderItemsActionsController do
             }
           expect(response).to redirect_to(citation_solr_document_path(:id => ["bpl-dev:g445cd14k"]))
       end
-
     end
-
   end
 
   describe "folder_item_actions: email" do
-
     describe "success" do
-
       it "should redirect to the email url" do
         put :folder_item_actions, params: {
             :commit => "Email",
@@ -95,9 +81,6 @@ describe FolderItemsActionsController do
           }
         expect(response).to redirect_to(email_solr_document_path(:id => ["bpl-dev:g445cd14k"]))
       end
-
     end
-
   end
-
 end

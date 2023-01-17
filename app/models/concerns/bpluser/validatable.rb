@@ -3,11 +3,11 @@
 module Bpluser
   module Validatable
     extend ActiveSupport::Concern
+
     VALIDATIONS = %i[validates_presence_of validates_format_of validates_confirmation_of validates_length_of].freeze
     #BEGIN INCLUDED
     included do
       validates_presence_of   :email, if: [:email_required?, :email_not_required?]
-      #validates_uniqueness_of :email, allow_blank: true, if: :email_changed?
       validates_format_of :email, with: email_regexp, allow_blank: true, if: [:email_changed?, :email_not_required?]
 
       validates_presence_of     :password, if: :password_required?

@@ -2,9 +2,8 @@
 
 # use to share folder item actions (email, cite, delete) between folders and bookmarks
 class FolderItemsActionsController < ApplicationController
-
   def folder_item_actions
-    @folder = Bpluser::Folder.find(params[:id]) if params[:origin] == "folders"
+    @folder = Bpluser::Folder.find(params[:id]) if params[:origin] == 'folders'
     @user = current_or_guest_user
     if params[:selected]
       view_params = params.permit(:sort, :per_page, :view)
@@ -49,6 +48,7 @@ class FolderItemsActionsController < ApplicationController
             end
           end
           redirect_back(fallback_location: root_path)
+
           if success
             folder_display_name = destination == t('blacklight.bookmarks.title') ? t('blacklight.bookmarks.title') : folder_to_update.title
             flash[:notice] = t('blacklight.folders.update_items.copy.success',
@@ -57,12 +57,9 @@ class FolderItemsActionsController < ApplicationController
             flash[:error] = t('blacklight.folders.update_items.copy.failure')
           end
       end
-
     else
       redirect_back(fallback_location: root_path)
       flash[:error] = I18n.t('blacklight.folders.update_items.remove.no_items')
     end
-
   end
-
 end

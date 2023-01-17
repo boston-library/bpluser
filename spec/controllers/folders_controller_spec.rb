@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe FoldersController do
-
   render_views
 
   before(:each) do

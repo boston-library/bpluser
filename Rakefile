@@ -11,7 +11,6 @@ APP_RAKEFILE = File.expand_path("spec/dummy/Rakefile", __dir__)
 Dir['lib/tasks/*.rake'].each { |rake| load rake }
 
 load 'rails/tasks/engine.rake'
-
 load 'rails/tasks/statistics.rake'
 
-task :default => [:spec]
+task default: [:spec]

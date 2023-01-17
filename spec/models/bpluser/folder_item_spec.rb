@@ -1,37 +1,40 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 describe Bpluser::FolderItem do
-
-  before(:each) do
-    @test_user_attr = {
-        #:username => "Testy McGee",
-        :email => "testy@example.com",
-        :password => "password"
+  let!(:test_user_attrs) do
+    {
+      email: 'testy@example.com',
+      password: 'password',
+      password_confirmation: 'password'
     }
-    @test_user = User.create!(@test_user_attr)
-    @folder = @test_user.folders.create!(:title => "Test Folder Title")
-    @folder_item = @folder.folder_items.build(:document_id => "bpl-development:107")
   end
 
-  it "should create a new folder_item given valid attributes" do
-    @folder_item.save!
+  let!(:folder_attrs) do
+    {
+      title: 'Test Title',
+      description: 'Test Description',
+      visibility: 'public'
+    }
   end
 
-  describe "methods" do
-
-    before(:each) do
-      @folder_item.save!
-    end
-
-    it "should have a folder attribute" do
-      @folder_item.should respond_to(:folder)
-    end
-
-    it "should have a document attribute" do
-      @folder_item.should respond_to(:document)
-    end
-
+  let!(:folder_item_attrs) do
+    {
+      document_id: 'bpl-development:107'
+    }
   end
 
+  let!(:test_user) { User.create!(test_user_attrs) }
+  let!(:folder) { test_user.folders.create!(folder_attrs) }
 
+  it 'is expected to create a new folder_item given valid attributes' do
+    expect { folder.folder_items.create(folder_item_attrs) }.to change { described_class.count }.by(1)
+  end
+
+  describe 'instance methods' do
+    subject(:folder_item) { folder.folder_items.create(folder_item_attrs) }
+
+    it { is_expected.to respond_to(:folder, :document) }
+  end
 end

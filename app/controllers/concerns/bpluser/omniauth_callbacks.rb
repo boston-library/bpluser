@@ -8,7 +8,8 @@ module Bpluser
 
     module InstanceMethods
       def polaris
-        @user = User.find_for_polaris_oauth(request.env["omniauth.auth"], current_user)
+        @user = User.find_for_polaris_oauth(request.env['omniauth.auth'], current_user)
+
         if @user.persisted?
           flash[:notice] = I18n.t "devise.omniauth_callbacks.success", kind: "Polaris"
           sign_in_and_redirect @user, event: :authentication

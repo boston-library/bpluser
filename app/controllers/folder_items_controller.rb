@@ -83,8 +83,8 @@ class FolderItemsController < CatalogController
   end
 
   protected
+
   def verify_user
     flash[:notice] = I18n.t('blacklight.folders.need_login') and raise Blacklight::Exceptions::AccessDenied unless current_user
   end
-
 end

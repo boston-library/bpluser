@@ -31,4 +31,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rspec-rails', '~> 4'
   s.add_development_dependency 'awesome_print', '~> 1.9'
+  s.add_development_dependency 'pg', '>= 0.18', '< 2.0'
 end

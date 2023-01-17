@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe FolderItemsController do
-
   #having trouble with POST create should create a new folder item using ajax when views rendered
   #render_views
 
@@ -17,10 +18,8 @@ describe FolderItemsController do
   end
 
 
-  describe "POST create" do
-
-    describe "success" do
-
+  describe 'POST create' do
+    context 'success' do
       it "should create a new folder item" do
         expect {
           @request.env['HTTP_REFERER'] = '/folder_items/new'
@@ -43,9 +42,7 @@ describe FolderItemsController do
   end
 
   describe "DELETE destroy" do
-
     describe "success" do
-
       before(:each) do
         @folder.folder_items.create!(:document_id => "bpl-dev:g445cd14k")
       end
@@ -64,15 +61,11 @@ describe FolderItemsController do
           expect(response).to be_successful
         }.to change(Bpluser::FolderItem, :count).by(-1)
       end
-
     end
-
   end
 
   describe "DELETE clear" do
-
     describe "success" do
-
       before(:each) do
         @folder.folder_items.create!(:document_id => "bpl-dev:g445cd14k")
       end
@@ -81,10 +74,6 @@ describe FolderItemsController do
         delete :clear, params: { id: @folder.id }
         expect(@folder.folder_items.count).to eq(0)
       end
-
     end
-
   end
-
-
 end
