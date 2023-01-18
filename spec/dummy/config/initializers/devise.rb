@@ -6,6 +6,8 @@
 # breaking changes in upgrades (i.e., in the event that future versions of
 # Devise change the default values for those options).
 #
+
+OMNIAUTH_POLARIS_GLOBAL = Rails.application.config_for('omniauth-polaris')
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -14,7 +16,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'cf7e7254516f3b50a17a4802b9f0a17cc7d4796c5136a5a11be3a4346303f894eb3050c6773a26014affe791823b205aafec554b7475269c60b53301ff002d07'
+  config.secret_key = 'cf7e7254516f3b50a17a4802b9f0a17cc7d4796c5136a5a11be3a4346303f894eb3050c6773a26014affe791823b205aafec554b7475269c60b53301ff002d07'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -272,6 +274,13 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+
+  config.omniauth :polaris,
+                  title: OMNIAUTH_POLARIS_GLOBAL['title'],
+                  http_uri: OMNIAUTH_POLARIS_GLOBAL['http_uri'],
+                  access_key: OMNIAUTH_POLARIS_GLOBAL['access_key'],
+                  access_id: OMNIAUTH_POLARIS_GLOBAL['access_id'],
+                  method: OMNIAUTH_POLARIS_GLOBAL['method']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

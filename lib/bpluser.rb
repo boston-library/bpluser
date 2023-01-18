@@ -1,15 +1,21 @@
-require 'bpluser/engine'
+require 'blacklight'
+require 'base64'
+require 'cgi'
+require 'openssl'
+require 'active_support'
+require 'active_support/concern'
+require 'devise'
+require 'devise-guests'
+require 'omniauth'
+require 'omniauth-polaris'
+require 'omniauth/rails_csrf_protection'
+
 require 'bpluser/version'
+require 'bpluser/controller'
+require 'bpluser/engine'
 
 module Bpluser
-  require 'bpluser/controller'
-  #autoload :Routes, 'bpluser/routes'
-
-  #def self.add_routes(router, options = {})
-  #  Bpluser::Routes.new(router, options).draw
-  #end
-
   def self.root
-    @root ||= File.expand_path(File.dirname(File.dirname(__FILE__)))
+    File.expand_path(__dir__)
   end
 end

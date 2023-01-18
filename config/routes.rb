@@ -21,6 +21,4 @@ Rails.application.routes.draw do
   put "saved_searches/save/:id", to: "saved_searches#save", as: "save_search"
   delete "saved_searches/forget/:id", to: "saved_searches#forget", as: "forget_search"
   post "saved_searches/forget/:id", to: "saved_searches#forget"
-
-  post 'sdf', to: 'api#sdf', as: 'sdf_request'
 end

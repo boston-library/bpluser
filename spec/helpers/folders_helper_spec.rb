@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe FoldersHelper do
-  let!(:test_user) { User.create!(email: 'testy@test.com', password: 'password', password_confirmation: 'password') }
-  let!(:wrong_user) { User.create!(email: 'testy2@test.com', password: 'password', password_confirmation: 'password') }
-  let!(:folder) { test_user.folders.create!(title: 'Test Folder Title', visibility: 'private') }
+  let!(:test_user) { create(:user, email: 'testy@test.com', password: 'password', password_confirmation: 'password') }
+  let!(:wrong_user) { create(:user, email: 'testy2@test.com', password: 'password', password_confirmation: 'password') }
+  let!(:folder) { create(:bpluser_folder, title: 'Test Folder Title', visibility: 'private', user: test_user) }
 
   describe '#folder_belongs_to_user' do
     describe 'correct user' do

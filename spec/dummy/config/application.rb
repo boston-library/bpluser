@@ -25,8 +25,16 @@ require 'bpluser'
 
 module Dummy
   class Application < Rails::Application
-    config.load_defaults Rails::VERSION::STRING.to_f
+    config.load_defaults 6.0
 
+    if Rails.env.development?
+      console do
+        require 'pry' unless defined?(Pry)
+        require 'awesome_print' unless defined?(AwesomePrint)
+        AwesomePrint.pry!
+        config.console = Pry
+      end
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

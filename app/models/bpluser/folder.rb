@@ -9,13 +9,16 @@ module Bpluser
     belongs_to :user, inverse_of: :folders, class_name: '::User'
     has_many :folder_items, inverse_of: :folder, dependent: :destroy, class_name: 'Bpluser::FolderItem'
 
+    scope :with_folder_items, -> { includes(:folder_items) }
+    scope :public_list, -> { with_folder_items.where(visibility: 'public').order(updated_at: :desc) }
+
     validates :user_id, presence: true
     validates :title, presence: true, length: { maximum: MAX_TITLE_LENGTH }
     validates :description, length: { maximum: MAX_DESC_LENGTH }
-    validates :visibility, inclusion: { in: VALID_VISIBILITY_OPTS }
+    validates :visibility, presence: true, inclusion: { in: VALID_VISIBILITY_OPTS }
 
     def has_folder_item(document_id)
-      folder_items.where(document_id: document_id) if self.folder_items.where(document_id: document_id).exists?
+      folder_items.where(document_id: document_id).exists?
     end
   end
 end

@@ -3,38 +3,35 @@
 require 'rails_helper'
 
 describe Bpluser::FolderItem do
-  let!(:test_user_attrs) do
-    {
-      email: 'testy@example.com',
-      password: 'password',
-      password_confirmation: 'password'
-    }
-  end
+  subject!(:folder_item) { build(:bpluser_folder_item, folder: folder) }
 
-  let!(:folder_attrs) do
-    {
-      title: 'Test Title',
-      description: 'Test Description',
-      visibility: 'public'
-    }
-  end
-
-  let!(:folder_item_attrs) do
-    {
-      document_id: 'bpl-development:107'
-    }
-  end
-
-  let!(:test_user) { User.create!(test_user_attrs) }
-  let!(:folder) { test_user.folders.create!(folder_attrs) }
-
-  it 'is expected to create a new folder_item given valid attributes' do
-    expect { folder.folder_items.create(folder_item_attrs) }.to change { described_class.count }.by(1)
-  end
+  let!(:test_user) { create(:user) }
+  let!(:folder) { create(:bpluser_folder, user: test_user) }
 
   describe 'instance methods' do
-    subject(:folder_item) { folder.folder_items.create(folder_item_attrs) }
+    it { is_expected.to respond_to(:folder, :folder_id, :document, :document_id, :created_at, :updated_at).with(0).arguments }
+  end
 
-    it { is_expected.to respond_to(:folder, :document) }
+  describe 'database' do
+    describe 'columns' do
+      it { is_expected.to have_db_column(:folder_id).of_type(:integer) }
+      it { is_expected.to have_db_column(:document_id).of_type(:string) }
+      it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
+      it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
+    end
+
+    describe 'indexes' do
+      it { is_expected.to have_db_index(:folder_id) }
+      it { is_expected.to have_db_index(:document_id) }
+    end
+  end
+
+  describe 'relations' do
+    it { is_expected.to belong_to(:folder).inverse_of(:folder_items).class_name('Bpluser::Folder') }
+  end
+
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:folder_id) }
+    it { is_expected.to validate_presence_of(:document_id) }
   end
 end

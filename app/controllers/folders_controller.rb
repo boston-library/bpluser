@@ -45,10 +45,10 @@ class FoldersController < CatalogController
   def create
     @folder = current_user.folders.build(folder_params)
     if @folder.save
-      flash[:notice] = "Folder created."
-      redirect_to :action => "index"
+      flash[:notice] = 'Folder created.'
+      redirect_to action: 'index'
     else
-      render :action => "new"
+      render action: 'new'
     end
   end
 
@@ -84,8 +84,8 @@ class FoldersController < CatalogController
 
   def update
     # @folder is set by correct_user_for_folder
-    if @folder.update_attributes(folder_params)
-      flash[:notice] = "Folder updated."
+    if @folder.update(folder_params)
+      flash[:notice] = 'Folder updated.'
       redirect_to @folder
     else
       render :action => "edit"
@@ -96,7 +96,7 @@ class FoldersController < CatalogController
     # @folder is set by correct_user_for_folder
     @folder.destroy
     flash[:notice] = t('blacklight.folders.delete.success')
-    redirect_to :action => "index"
+    redirect_to action: 'index'
   end
 
   # return a list of publicly visible folders that have items
@@ -108,7 +108,7 @@ class FoldersController < CatalogController
   private
 
     def folder_params
-      params.require(:folder).permit(:id, :title, :description, :visibility)
+      params.require(:folder).permit(:title, :description, :visibility)
     end
 
     def verify_user

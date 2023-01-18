@@ -1,1 +1,1 @@
-//= require bpluser/folder_tools
+//= link bpluser.js

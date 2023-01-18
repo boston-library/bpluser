@@ -1,6 +1,6 @@
+//= require rails-ujs
 //= require jquery
 //= require jquery3
-//= require rails-ujs
 //= require turbolinks
 //
 // Required by Blacklight
@@ -9,4 +9,4 @@
 //= require twitter/typeahead
 //= require bootstrap
 //= require blacklight/blacklight
-
+//= require bpluser
