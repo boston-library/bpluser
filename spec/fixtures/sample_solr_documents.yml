@@ -1,0 +1,2572 @@
+---
+- system_create_dtsi:
+  - '2015-01-14T22:29:07Z'
+  system_modified_dtsi:
+  - '2015-07-24T14:11:53Z'
+  curator_model_ssi:
+  - Curator::DigitalObject
+  id:
+  - bpl-dev:df65v790j
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  date_start_dtsi:
+  - '1922-01-01T00:00:00Z'
+  date_tsim:
+  - 1922
+  date_edtf_ssm:
+  - 1922
+  date_type_ssm:
+  - dateCreated
+  date_facet_yearly_itim:
+  - 1922
+  genre_basic_tim:
+  - Maps
+  genre_basic_ssim:
+  - Maps
+  identifier_local_barcode_tsim:
+  - 39999065645184
+  collection_name_ssim:
+  - Norman B. Leventhal Map Center Collection
+  collection_name_tim:
+  - Norman B. Leventhal Map Center Collection
+  collection_ark_id_ssim:
+  - bpl-dev:000000000
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  admin_set_name_ssi:
+  - Norman B. Leventhal Map Center Collection
+  admin_set_ark_id_ssi:
+  - bpl-dev:000000000
+  identifier_uri_ss:
+  - http://ark-hydradev.bpl.org/ark:/50959/df65v790j
+  publisher_tsi:
+  - Old Colony Trust Co.
+  pubplace_tsi:
+  - Boston
+  issuance_tsi:
+  - monographic
+  lang_term_ssim:
+  - English
+  related_item_host_tim:
+  - Norman B. Leventhal Map Center Collection
+  related_item_host_ssim:
+  - Norman B. Leventhal Map Center Collection
+  name_tsim:
+  - Old Colony Trust Company (Boston, Mass.)
+  - Walker Lith. & Pub. Co
+  name_role_tsim:
+  - Creator
+  name_facet_ssim:
+  - Old Colony Trust Company (Boston, Mass.)
+  - Walker Lith. & Pub. Co
+  type_of_resource_ssim:
+  - cartographic
+  extent_tsi:
+  - '2 maps on 1 sheet : ill., maps ; on sheet 36 x 52 cm.'
+  digital_origin_ssi:
+  - reformatted digital
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  sub_location_tsi:
+  - Norman B. Leventhal Map Center
+  subject_topic_tsim:
+  - Traffic flow--Massachusetts--Boston--Maps
+  - Traffic regulations--Massachusetts--Boston--Maps
+  - Boston (Mass.)--Maps
+  subject_geo_country_sim:
+  - United States
+  subject_geo_state_sim:
+  - Massachusetts
+  subject_geo_county_sim:
+  - Suffolk
+  subject_geo_city_sim:
+  - Boston
+  subject_geo_label_sim:
+    - Boston
+  subject_geo_continent_ssim:
+    - North America
+  subject_geographic_tim:
+  - United States
+  - Massachusetts
+  - Boston
+  - Suffolk
+  subject_geographic_sim:
+  - United States
+  - Massachusetts
+  - Boston
+  - Suffolk (county)
+  scale_tsim:
+  - Scale not given.
+  subject_coordinates_geospatial:
+  - 42.35,-71.05
+  subject_point_geospatial:
+  - 42.35,-71.05
+  subject_geojson_facet_ssim:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-71.05,42.35]},\"properties\":{\"placename\":\"Boston, MA\"}}"
+  subject_hiergeo_geojson_ssm:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-71.05,42.35]},\"properties\":{\"country\":\"United States\",\"state\":\"Massachusetts\",\"county\":\"Suffolk\",\"city\":\"Boston\"}}"
+  subject_facet_ssim:
+  - Traffic flow--Massachusetts--Boston--Maps
+  - Traffic regulations--Massachusetts--Boston--Maps
+  - Boston (Mass.)--Maps
+  curator_model_suffix_ssi:
+  - Map
+  rights_ss:
+  - No known copyright restrictions.
+  license_ss:
+  - This work is licensed for use under a Creative Commons Attribution Non-Commercial Share Alike License (CC BY-NC-SA).
+  reuse_allowed_ssi:
+    - creative commons
+  license_uri_ss:
+    - https://creativecommons.org/licenses/by-nc-sa/4.0/
+  note_tsim:
+  - Cover title.
+  - Dec. 1, 1922.
+  - "Ancillary maps and insets: Principal motor routes in and out of Boston -- Do Not Turn -- Eaxtracts from \"City of Boston Street Traffic Regulations.\""
+  note_date_tsim:
+  - This date is inferred.
+  title_info_primary_tsi:
+  - Boston traffic map showing one way streets and parking spaces
+  title_info_primary_ssort:
+  - Boston traffic map showing one way streets and parking spaces
+  publishing_state_ssi:
+  - published
+  processing_state_ssi:
+  - complete
+  exemplary_image_ssi:
+  - bpl-dev:df65v791t
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:df65v791t
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  - nblmc
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-07-24T14:11:57.513Z'
+- system_create_dtsi:
+  - '2015-01-14T22:28:31Z'
+  system_modified_dtsi:
+  - '2015-06-03T14:40:08Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:df65v791t
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4350,\"content_type\":\"text/xml\",\"checksum\":\"BpguN9xmGDq9Te37jqNR7w==\",\"key\":\"images/bpl-dev:df65v791t/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":311126,\"content_type\":\"image/jpeg\",\"checksum\":\"ad+JwBpaxcINoAIm7T+LbA==\",\"key\":\"images/bpl-dev:df65v791t/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"06_01_007542.tif\",\"byte_size\":241067232,\"content_type\":\"image/tiff\",\"checksum\":\"8ZqE76F5Iu0P9EgshqUF5w==\",\"key\":\"images/bpl-dev:df65v791t/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":24134937,\"content_type\":\"image/jp2\",\"checksum\":\"rTz7RChFejmJfAE05zREow==\",\"key\":\"images/bpl-dev:df65v791t/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":52939,\"content_type\":\"image/jpeg\",\"checksum\":\"BOeB7ofPnUFxrC9072nQTg==\",\"key\":\"images/bpl-dev:df65v791t/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":10959,\"content_type\":\"application/xml\",\"checksum\":\"u1oZFAWUnH4hXwl3YIiptw==\",\"key\":\"images/bpl-dev:df65v791t/metadata_foxml.xml\",\"service_name\":\"primary\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_exemplary_image_of_ssim:
+  - bpl-dev:df65v790j
+  - bpl-dev:000000000
+  is_file_set_of_ssim:
+  - bpl-dev:df65v790j
+  storage_key_base_ss:
+  - images/bpl-dev:df65v791t
+  filename_base_ssi:
+  - 06_01_007542
+- system_create_dtsi:
+  - '2014-12-26T20:02:57Z'
+  system_modified_dtsi:
+  - '2015-07-24T14:11:24Z'
+  curator_model_ssi:
+  - Curator::DigitalObject
+  id:
+  - bpl-dev:h702q6403
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  date_start_dtsi:
+  - '1859-01-01T00:00:00Z'
+  date_tsim:
+  - [ca. 1859–1870]
+  date_edtf_ssm:
+  - 1859~/1870~
+  date_end_dtsi:
+  - '1870-12-31T23:59:59.999Z'
+  date_type_ssm:
+  - dateCreated
+  date_facet_yearly_itim:
+  - 1859
+  - 1860
+  - 1861
+  - 1862
+  - 1863
+  - 1864
+  - 1865
+  - 1866
+  - 1867
+  - 1868
+  - 1869
+  - 1870
+  genre_basic_tim:
+  - Photographs
+  genre_specific_tim:
+  - Cartes de visite
+  - Portraits
+  genre_basic_ssim:
+  - Photographs
+  genre_specific_ssim:
+  - Cartes de visite
+  - Portraits
+  local_accession_id_tsim:
+  - 13_05_000029
+  collection_name_ssim:
+  - Carte de Visite Collection
+  collection_name_tim:
+  - Carte de Visite Collection
+  collection_ark_id_ssim:
+  - bpl-dev:h702q636h
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  admin_set_name_ssi:
+  - Carte de Visite Collection
+  admin_set_ark_id_ssi:
+  - bpl-dev:h702q636h
+  identifier_uri_ss:
+  - http://ark-hydradev.bpl.org/ark:/50959/h702q6403
+  publisher_tsi:
+  - Published by E & H. T. Anthony
+  pubplace_tsi:
+  - 501 Broadway, New York
+  lang_term_ssim:
+  - English
+  related_item_host_tim:
+  - Carte de Visite Collection
+  related_item_host_ssim:
+  - Carte de Visite Collection
+  related_item_series_ti:
+  - Test Series
+  related_item_series_ssi:
+  - Test Series
+  type_of_resource_ssim:
+  - still image
+  extent_tsi:
+  - '1 photograph : print on card mount ; mount 11 x 7 cm (carte de visite format).'
+  digital_origin_ssi:
+  - reformatted digital
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  sub_location_tsi:
+  - Print Department
+  subject_topic_tsim:
+  - Military officers
+  subject_geo_country_sim:
+  - United States
+  subject_geo_state_sim:
+  - Washington
+  subject_geo_county_sim:
+  - Walla Walla
+  subject_geo_city_sim:
+  - Walla Walla
+  subject_geographic_tim:
+  - United States
+  - Washington
+  - Walla Walla
+  - Walla Walla
+  subject_geographic_sim:
+  - United States
+  - Washington
+  - Walla Walla
+  - Walla Walla (county)
+  subject_geo_label_sim:
+    - Walla Walla
+  subject_geo_continent_ssim:
+    - North America
+  subject_coordinates_geospatial:
+  - 46.05,-118.3333
+  subject_point_geospatial:
+  - 46.05,-118.3333
+  subject_geojson_facet_ssim:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-118.3333,46.05]},\"properties\":{\"placename\":\"Walla Walla, WA\"}}"
+  subject_hiergeo_geojson_ssm:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-118.3333,46.05]},\"properties\":{\"country\":\"United States\",\"state\":\"Washington\",\"county\":\"Walla Walla\",\"city\":\"Walla Walla\"}}"
+  subject_name_tsim:
+  - Beauregard, G. T. (Gustave Toutant), 1818-1893
+  subject_facet_ssim:
+  - Beauregard, G. T. (Gustave Toutant), 1818-1893
+  - Military officers
+  curator_model_suffix_ssi:
+  - DigitalObject
+  rights_ss:
+  - No known copyright restrictions.
+  license_ss:
+  - No known restrictions on use.
+  reuse_allowed_ssi:
+    - no restrictions
+  rightsstatement_ss:
+    - No Copyright - United States
+  rightsstatement_uri_ss:
+    - http://rightsstatements.org/vocab/NoC-US/1.0/
+  note_tsim:
+  - Title from item or from accompanying material.
+  note_date_tsim:
+  - Date supplied by cataloger.
+  title_info_primary_tsi:
+  - Beauregard
+  title_info_primary_ssort:
+  - Beauregard
+  publishing_state_ssi:
+  - published
+  processing_state_ssi:
+  - complete
+  exemplary_image_ssi:
+  - bpl-dev:h702q641c
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:h702q641c
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-07-24T14:11:28.285Z'
+- system_create_dtsi:
+  - '2014-12-26T20:02:53Z'
+  system_modified_dtsi:
+  - '2015-06-03T14:38:57Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:h702q642n
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4350,\"content_type\":\"text/xml\",\"checksum\":\"BpguN9xmGDq9Te37jqNR7w==\",\"key\":\"images/bpl-dev:h702q642n/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":311126,\"content_type\":\"image/jpeg\",\"checksum\":\"ad+JwBpaxcINoAIm7T+LbA==\",\"key\":\"images/bpl-dev:h702q642n/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"13_05_000029b.tif\",\"byte_size\":241067232,\"content_type\":\"image/tiff\",\"checksum\":\"8ZqE76F5Iu0P9EgshqUF5w==\",\"key\":\"images/bpl-dev:h702q642n/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":24134937,\"content_type\":\"image/jp2\",\"checksum\":\"rTz7RChFejmJfAE05zREow==\",\"key\":\"images/bpl-dev:h702q642n/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":52939,\"content_type\":\"image/jpeg\",\"checksum\":\"BOeB7ofPnUFxrC9072nQTg==\",\"key\":\"images/bpl-dev:h702q642n/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":10959,\"content_type\":\"application/xml\",\"checksum\":\"u1oZFAWUnH4hXwl3YIiptw==\",\"key\":\"images/bpl-dev:h702q642n/metadata_foxml.xml\",\"service_name\":\"primary\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_exemplary_image_of_ssim:
+  - bpl-dev:h702q636h
+  is_file_set_of_ssim:
+  - bpl-dev:h702q6403
+  position_isi:
+  - 1
+  storage_key_base_ss:
+  - images/bpl-dev:h702q642n
+  filename_base_ssi:
+  - 13_05_000029b
+  timestamp:
+  - '2015-06-03T14:38:58.968Z'
+- system_create_dtsi:
+  - '2014-12-26T20:02:48Z'
+  system_modified_dtsi:
+  - '2015-06-03T14:38:57Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:h702q641c
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4350,\"content_type\":\"text/xml\",\"checksum\":\"BpguN9xmGDq9Te37jqNR7w==\",\"key\":\"images/bpl-dev:h702q641c/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":311126,\"content_type\":\"image/jpeg\",\"checksum\":\"ad+JwBpaxcINoAIm7T+LbA==\",\"key\":\"images/bpl-dev:h702q641c/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"13_05_000029a.tif\",\"byte_size\":241067232,\"content_type\":\"image/tiff\",\"checksum\":\"8ZqE76F5Iu0P9EgshqUF5w==\",\"key\":\"images/bpl-dev:h702q641c/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":24134937,\"content_type\":\"image/jp2\",\"checksum\":\"rTz7RChFejmJfAE05zREow==\",\"key\":\"images/bpl-dev:h702q641c/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":52939,\"content_type\":\"image/jpeg\",\"checksum\":\"BOeB7ofPnUFxrC9072nQTg==\",\"key\":\"images/bpl-dev:h702q641c/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":10959,\"content_type\":\"application/xml\",\"checksum\":\"u1oZFAWUnH4hXwl3YIiptw==\",\"key\":\"images/bpl-dev:h702q641c/metadata_foxml.xml\",\"service_name\":\"primary\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_exemplary_image_of_ssim:
+  - bpl-dev:h702q6403
+  is_file_set_of_ssim:
+  - bpl-dev:h702q6403
+  position_isi:
+  - 0
+  page_type_ssi:
+  - Front
+  storage_key_base_ss:
+  - images/bpl-dev:h702q641c
+  filename_base_ssi:
+  - 13_05_000029a
+  timestamp:
+  - '2015-06-03T14:38:58.256Z'
+- system_create_dtsi:
+  - '2015-07-28T16:55:23Z'
+  system_modified_dtsi:
+  - '2015-07-28T16:55:55Z'
+  curator_model_ssi:
+  - Curator::DigitalObject
+  id:
+  - bpl-dev:g445cd14k
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  date_start_dtsi:
+  - '1851-01-01T00:00:00Z'
+  date_tsim:
+  - [ca. 1851]
+  date_edtf_ssm:
+  - 1851~
+  date_type_ssm:
+  - dateCreated
+  date_facet_yearly_itim:
+  - 1851
+  genre_basic_tim:
+  - Photographs
+  genre_specific_tim:
+  - Daguerreotypes
+  - Portrait photographs
+  genre_basic_ssim:
+  - Photographs
+  genre_specific_ssim:
+  - Daguerreotypes
+  - Portrait photographs
+  identifier_local_other_invalid_tsim:
+  - Cab.G.3.25
+  local_accession_id_tsim:
+  - 07_05_000003
+  collection_name_ssim:
+  - Cased Photographs
+  - Anti-Slavery Collection
+  collection_name_tim:
+  - Cased Photographs
+  - Anti-Slavery Collection
+  collection_ark_id_ssim:
+  - bpl-dev:g445cd121
+  - bpl-dev:g445cd139
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  admin_set_name_ssi:
+  - Cased Photographs
+  admin_set_ark_id_ssi:
+  - bpl-dev:g445cd121
+  identifier_uri_ss:
+  - http://ark-hydradev.bpl.org/ark:/50959/g445cd14k
+  related_item_host_tim:
+  - Print Department Collection
+  related_item_host_ssim:
+  - Print Department Collection
+  type_of_resource_ssim:
+  - still image
+  extent_tsi:
+  - '1 photograph : whole plate daguerreotype ; in case 18.5 x 13.5 cm.'
+  digital_origin_ssi:
+  - reformatted digital
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  sub_location_tsi:
+  - Print Department
+  subject_topic_tsim:
+  - Abolitionists
+  subject_name_tsim:
+  - Thompson, George, 1804-1878
+  subject_facet_ssim:
+  - Thompson, George, 1804-1878
+  - Abolitionists
+  curator_model_suffix_ssi:
+  - DigitalObject
+  rights_ss:
+  - No known copyright restrictions.
+  license_ss:
+  - No known restrictions on use.
+  reuse_allowed_ssi:
+    - no restrictions
+  rightsstatement_ss:
+    - No Copyright - United States
+  rightsstatement_uri_ss:
+    - http://rightsstatements.org/vocab/NoC-US/1.0/
+  note_acquisition_tsim:
+  - Gift of the family of William L. Garrison, August 31, 1899.
+  title_info_primary_tsi:
+  - George Thompson
+  title_info_primary_ssort:
+  - George Thompson
+  publishing_state_ssi:
+  - published
+  processing_state_ssi:
+  - complete
+  exemplary_image_ssi:
+  - bpl-dev:g445cd17d
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:g445cd17d
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  flagged_content_ssi:
+  - offensive
+  timestamp:
+  - '2015-07-31T15:11:28.837Z'
+- system_create_dtsi:
+  - '2015-07-28T16:55:12Z'
+  system_modified_dtsi:
+  - '2015-07-28T16:55:54Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:g445cd17d
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4350,\"content_type\":\"text/xml\",\"checksum\":\"BpguN9xmGDq9Te37jqNR7w==\",\"key\":\"images/bpl-dev:g445cd17d/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":311126,\"content_type\":\"image/jpeg\",\"checksum\":\"ad+JwBpaxcINoAIm7T+LbA==\",\"key\":\"images/bpl-dev:g445cd17d/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"07_05_000003.tif\",\"byte_size\":241067232,\"content_type\":\"image/tiff\",\"checksum\":\"8ZqE76F5Iu0P9EgshqUF5w==\",\"key\":\"images/bpl-dev:g445cd17d/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":24134937,\"content_type\":\"image/jp2\",\"checksum\":\"rTz7RChFejmJfAE05zREow==\",\"key\":\"images/bpl-dev:g445cd17d/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":52939,\"content_type\":\"image/jpeg\",\"checksum\":\"BOeB7ofPnUFxrC9072nQTg==\",\"key\":\"images/bpl-dev:g445cd17d/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":10959,\"content_type\":\"application/xml\",\"checksum\":\"u1oZFAWUnH4hXwl3YIiptw==\",\"key\":\"images/bpl-dev:g445cd17d/metadata_foxml.xml\",\"service_name\":\"primary\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_exemplary_image_of_ssim:
+  - bpl-dev:g445cd14k
+  - bpl-dev:g445cd139
+  - bpl-dev:g445cd121
+  is_file_set_of_ssim:
+  - bpl-dev:g445cd14k
+  storage_key_base_ss:
+  - images/bpl-dev:g445cd17d
+  filename_base_ssi:
+  - 07_05_000003
+  timestamp:
+  - '2015-07-28T16:55:54.945Z'
+- system_create_dtsi:
+  - '2015-01-14T22:26:25Z'
+  system_modified_dtsi:
+  - '2015-07-24T14:11:48Z'
+  curator_model_ssi:
+  - Curator::DigitalObject
+  id:
+  - bpl-dev:00000007x
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  date_start_dtsi:
+  - '1900-01-01T00:00:00Z'
+  date_tsim:
+  - 1900–1999
+  date_edtf_ssm:
+  - 1900/1999
+  date_end_dtsi:
+  - '1999-12-31T23:59:59.999Z'
+  date_type_ssm:
+  - dateCreated
+  genre_basic_tim:
+  - Maps
+  genre_basic_ssim:
+  - Maps
+  identifier_local_barcode_tsim:
+  - 39999059008290
+  collection_name_ssim:
+  - Norman B. Leventhal Map Center Collection
+  collection_name_tim:
+  - Norman B. Leventhal Map Center Collection
+  collection_ark_id_ssim:
+  - bpl-dev:000000000
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  admin_set_name_ssi:
+  - Norman B. Leventhal Map Center Collection
+  admin_set_ark_id_ssi:
+  - bpl-dev:000000000
+  identifier_uri_ss:
+  - http://ark-hydradev.bpl.org/ark:/50959/00000007x
+  publisher_tsi:
+  - C.S. Hammond & Co.
+  pubplace_tsi:
+  - New York
+  issuance_tsi:
+  - monographic
+  lang_term_ssim:
+  - English
+  related_item_host_tim:
+  - Norman B. Leventhal Map Center Collection
+  related_item_host_ssim:
+  - Norman B. Leventhal Map Center Collection
+  name_tsim:
+  - C.S. Hammond & Company
+  name_role_tsim:
+  - Creator
+  name_facet_ssim:
+  - C.S. Hammond & Company
+  type_of_resource_ssim:
+  - cartographic
+  extent_tsi:
+  - '1 map : col. ; 39 x 32 cm.'
+  digital_origin_ssi:
+  - reformatted digital
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  sub_location_tsi:
+  - Norman B. Leventhal Map Center
+  subject_topic_tsim:
+  - New England News Company
+  - Boston (Mass.)--Maps
+  subject_geo_country_sim:
+  - United States
+  subject_geo_state_sim:
+  - Massachusetts
+  subject_geo_county_sim:
+  - Suffolk
+  subject_geo_city_sim:
+  - Boston
+  subject_geo_label_sim:
+    - Boston
+  subject_geo_continent_ssim:
+    - North America
+  subject_geographic_tim:
+  - United States
+  - Massachusetts
+  - Boston
+  - Suffolk
+  subject_geographic_sim:
+  - United States
+  - Massachusetts
+  - Boston
+  - Suffolk (county)
+  scale_tsim:
+  - Scale not given.
+  subject_bbox_geospatial:
+  - ENVELOPE(67.98, 138.41, 55.84, 13.66)
+  subject_coordinates_geospatial:
+  - 42.35,-71.05
+  - ENVELOPE(67.98, 138.41, 55.84, 13.66)
+  subject_point_geospatial:
+  - 42.35,-71.05
+  subject_geojson_facet_ssim:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-71.05,42.35]},\"properties\":{\"placename\":\"Boston, MA\"}}"
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[[67.98660428353074,13.663240493613458],[138.41911376837953,13.663240493613458],[138.41911376837953,55.84595061343333],[67.98660428353074,55.84595061343333],[67.98660428353074,13.663240493613458]]]},\"bbox\":[67.98660428353074,13.663240493613458,138.41911376837953,55.84595061343333]}"
+  subject_hiergeo_geojson_ssm:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-71.05,42.35]},\"properties\":{\"country\":\"United States\",\"state\":\"Massachusetts\",\"county\":\"Suffolk\",\"city\":\"Boston\"}}"
+  subject_facet_ssim:
+  - New England News Company
+  - Boston (Mass.)--Maps
+  curator_model_suffix_ssi:
+  - DigitalObject
+  rights_ss:
+  - Rights status not evaluated.
+  license_ss:
+  - This work is licensed for use under a Creative Commons Attribution Non-Commercial Share Alike License (CC BY-NC-SA).
+  reuse_allowed_ssi:
+    - creative commons
+  license_uri_ss:
+    - https://creativecommons.org/licenses/by-nc-sa/4.0/
+  note_tsim:
+  - Includes index to points of interest.
+  note_date_tsim:
+  - This date is inferred.
+  title_info_alternative_tsim:
+  - New standard index map of Boston
+  title_info_primary_tsi:
+  - Guide map of Boston
+  title_info_primary_ssort:
+  - Guide map of Boston
+  title_info_alternative_label_ssm:
+  - Cover title
+  publishing_state_ssi:
+  - published
+  processing_state_ssi:
+  - complete
+  exemplary_image_ssi:
+  - bpl-dev:000000086
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:000000086
+  flagged_content_ssi:
+  - explicit
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  - nblmc
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-07-24T14:11:52.72Z'
+- system_create_dtsi:
+  - '2015-01-14T22:26:16Z'
+  system_modified_dtsi:
+  - '2015-06-03T14:39:18Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:000000086
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4350,\"content_type\":\"text/xml\",\"checksum\":\"BpguN9xmGDq9Te37jqNR7w==\",\"key\":\"images/bpl-dev:000000086/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":311126,\"content_type\":\"image/jpeg\",\"checksum\":\"ad+JwBpaxcINoAIm7T+LbA==\",\"key\":\"images/bpl-dev:000000086/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"06_01_004865.tif\",\"byte_size\":241067232,\"content_type\":\"image/tiff\",\"checksum\":\"8ZqE76F5Iu0P9EgshqUF5w==\",\"key\":\"images/bpl-dev:000000086/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":24134937,\"content_type\":\"image/jp2\",\"checksum\":\"rTz7RChFejmJfAE05zREow==\",\"key\":\"images/bpl-dev:000000086/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":52939,\"content_type\":\"image/jpeg\",\"checksum\":\"BOeB7ofPnUFxrC9072nQTg==\",\"key\":\"images/bpl-dev:000000086/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":10959,\"content_type\":\"application/xml\",\"checksum\":\"u1oZFAWUnH4hXwl3YIiptw==\",\"key\":\"images/bpl-dev:000000086/metadata_foxml.xml\",\"service_name\":\"primary\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_exemplary_image_of_ssim:
+  - bpl-dev:00000007x
+  is_file_set_of_ssim:
+  - bpl-dev:00000007x
+  storage_key_base_ss:
+  - images/bpl-dev:000000086
+  filename_base_ssi:
+  - 06_01_004865
+  timestamp:
+  - '2015-06-03T14:39:19.732Z'
+- system_create_dtsi:
+  - '2015-01-13T19:53:31Z'
+  system_modified_dtsi:
+  - '2015-02-18T18:31:16Z'
+  curator_model_ssi:
+  - Curator::Collection
+  id:
+  - bpl-dev:000000000
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  curator_model_suffix_ssi:
+  - Collection
+  title_info_primary_tsi:
+  - Norman B. Leventhal Map Center Collection
+  title_info_primary_ssort:
+  - Norman B. Leventhal Map Center Collection
+  publishing_state_ssi:
+  - published
+  abstract_tsi:
+  - Tousled artisan single-origin coffee Williamsburg. Sriracha keffiyeh readymade, gluten-free photo booth keytar ennui normcore Schlitz food truck messenger bag distillery chambray. Post-ironic brunch cray viral bicycle rights ennui Bushwick, +1 cornhole Schlitz Banksy keffiyeh. Tilde master cleanse pour-over, shabby chic retro swag synth hoodie fixie lomo fashion axe cold-pressed ugh drinking vinegar. Tousled PBR kogi aesthetic seitan. Tilde squid literally normcore. Slow-carb pour-over meh, cronut American Apparel stumptown tilde crucifix +1 farm-to-table 90's deep v freegan Intelligentsia.
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  genre_basic_ssim:
+  - Collections
+  - Maps
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  exemplary_image_ssi:
+  - bpl-dev:df65v791t
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:df65v791t
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  - nblmc
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-02-18T18:31:16.934Z'
+- system_create_dtsi:
+  - '2014-12-26T20:02:13Z'
+  system_modified_dtsi:
+  - '2015-05-06T18:30:27Z'
+  curator_model_ssi:
+  - Curator::Collection
+  id:
+  - bpl-dev:h702q636h
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  curator_model_suffix_ssi:
+  - Collection
+  title_info_primary_tsi:
+  - Carte de Visite Collection
+  title_info_primary_ssort:
+  - Carte de Visite Collection
+  publishing_state_ssi:
+  - published
+  abstract_tsi:
+  - Lorem ipsum
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  genre_basic_ssim:
+  - Collections
+  - Photographs
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  exemplary_image_ssi:
+  - bpl-dev:h702q642n
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:h702q642n
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-05-06T18:30:27.934Z'
+- system_create_dtsi:
+  - '2015-07-28T15:20:39Z'
+  system_modified_dtsi:
+  - '2015-07-28T16:56:48Z'
+  curator_model_ssi:
+  - Curator::Collection
+  id:
+  - bpl-dev:g445cd139
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  curator_model_suffix_ssi:
+  - Collection
+  title_info_primary_tsi:
+  - Anti-Slavery Collection
+  title_info_primary_ssort:
+  - Anti-Slavery Collection
+  publishing_state_ssi:
+  - published
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  genre_basic_ssim:
+  - Collections
+  - Photographs
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  exemplary_image_ssi:
+  - bpl-dev:g445cd17d
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:g445cd17d
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-07-28T16:56:49.037Z'
+- system_create_dtsi:
+  - '2015-07-28T15:20:36Z'
+  system_modified_dtsi:
+  - '2015-07-28T16:56:46Z'
+  curator_model_ssi:
+  - Curator::Collection
+  id:
+  - bpl-dev:g445cd121
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  curator_model_suffix_ssi:
+  - Collection
+  title_info_primary_tsi:
+  - Cased Photographs
+  title_info_primary_ssort:
+  - Cased Photographs
+  publishing_state_ssi:
+  - published
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  genre_basic_ssim:
+  - Collections
+  - Photographs
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  exemplary_image_ssi:
+  - bpl-dev:g445cd17d
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:g445cd17d
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-07-28T16:56:47.692Z'
+- system_create_dtsi:
+  - '2014-12-26T20:02:10Z'
+  system_modified_dtsi:
+  - '2015-02-18T19:44:18Z'
+  curator_model_ssi:
+  - Curator::Institution
+  curator_model_suffix_ssi:
+  - Institution
+  id:
+  - bpl-dev:abcd12345
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  title_info_primary_tsi:
+  - Boston Public Library
+  title_info_primary_ssort:
+  - Boston Public Library
+  publishing_state_ssi:
+  - published
+  abstract_tsi:
+  - "Four loko ennui skateboard anim. Id asymmetrical artisan post-ironic, disrupt cornhole messenger bag deep v lo-fi ea. Roof party ea mustache direct trade semiotics hella. Sustainable elit art party fap. Migas cillum XOXO, Odd Future asymmetrical trust fund slow-carb fixie.<br/><br/>Deep v artisan retro, <em>gastropub</em> vero cliche you probably haven't heard of them master cleanse DIY aliquip chia velit hashtag <strong>Thundercats</strong>. Dolore four loko Etsy gastropub anim ut.<br/><br/>Freegan twee art party, microdosing neutra tbh quinoa hashtag man bun voluptate veniam dreamcatcher copper mug heirloom."
+  institution_url_ss:
+  - http://www.bpl.org/
+  subject_geo_country_sim:
+  - United States
+  subject_geo_state_sim:
+  - Massachusetts
+  subject_geo_county_sim:
+  - Suffolk
+  subject_geo_city_sim:
+  - Boston
+  subject_geo_label_sim:
+    - Boston
+  subject_geo_continent_ssim:
+    - North America
+  subject_geographic_tim:
+  - United States
+  - Massachusetts
+  - Suffolk
+  - Boston
+  subject_geographic_sim:
+  - United States
+  - Massachusetts
+  - Suffolk (county)
+  - Boston
+  subject_coordinates_geospatial:
+  - 42.35,-71.05
+  subject_point_geospatial:
+  - 42.35,-71.05
+  subject_geojson_facet_ssim:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-71.05,42.35]},\"properties\":{\"placename\":\"Boston, MA\"}}"
+  subject_hiergeo_geojson_ssm:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-71.05,42.35]},\"properties\":{\"country\":\"United States\",\"state\":\"Massachusetts\",\"county\":\"Suffolk\",\"city\":\"Boston\"}}"
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  - nblmc
+  timestamp:
+  - '2015-02-18T19:44:18.203Z'
+- system_create_dtsi:
+  - '2015-01-14T22:25:38Z'
+  system_modified_dtsi:
+  - '2015-07-24T14:11:53Z'
+  curator_model_ssi:
+  - Curator::DigitalObject
+  id:
+  - bpl-dev:00000003t
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  date_start_dtsi:
+  - '1858-01-01T00:00:00Z'
+  date_tsim:
+  - 1858
+  date_edtf_ssm:
+  - 1858
+  date_type_ssm:
+  - dateCreated
+  date_facet_yearly_itim:
+  - 1858
+  table_of_contents_tsi:
+  - "Inset maps: Jamaica Plain -- Brookline -- Geological map of Norfolk County, Mass. -- West Medway -- Medway -- South Dedham -- Dedham -- East Medway -- West Dedham -- Wrentham -- Bellingham -- Harrison Squares, Commercial Point (Dorchester) -- Meeting House Hill (Dorchester) -- Neponset & Port Norfolk, Dorchester -- Lower Mills, Dorchester & Milton -- Fairmount (Milton) -- Newton Lower Falls -- Railway Village -- Braintree, South Braintree -- Dorchester -- Upper Mills -- Foxborough -- East Stoughton -- Sheldonville -- Medfield -- Stoughton -- South Canton -- Randolph -- West Roxbury -- Franklin -- Sharon -- Quincy Point -- West Quincy -- North Weymouth -- South Randolph -- Ponkapog (Canton) -- East Weymouth -- East Braintree and Weymouth Landing -- Quincy -- Cohassett -- Roxbury with portions of Dorchester, W. Roxbury & c -- Walpole -- South Weymouth -- South Walpole -- Plimptonville & East Walpole."
+  genre_basic_tim:
+  - Maps
+  genre_basic_ssim:
+  - Maps
+  identifier_local_barcode_tsim:
+  - 39999058999747
+  collection_name_ssim:
+  - Norman B. Leventhal Map Center Collection
+  collection_name_tim:
+  - Norman B. Leventhal Map Center Collection
+  collection_ark_id_ssim:
+  - bpl-dev:000000000
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  admin_set_name_ssi:
+  - Norman B. Leventhal Map Center Collection
+  admin_set_ark_id_ssi:
+  - bpl-dev:000000000
+  identifier_uri_ss:
+  - http://ark-hydradev.bpl.org/ark:/50959/00000003t
+  publisher_tsi:
+  - Smith & Bumstead
+  pubplace_tsi:
+  - New York
+  issuance_tsi:
+  - monographic
+  lang_term_ssim:
+  - English
+  related_item_host_tim:
+  - Norman B. Leventhal Map Center Collection
+  related_item_host_ssim:
+  - Norman B. Leventhal Map Center Collection
+  name_tsim:
+  - Walling, Henry Francis, 1825-1888
+  name_role_tsim:
+  - Creator
+  name_facet_ssim:
+  - Walling, Henry Francis, 1825-1888
+  type_of_resource_ssim:
+  - cartographic
+  extent_tsi:
+  - '1 map : col. ; 146 x 155 cm.'
+  digital_origin_ssi:
+  - reformatted digital
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  sub_location_tsi:
+  - Norman B. Leventhal Map Center
+  subject_topic_tsim:
+  - Real property--Massachusetts--Norfolk County--Maps
+  - Landowners--Massachusetts--Norfolk County--Maps
+  - Norfolk County (Mass.)--Maps
+  subject_geo_country_sim:
+  - United States
+  subject_geo_state_sim:
+  - Massachusetts
+  subject_geo_county_sim:
+  - Norfolk
+  subject_geo_label_sim:
+    - Norfolk
+  subject_geo_continent_ssim:
+    - North America
+  subject_geographic_tim:
+  - United States
+  - Massachusetts
+  - Norfolk
+  subject_geographic_sim:
+  - United States
+  - Massachusetts
+  - Norfolk (county)
+  scale_tsim:
+  - Scale [ca. 1:40,000]
+  subject_coordinates_geospatial:
+  - 42.1667,-71.25
+  subject_point_geospatial:
+  - 42.1667,-71.25
+  subject_geojson_facet_ssim:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-71.25,42.1667]},\"properties\":{\"placename\":\"Norfolk (county), MA\"}}"
+  subject_hiergeo_geojson_ssm:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-71.25,42.1667]},\"properties\":{\"country\":\"United States\",\"state\":\"Massachusetts\",\"county\":\"Norfolk\"}}"
+  subject_facet_ssim:
+  - Real property--Massachusetts--Norfolk County--Maps
+  - Landowners--Massachusetts--Norfolk County--Maps
+  - Norfolk County (Mass.)--Maps
+  curator_model_suffix_ssi:
+  - DigitalObject
+  rights_ss:
+  - No known copyright restrictions.
+  license_ss:
+  - This work is licensed for use under a Creative Commons Attribution Non-Commercial Share Alike License (CC BY-NC-SA).
+  reuse_allowed_ssi:
+    - creative commons
+  license_uri_ss:
+    - https://creativecommons.org/licenses/by-nc-sa/4.0/
+  note_tsim:
+  - Relief shown by hachures.
+  - Shows land ownership, roads, railroads, mills, schools, etc.
+  - Includes 4 views of residences and boot factory, a table of distances, business directory and statistical table.
+  note_resp_tsim:
+  - the details from actual surveys under the direction of Henry F. Walling ; engraved, printed, colored & mounted at H.F. Walling's map establishment.
+  title_info_primary_tsi:
+  - Map of the county of Norfolk, Massachusetts
+  title_info_primary_ssort:
+  - Map of the county of Norfolk, Massachusetts
+  title_info_primary_subtitle_tsi:
+  - based upon the trigonometrical survey of the state
+  publishing_state_ssi:
+  - published
+  processing_state_ssi:
+  - complete
+  exemplary_image_ssi:
+  - bpl-dev:000000043
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:000000043
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  - nblmc
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-07-24T14:11:56.036Z'
+- system_create_dtsi:
+  - '2015-01-20T21:19:57Z'
+  system_modified_dtsi:
+  - '2015-07-24T14:12:00Z'
+  curator_model_ssi:
+  - Curator::DigitalObject
+  id:
+  - bpl-dev:qf85nb285
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  date_start_dtsi:
+  - '1700-01-01T00:00:00Z'
+  date_tsim:
+  - 1700–1799
+  date_edtf_ssm:
+  - 1700/1799
+  date_end_dtsi:
+  - '1799-12-31T23:59:59.999Z'
+  date_type_ssm:
+  - dateCreated
+  genre_basic_tim:
+  - Maps
+  genre_basic_ssim:
+  - Maps
+  identifier_local_barcode_tsim:
+  - 39999059004596
+  collection_name_ssim:
+  - Norman B. Leventhal Map Center Collection
+  collection_name_tim:
+  - Norman B. Leventhal Map Center Collection
+  collection_ark_id_ssim:
+  - bpl-dev:000000000
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  admin_set_name_ssi:
+  - Norman B. Leventhal Map Center Collection
+  admin_set_ark_id_ssi:
+  - bpl-dev:000000000
+  identifier_uri_ss:
+  - http://ark-hydradev.bpl.org/ark:/50959/qf85nb285
+  issuance_tsi:
+  - monographic
+  lang_term_ssim:
+  - English
+  related_item_host_tim:
+  - Norman B. Leventhal Map Center Collection
+  related_item_host_ssim:
+  - Norman B. Leventhal Map Center Collection
+  type_of_resource_ssim:
+  - cartographic
+  extent_tsi:
+  - '1 ms. map : col. ; 38 x 70 cm.'
+  digital_origin_ssi:
+  - reformatted digital
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  sub_location_tsi:
+  - Norman B. Leventhal Map Center
+  subject_topic_tsim:
+  - Panama, Isthmus of (Panama)--Maps, Manuscript
+  subject_geo_country_sim:
+  - Panama
+  subject_geo_label_sim:
+    - Panama
+  subject_geo_continent_ssim:
+    - North America
+  subject_geographic_tim:
+  - Panama
+  - Panama, Isthmus of
+  subject_geographic_sim:
+  - Panama
+  - Panama, Isthmus of
+  scale_tsim:
+  - Scale [ca. 1:190,080]
+  subject_bbox_geospatial:
+  - ENVELOPE(115.0, -100.0, 75.0, 40.0)
+  subject_coordinates_geospatial:
+  - 9,-80
+  - ENVELOPE(115.0, -100.0, 75.0, 40.0)
+  subject_point_geospatial:
+  - 9,-80
+  subject_geojson_facet_ssim:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-80.0,9.0]},\"properties\":{\"placename\":\"Panama, Isthmus of, Panama\"}}"
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[[-245.0,40.0],[-100.0,40.0],[-100.0,75.0],[-245.0,75.0],[-245.0,40.0]]]},\"bbox\":[-245.0,40.0,-100.0,75.0]}"
+  subject_hiergeo_geojson_ssm:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-80.0,9.0]},\"properties\":{\"country\":\"Panama\",\"other\":\"Panama, Isthmus of\"}}"
+  subject_facet_ssim:
+  - Panama, Isthmus of (Panama)--Maps, Manuscript
+  curator_model_suffix_ssi:
+  - DigitalObject
+  rights_ss:
+  - No known copyright restrictions.
+  license_ss:
+  - This work is licensed for use under a Creative Commons Attribution Non-Commercial Share Alike License (CC BY-NC-SA).
+  reuse_allowed_ssi:
+    - creative commons
+  license_uri_ss:
+    - https://creativecommons.org/licenses/by-nc-sa/4.0/
+  note_tsim:
+  - Oriented with north to the bottom.
+  - Includes names of towns and rivers.
+  note_date_tsim:
+  - This date is inferred.
+  title_info_primary_tsi:
+  - A map of part of the Isthmus of Darien
+  title_info_primary_ssort:
+  - A map of part of the Isthmus of Darien
+  title_info_primary_subtitle_tsi:
+  - shewing the communication with Panama, from Portobello & Chagre both by land, and by water
+  publishing_state_ssi:
+  - published
+  processing_state_ssi:
+  - complete
+  exemplary_image_ssi:
+  - bpl-dev:qf85nb29f
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:qf85nb29f
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  - nblmc
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-07-24T14:12:04.869Z'
+- system_create_dtsi:
+  - '2015-01-14T22:28:28Z'
+  system_modified_dtsi:
+  - '2015-07-24T14:11:50Z'
+  curator_model_ssi:
+  - Curator::DigitalObject
+  id:
+  - bpl-dev:df65v788h
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  date_start_dtsi:
+  - '1877-01-01T00:00:00Z'
+  date_tsim:
+  - 1877
+  date_edtf_ssm:
+  - 1877
+  date_type_ssm:
+  - dateCreated
+  date_facet_yearly_itim:
+  - 1877
+  genre_basic_tim:
+  - Maps
+  genre_basic_ssim:
+  - Maps
+  identifier_local_barcode_tsim:
+  - 39999065645176
+  collection_name_ssim:
+  - Norman B. Leventhal Map Center Collection
+  collection_name_tim:
+  - Norman B. Leventhal Map Center Collection
+  collection_ark_id_ssim:
+  - bpl-dev:000000000
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  admin_set_name_ssi:
+  - Norman B. Leventhal Map Center Collection
+  admin_set_ark_id_ssi:
+  - bpl-dev:000000000
+  identifier_uri_ss:
+  - http://ark-hydradev.bpl.org/ark:/50959/df65v788h
+  publisher_tsi:
+  - [George E. Emery]
+  pubplace_tsi:
+  - Lynn, MA
+  issuance_tsi:
+  - monographic
+  lang_term_ssim:
+  - English
+  related_item_host_tim:
+  - Norman B. Leventhal Map Center Collection
+  related_item_host_ssim:
+  - Norman B. Leventhal Map Center Collection
+  name_tsim:
+  - Zeno, Niccolò, d. ca. 1395
+  - Zeno, Antonio, d. ca. 1405
+  name_role_tsim:
+  - Cartographer
+  name_facet_ssim:
+  - Zeno, Niccolò, d. ca. 1395
+  - Zeno, Antonio, d. ca. 1405
+  type_of_resource_ssim:
+  - cartographic
+  extent_tsi:
+  - '1 map ; 11 x 20 cm., on sheet 19 x 26 cm.'
+  digital_origin_ssi:
+  - reformatted digital
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  sub_location_tsi:
+  - Norman B. Leventhal Map Center
+  subject_topic_tsim:
+  - Arctic regions--Maps
+  - North Sea--Maps
+  subject_geographic_tim:
+  - Arctic
+  - North Sea (sea)
+  subject_geographic_sim:
+  - Arctic
+  - North Sea (sea)
+  scale_tsim:
+  - Scale not given.
+  subject_hiergeo_geojson_ssm:
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\"},\"properties\":{\"area\":\"Arctic\"}}"
+  - "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\"},\"properties\":{\"other\":\"North Sea (sea)\"}}"
+  subject_facet_ssim:
+  - Arctic regions--Maps
+  - North Sea--Maps
+  curator_model_suffix_ssi:
+  - DigitalObject
+  rights_ss:
+  - No known copyright restrictions.
+  license_ss:
+  - This work is licensed for use under a Creative Commons Attribution Non-Commercial Share Alike License (CC BY-NC-SA).
+  reuse_allowed_ssi:
+    - creative commons
+  license_uri_ss:
+    - https://creativecommons.org/licenses/by-nc-sa/4.0/
+  note_resp_tsim:
+  - by G. E. Emery.
+  title_info_primary_tsi:
+  - Map of the North Sea and lands as known in popular geography, 1877, with an original identification of the Frisland, Islanda, Crolandia, St. Thomas, Podanda, and Duilo of the Zeni map and voyages
+  title_info_primary_ssort:
+  - Map of the North Sea and lands as known in popular geography, 1877, with an original identification of the Frisland, Islanda, Crolandia, St. Thomas, Podanda, and Duilo of the Zeni map and voyages
+  title_info_primary_subtitle_tsi:
+  - "1380 -- together with the true locality of the Lost East Greenland Colony; also, the Hvidserk, Blaaserk, North Bottome, Furderstranda and Western Sea of the Icelandic Sagas, etc., as located from historical investigations by George E. Emery"
+  publishing_state_ssi:
+  - published
+  processing_state_ssi:
+  - complete
+  exemplary_image_ssi:
+  - bpl-dev:df65v789s
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:df65v789s
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  - nblmc
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-07-24T14:11:53.292Z'
+- system_create_dtsi:
+  - '2015-01-14T22:24:09Z'
+  system_modified_dtsi:
+  - '2015-06-03T14:40:21Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:000000043
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4350,\"content_type\":\"text/xml\",\"checksum\":\"BpguN9xmGDq9Te37jqNR7w==\",\"key\":\"images/bpl-dev:000000043/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":311126,\"content_type\":\"image/jpeg\",\"checksum\":\"ad+JwBpaxcINoAIm7T+LbA==\",\"key\":\"images/bpl-dev:000000043/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"06_01_003248.tif\",\"byte_size\":241067232,\"content_type\":\"image/tiff\",\"checksum\":\"8ZqE76F5Iu0P9EgshqUF5w==\",\"key\":\"images/bpl-dev:000000043/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":24134937,\"content_type\":\"image/jp2\",\"checksum\":\"rTz7RChFejmJfAE05zREow==\",\"key\":\"images/bpl-dev:000000043/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":52939,\"content_type\":\"image/jpeg\",\"checksum\":\"BOeB7ofPnUFxrC9072nQTg==\",\"key\":\"images/bpl-dev:000000043/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":10959,\"content_type\":\"application/xml\",\"checksum\":\"u1oZFAWUnH4hXwl3YIiptw==\",\"key\":\"images/bpl-dev:000000043/metadata_foxml.xml\",\"service_name\":\"primary\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_exemplary_image_of_ssim:
+  - bpl-dev:00000003t
+  is_file_set_of_ssim:
+  - bpl-dev:00000003t
+  storage_key_base_ss:
+  - images/bpl-dev:000000043
+  filename_base_ssi:
+  - 06_01_003248
+  timestamp:
+  - '2015-06-03T14:40:22.489Z'
+- system_create_dtsi:
+  - '2015-01-14T22:28:10Z'
+  system_modified_dtsi:
+  - '2015-05-22T20:46:37Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:df65v789s
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4350,\"content_type\":\"text/xml\",\"checksum\":\"BpguN9xmGDq9Te37jqNR7w==\",\"key\":\"images/bpl-dev:df65v789s/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":311126,\"content_type\":\"image/jpeg\",\"checksum\":\"ad+JwBpaxcINoAIm7T+LbA==\",\"key\":\"images/bpl-dev:df65v789s/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"06_01_007541.tif\",\"byte_size\":241067232,\"content_type\":\"image/tiff\",\"checksum\":\"8ZqE76F5Iu0P9EgshqUF5w==\",\"key\":\"images/bpl-dev:df65v789s/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":24134937,\"content_type\":\"image/jp2\",\"checksum\":\"rTz7RChFejmJfAE05zREow==\",\"key\":\"images/bpl-dev:df65v789s/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":52939,\"content_type\":\"image/jpeg\",\"checksum\":\"BOeB7ofPnUFxrC9072nQTg==\",\"key\":\"images/bpl-dev:df65v789s/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":10959,\"content_type\":\"application/xml\",\"checksum\":\"u1oZFAWUnH4hXwl3YIiptw==\",\"key\":\"images/bpl-dev:df65v789s/metadata_foxml.xml\",\"service_name\":\"primary\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_exemplary_image_of_ssim:
+  - bpl-dev:df65v788h
+  is_file_set_of_ssim:
+  - bpl-dev:df65v788h
+  storage_key_base_ss:
+  - images/bpl-dev:df65v789s
+  filename_base_ssi:
+  - 06_01_007541
+  timestamp:
+  - '2015-05-22T20:46:38.438Z'
+- system_create_dtsi:
+  - '2015-01-20T21:19:39Z'
+  system_modified_dtsi:
+  - '2015-05-22T20:47:13Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:qf85nb29f
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4350,\"content_type\":\"text/xml\",\"checksum\":\"BpguN9xmGDq9Te37jqNR7w==\",\"key\":\"images/bpl-dev:qf85nb29f/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":311126,\"content_type\":\"image/jpeg\",\"checksum\":\"ad+JwBpaxcINoAIm7T+LbA==\",\"key\":\"images/bpl-dev:qf85nb29f/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"06_01_004165.tif\",\"byte_size\":241067232,\"content_type\":\"image/tiff\",\"checksum\":\"8ZqE76F5Iu0P9EgshqUF5w==\",\"key\":\"images/bpl-dev:qf85nb29f/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":24134937,\"content_type\":\"image/jp2\",\"checksum\":\"rTz7RChFejmJfAE05zREow==\",\"key\":\"images/bpl-dev:qf85nb29f/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":52939,\"content_type\":\"image/jpeg\",\"checksum\":\"BOeB7ofPnUFxrC9072nQTg==\",\"key\":\"images/bpl-dev:qf85nb29f/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":10959,\"content_type\":\"application/xml\",\"checksum\":\"u1oZFAWUnH4hXwl3YIiptw==\",\"key\":\"images/bpl-dev:qf85nb29f/metadata_foxml.xml\",\"service_name\":\"primary\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_exemplary_image_of_ssim:
+  - bpl-dev:qf85nb285
+  is_file_set_of_ssim:
+  - bpl-dev:qf85nb285
+  storage_key_base_ss:
+  - images/bpl-dev:qf85nb29f
+  filename_base_ssi:
+  - 06_01_004165
+  timestamp:
+  - '2015-05-22T20:47:13.842Z'
+- system_create_dtsi:
+  - '2015-11-18T21:07:02Z'
+  system_modified_dtsi:
+  - '2015-11-18T21:22:13Z'
+  curator_model_ssi:
+  - Curator::DigitalObject
+  id:
+  - bpl-dev:7s75dn48d
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  date_start_dtsi:
+  - '1911-01-01T00:00:00Z'
+  date_tsim:
+  - 1911
+  date_edtf_ssm:
+  - 1911
+  date_type_ssm:
+  - dateIssued
+  date_facet_yearly_itim:
+  - 1911
+  genre_basic_tim:
+  - Books
+  genre_basic_ssim:
+  - Books
+  identifier_local_call_tsim:
+  - 8002.77
+  identifier_local_barcode_tsim:
+  - 39999078010400
+  identifier_lccn_tsim:
+  - 11035227
+  identifier_ia_id_ssi:
+  - outlinelessonsin00unit
+  collection_name_ssim:
+  - Books from the Boston Public Library
+  collection_name_tim:
+  - Books from the Boston Public Library
+  collection_ark_id_ssim:
+  - bpl-dev:xs55mc046
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  admin_set_name_ssi:
+  - Books from the Boston Public Library
+  admin_set_ark_id_ssi:
+  - bpl-dev:xs55mc046
+  identifier_uri_ss:
+  - http://ark-hydradev.bpl.org/ark:/50959/7s75dn48d
+  publisher_tsi:
+  - Govt. Print. Off.
+  pubplace_tsi:
+  - Washington
+  issuance_tsi:
+  - single unit
+  lang_term_ssim:
+  - English
+  related_item_host_tim:
+  - Boston Public Library Collection
+  related_item_host_ssim:
+  - Boston Public Library Collection
+  name_tsim:
+  - United States. Office of Educational Affairs.
+  name_role_tsim:
+  - Creator
+  name_facet_ssim:
+  - United States. Office of Educational Affairs.
+  type_of_resource_ssim:
+  - text
+  extent_tsi:
+  - '23 p. : ill. ; 25 cm.'
+  digital_origin_ssi:
+  - reformatted digital
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  subject_topic_tsim:
+  - Education
+  - Home economics
+  - Study and teaching
+  subject_facet_ssim:
+  - Education
+  - Home economics
+  - Study and teaching
+  curator_model_suffix_ssi:
+  - DigitalObject
+  rights_ss:
+  - Rights status not evaluated.
+  license_ss:
+  - No known restrictions on use.
+  reuse_allowed_ssi:
+    - no restrictions
+  note_tsim:
+  - 'At head of title: Office of Educational affairs.'
+  - "\"Reference books\": p. 5."
+  title_info_primary_tsi:
+  - Outline lessons in housekeeping, including cooking, laundering, dairying, and nursing
+  title_info_primary_subtitle_tsi:
+  - for use in schools.
+  has_searchable_pages_bsi:
+  - true
+  ocr_tiv:
+  - "PREFACE. This publication has been compiled from the results of practical experience in the work of instruction in the schools. It is believed that it is a comprehensive and practical manual that will be of material assistance to the teacher, but every teacher is urged to forward suggestions in order that the manual may be improved when a second edition is issued. OUTLINE LESSONS IN HOUSEKEEPINa INTRODUCTION. Matrons and teachers everywhere are asked to reahze the impor- tance of systematic instruction in the several Hnes of household work. Their judgment is relied upon at all times as to the fitness and appro- priateness of the lesson to be given, and they may deviate from the regular course given herein, if it seems best, in order that the training may be better adapted to the needs of the pupils in the several sections."
+  publishing_state_ssi:
+  - published
+  processing_state_ssi:
+  - complete
+  exemplary_image_ssi:
+  - bpl-dev:7s75dn55t
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:7s75dn55t
+  text_direction_ssi:
+  - ltr
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-11-18T21:22:14.23Z'
+- system_create_dtsi:
+  - '2015-11-18T21:04:18Z'
+  system_modified_dtsi:
+  - '2015-11-18T21:09:44Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:7s75dn59x
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4383,\"content_type\":\"text/xml\",\"checksum\":\"EnbI9bQ7FUQOvTP5UA2L9g==\",\"key\":\"images/bpl-dev:7s75dn59x/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":229508,\"content_type\":\"image/jpeg\",\"checksum\":\"ZgmPKVaPb0ljKz9XNzn2Cw==\",\"key\":\"images/bpl-dev:7s75dn59x/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"outlinelessonsin00unit_0011.tif\",\"byte_size\":21022172,\"content_type\":\"image/tiff\",\"checksum\":\"m4dcLGdCrfcxSE2rZBbXhA==\",\"key\":\"images/bpl-dev:7s75dn59x/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":2117415,\"content_type\":\"image/jp2\",\"checksum\":\"7YhKBADaNUbun73u+V+ztQ==\",\"key\":\"images/bpl-dev:7s75dn59x/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":48737,\"content_type\":\"image/jpeg\",\"checksum\":\"zqgWf8P5ZkfMqInNUQ93bg==\",\"key\":\"images/bpl-dev:7s75dn59x/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":14389,\"content_type\":\"application/xml\",\"checksum\":\"1svX4EZnXTtjb9j7wjr7Zw==\",\"key\":\"images/bpl-dev:7s75dn59x/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_coordinates_access\":{\"filename\":\"outlinelessonsin00unit_0011.json\",\"byte_size\":9407,\"content_type\":\"application/json\",\"checksum\":\"ALwt65NHK93zJnGdnkD3FA==\",\"key\":\"images/bpl-dev:7s75dn59x/text_coordinates_access.json\",\"service_name\":\"derivatives\"},\"text_plain\":{\"filename\":\"outlinelessonsin00unit_0011.txt\",\"byte_size\":2293,\"content_type\":\"text/plain\",\"checksum\":\"y/tqYg3Xr/wRzyGTSEZyCA==\",\"key\":\"images/bpl-dev:7s75dn59x/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_file_set_of_ssim:
+  - bpl-dev:7s75dn48d
+  position_isi:
+  - 1
+  processing_state_ssi:
+  - complete
+  page_type_ssi:
+  - Normal
+  page_hand_side_ssi:
+  - RIGHT
+  page_num_label_ssi:
+  - 5
+  ocr_tsiv:
+  - "OUTLINE LESSONS IN HOUSEKEEPINa INTRODUCTION. Matrons and teachers everywhere are asked to reahze the impor- tance of systematic instruction in the several Hnes of household work. Their judgment is relied upon at all times as to the fitness and appro- priateness of the lesson to be given, and they may deviate from the regular course given herein, if it seems best, in order that the training may be better adapted to the needs of the pupils in the several sections."
+  has_wordcoords_json_bsi:
+  - true
+  storage_key_base_ss:
+    - images/bpl-dev:7s75dn59x
+  filename_base_ssi:
+    - outlinelessonsin00unit_0011
+  has_ocr_text_bsi:
+    - true
+  timestamp:
+  - '2015-11-18T21:09:44.574Z'
+- system_create_dtsi:
+  - '2015-11-18T17:20:37Z'
+  system_modified_dtsi:
+  - '2015-11-18T19:32:47Z'
+  curator_model_ssi:
+  - Curator::DigitalObject
+  id:
+  - bpl-dev:3j334603p
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  identifier_local_barcode_tsim:
+  - 39999063781148
+  identifier_ia_id_ssi:
+  - womansbookdealin01unse
+  collection_name_ssim:
+  - Books from the Boston Public Library
+  collection_name_tim:
+  - Books from the Boston Public Library
+  collection_ark_id_ssim:
+  - bpl-dev:xs55mc046
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  admin_set_name_ssi:
+  - Books from the Boston Public Library
+  admin_set_ark_id_ssi:
+  - bpl-dev:xs55mc046
+  identifier_uri_ss:
+  - http://ark-hydradev.bpl.org/ark:/50959/3j334603p
+  related_item_host_tim:
+  - Boston Public Library Collection
+  related_item_host_ssim:
+  - Boston Public Library Collection
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  curator_model_suffix_ssi:
+  - DigitalObject
+  rights_ss:
+  - Rights status not evaluated.
+  license_ss:
+  - No known restrictions on use.
+  reuse_allowed_ssi:
+    - no restrictions
+  title_info_primary_tsi:
+  - The woman's book
+  title_info_partnum_tsi:
+  - v.1
+  title_info_primary_subtitle_tsi:
+  - dealing practically with the modern conditions of home-life, self-support, education, opportunties, and every-day problems.
+  has_searchable_pages_bsi:
+  - true
+  ocr_tiv:
+  - "Designed by Frieda V. Redmond. OCCUPATIONS FOR WOMEN. By p. G. HUBERT, Jr. The New Fields of Work Open. Art Study and Art Workers. Women Architects. Teaching. Typewriting and Stenography. Women's Exchanges. Occupations for the Inexperienced. The Trained Nurse. Women Physicians and Lawyers. Newspaper Work and Pay. Dress-making and Millinery. Work Done at Home. The Stage as a Profession. Novel Occupations Followed. Women as Local Photographers. How Women Workers are Swindled."
+  publishing_state_ssi:
+  - published
+  processing_state_ssi:
+  - complete
+  exemplary_image_ssi:
+  - bpl-dev:3j3346146
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:3j3346146
+  text_direction_ssi:
+  - ltr
+  destination_site_ssim:
+  - commonwealth
+  - bpl
+  harvesting_status_bsi:
+  - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+  - '2015-11-18T19:32:49.014Z'
+- system_create_dtsi:
+  - '2015-11-18T16:57:36Z'
+  system_modified_dtsi:
+  - '2015-11-18T17:27:35Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:3j334628j
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4383,\"content_type\":\"text/xml\",\"checksum\":\"EnbI9bQ7FUQOvTP5UA2L9g==\",\"key\":\"images/bpl-dev:3j334628j/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":229508,\"content_type\":\"image/jpeg\",\"checksum\":\"ZgmPKVaPb0ljKz9XNzn2Cw==\",\"key\":\"images/bpl-dev:3j334628j/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"womansbookdealin01unse_0025.tif\",\"byte_size\":21022172,\"content_type\":\"image/tiff\",\"checksum\":\"m4dcLGdCrfcxSE2rZBbXhA==\",\"key\":\"images/bpl-dev:3j334628j/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":2117415,\"content_type\":\"image/jp2\",\"checksum\":\"7YhKBADaNUbun73u+V+ztQ==\",\"key\":\"images/bpl-dev:3j334628j/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":48737,\"content_type\":\"image/jpeg\",\"checksum\":\"zqgWf8P5ZkfMqInNUQ93bg==\",\"key\":\"images/bpl-dev:3j334628j/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":14389,\"content_type\":\"application/xml\",\"checksum\":\"1svX4EZnXTtjb9j7wjr7Zw==\",\"key\":\"images/bpl-dev:3j334628j/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_coordinates_access\":{\"filename\":\"womansbookdealin01unse_0025.json\",\"byte_size\":9407,\"content_type\":\"application/json\",\"checksum\":\"ALwt65NHK93zJnGdnkD3FA==\",\"key\":\"images/bpl-dev:3j334628j/text_coordinates_access.json\",\"service_name\":\"derivatives\"},\"text_plain\":{\"filename\":\"womansbookdealin01unse_0025.txt\",\"byte_size\":2293,\"content_type\":\"text/plain\",\"checksum\":\"y/tqYg3Xr/wRzyGTSEZyCA==\",\"key\":\"images/bpl-dev:3j334628j/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_file_set_of_ssim:
+  - bpl-dev:3j334603p
+  processing_state_ssi:
+  - complete
+  page_type_ssi:
+  - Normal
+  page_hand_side_ssi:
+  - right
+  page_num_label_ssi:
+  - 1
+  ocr_tsiv:
+  - "Designed by Frieda V. Redmond. OCCUPATIONS FOR WOMEN. By p. G. HUBERT, Jr. The New Fields of Work Open. Art Study and Art Workers. Women Architects. Teaching. Typewriting and Stenography. Women's Exchanges. Occupations for the Inexperienced. The Trained Nurse. Women Physicians and Lawyers. Newspaper Work and Pay. Dress-making and Millinery. Work Done at Home. The Stage as a Profession. Novel Occupations Followed. Women as Local Photographers. How Women Workers are Swindled."
+  has_wordcoords_json_bsi:
+  - true
+  storage_key_base_ss:
+  - images/bpl-dev:3j334628j
+  filename_base_ssi:
+  - womansbookdealin01unse_0025
+  has_ocr_text_bsi:
+  - true
+  timestamp:
+  - '2015-11-18T17:27:35.361Z'
+- system_create_dtsi:
+  - '2015-11-18T16:01:17Z'
+  system_modified_dtsi:
+  - '2015-11-18T18:49:15Z'
+  curator_model_ssi:
+  - Curator::DigitalObject
+  id:
+  - bpl-dev:rf55z9490
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  identifier_local_barcode_tsim:
+  - 39999082702109
+  identifier_ia_id_ssi:
+  - womansbookdealin02unse
+  collection_name_ssim:
+  - Books from the Boston Public Library
+  collection_name_tim:
+  - Books from the Boston Public Library
+  collection_ark_id_ssim:
+  - bpl-dev:xs55mc046
+  institution_name_ssi:
+  - Boston Public Library
+  institution_name_ti:
+  - Boston Public Library
+  institution_ark_id_ssi:
+  - bpl-dev:abcd12345
+  admin_set_name_ssi:
+  - Books from the Boston Public Library
+  admin_set_ark_id_ssi:
+  - bpl-dev:xs55mc046
+  identifier_uri_ss:
+  - http://ark-hydradev.bpl.org/ark:/50959/rf55z9490
+  related_item_host_tim:
+  - Boston Public Library Collection
+  related_item_host_ssim:
+  - Boston Public Library Collection
+  physical_location_ssim:
+  - Boston Public Library
+  physical_location_tim:
+  - Boston Public Library
+  curator_model_suffix_ssi:
+  - DigitalObject
+  rights_ss:
+  - Rights status not evaluated.
+  license_ss:
+  - No known restrictions on use.
+  reuse_allowed_ssi:
+    - no restrictions
+  title_info_primary_tsi:
+  - The woman's book
+  title_info_partnum_tsi:
+  - v.2
+  title_info_primary_subtitle_tsi:
+  - dealing practically with the modern conditions of home-life, self-support, education, opportunties, and every-day problems.
+  has_searchable_pages_bsi:
+  - true
+  ocr_tiv:
+  - "The Home Grounds. itself, but, after all this has been con- sidered, there still remain some wise suggestions that should be followed in nearly all cases. Give plenty of space in front of the house, in order to exhibit it to better effect and to secure at the same time greater privacy from the street."
+  publishing_state_ssi:
+  - published
+  processing_state_ssi:
+  - complete
+  exemplary_image_ssi:
+  - bpl-dev:rf55z9600
+  exemplary_image_key_base_ss:
+    - images/bpl-dev:rf55z9600
+  text_direction_ssi:
+  - ltr
+  timestamp:
+  - '2015-11-18T18:49:17.589Z'
+- system_create_dtsi:
+  - '2015-11-18T15:38:32Z'
+  system_modified_dtsi:
+  - '2015-11-18T16:50:05Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:rf55z9732
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4383,\"content_type\":\"text/xml\",\"checksum\":\"EnbI9bQ7FUQOvTP5UA2L9g==\",\"key\":\"images/bpl-dev:rf55z9732/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":229508,\"content_type\":\"image/jpeg\",\"checksum\":\"ZgmPKVaPb0ljKz9XNzn2Cw==\",\"key\":\"images/bpl-dev:rf55z9732/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"womansbookdealin02unse_0026.tif\",\"byte_size\":21022172,\"content_type\":\"image/tiff\",\"checksum\":\"m4dcLGdCrfcxSE2rZBbXhA==\",\"key\":\"images/bpl-dev:rf55z9732/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":2117415,\"content_type\":\"image/jp2\",\"checksum\":\"7YhKBADaNUbun73u+V+ztQ==\",\"key\":\"images/bpl-dev:rf55z9732/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":48737,\"content_type\":\"image/jpeg\",\"checksum\":\"zqgWf8P5ZkfMqInNUQ93bg==\",\"key\":\"images/bpl-dev:rf55z9732/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":14389,\"content_type\":\"application/xml\",\"checksum\":\"1svX4EZnXTtjb9j7wjr7Zw==\",\"key\":\"images/bpl-dev:rf55z9732/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_coordinates_access\":{\"filename\":\"womansbookdealin02unse_0026.json\",\"byte_size\":9407,\"content_type\":\"application/json\",\"checksum\":\"ALwt65NHK93zJnGdnkD3FA==\",\"key\":\"images/bpl-dev:rf55z9732/text_coordinates_access.json\",\"service_name\":\"derivatives\"},\"text_plain\":{\"filename\":\"womansbookdealin02unse_0026.txt\",\"byte_size\":2293,\"content_type\":\"text/plain\",\"checksum\":\"y/tqYg3Xr/wRzyGTSEZyCA==\",\"key\":\"images/bpl-dev:rf55z9732/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_file_set_of_ssim:
+  - bpl-dev:rf55z9490
+  processing_state_ssi:
+  - complete
+  page_type_ssi:
+  - Normal
+  page_hand_side_ssi:
+  - left
+  page_num_label_ssi:
+  - 4
+  ocr_tsiv:
+  - "The Home Grounds. itself, but, after all this has been con- sidered, there still remain some wise suggestions that should be followed in nearly all cases. Give plenty of space in front of the house, in order to exhibit it to better effect and to secure at the same time greater privacy from the street."
+  position_isi:
+    - 1
+  has_wordcoords_json_bsi:
+  - true
+  storage_key_base_ss:
+    - images/bpl-dev:rf55z9732
+  filename_base_ssi:
+    - womansbookdealin02unse_0026
+  has_ocr_text_bsi:
+    - true
+  timestamp:
+  - '2015-11-18T16:50:05.07Z'
+- system_create_dtsi:
+  - '2015-11-18T21:04:15Z'
+  system_modified_dtsi:
+  - '2015-11-18T21:09:30Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:7s75dn58n
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4383,\"content_type\":\"text/xml\",\"checksum\":\"EnbI9bQ7FUQOvTP5UA2L9g==\",\"key\":\"images/bpl-dev:7s75dn58n/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":229508,\"content_type\":\"image/jpeg\",\"checksum\":\"ZgmPKVaPb0ljKz9XNzn2Cw==\",\"key\":\"images/bpl-dev:7s75dn58n/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"womansbookdealin02unse_0027.tif\",\"byte_size\":21022172,\"content_type\":\"image/tiff\",\"checksum\":\"m4dcLGdCrfcxSE2rZBbXhA==\",\"key\":\"images/bpl-dev:7s75dn58n/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":2117415,\"content_type\":\"image/jp2\",\"checksum\":\"7YhKBADaNUbun73u+V+ztQ==\",\"key\":\"images/bpl-dev:7s75dn58n/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":48737,\"content_type\":\"image/jpeg\",\"checksum\":\"zqgWf8P5ZkfMqInNUQ93bg==\",\"key\":\"images/bpl-dev:7s75dn58n/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":14389,\"content_type\":\"application/xml\",\"checksum\":\"1svX4EZnXTtjb9j7wjr7Zw==\",\"key\":\"images/bpl-dev:7s75dn58n/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_coordinates_access\":{\"filename\":\"womansbookdealin02unse_0027.json\",\"byte_size\":9407,\"content_type\":\"application/json\",\"checksum\":\"ALwt65NHK93zJnGdnkD3FA==\",\"key\":\"images/bpl-dev:7s75dn58n/text_coordinates_access.json\",\"service_name\":\"derivatives\"},\"text_plain\":{\"filename\":\"womansbookdealin02unse_0027.txt\",\"byte_size\":2293,\"content_type\":\"text/plain\",\"checksum\":\"y/tqYg3Xr/wRzyGTSEZyCA==\",\"key\":\"images/bpl-dev:7s75dn58n/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_file_set_of_ssim:
+  - bpl-dev:7s75dn48d
+  position_isi:
+  - 0
+  processing_state_ssi:
+  - complete
+  page_type_ssi:
+  - Normal
+  page_hand_side_ssi:
+  - left
+  page_num_label_ssi:
+  - 4
+  ocr_tsiv:
+  - "PREFACE. This publication has been compiled from the results of practical experience in the work of instruction in the schools. It is believed that it is a comprehensive and practical manual that will be of material assistance to the teacher, but every teacher is urged to forward suggestions in order that the manual may be improved when a second edition is issued."
+  has_wordcoords_json_bsi:
+  - true
+  storage_key_base_ss:
+    - images/bpl-dev:7s75dn58n
+  filename_base_ssi:
+    - womansbookdealin02unse_0027
+  timestamp:
+  - '2015-11-18T21:09:30.2Z'
+- system_create_dtsi:
+  - '2015-11-18T17:20:25Z'
+  system_modified_dtsi:
+  - '2015-11-18T19:32:29Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Ereader
+  curator_model_suffix_ssi:
+  - Ereader
+  id:
+  - bpl-dev:3j334b41x
+  attachments_ss:
+  - "TK"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_file_set_of_ssim:
+  - bpl-dev:3j334603p
+  position_isi:
+  - 0
+  processing_state_ssi:
+  - complete
+  storage_key_base_ss:
+    - ereaders/bpl-dev:3j334b41x
+  filename_base_ssi:
+    - womansbookdealin02unse
+  timestamp:
+  - '2015-11-18T19:32:30.275Z'
+- system_create_dtsi:
+  - '2015-11-19T21:04:18Z'
+  system_modified_dtsi:
+  - '2015-11-19T21:09:44Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:7s75dn60x
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4383,\"content_type\":\"text/xml\",\"checksum\":\"EnbI9bQ7FUQOvTP5UA2L9g==\",\"key\":\"images/bpl-dev:7s75dn60x/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":229508,\"content_type\":\"image/jpeg\",\"checksum\":\"ZgmPKVaPb0ljKz9XNzn2Cw==\",\"key\":\"images/bpl-dev:7s75dn60x/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"womansbookdealin02unse_0028.tif\",\"byte_size\":21022172,\"content_type\":\"image/tiff\",\"checksum\":\"m4dcLGdCrfcxSE2rZBbXhA==\",\"key\":\"images/bpl-dev:7s75dn60x/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":2117415,\"content_type\":\"image/jp2\",\"checksum\":\"7YhKBADaNUbun73u+V+ztQ==\",\"key\":\"images/bpl-dev:7s75dn60x/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":48737,\"content_type\":\"image/jpeg\",\"checksum\":\"zqgWf8P5ZkfMqInNUQ93bg==\",\"key\":\"images/bpl-dev:7s75dn60x/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":14389,\"content_type\":\"application/xml\",\"checksum\":\"1svX4EZnXTtjb9j7wjr7Zw==\",\"key\":\"images/bpl-dev:7s75dn60x/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_coordinates_access\":{\"filename\":\"womansbookdealin02unse_0027.json\",\"byte_size\":9407,\"content_type\":\"application/json\",\"checksum\":\"ALwt65NHK93zJnGdnkD3FA==\",\"key\":\"images/bpl-dev:7s75dn60x/text_coordinates_access.json\",\"service_name\":\"derivatives\"},\"text_plain\":{\"filename\":\"womansbookdealin02unse_0027.txt\",\"byte_size\":2293,\"content_type\":\"text/plain\",\"checksum\":\"y/tqYg3Xr/wRzyGTSEZyCA==\",\"key\":\"images/bpl-dev:7s75dn60x/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_file_set_of_ssim:
+  - bpl-dev:7s75dn48d
+  position_isi:
+  - 2
+  processing_state_ssi:
+  - complete
+  page_type_ssi:
+  - Normal
+  page_hand_side_ssi:
+  - left
+  page_num_label_ssi:
+  - 6
+  ocr_tsiv:
+  - "Pariatur bespoke occaecat direct trade wolf, accusamus small batch synth VHS kickstarter magna kitsch."
+  has_wordcoords_json_bsi:
+  - true
+  storage_key_base_ss:
+    - images/bpl-dev:7s75dn60x
+  filename_base_ssi:
+    - womansbookdealin02unse_0028
+  has_ocr_text_bsi:
+    - true
+  timestamp:
+  - '2015-11-19T21:09:44.574Z'
+- system_create_dtsi:
+  - '2015-11-20T21:04:18Z'
+  system_modified_dtsi:
+  - '2015-11-20T21:09:44Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:7s75dn61x
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4383,\"content_type\":\"text/xml\",\"checksum\":\"EnbI9bQ7FUQOvTP5UA2L9g==\",\"key\":\"images/bpl-dev:7s75dn61x/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":229508,\"content_type\":\"image/jpeg\",\"checksum\":\"ZgmPKVaPb0ljKz9XNzn2Cw==\",\"key\":\"images/bpl-dev:7s75dn61x/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"womansbookdealin02unse_0029.tif\",\"byte_size\":21022172,\"content_type\":\"image/tiff\",\"checksum\":\"m4dcLGdCrfcxSE2rZBbXhA==\",\"key\":\"images/bpl-dev:7s75dn61x/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":2117415,\"content_type\":\"image/jp2\",\"checksum\":\"7YhKBADaNUbun73u+V+ztQ==\",\"key\":\"images/bpl-dev:7s75dn61x/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":48737,\"content_type\":\"image/jpeg\",\"checksum\":\"zqgWf8P5ZkfMqInNUQ93bg==\",\"key\":\"images/bpl-dev:7s75dn61x/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":14389,\"content_type\":\"application/xml\",\"checksum\":\"1svX4EZnXTtjb9j7wjr7Zw==\",\"key\":\"images/bpl-dev:7s75dn61x/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_coordinates_access\":{\"filename\":\"womansbookdealin02unse_0027.json\",\"byte_size\":9407,\"content_type\":\"application/json\",\"checksum\":\"ALwt65NHK93zJnGdnkD3FA==\",\"key\":\"images/bpl-dev:7s75dn61x/text_coordinates_access.json\",\"service_name\":\"derivatives\"},\"text_plain\":{\"filename\":\"womansbookdealin02unse_0027.txt\",\"byte_size\":2293,\"content_type\":\"text/plain\",\"checksum\":\"y/tqYg3Xr/wRzyGTSEZyCA==\",\"key\":\"images/bpl-dev:7s75dn61x/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_file_set_of_ssim:
+  - bpl-dev:7s75dn48d
+  position_isi:
+  - 3
+  processing_state_ssi:
+  - complete
+  page_type_ssi:
+  - Normal
+  page_hand_side_ssi:
+  - right
+  page_num_label_ssi:
+  - 7
+  ocr_tsiv:
+  - "Aliqua aliquip meggings pork belly small batch. Chia dreamcatcher church-key tacos."
+  has_wordcoords_json_bsi:
+  - true
+  storage_key_base_ss:
+    - images/bpl-dev:7s75dn61x
+  filename_base_ssi:
+    - womansbookdealin02unse_0029
+  has_ocr_text_bsi:
+    - true
+  timestamp:
+  - '2015-11-20T21:09:44.574Z'
+- system_create_dtsi:
+  - '2015-11-21T21:04:18Z'
+  system_modified_dtsi:
+  - '2015-11-21T21:09:44Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:7s75dn62x
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4383,\"content_type\":\"text/xml\",\"checksum\":\"EnbI9bQ7FUQOvTP5UA2L9g==\",\"key\":\"images/bpl-dev:7s75dn62x/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":229508,\"content_type\":\"image/jpeg\",\"checksum\":\"ZgmPKVaPb0ljKz9XNzn2Cw==\",\"key\":\"images/bpl-dev:7s75dn62x/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"womansbookdealin02unse_0030.tif\",\"byte_size\":21022172,\"content_type\":\"image/tiff\",\"checksum\":\"m4dcLGdCrfcxSE2rZBbXhA==\",\"key\":\"images/bpl-dev:7s75dn62x/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":2117415,\"content_type\":\"image/jp2\",\"checksum\":\"7YhKBADaNUbun73u+V+ztQ==\",\"key\":\"images/bpl-dev:7s75dn62x/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":48737,\"content_type\":\"image/jpeg\",\"checksum\":\"zqgWf8P5ZkfMqInNUQ93bg==\",\"key\":\"images/bpl-dev:7s75dn62x/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":14389,\"content_type\":\"application/xml\",\"checksum\":\"1svX4EZnXTtjb9j7wjr7Zw==\",\"key\":\"images/bpl-dev:7s75dn62x/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_coordinates_access\":{\"filename\":\"womansbookdealin02unse_0027.json\",\"byte_size\":9407,\"content_type\":\"application/json\",\"checksum\":\"ALwt65NHK93zJnGdnkD3FA==\",\"key\":\"images/bpl-dev:7s75dn62x/text_coordinates_access.json\",\"service_name\":\"derivatives\"},\"text_plain\":{\"filename\":\"womansbookdealin02unse_0027.txt\",\"byte_size\":2293,\"content_type\":\"text/plain\",\"checksum\":\"y/tqYg3Xr/wRzyGTSEZyCA==\",\"key\":\"images/bpl-dev:7s75dn62x/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_file_set_of_ssim:
+  - bpl-dev:7s75dn48d
+  position_isi:
+  - 4
+  processing_state_ssi:
+  - complete
+  page_type_ssi:
+  - Normal
+  page_hand_side_ssi:
+  - left
+  page_num_label_ssi:
+  - 8
+  ocr_tsiv:
+  - "Umami wayfarers tempor, heirloom est fingerstache banjo marfa sed meh put a bird on it chartreuse before they sold out incididunt."
+  has_wordcoords_json_bsi:
+  - true
+  storage_key_base_ss:
+    - images/bpl-dev:7s75dn62x
+  filename_base_ssi:
+    - womansbookdealin02unse_0030
+  has_ocr_text_bsi:
+    - true
+  timestamp:
+  - '2015-11-21T21:09:44.574Z'
+- system_create_dtsi:
+  - '2015-11-22T21:04:18Z'
+  system_modified_dtsi:
+  - '2015-11-22T21:09:44Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:7s75dn63x
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4383,\"content_type\":\"text/xml\",\"checksum\":\"EnbI9bQ7FUQOvTP5UA2L9g==\",\"key\":\"images/bpl-dev:7s75dn63x/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":229508,\"content_type\":\"image/jpeg\",\"checksum\":\"ZgmPKVaPb0ljKz9XNzn2Cw==\",\"key\":\"images/bpl-dev:7s75dn63x/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"womansbookdealin02unse_0031.tif\",\"byte_size\":21022172,\"content_type\":\"image/tiff\",\"checksum\":\"m4dcLGdCrfcxSE2rZBbXhA==\",\"key\":\"images/bpl-dev:7s75dn63x/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":2117415,\"content_type\":\"image/jp2\",\"checksum\":\"7YhKBADaNUbun73u+V+ztQ==\",\"key\":\"images/bpl-dev:7s75dn63x/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":48737,\"content_type\":\"image/jpeg\",\"checksum\":\"zqgWf8P5ZkfMqInNUQ93bg==\",\"key\":\"images/bpl-dev:7s75dn63x/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":14389,\"content_type\":\"application/xml\",\"checksum\":\"1svX4EZnXTtjb9j7wjr7Zw==\",\"key\":\"images/bpl-dev:7s75dn63x/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_coordinates_access\":{\"filename\":\"womansbookdealin02unse_0027.json\",\"byte_size\":9407,\"content_type\":\"application/json\",\"checksum\":\"ALwt65NHK93zJnGdnkD3FA==\",\"key\":\"images/bpl-dev:7s75dn63x/text_coordinates_access.json\",\"service_name\":\"derivatives\"},\"text_plain\":{\"filename\":\"womansbookdealin02unse_0027.txt\",\"byte_size\":2293,\"content_type\":\"text/plain\",\"checksum\":\"y/tqYg3Xr/wRzyGTSEZyCA==\",\"key\":\"images/bpl-dev:7s75dn63x/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_file_set_of_ssim:
+  - bpl-dev:7s75dn48d
+  position_isi:
+  - 5
+  processing_state_ssi:
+  - complete
+  page_type_ssi:
+  - Normal
+  page_hand_side_ssi:
+  - right
+  page_num_label_ssi:
+  - 9
+  ocr_tsiv:
+  - "Aute distillery assumenda skateboard, synth deep v fanny pack scenester."
+  has_wordcoords_json_bsi:
+  - true
+  storage_key_base_ss:
+    - images/bpl-dev:7s75dn63x
+  filename_base_ssi:
+    - womansbookdealin02unse_0031
+  has_ocr_text_bsi:
+    - true
+  timestamp:
+  - '2015-11-22T21:09:44.574Z'
+- system_create_dtsi:
+  - '2015-11-23T21:04:18Z'
+  system_modified_dtsi:
+  - '2015-11-23T21:09:44Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:7s75dn64x
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4383,\"content_type\":\"text/xml\",\"checksum\":\"EnbI9bQ7FUQOvTP5UA2L9g==\",\"key\":\"images/bpl-dev:7s75dn64x/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":229508,\"content_type\":\"image/jpeg\",\"checksum\":\"ZgmPKVaPb0ljKz9XNzn2Cw==\",\"key\":\"images/bpl-dev:7s75dn64x/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"womansbookdealin02unse_0032.tif\",\"byte_size\":21022172,\"content_type\":\"image/tiff\",\"checksum\":\"m4dcLGdCrfcxSE2rZBbXhA==\",\"key\":\"images/bpl-dev:7s75dn64x/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":2117415,\"content_type\":\"image/jp2\",\"checksum\":\"7YhKBADaNUbun73u+V+ztQ==\",\"key\":\"images/bpl-dev:7s75dn64x/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":48737,\"content_type\":\"image/jpeg\",\"checksum\":\"zqgWf8P5ZkfMqInNUQ93bg==\",\"key\":\"images/bpl-dev:7s75dn64x/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":14389,\"content_type\":\"application/xml\",\"checksum\":\"1svX4EZnXTtjb9j7wjr7Zw==\",\"key\":\"images/bpl-dev:7s75dn64x/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_coordinates_access\":{\"filename\":\"womansbookdealin02unse_0027.json\",\"byte_size\":9407,\"content_type\":\"application/json\",\"checksum\":\"ALwt65NHK93zJnGdnkD3FA==\",\"key\":\"images/bpl-dev:7s75dn64x/text_coordinates_access.json\",\"service_name\":\"derivatives\"},\"text_plain\":{\"filename\":\"womansbookdealin02unse_0027.txt\",\"byte_size\":2293,\"content_type\":\"text/plain\",\"checksum\":\"y/tqYg3Xr/wRzyGTSEZyCA==\",\"key\":\"images/bpl-dev:7s75dn64x/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  position_isi:
+  - 6
+  processing_state_ssi:
+  - complete
+  page_type_ssi:
+  - Normal
+  page_hand_side_ssi:
+  - left
+  page_num_label_ssi:
+  - 10
+  ocr_tsiv:
+  - "Non tempor vegan, ethical tacos odio pabst photo booth selvage chambray poutine"
+  has_wordcoords_json_bsi:
+  - true
+  storage_key_base_ss:
+    - images/bpl-dev:7s75dn64x
+  filename_base_ssi:
+    - womansbookdealin02unse_0032
+  has_ocr_text_bsi:
+    - true
+  timestamp:
+  - '2015-11-23T21:09:44.574Z'
+- system_create_dtsi:
+  - '2015-11-24T21:04:18Z'
+  system_modified_dtsi:
+  - '2015-11-24T21:09:44Z'
+  curator_model_ssi:
+  - Curator::Filestreams::Image
+  curator_model_suffix_ssi:
+  - Image
+  id:
+  - bpl-dev:7s75dn65x
+  attachments_ss:
+  - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":4383,\"content_type\":\"text/xml\",\"checksum\":\"EnbI9bQ7FUQOvTP5UA2L9g==\",\"key\":\"images/bpl-dev:7s75dn65x/characterization.xml\",\"service_name\":\"derivatives\"},\"image_access_800\":{\"filename\":\"image_access_800.jpg\",\"byte_size\":229508,\"content_type\":\"image/jpeg\",\"checksum\":\"ZgmPKVaPb0ljKz9XNzn2Cw==\",\"key\":\"images/bpl-dev:7s75dn65x/image_access_800.jpg\",\"service_name\":\"derivatives\"},\"image_primary\":{\"filename\":\"womansbookdealin02unse_0033.tif\",\"byte_size\":21022172,\"content_type\":\"image/tiff\",\"checksum\":\"m4dcLGdCrfcxSE2rZBbXhA==\",\"key\":\"images/bpl-dev:7s75dn65x/image_primary.tif\",\"service_name\":\"primary\"},\"image_service\":{\"filename\":\"image_service.jp2\",\"byte_size\":2117415,\"content_type\":\"image/jp2\",\"checksum\":\"7YhKBADaNUbun73u+V+ztQ==\",\"key\":\"images/bpl-dev:7s75dn65x/image_service.jp2\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":48737,\"content_type\":\"image/jpeg\",\"checksum\":\"zqgWf8P5ZkfMqInNUQ93bg==\",\"key\":\"images/bpl-dev:7s75dn65x/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":14389,\"content_type\":\"application/xml\",\"checksum\":\"1svX4EZnXTtjb9j7wjr7Zw==\",\"key\":\"images/bpl-dev:7s75dn65x/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_coordinates_access\":{\"filename\":\"womansbookdealin02unse_0027.json\",\"byte_size\":9407,\"content_type\":\"application/json\",\"checksum\":\"ALwt65NHK93zJnGdnkD3FA==\",\"key\":\"images/bpl-dev:7s75dn65x/text_coordinates_access.json\",\"service_name\":\"derivatives\"},\"text_plain\":{\"filename\":\"womansbookdealin02unse_0027.txt\",\"byte_size\":2293,\"content_type\":\"text/plain\",\"checksum\":\"y/tqYg3Xr/wRzyGTSEZyCA==\",\"key\":\"images/bpl-dev:7s75dn65x/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  read_access_group_ssim:
+  - public
+  edit_access_group_ssim:
+  - superuser
+  - admin[bpl-dev:abcd12345]
+  is_file_set_of_ssim:
+  - bpl-dev:7s75dn48d
+  position_isi:
+  - 7
+  processing_state_ssi:
+  - complete
+  page_type_ssi:
+  - Normal
+  page_hand_side_ssi:
+  - right
+  page_num_label_ssi:
+  - 11
+  ocr_tsiv:
+  - "Wayfarers tilde poutine, blue bottle typewriter incididunt scenester ex banh mi selfies 90's chia raw denim health goth"
+  has_wordcoords_json_bsi:
+  - true
+  storage_key_base_ss:
+    - images/bpl-dev:7s75dn65x
+  filename_base_ssi:
+    - womansbookdealin02unse_0033
+  has_ocr_text_bsi:
+    - true
+  timestamp:
+  - '2015-11-24T21:09:44.574Z'
+- id:
+  - bpl-dev:ff365636z
+  system_create_dtsi:
+    - '2019-01-29T15:23:25Z'
+  system_modified_dtsi:
+    - '2021-08-17T16:26:07Z'
+  curator_model_ssi:
+    - Curator::Filestreams::Document
+  curator_model_suffix_ssi:
+    - Document
+  processing_state_ssi:
+    - complete
+  attachments_ss:
+    - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":2747,\"content_type\":\"text/xml\",\"checksum\":\"4p2ZLNXl6maKzLWrN+YSGQ==\",\"key\":\"documents/bpl-dev:ff365636z/characterization.xml\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":8145,\"content_type\":\"application/xml\",\"checksum\":\"Qq5ypD6FvI/ie3Cn8+OKXg==\",\"key\":\"documents/bpl-dev:ff365636z/metadata_foxml.xml\",\"service_name\":\"primary\"},\"text_plain\":{\"filename\":\"FreemensOath-Transcription.txt\",\"byte_size\":3879,\"content_type\":\"text/plain\",\"checksum\":\"7NDAnhFcOC991YFlxZ7BHA==\",\"key\":\"documents/bpl-dev:ff365636z/text_plain.txt\",\"service_name\":\"derivatives\"}}"
+  storage_key_base_ss:
+    - documents/bpl-dev:ff365636z
+  is_file_set_of_ssim:
+    - bpl-dev:ff365631k
+  filename_base_ssi:
+    - FreemensOath-Transcription
+  position_isi:
+    - 0
+  has_ocr_text_bsi:
+    - true
+  ocr_tsiv:
+    - "The Oath of ffreemen : I A : B : &c : beinge beinge by the Allmightyes most wise despositio"
+  timestamp:
+    - '2021-08-17T16:26:07.960Z'
+- system_create_dtsi:
+    - '2022-03-01T16:19:55Z'
+  system_modified_dtsi:
+    - '2022-08-01T19:04:09Z'
+  curator_model_ssi:
+    - Curator::Collection
+  id:
+    - bpl-dev:w0892b63n
+  read_access_group_ssim:
+    - public
+  edit_access_group_ssim:
+    - superuser
+    - admin[bpl-dev:abcd12345]
+  curator_model_suffix_ssi:
+    - Collection
+  title_info_primary_tsi:
+    - WHDH Collection
+  title_info_primary_ssort:
+    - WHDH Collection
+  publishing_state_ssi:
+    - published
+  abstract_tsi:
+    - Tousled artisan single-origin coffee Williamsburg. Sriracha keffiyeh readymade.
+  physical_location_ssim:
+    - Boston Public Library
+  physical_location_tim:
+    - Boston Public Library
+  institution_name_ssi:
+    - Boston Public Library
+  institution_name_ti:
+    - Boston Public Library
+  genre_basic_ssim:
+    - Collections
+    - Motion pictures
+  institution_ark_id_ssi:
+    - bpl-dev:abcd12345
+  destination_site_ssim:
+    - commonwealth
+    - bpl
+  harvesting_status_bsi:
+    - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+    - '2022-09-01T20:38:10.637Z'
+- system_create_dtsi:
+    - '2022-08-01T19:04:12Z'
+  system_modified_dtsi:
+    - '2022-08-01T19:26:51Z'
+  curator_model_ssi:
+    - Curator::DigitalObject
+  id:
+    - bpl-dev:cj82k894f
+  read_access_group_ssim:
+    - public
+  edit_access_group_ssim:
+    - superuser
+    - admin[bpl-dev:abcd12345]
+  date_start_dtsi:
+    - '1971-09-17T00:00:00Z'
+  date_tsim:
+    - September 17, 1971
+  date_edtf_ssm:
+    - '1971-09-17'
+  date_type_ssm:
+    - dateCreated
+  date_facet_yearly_itim:
+    - 1971
+  genre_basic_tim:
+    - Motion pictures
+  genre_specific_tim:
+    - Television news programs
+  genre_basic_ssim:
+    - Motion pictures
+  genre_specific_ssim:
+    - Television news programs
+  identifier_local_other_tsim:
+    - 39999074219344_18
+  collection_name_ssim:
+    - WHDH Collection
+  collection_name_tim:
+    - WHDH Collection
+  collection_ark_id_ssim:
+    - bpl-dev:w0892b63n
+  institution_name_ssi:
+    - Boston Public Library
+  institution_name_ti:
+    - Boston Public Library
+  institution_ark_id_ssi:
+    - bpl-dev:abcd12345
+  admin_set_name_ssi:
+    - WHDH Collection
+  admin_set_ark_id_ssi:
+    - bpl-dev:w0892b63n
+  identifier_uri_ss:
+    - http://ark-hydradev.bpl.org/ark:/50959/cj82k894f
+  lang_term_ssim:
+    - English
+  related_item_host_tim:
+    - WHDH Collection
+  related_item_host_ssim:
+    - WHDH Collection
+  type_of_resource_ssim:
+    - Moving image
+  extent_tsi:
+    - '1 film reel (6 sec.) : silent, color ; 16 mm'
+  digital_origin_ssi:
+    - reformatted digital
+  physical_location_ssim:
+    - Boston Public Library
+  physical_location_tim:
+    - Boston Public Library
+  shelf_locator_tsi:
+    - 'Can number: 16'
+  curator_model_suffix_ssi:
+    - DigitalObject
+  rights_ss:
+    - Rights status not evaluated.
+  license_ss:
+    - This work is licensed for use under a Creative Commons Attribution Non-Commercial No Derivatives License (CC BY-NC-ND).
+  reuse_allowed_ssi:
+    - creative commons
+  title_info_primary_tsi:
+    - Brookline Police
+  title_info_primary_ssort:
+    - Brookline Police
+  publishing_state_ssi:
+    - published
+  processing_state_ssi:
+    - complete
+  exemplary_image_ssi:
+    - bpl-dev:cj82k895q
+  exemplary_image_key_base_ss:
+    - videos/bpl-dev:cj82k895q
+  destination_site_ssim:
+    - commonwealth
+    - bpl
+  harvesting_status_bsi:
+    - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+    - '2015-07-24T14:11:28.285Z'
+- id:
+    - bpl-dev:cj82k895q
+  system_create_dtsi:
+    - '2020-01-13T18:21:23Z'
+  system_modified_dtsi:
+    - '2021-08-17T16:56:45Z'
+  curator_model_ssi:
+    - Curator::Filestreams::Video
+  curator_model_suffix_ssi:
+    - Video
+  processing_state_ssi:
+    - complete
+  attachments_ss:
+    - "{\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":5911,\"content_type\":\"text/xml\",\"checksum\":\"9eorcedUqXZvlC4Txs7yJg==\",\"key\":\"videos/bpl-dev:cj82k895q/characterization.xml\",\"service_name\":\"derivatives\"},\"image_thumbnail_300\":{\"filename\":\"image_thumbnail_300.jpg\",\"byte_size\":5680,\"content_type\":\"image/jpeg\",\"checksum\":\"P1f2RcLCYdfgPm8PV2VVCw==\",\"key\":\"videos/bpl-dev:cj82k895q/image_thumbnail_300.jpg\",\"service_name\":\"derivatives\"},\"metadata_foxml\":{\"filename\":\"metadata_foxml.xml\",\"byte_size\":17448,\"content_type\":\"application/xml\",\"checksum\":\"1jcMoreJvrcI433U/7IbUg==\",\"key\":\"videos/bpl-dev:cj82k895q/metadata_foxml.xml\",\"service_name\":\"primary\"},\"video_access_mp4\":{\"filename\":\"39999074400019_0.mp4\",\"byte_size\":35421704,\"content_type\":\"video/mp4\",\"checksum\":\"w2opK8klQb3Q+5jcsQ/+IA==\",\"key\":\"videos/bpl-dev:cj82k895q/video_access_mp4.mp4\",\"service_name\":\"derivatives\"},\"video_primary\":{\"filename\":\"39999074400019_0.mov\",\"byte_size\":13920610051,\"content_type\":\"video/quicktime\",\"checksum\":\"kCrfC5IsfJN89F3ZsNKRDA==\",\"key\":\"videos/bpl-dev:cj82k895q/video_primary.mov\",\"service_name\":\"primary\"}}"
+  storage_key_base_ss:
+    - videos/bpl-dev:cj82k895q
+  is_file_set_of_ssim:
+    - bpl-dev:cj82k894f
+  filename_base_ssi:
+    - 39999074400019_0
+  position_isi:
+    - 0
+  timestamp:
+    - '2021-08-17T16:56:45.430Z'
+- system_create_dtsi:
+    - '2022-03-01T16:19:55Z'
+  system_modified_dtsi:
+    - '2022-08-01T19:04:09Z'
+  curator_model_ssi:
+    - Curator::Collection
+  id:
+    - bpl-dev:jm214p80w
+  read_access_group_ssim:
+    - public
+  edit_access_group_ssim:
+    - superuser
+    - admin[bpl-dev:abcd12345]
+  curator_model_suffix_ssi:
+    - Collection
+  title_info_primary_tsi:
+    - Audio Collection
+  title_info_primary_ssort:
+    - Audio Collection
+  publishing_state_ssi:
+    - published
+  abstract_tsi:
+    - Tousled artisan single-origin coffee Williamsburg. Sriracha keffiyeh readymade.
+  physical_location_ssim:
+    - Boston Public Library
+  physical_location_tim:
+    - Boston Public Library
+  institution_name_ssi:
+    - Boston Public Library
+  institution_name_ti:
+    - Boston Public Library
+  genre_basic_ssim:
+    - Collections
+    - Sound recordings
+  institution_ark_id_ssi:
+    - bpl-dev:abcd12345
+  destination_site_ssim:
+    - commonwealth
+    - bpl
+  harvesting_status_bsi:
+    - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+    - '2022-09-01T20:38:10.637Z'
+- system_create_dtsi:
+    - '2022-08-01T19:04:12Z'
+  system_modified_dtsi:
+    - '2022-08-01T19:26:51Z'
+  curator_model_ssi:
+    - Curator::DigitalObject
+  id:
+    - bpl-dev:5d86p086p
+  read_access_group_ssim:
+    - public
+  edit_access_group_ssim:
+    - superuser
+    - admin[bpl-dev:abcd12345]
+  date_start_dtsi:
+    - '1947-05-01T00:00:00Z'
+  date_tsim:
+    - May 1, 1947
+  date_edtf_ssm:
+    - '1947-05-01'
+  date_type_ssm:
+    - dateCreated
+  date_facet_yearly_itim:
+    - 1947
+  genre_basic_tim:
+    - Sound recordings
+  genre_basic_ssim:
+    - Sound recordings
+  identifier_local_other_tsim:
+    - TI-AV_90139.001
+  collection_name_ssim:
+    - WHDH Collection
+  collection_name_tim:
+    - Audio Collection
+  collection_ark_id_ssim:
+    - bpl-dev:jm214p80w
+  institution_name_ssi:
+    - Boston Public Library
+  institution_name_ti:
+    - Boston Public Library
+  institution_ark_id_ssi:
+    - bpl-dev:abcd12345
+  admin_set_name_ssi:
+    - Audio Collection
+  admin_set_ark_id_ssi:
+    - bpl-dev:jm214p80w
+  identifier_uri_ss:
+    - http://ark-hydradev.bpl.org/ark:/50959/5d86p086p
+  lang_term_ssim:
+    - English
+  related_item_host_tim:
+    - Audio Collection
+  related_item_host_ssim:
+    - Audio Collection
+  type_of_resource_ssim:
+    - Audio
+  extent_tsi:
+    - 'Audograph dictation disc (7 recordings)'
+  digital_origin_ssi:
+    - reformatted digital
+  physical_location_ssim:
+    - Boston Public Library
+  physical_location_tim:
+    - Boston Public Library
+  sub_location_tsi:
+    - 'Wyner Archives'
+  curator_model_suffix_ssi:
+    - DigitalObject
+  rights_ss:
+    - Rights status not evaluated.
+  license_ss:
+    - This work is licensed for use under a Creative Commons Attribution Non-Commercial No Derivatives License (CC BY-NC-ND).
+  reuse_allowed_ssi:
+    - creative commons
+  title_info_primary_tsi:
+    - Dictated draft of Joshua Loth Liebman Friday evening Sabbath sermon
+  title_info_primary_ssort:
+    - Dictated draft of Joshua Loth Liebman Friday evening Sabbath sermon
+  publishing_state_ssi:
+    - published
+  processing_state_ssi:
+    - complete
+  destination_site_ssim:
+    - commonwealth
+    - bpl
+  harvesting_status_bsi:
+    - true
+  hosting_status_ssi:
+    - hosted
+  timestamp:
+    - '2022-09-08T16:14:34.548Z'
+- id:
+    - bpl-dev:tq57nr776
+  system_create_dtsi:
+    - '2022-08-15T18:11:06Z'
+  system_modified_dtsi:
+    - '2022-08-15T18:11:59Z'
+  curator_model_ssi:
+    - Curator::Filestreams::Audio
+  curator_model_suffix_ssi:
+    - Audio
+  processing_state_ssi:
+    - complete
+  attachments_ss:
+    - "{\"audio_access\":{\"filename\":\"audio_access.mp3\",\"byte_size\":1725083,\"content_type\":\"audio/mpeg\",\"checksum\":\"TUoYhIi1OJOUITTILUU2dQ==\",\"key\":\"audios/bpl-dev:tq57nr776/audio_access.mp3\",\"service_name\":\"derivatives\"},\"audio_primary\":{\"filename\":\"TI-AV_90108-003.wav\",\"byte_size\":41370898,\"content_type\":\"audio/x-wav\",\"checksum\":\"KFW+X8epG0hmh0uCDRbA+w==\",\"key\":\"audios/bpl-dev:tq57nr776/audio_primary.wav\",\"service_name\":\"primary\"},\"characterization\":{\"filename\":\"characterization.xml\",\"byte_size\":5328,\"content_type\":\"application/xml\",\"checksum\":\"l0Ml7GzqA/pP3Ej5N0EjpQ==\",\"key\":\"audios/bpl-dev:tq57nr776/characterization.xml\",\"service_name\":\"derivatives\"}}"
+  storage_key_base_ss:
+    - audios/bpl-dev:tq57nr776
+  is_file_set_of_ssim:
+    - bpl-dev:5d86p086p
+  filename_base_ssi:
+    - TI-AV_90108-003
+  position_isi:
+    - 0
+  timestamp:
+    - '2022-09-02T13:30:11.676Z'

@@ -15,6 +15,7 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.8', require: 'dotenv/rails-now'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 3.1'
+  gem 'font-awesome-sass', '~> 5.0'
   gem 'jquery-rails', '~> 4.5'
   gem 'pry', '~> 0.14'
   gem 'rails-controller-testing', '~> 1.0'

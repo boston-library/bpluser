@@ -1,1 +1,1 @@
-//= link bpluser.js
+//= link bpluser/folder_tools.js
