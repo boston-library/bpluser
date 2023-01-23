@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe SavedSearchesController do
+RSpec.describe SavedSearchesController, type: :controller do
   let!(:one) { Search.create }
   let!(:two) { Search.create }
   let!(:three) { Search.create }

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe FoldersHelper do
+RSpec.describe FoldersHelper, type: :helper do
   let!(:test_user) { create(:user, email: 'testy@test.com', password: 'password', password_confirmation: 'password') }
   let!(:wrong_user) { create(:user, email: 'testy2@test.com', password: 'password', password_confirmation: 'password') }
   let!(:folder) { create(:bpluser_folder, title: 'Test Folder Title', visibility: 'private', user: test_user) }

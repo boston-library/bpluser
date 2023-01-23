@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Bpluser::FolderItem do
+RSpec.describe Bpluser::FolderItem, type: :model do
   subject!(:folder_item) { build(:bpluser_folder_item, folder: folder) }
 
   let!(:test_user) { create(:user) }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Bpluser
   module FoldersHelperBehavior
     def folder_belongs_to_user

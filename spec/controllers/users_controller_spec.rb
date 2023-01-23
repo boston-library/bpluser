@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-describe UsersController do
+RSpec.describe UsersController, type: :controller do
   render_views
 
-  let(:test_user) { create(:user) }
+  let!(:test_user) { create(:user) }
 
   describe 'Get show' do
     describe 'non-logged-in user' do
-      it 'should redirect to the sign-in page' do
+      it 'is expected to redirect to the sign-in page' do
         get :show, params: { id: test_user.id }
         expect(response).to redirect_to(new_user_session_path)
       end

@@ -1,0 +1,18 @@
+# stores VLR settings
+
+default: &default
+  site: <%= ENV.fetch('VLR_SITE_ID', 'commonwealth') %>
+  institution:
+    pid: <%= ENV.fetch('VLR_INSTITUTION_PID', 'bpl-dev:4q77fr32b') %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

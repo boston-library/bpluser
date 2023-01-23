@@ -13,10 +13,11 @@ require 'rsolr'
 
 require 'bpluser/version'
 require 'bpluser/controller'
+require 'bpluser/devise_guests_override'
 require 'bpluser/engine'
 
 module Bpluser
   def self.root
-    File.expand_path('..', __dir__)
+    Bpluser::Engine.root
   end
 end

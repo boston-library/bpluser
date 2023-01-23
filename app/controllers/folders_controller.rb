@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FoldersController < CatalogController
 
   ##
@@ -14,18 +16,17 @@ class FoldersController < CatalogController
   end
   helper_method :search_action_url
 
-  before_action :verify_user, :except => [:index, :show, :public_list]
-  before_action :check_visibility, :only => [:show]
-  before_action :correct_user_for_folder, :only => [:update, :destroy]
+  before_action :verify_user, except: [:index, :show, :public_list]
+  before_action :check_visibility, only: [:show]
+  before_action :correct_user_for_folder, only: [:update, :edit, :destroy]
 
   blacklight_config.track_search_session = false
   blacklight_config.http_method = Blacklight::Engine.config.bookmarks_http_method
 
   def index
     flash[:notice] = flash[:notice].html_safe if flash[:notice].present? and flash[:notice] == %Q[Welcome! You're viewing Digital Stacks items using a link from a temporary card. To save these items to a free permanent account, click <a href="#{new_user_session_path}" title="Sign Up Link">Sign Up / Log In</a>.]
-    if current_or_guest_user
-      @folders = current_or_guest_user.folders
-    end
+
+    @folders = current_or_guest_user.folders if current_or_guest_user
   end
 
   def show
@@ -39,11 +40,12 @@ class FoldersController < CatalogController
   end
 
   def new
-    @folder = current_user.folders.new
+    @folder = current_user.folders.build
   end
 
   def create
-    @folder = current_user.folders.build(folder_params)
+    @folder = current_user.folders.new(folder_params)
+
     if @folder.save
       flash[:notice] = 'Folder created.'
       redirect_to action: 'index'
@@ -88,7 +90,7 @@ class FoldersController < CatalogController
       flash[:notice] = 'Folder updated.'
       redirect_to @folder
     else
-      render :action => "edit"
+      render action: :edit
     end
   end
 
@@ -107,27 +109,29 @@ class FoldersController < CatalogController
 
   private
 
-    def folder_params
-      params.require(:folder).permit(:title, :description, :visibility)
-    end
+  def folder_params
+    params.require(:folder).permit(:title, :description, :visibility)
+  end
 
-    def verify_user
-      flash[:notice] = t('blacklight.folders.need_login') and raise Blacklight::Exceptions::AccessDenied unless current_user
-    end
+  def verify_user
+    flash[:notice] = t('blacklight.folders.need_login') and raise Blacklight::Exceptions::AccessDenied unless current_user
+  end
 
-    def check_visibility
-      @folder = Bpluser::Folder.find(params[:id])
-      if @folder.visibility != 'public'
-        correct_user_for_folder
-      end
-    end
+  def check_visibility
+    @folder = Bpluser::Folder.find(params[:id])
 
-    def correct_user_for_folder
-      @folder ||= Bpluser::Folder.find(params[:id])
-      if current_or_guest_user
-        flash[:notice] = t('blacklight.folders.private') and redirect_to root_path unless current_or_guest_user.folders.include?(@folder)
-      else
-        flash[:notice] = t('blacklight.folders.private') and redirect_to root_path
-      end
+    return if @folder.visibility == 'public'
+
+    correct_user_for_folder
+  end
+
+  def correct_user_for_folder
+    @folder ||= Bpluser::Folder.find(params[:id])
+
+    if current_or_guest_user
+      flash[:notice] = t('blacklight.folders.private') and redirect_to root_path unless current_or_guest_user.folders.include?(@folder)
+    else
+      flash[:notice] = t('blacklight.folders.private') and redirect_to root_path
     end
+  end
 end

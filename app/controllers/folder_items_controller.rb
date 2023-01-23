@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FolderItemsController < CatalogController
 
   # give controller access to useful BL/Solr methods

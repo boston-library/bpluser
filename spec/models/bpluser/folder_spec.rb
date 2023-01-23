@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Bpluser::Folder do
+RSpec.describe Bpluser::Folder, type: :model do
   subject!(:folder) { build(:bpluser_folder, folder_attrs) }
 
   let!(:test_user) { create(:user) }

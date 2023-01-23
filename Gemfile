@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Declare your gem's dependencies in bpluser.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
@@ -12,17 +13,19 @@ gem 'bootsnap', require: false
 group :development, :test do
   gem 'babel-transpiler'
   gem 'bootstrap', '~> 4'
+  gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine'
   gem 'dotenv-rails', '~> 2.8', require: 'dotenv/rails-now'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 3.1'
   gem 'font-awesome-sass', '~> 5.0'
   gem 'jquery-rails', '~> 4.5'
   gem 'pry', '~> 0.14'
+  gem 'puma', '~> 5.6.5'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'rubocop', '~> 1.31', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
   gem 'rubocop-rails', '~> 2.4.2', require: false
-  gem 'rubocop-rspec', '~> 2.12' ,require: false
+  gem 'rubocop-rspec', '~> 2.12', require: false
   gem 'sass-rails', '> 5.0'
   gem 'sprockets' , '> 4'
   gem 'sprockets-rails', '~> 3.4'
