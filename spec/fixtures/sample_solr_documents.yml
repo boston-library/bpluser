@@ -39,13 +39,13 @@
   institution_name_ti:
   - Boston Public Library
   institution_ark_id_ssi:
-  - bpl-dev:abcd12345
+  - bpl-dev:4q77fr32b
   admin_set_name_ssi:
   - Norman B. Leventhal Map Center Collection
   admin_set_ark_id_ssi:
   - bpl-dev:000000000
   identifier_uri_ss:
-  - http://ark-hydradev.bpl.org/ark:/50959/df65v790j
+  - http://ark-dc3dev.bpl.org/ark:/50959/df65v790j
   publisher_tsi:
   - Old Colony Trust Co.
   pubplace_tsi:

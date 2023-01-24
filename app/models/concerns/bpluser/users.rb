@@ -33,7 +33,7 @@ module Bpluser
         self.get_folder_item(document_id)
       end
 
-      def get_folder_item (document_id)
+      def get_folder_item(document_id)
         folder_items.where(document_id: document_id).first if self.folder_items.where(document_id: document_id).exists?
       end
 

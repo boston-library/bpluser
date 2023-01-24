@@ -20,5 +20,13 @@ module Bpluser
     def has_folder_item(document_id)
       folder_items.where(document_id: document_id).exists?
     end
+
+    def public?
+      visibility == 'public'
+    end
+
+    def private?
+      visibility == 'private'
+    end
   end
 end

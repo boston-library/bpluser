@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
 class FolderItemsController < CatalogController
-
-  # give controller access to useful BL/Solr methods
-  #include Blacklight::Configurable
-  #include Blacklight::SearchHelper
-
   before_action :verify_user
 
   def update
@@ -33,9 +28,7 @@ class FolderItemsController < CatalogController
       format.html { redirect_back(fallback_location: root_path) }
       format.js
     end
-
   end
-
 
   # Beware, :id is the Solr document_id, not the actual Bookmark id.
   # idempotent, as DELETE is supposed to be.
@@ -53,7 +46,6 @@ class FolderItemsController < CatalogController
       format.html { redirect_back(fallback_location: root_path) }
       format.js
     end
-
   end
 
   def clear

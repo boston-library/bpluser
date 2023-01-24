@@ -18,8 +18,8 @@ class FolderItemsActionsController < ApplicationController
           redirect_to citation_solr_document_path(:id => items)
         # remove
         when t('blacklight.tools.remove')
-          if params[:origin] == "folders"
-            if @folder.folder_items.where(:document_id => items).delete_all
+          if params[:origin] == 'folders'
+            if @folder.folder_items.destroy_by(document_id: items)
               flash[:notice] = I18n.t('blacklight.folders.update_items.remove.success')
             else
               flash[:error] = I18n.t('blacklight.folders.update_items.remove.failure')
@@ -27,7 +27,7 @@ class FolderItemsActionsController < ApplicationController
             redirect_to folder_path(@folder,
                                     view_params)
           else
-            if current_or_guest_user.bookmarks.where(:document_id => items).delete_all
+            if current_or_guest_user.bookmarks.destroy_by(document_id: items)
               flash[:notice] = I18n.t('blacklight.folders.update_items.remove.success')
             else
               flash[:error] = I18n.t('blacklight.folders.update_items.remove.failure')
@@ -39,12 +39,12 @@ class FolderItemsActionsController < ApplicationController
           destination = params[:commit].split(t('blacklight.tools.copy_to') + ' ')[1]
           if destination == t('blacklight.bookmarks.title')
             success = items.all? do |item_id|
-              current_or_guest_user.bookmarks.create(:document_id => item_id) unless current_or_guest_user.bookmarks.where(:document_id => item_id).exists?
+              current_or_guest_user.bookmarks.create(:document_id => item_id) unless current_or_guest_user.bookmarks.where(document_id: item_id).exists?
             end
           else
             folder_to_update = current_user.folders.find(destination)
             success = items.all? do |item_id|
-              folder_to_update.folder_items.create!(:document_id => item_id) and folder_to_update.touch unless folder_to_update.has_folder_item(item_id)
+              folder_to_update.folder_items.create!(document_id: item_id) and folder_to_update.touch unless folder_to_update.has_folder_item(item_id)
             end
           end
           redirect_back(fallback_location: root_path)

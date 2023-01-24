@@ -22,9 +22,9 @@ class BookmarksController < CatalogController
       success ? render(:update) : render(plain: '', status: '500')
     else
       if @bookmarks.any? && success
-        flash[:notice] = I18n.t('blacklight.bookmarks.add.success', :count => @bookmarks.length)
+        flash[:notice] = I18n.t('blacklight.bookmarks.add.success', count: @bookmarks.count)
       elsif @bookmarks.any?
-        flash[:error] = I18n.t('blacklight.bookmarks.add.failure', :count => @bookmarks.length)
+        flash[:error] = I18n.t('blacklight.bookmarks.add.failure', count: @bookmarks.count)
       end
 
       if respond_to? :redirect_back

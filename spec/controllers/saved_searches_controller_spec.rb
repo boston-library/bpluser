@@ -3,10 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe SavedSearchesController, type: :controller do
-  let!(:one) { Search.create }
-  let!(:two) { Search.create }
-  let!(:three) { Search.create }
   let!(:user) { create(:user, email: 'test@example.com', password: 'abcd12345', password_confirmation: 'abcd12345') }
+  let!(:searches) { create_list(:search, 3, user: user) }
+  let!(:one) { searches[0] }
+  let!(:two) { searches[1] }
+  let!(:three) { searches[2] }
 
   before do
     sign_in user
@@ -25,9 +26,9 @@ RSpec.describe SavedSearchesController, type: :controller do
 
     it "does not let you save a search that isn't in your search history" do
       session[:history] = [one.id]
-      expect {
+      expect do
         post :save, params: { id: two.id }
-      }.to raise_error ActiveRecord::RecordNotFound
+      end.to raise_error ActiveRecord::RecordNotFound
     end
   end
 end

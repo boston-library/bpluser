@@ -26,7 +26,7 @@ class FoldersController < CatalogController
   def index
     flash[:notice] = flash[:notice].html_safe if flash[:notice].present? and flash[:notice] == %Q[Welcome! You're viewing Digital Stacks items using a link from a temporary card. To save these items to a free permanent account, click <a href="#{new_user_session_path}" title="Sign Up Link">Sign Up / Log In</a>.]
 
-    @folders = current_or_guest_user.folders if current_or_guest_user
+    @folders = current_or_guest_user.folders.with_folder_items if current_or_guest_user
   end
 
   def show
@@ -81,7 +81,6 @@ class FoldersController < CatalogController
   #end
 
   def edit
-    @folder = Bpluser::Folder.find(params[:id])
   end
 
   def update
@@ -104,7 +103,7 @@ class FoldersController < CatalogController
   # return a list of publicly visible folders that have items
   def public_list
     # TODO create a named scope for this query in Bplmodels::Folder?
-    @folders = Bpluser::Folder.includes(:folder_items).where(visibility: 'public').order(updated_at: :desc)
+    @folders = Bpluser::Folder.public_list
   end
 
   private
@@ -118,15 +117,15 @@ class FoldersController < CatalogController
   end
 
   def check_visibility
-    @folder = Bpluser::Folder.find(params[:id])
+    @folder = Bpluser::Folder.with_folder_items.find(params[:id])
 
-    return if @folder.visibility == 'public'
+    return if @folder && @folder.public?
 
     correct_user_for_folder
   end
 
   def correct_user_for_folder
-    @folder ||= Bpluser::Folder.find(params[:id])
+    @folder ||= Bpluser::Folder.with_folder_items.find(params[:id])
 
     if current_or_guest_user
       flash[:notice] = t('blacklight.folders.private') and redirect_to root_path unless current_or_guest_user.folders.include?(@folder)

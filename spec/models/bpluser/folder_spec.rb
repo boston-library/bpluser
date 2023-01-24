@@ -35,8 +35,30 @@ RSpec.describe Bpluser::Folder, type: :model do
   end
 
   describe 'instance methods' do
-    it { is_expected.to respond_to(:user, :user_id, :title, :description, :created_at, :updated_at, :visibility, :folder_items).with(0).arguments }
+    it { is_expected.to respond_to(:user, :user_id, :title, :description, :created_at, :updated_at, :visibility, :folder_items, :public?, :private?).with(0).arguments }
     it { is_expected.to respond_to(:has_folder_item).with(1).argument }
+
+    describe '#public?' do
+      before do
+        folder.visibility = 'public'
+      end
+
+      it 'is expected to be public' do
+        expect(folder).to be_public
+        expect(folder).not_to be_private
+      end
+    end
+
+    describe '#private?' do
+      before do
+        folder.visibility = 'private'
+      end
+
+      it 'is expected to be private' do
+        expect(folder).to be_private
+        expect(folder).not_to be_public
+      end
+    end
   end
 
   describe 'database' do
@@ -71,5 +93,23 @@ RSpec.describe Bpluser::Folder, type: :model do
     it { is_expected.to validate_length_of(:description).is_at_most(described_class.const_get(:MAX_DESC_LENGTH)) }
 
     it { is_expected.to validate_inclusion_of(:visibility).in_array(described_class.const_get(:VALID_VISIBILITY_OPTS)) }
+  end
+
+  describe 'scopes' do
+    describe '.with_folder_items' do
+      subject { described_class.with_folder_items.to_sql }
+
+      let(:expected_sql) { described_class.includes(:folder_items).to_sql }
+
+      it { is_expected.to eql(expected_sql) }
+    end
+
+    describe '.public_list' do
+      subject { described_class.public_list.to_sql }
+
+      let(:expected_sql) { described_class.includes(:folder_items).where(visibility: 'public').order(updated_at: :desc).to_sql }
+
+      it { is_expected.to eql(expected_sql) }
+    end
   end
 end

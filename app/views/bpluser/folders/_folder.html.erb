@@ -2,7 +2,7 @@
   <h4>
     <%= link_to folder.title, folder, :class => "folder_title" %>
     <small class="folder_visibility">
-      <% if folder.visibility == 'public' %>
+      <% if folder.public? %>
         <%= icon('fas', 'eye', class: 'folder-icon', aria: { hidden: true }) %>
         <span class="visibility_public"><%= folder.visibility %></span>
       <% else %>

@@ -16,7 +16,7 @@ RSpec.describe FoldersController, type: :controller do
 
       it 'is expected to not show any folders' do
         get :index
-        expect(@folders).to be_nil
+        expect(assigns(:folders)).to be_empty
       end
     end
 
@@ -29,7 +29,7 @@ RSpec.describe FoldersController, type: :controller do
         it 'is expected not to show any folders' do
           get :index
           expect(test_user.folders).to be_empty
-          expect(@folders).to be_nil
+          expect(assigns(:folders)).to be_empty
         end
       end
 
@@ -124,20 +124,19 @@ RSpec.describe FoldersController, type: :controller do
 
       it 'is expected to show the folder title' do
         get :show, params: { id: show_folder.id }
-        expect(response.body).to have_selector('h2', :text => show_folder.title)
+        expect(response.body).to have_selector('h2', text: show_folder.title)
       end
 
       describe 'user has folder with items' do
-        let!(:document_id) { 'bpl-dev:h702q6403' }
+        let!(:document_id) { 'bpl-dev:df65v790j' }
 
         before do
           create(:bpluser_folder_item, folder: show_folder, document_id: document_id)
+          show_folder.reload
         end
 
         it 'should show a link to the folder item' do
-          show_folder.reload
           get :show, params: { id: show_folder.id }
-          binding.pry
           expect(response.body).to have_selector("a[href='/search/#{document_id}']")
         end
       end

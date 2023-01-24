@@ -1,5 +1,5 @@
 <div id="folderItemTools">
-  <%= render :partial => 'shared/folder_tools' %>
+  <%= render partial: 'shared/folder_tools' %>
 </div>
 
 <%# for users w/JS, email_btn and cite_btn below are replaced by shared/folder_tools %>
@@ -33,9 +33,7 @@
               </div>
           <% end %>
           <% current_user.folders.each do |folder| %>
-              <% if @folder && folder.id == @folder.id %>
-                <%# do nothing %>
-              <% else %>
+              <% unless @folder && folder.id == @folder.id %>
                   <div class="folder_copy_option dropdown-item">
                     <%= button_tag(type: 'submit',
                                    class: 'copy_btn',
