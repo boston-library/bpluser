@@ -11,23 +11,28 @@ RSpec.describe 'Saved Searches', type: :feature, js: true do
   end
 
   it 'is empty' do
-    click_on '#user-nav-btn'
     within '#user-nav-btn' do
-      click_button
-      select 'Saved Searches', from: 'user-util-links-list'
+      find('button.dropdown-toggle').click
+      click_on 'Saved Searches'
     end
-    expect(page).to have_content 'You have no saved searches'
+
+    expect(page).to have_content "You don't have any saved searches at the moment"
   end
 
   context "with a saved search 'book'" do
     before do
       within '.search-query-form' do
-        fill_in '#q', with: 'book'
+        fill_in 'Search...', with: 'book'
         click_button 'search'
       end
-      click_link 'History'
+
+      within '#user-nav-btn' do
+        find('button.dropdown-toggle').click
+        click_on 'Search History'
+      end
+
       click_button 'save'
-      click_link 'Saved Searches'
+      click_on 'Saved Searches'
     end
 
     it 'is expected to show saved searches' do
@@ -36,8 +41,9 @@ RSpec.describe 'Saved Searches', type: :feature, js: true do
     end
 
     it 'is expected to delete saved searches' do
-      click_button 'delete'
-      expect(page).to have_content 'Successfully removed that saved search.'
+      binding.pry
+      find('a.delete_search').click
+      expect(page).to have_content 'Search removed.'
     end
 
     describe "and a saved search 'dang'" do
@@ -45,7 +51,7 @@ RSpec.describe 'Saved Searches', type: :feature, js: true do
         visit root_path
         fill_in 'q', with: 'dang'
         click_button 'search'
-        click_link 'History'
+        click_link 'Search History'
         click_button 'save'
         click_link 'Saved Searches'
       end
