@@ -11,7 +11,6 @@ gemspec
 gem 'bootsnap', require: false
 # jquery-rails is used by the dummy application
 group :development, :test do
-  gem 'babel-transpiler'
   gem 'bootstrap', '~> 4'
   gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine'
   gem 'dotenv-rails', '~> 2.8', require: 'dotenv/rails-now'
