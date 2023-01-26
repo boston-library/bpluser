@@ -36,9 +36,12 @@ end
 group :test do
   gem 'database_cleaner-active_record', '~> 2'
   gem 'capybara', '~> 3.38', '< 4'
+  gem 'launchy', '~> 2.5'
+  gem 'puffing-billy'
   gem 'shoulda-matchers', '~> 5.2'
   gem 'vcr', '~> 6.1'
   gem 'webdrivers', '~> 5.2'
+  gem 'webmock', '~> 3.18'
 end
 
 
