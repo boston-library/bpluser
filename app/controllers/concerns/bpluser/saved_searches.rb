@@ -8,7 +8,7 @@ module Bpluser
     included do
       include Blacklight::Configurable
       copy_blacklight_config_from(CatalogController)
-      # before_action :require_user_authentication_provider
+      # before_action :require_user_authentication_provider This is deprecated
       before_action :verify_user
     end
 
@@ -24,12 +24,8 @@ module Bpluser
       else
         flash[:error] = I18n.t('blacklight.saved_searches.add.failure')
       end
-      if respond_to? :redirect_back
-        redirect_back fallback_location: saved_searches_path
-      else
-        # Deprecated in Rails 5.0
-        redirect_to :back
-      end
+
+      redirect_back fallback_location: saved_searches_path
     end
 
     # Only dereferences the user rather than removing the item in case it
@@ -37,20 +33,13 @@ module Bpluser
     def forget
       search = current_user.searches.find(params[:id])
 
-      if search.present?
-        search.user_id = nil
-        search.save
-
+      if search.update(user_id: nil)
         flash[:notice] = I18n.t('blacklight.saved_searches.remove.success')
       else
         flash[:error] = I18n.t('blacklight.saved_searches.remove.failure')
       end
-      if respond_to? :redirect_back
-        redirect_back fallback_location: saved_searches_path
-      else
-        # Deprecated in Rails 5.0
-        redirect_to :back
-      end
+
+      redirect_back fallback_location: saved_searches_path
     end
 
     # Only dereferences the user rather than removing the items in case they

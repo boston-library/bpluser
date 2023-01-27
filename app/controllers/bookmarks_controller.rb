@@ -27,12 +27,7 @@ class BookmarksController < CatalogController
         flash[:error] = I18n.t('blacklight.bookmarks.add.failure', count: @bookmarks.count)
       end
 
-      if respond_to? :redirect_back
-        redirect_back fallback_location: bookmarks_path
-      else
-        # Deprecated in Rails 5.0
-        redirect_to :back
-      end
+      redirect_back fallback_location: bookmarks_path
     end
   end
 

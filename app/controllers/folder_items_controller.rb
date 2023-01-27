@@ -9,20 +9,22 @@ class FolderItemsController < CatalogController
 
   def create
     @response, @document = search_service.fetch(params[:id])
+
     if params[:folder_items]
       @folder_items = params[:folder_items]
     else
-      @folder_items = [{ :document_id => params[:id], :folder_id => params[:folder_id] }]
+      @folder_items = [{ document_id: params[:id], folder_id: params[:folder_id] }]
     end
 
     success = @folder_items.all? do |f_item|
       folder_to_update = current_user.folders.find(f_item[:folder_id])
-      folder_to_update.folder_items.create!(:document_id => f_item[:document_id]) and folder_to_update.touch unless folder_to_update.has_folder_item(f_item[:document_id])
+
+      next true if folder_to_update.has_folder_item(f_item[:document_id])
+
+      folder_to_update.folder_items.create!(document_id: f_item[:document_id])
     end
 
-    unless request.xhr?
-      flash[:notice] = t('blacklight.folder_items.add.success')
-    end
+    flash[:notice] = t('blacklight.folder_items.add.success') unless request.xhr?
 
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
@@ -49,19 +51,21 @@ class FolderItemsController < CatalogController
   end
 
   def clear
-    @folder = Bpluser::Folder.find(params[:id])
-    if current_user.folders.find(@folder.id).folder_items.clear
+    @folder = current_user.folders.find(params[:id])
+
+    if @folder.folder_items.clear
       @folder.touch
       flash[:notice] = I18n.t('blacklight.folder_items.clear.success')
     else
       flash[:error] = I18n.t('blacklight.folder_items.clear.failure')
     end
-    redirect_to :controller => "folders", :action => "show", :id => @folder
+    redirect_to folders_path(@folder)
   end
 
   # PRETTY SURE THIS METHOD IS NEVER USED!
   def delete_selected
     @folder = Bpluser::Folder.find(params[:id])
+
     if params[:selected]
       if @folder.folder_items.where(:document_id => params[:selected]).delete_all
         @folder.touch
@@ -69,10 +73,10 @@ class FolderItemsController < CatalogController
       else
         flash[:error] = t('blacklight.folders.update_items.remove.failure')
       end
-      redirect_to :controller => "folders", :action => "show", :id => @folder
+      redirect_to folders_path(@folder)
     else
-      redirect_to :back
       flash[:error] = t('blacklight.folders.update_items.remove.no_items')
+      redirect_to :back
     end
   end
 

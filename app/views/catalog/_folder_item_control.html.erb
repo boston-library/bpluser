@@ -16,7 +16,7 @@
             </button>
           <% end %>
         <% else %>
-              <%= form_tag( bookmark_path( document ), method: :put, remote: true) do %>
+              <%= form_tag(bookmark_path(document), method: :put, remote: true) do %>
 
                 <div class="btn-group folder-item-control">
                     <button class="btn btn-outline-secondary" type="submit">
@@ -45,7 +45,7 @@
               <% end %>
         <% end %>
       <% else %>
-        <%= render partial: "folders/in_folder" %>
+        <%= render partial: 'folders/in_folder' %>
       <% end %>
     </div>
   </div>

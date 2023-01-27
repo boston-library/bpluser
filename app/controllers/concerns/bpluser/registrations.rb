@@ -17,20 +17,24 @@ module Bpluser
 
       # POST /resource
       def create
-        params[:user][:provider] = 'local'
-        params[:user][:uid] = params[:user][:email]
-        params[:user][:username] = params[:user][:uid]
-        params[:user][:display_name] = "#{params[:user][:first_name]} #{params[:user][:last_name]}"
-        if User.where(provider: params[:user][:provider], uid: params[:user][:email]).exists?
-          flash[:error] = "An account with that email (#{params[:user][:email]}) already exists. Please sign in or click the \"Forgot your password?\" link below."
+        if User.where(provider: resource_params[:provider], uid: resource_params[:email]).exists?
+          flash[:error] = "An account with that email (#{resource_params[:email]}) already exists. Please sign in or click the \"Forgot your password?\" link below."
           redirect_to new_user_session_path
-        else
-          super
         end
+        super
       end
 
       def resource_params
-        params.require(:user).permit(:username, :email, :first_name, :last_name, :provider, :display_name, :password, :password_confirmation, :uid)
+        params
+          .require(:user)
+          .permit(:username, :email, :first_name, :last_name, :provider, :display_name, :password, :password_confirmation, :uid)
+          .with_defaults(provider: 'local', uid: params.dig(:user, :email), username: params.dig(:user, :email), display_name: default_display_name)
+      end
+
+      def default_display_name
+        return if %i[first_name last_name].all? { |name_part| params.dig(:user, name_part).blank? }
+
+        "#{params.dig(:user, :first_name)} #{params.dig(:user, :last_name)}".strip
       end
     end
   end

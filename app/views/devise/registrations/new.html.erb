@@ -5,10 +5,9 @@
 
 <%= form_for(resource,
              as: resource_name,
-             url: registration_path(resource_name),
-             html: { role: 'form' }) do |f| %>
-    <%= devise_error_messages! %>
-
+             url: user_registration_path,
+             html: { method: :post, role: 'form' }) do |f| %>
+        <%= render partial: 'devise/shared/error_messages', resource: resource %>
         <div class="form-group row">
           <label class="col-sm-2 col-form-label" for="inputFirstName">First name</label>
           <div class="col-sm-4">

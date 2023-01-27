@@ -54,7 +54,7 @@ RSpec.describe FolderItemsController, type: :controller do
 
       it 'is expected to delete a folder item using ajax' do
         expect do
-          delete :destroy, xhr: true ,params: { id: document_id }
+          delete :destroy, xhr: true, params: { id: document_id }
           expect(response).to be_successful
         end.to change(Bpluser::FolderItem, :count).by(-1)
       end

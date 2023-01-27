@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class FoldersController < CatalogController
-
   ##
   # Give Bookmarks access to the CatalogController configuration
   include Blacklight::Configurable
@@ -102,7 +101,6 @@ class FoldersController < CatalogController
 
   # return a list of publicly visible folders that have items
   def public_list
-    # TODO create a named scope for this query in Bplmodels::Folder?
     @folders = Bpluser::Folder.public_list
   end
 
