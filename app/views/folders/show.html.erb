@@ -29,7 +29,7 @@
 
   <h2>
     <%= @folder.title %>
-    <% if current_user && folder_belongs_to_user %>
+    <% if current_user && folder_belongs_to_user(@folder) %>
         <small id="folder_tools">
           <div class="folder_visibility">
             <% if @folder.public? %>

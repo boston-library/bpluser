@@ -16,8 +16,7 @@ Gem::Specification.new do |s|
   s.description = 'Shared user access gem for public front ends'
   s.license     = 'MIT'
 
-  s.files =       Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']+
-  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.files = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
   s.required_ruby_version = '>= 2.6.10'
 
@@ -31,7 +30,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'awesome_print', '~> 1.9'
   s.add_development_dependency 'pg', '>= 0.18', '< 2.0'
-  s.add_development_dependency 'solr_wrapper', '~> 4'
   s.add_development_dependency 'rsolr', '~> 2.5'
   s.add_development_dependency 'rspec-rails', '~> 5', '< 6'
+  s.add_development_dependency 'solr_wrapper', '~> 4'
 end

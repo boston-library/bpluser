@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe FolderItemsController, type: :controller do
+RSpec.describe FolderItemsController do
   render_views
 
   let!(:test_user) { create(:user) }

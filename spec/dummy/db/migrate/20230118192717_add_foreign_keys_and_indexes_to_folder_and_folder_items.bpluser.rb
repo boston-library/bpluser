@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from bpluser (originally 20230118191713)
 
 class AddForeignKeysAndIndexesToFolderAndFolderItems < ActiveRecord::Migration[6.0]

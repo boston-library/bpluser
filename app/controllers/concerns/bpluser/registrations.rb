@@ -17,7 +17,7 @@ module Bpluser
 
       # POST /resource
       def create
-        if User.where(provider: resource_params[:provider], uid: resource_params[:email]).exists?
+        if User.exists?(provider: resource_params[:provider], uid: resource_params[:email])
           flash[:error] = "An account with that email (#{resource_params[:email]}) already exists. Please sign in or click the \"Forgot your password?\" link below."
           redirect_to new_user_session_path
         end

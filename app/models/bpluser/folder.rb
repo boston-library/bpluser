@@ -12,13 +12,12 @@ module Bpluser
     scope :with_folder_items, -> { includes(:folder_items) }
     scope :public_list, -> { with_folder_items.where(visibility: 'public').order(updated_at: :desc) }
 
-    validates :user_id, presence: true
     validates :title, presence: true, length: { maximum: MAX_TITLE_LENGTH }
     validates :description, length: { maximum: MAX_DESC_LENGTH }
     validates :visibility, presence: true, inclusion: { in: VALID_VISIBILITY_OPTS }
 
-    def has_folder_item(document_id)
-      folder_items.where(document_id: document_id).exists?
+    def folder_item?(document_id)
+      folder_items.exists?(document_id: document_id)
     end
 
     def public?

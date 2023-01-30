@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from bpluser (originally 20150527000001)
 
 class FixUserUniqueIndex < ActiveRecord::Migration[4.2]

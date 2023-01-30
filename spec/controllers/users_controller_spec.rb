@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe UsersController, type: :controller do
+RSpec.describe UsersController do
   render_views
 
   let!(:test_user) { create(:user) }
@@ -23,8 +23,8 @@ RSpec.describe UsersController, type: :controller do
           sign_in test_user
         end
 
-        it 'should redirect to the home page' do
-          get :show, params: {id: test_user2.id }
+        it 'is expected to redirect to the home page' do
+          get :show, params: { id: test_user2.id }
           expect(response).to redirect_to(root_path)
         end
       end
@@ -34,7 +34,7 @@ RSpec.describe UsersController, type: :controller do
           sign_in test_user
         end
 
-        it 'should show the user#show page' do
+        it 'is expected to show the user#show page' do
           get :show, params: { id: test_user.id }
           expect(response).to be_successful
           expect(response.body).to have_selector('#user_account_links_list')

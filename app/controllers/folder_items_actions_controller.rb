@@ -23,16 +23,16 @@ class FolderItemsActionsController < ApplicationController
     when t('blacklight.tools.remove')
       if params[:origin] == 'folders'
         if @folder.folder_items.destroy_by(document_id: items)
-          flash[:notice] = I18n.t('blacklight.folders.update_items.remove.success')
+          flash[:notice] = t('blacklight.folders.update_items.remove.success')
         else
-          flash[:error] = I18n.t('blacklight.folders.update_items.remove.failure')
+          flash[:error] = t('blacklight.folders.update_items.remove.failure')
         end
         redirect_to folder_path(@folder, view_params)
       else
         if current_or_guest_user.bookmarks.destroy_by(document_id: items)
-          flash[:notice] = I18n.t('blacklight.folders.update_items.remove.success')
+          flash[:notice] = t('blacklight.folders.update_items.remove.success')
         else
-          flash[:error] = I18n.t('blacklight.folders.update_items.remove.failure')
+          flash[:error] = t('blacklight.folders.update_items.remove.failure')
         end
         redirect_to bookmarks_path(view_params)
       end
@@ -41,19 +41,24 @@ class FolderItemsActionsController < ApplicationController
       destination = params[:commit].split(t('blacklight.tools.copy_to') + ' ')[1]
       if destination == t('blacklight.bookmarks.title')
         success = items.all? do |item_id|
-          next true if current_or_guest_user.bookmarks.where(document_id: item_id).exists?
+          next true if current_or_guest_user.bookmarks.exists?(document_id: item_id)
 
           current_or_guest_user.bookmarks.create(document_id: item_id)
         end
       else
         folder_to_update = current_user.folders.find(destination)
         success = items.all? do |item_id|
-          next true if folder_to_update.has_folder_item(item_id)
+          next true if folder_to_update.folder_item?(item_id)
 
-          folder_to_update.folder_items.create(document_id: item_id)
+          begin
+            folder_to_update.folder_items.create!(document_id: item_id)
+            next true
+          rescue ActiveRecord::RecordInvalid
+            break false
+          end
         end
       end
-      
+
       if success
         folder_display_name = destination == t('blacklight.bookmarks.title') ? t('blacklight.bookmarks.title') : folder_to_update.title
         flash[:notice] = t('blacklight.folders.update_items.copy.success', folder_name: folder_display_name)

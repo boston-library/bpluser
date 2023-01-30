@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe FoldersController, type: :controller do
+RSpec.describe FoldersController do
   render_views
 
   let!(:test_user) { create(:user) }
@@ -11,7 +11,7 @@ RSpec.describe FoldersController, type: :controller do
     context 'when non-logged in user' do
       it 'is expected to link to the bookmarks folder' do
         get :index
-        expect(response.body).to have_selector("a[href='/bookmarks']")
+        expect(response.body).to have_link(href: '/bookmarks')
       end
 
       it 'is expected to not show any folders' do
@@ -135,14 +135,14 @@ RSpec.describe FoldersController, type: :controller do
           show_folder.reload
         end
 
-        it 'should show a link to the folder item' do
+        it 'is expected to show a link to the folder item' do
           get :show, params: { id: show_folder.id }
           expect(response.body).to have_selector("a[href='/search/#{document_id}']")
         end
       end
     end
 
-    context 'wrong user' do
+    context 'when wrong user' do
       let!(:wrong_folder) { create(:bpluser_folder, title: 'Test Folder Title', visibility: 'private', user: test_user) }
       let!(:other_user) { create(:user, email: 'testy@other.com', password: 'password', password_confirmation: 'password') }
 
@@ -158,32 +158,32 @@ RSpec.describe FoldersController, type: :controller do
   end
 
   describe 'POST create' do
-    context 'non-logged-in user' do
+    context 'when non-logged-in user' do
       it 'is expected to deny access to create' do
         post :create, params: { folder: { title: 'Some Title', visibility: 'public' } }
         expect(response).to redirect_to(new_user_session_path(referer_query_params(response)))
       end
     end
 
-    context 'logged-in user' do
+    context 'when logged-in user' do
       before do
         sign_in test_user
       end
 
-      describe 'failure' do
+      context 'when failure' do
         it 'is expected not to create a folder' do
           expect do
-            post :create, params: { folder: { title: ''} }
+            post :create, params: { folder: { title: '' } }
           end.not_to change(Bpluser::Folder, :count)
         end
 
         it 'is expected to re-render the create page' do
-          post :create, params: { folder: { title: ''} }
+          post :create, params: { folder: { title: '' } }
           expect(response).to render_template('folders/new')
         end
       end
 
-      describe 'success' do
+      context 'when successful' do
         it 'is expected to create a folder' do
           expect do
             post :create, params: { folder: { title: 'Whatever, man', visibility: 'private' } }
@@ -203,9 +203,9 @@ RSpec.describe FoldersController, type: :controller do
 
     context 'when non-logged-in user' do
       it 'is expected to deny access to edit' do
-       get :edit, params: { id: edit_folder.id }
+        get :edit, params: { id: edit_folder.id }
 
-       expect(response).to redirect_to(new_user_session_path(referer_query_params(response)))
+        expect(response).to redirect_to(new_user_session_path(referer_query_params(response)))
       end
     end
 
@@ -231,7 +231,7 @@ RSpec.describe FoldersController, type: :controller do
       end
     end
 
-    context 'logged-in user' do
+    context 'when logged-in user' do
       before do
         sign_in test_user
       end
@@ -259,7 +259,7 @@ RSpec.describe FoldersController, type: :controller do
         end
 
         it 'is expected to redirect to the folders show page' do
-          put :update, params:  { id: put_folder.id, folder: { title: new_folder_title } }
+          put :update, params: { id: put_folder.id, folder: { title: new_folder_title } }
           expect(response).to redirect_to(folder_path(put_folder))
         end
       end

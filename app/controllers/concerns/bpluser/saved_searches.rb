@@ -20,9 +20,9 @@ module Bpluser
       current_user.searches << searches_from_history.find(params[:id])
 
       if current_user.save
-        flash[:notice] = I18n.t('blacklight.saved_searches.add.success')
+        flash[:notice] = t('blacklight.saved_searches.add.success')
       else
-        flash[:error] = I18n.t('blacklight.saved_searches.add.failure')
+        flash[:error] = t('blacklight.saved_searches.add.failure')
       end
 
       redirect_back fallback_location: saved_searches_path
@@ -34,9 +34,9 @@ module Bpluser
       search = current_user.searches.find(params[:id])
 
       if search.update(user_id: nil)
-        flash[:notice] = I18n.t('blacklight.saved_searches.remove.success')
+        flash[:notice] = t('blacklight.saved_searches.remove.success')
       else
-        flash[:error] = I18n.t('blacklight.saved_searches.remove.failure')
+        flash[:error] = t('blacklight.saved_searches.remove.failure')
       end
 
       redirect_back fallback_location: saved_searches_path
@@ -45,10 +45,10 @@ module Bpluser
     # Only dereferences the user rather than removing the items in case they
     # are in the session[:history]
     def clear
-      if current_user.searches.update_all(user_id: nil)
-        flash[:notice] = I18n.t('blacklight.saved_searches.clear.success')
+      if current_user.searches.all? { |s| s.update(user_id: nil) } && current_user.save
+        flash[:notice] = t('blacklight.saved_searches.clear.success')
       else
-        flash[:error] = I18n.t('blacklight.saved_searches.clear.failure')
+        flash[:error] = t('blacklight.saved_searches.clear.failure')
       end
       redirect_to saved_searches_url
     end
@@ -56,7 +56,7 @@ module Bpluser
     protected
 
     def verify_user
-      flash[:notice] = I18n.t('blacklight.saved_searches.need_login') and raise Blacklight::Exceptions::AccessDenied unless current_user
+      flash[:notice] = t('blacklight.saved_searches.need_login') and raise Blacklight::Exceptions::AccessDenied unless current_user
     end
   end
 end

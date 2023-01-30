@@ -12,23 +12,26 @@ module Bpluser
     end
 
     module InstanceMethods
+      EXCLUDE_PATHS = %w[
+        /users/auth
+        /users/sign_in
+        /users/sign_up
+        /users/password
+        /users/password/new
+        /users/password/edit
+        /users/confirmation
+        /users/sign_out
+      ].freeze
       # redirect after login to previous non-login page
       # TODO figure out why it doesn't work for Polaris
       def store_location
-        return if request.xhr? || request.fullpath.match(/\/users\/auth\//) # Don't store if ajax call or fullpath matches /users/auth
+        # Don't store if ajax call or fullpath doesn't include segments in EXCLUDE_PATHS const
+        return if request.xhr? || EXCLUDE_PATHS.any? { |exclude_path| request.fullpath.include?(exclude_path) }
 
-        if request.path != "/users/sign_in" &&
-           request.path != "/users/sign_up" &&
-           request.path != "/users/password" &&
-           request.path != "/users/password/new" &&
-           request.path != "/users/password/edit" &&
-           request.path != "/users/confirmation" &&
-           request.path != "/users/sign_out" &&
-          session[:previous_url] = request.fullpath
-        end
+        session[:previous_url] = request.fullpath
       end
 
-      def after_sign_in_path_for(resource)
+      def after_sign_in_path_for(_resource)
         session[:previous_url] || root_path
       end
 
@@ -48,10 +51,9 @@ module Bpluser
           end
 
           folder.folder_items.find_each do |item_to_add|
-            next if target_folder.has_folder_item(item_to_add.document_id)
+            next if target_folder.folder_item?(item_to_add.document_id)
 
-            target_folder.folder_items.create!(:document_id => item_to_add.document_id) and target_folder.touch
-            target_folder.save!
+            target_folder.folder_items.create!(document_id: item_to_add.document_id)
           end
         end
 

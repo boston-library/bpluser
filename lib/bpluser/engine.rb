@@ -16,7 +16,7 @@ module Bpluser
         require 'factory_bot_rails'
         config.factory_bot.definition_file_paths << File.expand_path('../../spec/factories/bpluser', __dir__)
       rescue LoadError
-        puts 'Factory Bot Rails Not installed!'
+        warn 'Factory Bot Rails Not installed!'
       end
     end
 

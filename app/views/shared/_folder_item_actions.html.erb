@@ -10,7 +10,7 @@
     <%= icon('far', 'envelope', aria: { hidden: true }) + ' ' + t('blacklight.tools.email') %>
 <% end %>
 
-<% if params[:controller] == 'bookmarks' || folder_belongs_to_user %>
+<% if params[:controller] == 'bookmarks' || folder_belongs_to_user(@folder) %>
     <%= button_tag(type: 'submit', class: 'btn btn-outline-secondary', id: 'remove_btn', name: 'commit', value: t('blacklight.tools.remove')) do %>
         <%= icon('fas', 'times', aria: { hidden: true }) + ' ' + t('blacklight.tools.remove') %>
     <% end %>

@@ -21,20 +21,20 @@ group :development, :test do
   gem 'pry', '~> 0.14'
   gem 'puma', '~> 5.6.5'
   gem 'rails-controller-testing', '~> 1.0'
-  gem 'rubocop', '~> 1.31', require: false
+  gem 'rubocop', '~> 1.44', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
-  gem 'rubocop-rails', '~> 2.4.2', require: false
-  gem 'rubocop-rspec', '~> 2.12', require: false
+  gem 'rubocop-rails', '~> 2.17', require: false
+  gem 'rubocop-rspec', '~> 2.18', require: false
   gem 'sass-rails', '> 5.0'
-  gem 'sprockets' , '> 4'
+  gem 'sprockets', '> 4'
   gem 'sprockets-rails', '~> 3.4'
-  gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
   gem 'turbolinks', '~> 5'
+  gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 end
 
 group :test do
-  gem 'database_cleaner-active_record', '~> 2'
   gem 'capybara', '~> 3.38', '< 4'
+  gem 'database_cleaner-active_record', '~> 2'
   gem 'launchy', '~> 2.5'
   gem 'puffing-billy'
   gem 'shoulda-matchers', '~> 5.2'
@@ -42,7 +42,6 @@ group :test do
   gem 'webdrivers', '~> 5.2'
   gem 'webmock', '~> 3.18'
 end
-
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or

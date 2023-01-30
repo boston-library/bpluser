@@ -1,0 +1,199 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7
+
+Bundler/OrderedGems:
+  Enabled: true
+
+Gemspec/OrderedDependencies:
+  Enabled: true
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: true
+
+Layout/EmptyLines:
+  Enabled: true
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - 'spec/dummy/db/schema.rb'
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: true
+
+Layout/ExtraSpacing:
+  Enabled: true
+
+Layout/FirstHashElementIndentation:
+  Enabled: true
+
+Layout/HashAlignment:
+  Enabled: true
+
+Layout/IndentationWidth:
+  Enabled: true
+
+Layout/LeadingCommentSpace:
+  Enabled: true
+
+Layout/MultilineHashBraceLayout:
+  Enabled: true
+
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+
+Layout/MultilineOperationIndentation:
+  Enabled: true
+
+Layout/SpaceAfterComma:
+  Enabled: true
+
+Layout/SpaceAfterColon:
+  Enabled: true
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/SpaceBeforeComma:
+  Enabled: true
+
+Layout/SpaceBeforeFirstArg:
+  Enabled: true
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: true
+
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Lint/AssignmentInCondition:
+  Enabled: true
+
+Lint/EmptyConditionalBody:
+  Enabled: true
+
+Lint/NonDeterministicRequireOrder:
+  Enabled: true
+
+Lint/UnusedMethodArgument:
+  Enabled: true
+
+Lint/UselessAssignment:
+  Enabled: true
+
+Metrics/AbcSize:
+  Max: 89
+
+Metrics/BlockLength:
+  Max: 32
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+Metrics/MethodLength:
+  Max: 60
+
+Metrics/PerceivedComplexity:
+  Max: 22
+
+Naming/PredicateName:
+  Enabled: true
+
+Performance/RedundantMatch:
+  Enabled: true
+
+Performance/RegexpMatch:
+  Enabled: true
+
+Rails/CreateTableWithTimestamps:
+  Exclude:
+    - 'db/migrate/20130628143444_user_roles.rb'
+    - 'db/migrate/20130628144126_user_institutions.rb'
+
+Rails/FindBy:
+  Enabled: true
+
+Rails/FilePath:
+  Enabled: true
+
+Rails/HelperInstanceVariable:
+  Enabled: true
+
+Rails/ReversibleMigration:
+  Exclude:
+    - 'db/update_migrate/20230113204303_drop_roles_roles_users_institutions_institutions_users.rb'
+
+Rails/Output:
+  Enabled: true
+
+Rails/OutputSafety:
+  Enabled: true
+
+Rails/RakeEnvironment:
+  Enabled: true
+
+Rails/SkipsModelValidations:
+  Enabled: true
+
+Rails/Validation:
+  Enabled: true
+
+RSpec/ContextWording:
+  Enabled: true
+
+RSpec/ExampleLength:
+  Max: 12
+
+RSpec/ExampleWording:
+  Enabled: true
+
+RSpec/FactoryBot/FactoryClassName:
+  Enabled: true
+
+RSpec/HookArgument:
+  Enabled: true
+
+RSpec/InstanceVariable:
+  Enabled: true
+
+RSpec/LetSetup:
+  Enabled: true
+
+RSpec/MultipleExpectations:
+  Max: 3
+
+RSpec/NestedGroups:
+  Max: 4
+
+Style/AndOr:
+  Enabled: true
+
+Style/BarePercentLiterals:
+  Enabled: true
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'

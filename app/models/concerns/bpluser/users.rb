@@ -34,7 +34,7 @@ module Bpluser
       end
 
       def get_folder_item(document_id)
-        folder_items.where(document_id: document_id).first if self.folder_items.where(document_id: document_id).exists?
+        folder_items.where(document_id: document_id).first if self.folder_items.exists?(document_id: document_id)
       end
 
       def permanent_account?
@@ -44,13 +44,13 @@ module Bpluser
       def email_not_required?
         self.provider != 'polaris'
       end
-      #END INSTANCE METHODS
+      # END INSTANCE METHODS
     end
 
     # BEGIN CLASS METHODS
     class_methods do
-      def find_for_polaris_oauth(auth_response, signed_in_resource = nil)
-        polaris_raw_details = auth_response[:extra][:raw_info]
+      def find_for_polaris_oauth(auth_response, _signed_in_resource = nil)
+        # polaris_raw_details = auth_response[:extra][:raw_info]
         polaris_info_details = auth_response[:info]
 
         User.where(provider: auth_response.provider, uid: auth_response.uid).first_or_create do |user|
@@ -58,30 +58,11 @@ module Bpluser
           user.uid = auth_response.uid
           user.username = polaris_info_details[:first_name]
           user.email = polaris_info_details[:email] || ''
-          user.password = Devise.friendly_token[0,20]
+          user.password = Devise.friendly_token[0, 20]
           user.display_name = "#{polaris_info_details[:first_name]} #{polaris_info_details[:last_name]}"
           user.first_name = polaris_info_details[:first_name]
           user.last_name = polaris_info_details[:last_name]
         end
-      end
-
-      def find_for_local_auth(auth, signed_in_resource=nil)
-        User.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-          user.provider = auth.provider
-          user.uid = auth.uid
-        end
-        unless user
-          user = User.create(display_name:auth.full_name,
-                             uid:auth.uid,
-                             provider:auth.provider,
-                             username:auth.uid,
-                             email:auth.email,
-                             password:auth.password,
-                             first_name:auth.first_name,
-                             last_name:auth.last_name
-          )
-        end
-        user
       end
     end
     # END CLASS METHODS

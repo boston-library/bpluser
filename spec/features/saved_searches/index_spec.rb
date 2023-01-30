@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Saved Searches', type: :feature, js: true do
+RSpec.describe 'Saved Searches', js: true do
   let!(:test_user) { create(:user, email: 'test@example.com', password: 'password', password_confirmation: 'password') }
 
   context 'with no saved searches' do
@@ -13,7 +13,7 @@ RSpec.describe 'Saved Searches', type: :feature, js: true do
 
     it 'is empty' do
       within '#user-nav-btn' do
-        find('button.dropdown-toggle').click
+        click_button(class: 'dropdown-toggle')
         click_on 'Saved Searches'
       end
 
@@ -31,7 +31,7 @@ RSpec.describe 'Saved Searches', type: :feature, js: true do
       end
 
       within '#user-nav-btn' do
-        find('button.dropdown-toggle').click
+        click_button(class: 'dropdown-toggle')
         click_on 'Search History'
       end
 
@@ -61,7 +61,7 @@ RSpec.describe 'Saved Searches', type: :feature, js: true do
       end
 
       within '#user-nav-btn' do
-        find('button.dropdown-toggle').click
+        click_button(class: 'dropdown-toggle')
         click_on 'Search History'
       end
 

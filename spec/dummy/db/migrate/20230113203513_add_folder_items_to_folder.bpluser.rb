@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from bpluser (originally 20130628143428)
 
 class AddFolderItemsToFolder < ActiveRecord::Migration[4.2]

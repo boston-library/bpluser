@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Bpluser::FolderItem, type: :model do
+RSpec.describe Bpluser::FolderItem do
   subject!(:folder_item) { build(:bpluser_folder_item, folder: folder) }
 
   let!(:test_user) { create(:user) }
@@ -27,11 +27,10 @@ RSpec.describe Bpluser::FolderItem, type: :model do
   end
 
   describe 'relations' do
-    it { is_expected.to belong_to(:folder).inverse_of(:folder_items).class_name('Bpluser::Folder') }
+    it { is_expected.to belong_to(:folder).inverse_of(:folder_items).class_name('Bpluser::Folder').touch(true) }
   end
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of(:folder_id) }
     it { is_expected.to validate_presence_of(:document_id) }
   end
 end

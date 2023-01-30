@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from bpluser (originally 20200708184202)
 
 class AddTrackableToDevise < ActiveRecord::Migration[5.2]

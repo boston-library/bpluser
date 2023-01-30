@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from bpluser (originally 20230113204303)
 
 class DropRolesRolesUsersInstitutionsInstitutionsUsers < ActiveRecord::Migration[6.0]

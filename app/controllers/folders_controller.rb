@@ -23,14 +23,10 @@ class FoldersController < CatalogController
   blacklight_config.http_method = Blacklight::Engine.config.bookmarks_http_method
 
   def index
-    flash[:notice] = flash[:notice].html_safe if flash[:notice].present? and flash[:notice] == %Q[Welcome! You're viewing Digital Stacks items using a link from a temporary card. To save these items to a free permanent account, click <a href="#{new_user_session_path}" title="Sign Up Link">Sign Up / Log In</a>.]
-
     @folders = current_or_guest_user.folders.with_folder_items if current_or_guest_user
   end
 
   def show
-    flash[:notice] = flash[:notice].html_safe if flash[:notice].present? and flash[:notice] == %Q[Welcome! You're viewing Digital Stacks items using a link from a temporary card. To save these items to a free permanent account, click <a href="#{new_user_session_path}" title="Sign Up Link">Sign Up / Log In</a>.]
-
     # @folder is set by correct_user_for_folder
     @folder_items = @folder.folder_items
     folder_items_ids = @folder_items.pluck(:document_id)
@@ -42,11 +38,14 @@ class FoldersController < CatalogController
     @folder = current_user.folders.build
   end
 
+  def edit
+  end
+
   def create
     @folder = current_user.folders.new(folder_params)
 
     if @folder.save
-      flash[:notice] = 'Folder created.'
+      flash[:notice] = t('blacklight.folders.create.success')
       redirect_to action: 'index'
     else
       render action: 'new'
@@ -54,7 +53,7 @@ class FoldersController < CatalogController
   end
 
   # create a folder in a modal window in the item show view
-  #def create_folder_catalog
+  # def create_folder_catalog
   #  if request.post?
   #    unless params[:title].empty?
   #      @folder = current_user.folders.build(:title => params[:title], :description => params[:description])
@@ -76,16 +75,12 @@ class FoldersController < CatalogController
   #      format.html { redirect_to :action => "new" }
   #    end
   #  end
-
-  #end
-
-  def edit
-  end
+  # end
 
   def update
     # @folder is set by correct_user_for_folder
     if @folder.update(folder_params)
-      flash[:notice] = 'Folder updated.'
+      flash[:notice] = t('blacklight.folders.update.success')
       redirect_to @folder
     else
       render action: :edit

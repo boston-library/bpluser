@@ -25,15 +25,15 @@ module Bpluser
     end
 
     def omniauth
-      return if IO.read(devise_initializer).include?('config.omniauth')
+      return if File.read(devise_initializer).include?('config.omniauth')
 
       marker = '# ==> Warden configuration'
       insert_into_file devise_initializer, before: marker do
         "config.omniauth :polaris, title: OMNIAUTH_POLARIS_GLOBAL['title']," \
-        "\n                  http_uri: OMNIAUTH_POLARIS_GLOBAL['http_uri']," \
-        "\n                  access_key: OMNIAUTH_POLARIS_GLOBAL['access_key']," \
-        "\n                  access_id: OMNIAUTH_POLARIS_GLOBAL['access_id']," \
-        "\n                  method: OMNIAUTH_POLARIS_GLOBAL['method']\n\n"
+          "\n                  http_uri: OMNIAUTH_POLARIS_GLOBAL['http_uri']," \
+          "\n                  access_key: OMNIAUTH_POLARIS_GLOBAL['access_key']," \
+          "\n                  access_id: OMNIAUTH_POLARIS_GLOBAL['access_id']," \
+          "\n                  method: OMNIAUTH_POLARIS_GLOBAL['method']\n\n"
       end
     end
   end

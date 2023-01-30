@@ -2,12 +2,12 @@
 
 require 'rails_helper'
 
-RSpec.describe SavedSearchesController, type: :controller do
+RSpec.describe SavedSearchesController do
   let!(:user) { create(:user, email: 'test@example.com', password: 'abcd12345', password_confirmation: 'abcd12345') }
   let!(:searches) { create_list(:search, 3, user: user) }
   let!(:one) { searches[0] }
   let!(:two) { searches[1] }
-  let!(:three) { searches[2] }
+  let(:three) { searches[2] }
 
   before do
     sign_in user

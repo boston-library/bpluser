@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Bpluser::Folder, type: :model do
+RSpec.describe Bpluser::Folder do
   subject!(:folder) { build(:bpluser_folder, folder_attrs) }
 
   let!(:test_user) { create(:user) }
@@ -36,7 +36,7 @@ RSpec.describe Bpluser::Folder, type: :model do
 
   describe 'instance methods' do
     it { is_expected.to respond_to(:user, :user_id, :title, :description, :created_at, :updated_at, :visibility, :folder_items, :public?, :private?).with(0).arguments }
-    it { is_expected.to respond_to(:has_folder_item).with(1).argument }
+    it { is_expected.to respond_to(:folder_item?).with(1).argument }
 
     describe '#public?' do
       before do
@@ -81,11 +81,10 @@ RSpec.describe Bpluser::Folder, type: :model do
   describe 'relations' do
     it { is_expected.to belong_to(:user).inverse_of(:folders).class_name('::User') }
 
-    it { is_expected.to have_many(:folder_items).inverse_of(:folder).dependent(:destroy).class_name('Bpluser::FolderItem')}
+    it { is_expected.to have_many(:folder_items).inverse_of(:folder).dependent(:destroy).class_name('Bpluser::FolderItem') }
   end
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of(:user_id) }
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:visibility) }
 
