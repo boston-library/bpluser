@@ -9,7 +9,7 @@ module Bpluser
       include InstanceMethods
       include Validatable
 
-      devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:polaris]
+      devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:polaris]
 
       has_many :folders, inverse_of: :user, dependent: :destroy, class_name: 'Bpluser::Folder'
       has_many :folder_items, through: :folders, class_name: 'Bpluser::FolderItem'
@@ -17,32 +17,30 @@ module Bpluser
 
     module InstanceMethods
       # BEGIN INSTANCE METHODS
-      def to_s
-        self.name
+      def name
+        email || username || display_name.to_s.titleize
       end
 
-      def name
-        self.username rescue display_name.to_s.titleize
-      end
+      alias to_s name
 
       def user_key
         send(Devise.authentication_keys.first)
       end
 
       def existing_folder_item_for(document_id)
-        self.get_folder_item(document_id)
+        get_folder_item(document_id)
       end
 
       def get_folder_item(document_id)
-        folder_items.where(document_id: document_id).first if self.folder_items.exists?(document_id: document_id)
+        folder_items.where(document_id: document_id).first if folder_items.exists?(document_id: document_id)
       end
 
       def permanent_account?
-        self.provider != 'digital_stacks_temporary'
+        provider != 'digital_stacks_temporary'
       end
 
       def email_not_required?
-        self.provider != 'polaris'
+        provider != 'polaris'
       end
       # END INSTANCE METHODS
     end

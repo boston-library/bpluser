@@ -10,7 +10,7 @@ class FoldersController < CatalogController
 
   # Blacklight uses #search_action_url to figure out the right URL for
   # the global search box
-  def search_action_url options = {}
+  def search_action_url(options = {})
     search_catalog_url(options.except(:controller, :action))
   end
   helper_method :search_action_url
@@ -38,8 +38,7 @@ class FoldersController < CatalogController
     @folder = current_user.folders.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @folder = current_user.folders.new(folder_params)
@@ -112,7 +111,7 @@ class FoldersController < CatalogController
   def check_visibility
     @folder = Bpluser::Folder.with_folder_items.find(params[:id])
 
-    return if @folder && @folder.public?
+    return if @folder&.public?
 
     correct_user_for_folder
   end

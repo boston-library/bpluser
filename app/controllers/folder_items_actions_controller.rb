@@ -7,7 +7,7 @@ class FolderItemsActionsController < ApplicationController
     @user = current_or_guest_user
 
     unless params[:selected]
-      flash[:error] = I18n.t('blacklight.folders.update_items.remove.no_items')
+      flash[:error] = t('blacklight.folders.update_items.remove.no_items')
       redirect_back(fallback_location: root_path)
     end
 
@@ -38,7 +38,7 @@ class FolderItemsActionsController < ApplicationController
       end
     # copy
     when /#{t('blacklight.tools.copy_to')}/
-      destination = params[:commit].split(t('blacklight.tools.copy_to') + ' ')[1]
+      destination = params[:commit].split("#{t('blacklight.tools.copy_to')} ")[1]
       if destination == t('blacklight.bookmarks.title')
         success = items.all? do |item_id|
           next true if current_or_guest_user.bookmarks.exists?(document_id: item_id)

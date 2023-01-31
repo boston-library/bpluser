@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
-class Users::RegistrationsController < Devise::RegistrationsController
-  include Bpluser::Registrations
+module Users
+  class RegistrationsController < Devise::RegistrationsController
+    include Bpluser::Registrations
+  end
 end

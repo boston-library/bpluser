@@ -7,7 +7,7 @@ class UserInstitutions < ActiveRecord::Migration[4.2]
       t.string :pid
     end
 
-    create_table :institutions_users, :id => false do |t|
+    create_table :institutions_users, id: false do |t|
       t.references :institution
       t.references :user
     end

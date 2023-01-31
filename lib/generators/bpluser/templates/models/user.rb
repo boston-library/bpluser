@@ -5,5 +5,5 @@ class User < ApplicationRecord
   include Blacklight::User
   # Connects this user object to the BPL omniauth service
   include Bpluser::Concerns::User
-  self.table_name = "users"
+  self.table_name = 'users'
 end

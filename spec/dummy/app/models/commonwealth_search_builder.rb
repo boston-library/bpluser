@@ -12,7 +12,5 @@ class CommonwealthSearchBuilder < Blacklight::SearchBuilder
     :add_advanced_parse_q_to_solr, :add_advanced_search_to_solr
   ]
 
-  unless I18n.t('blacklight.home.browse.institutions.enabled')
-    self.default_processor_chain += [:institution_limit, :exclude_institutions]
-  end
+  self.default_processor_chain += [:institution_limit, :exclude_institutions] unless I18n.t('blacklight.home.browse.institutions.enabled')
 end

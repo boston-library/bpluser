@@ -6,7 +6,7 @@ class UserRoles < ActiveRecord::Migration[4.2]
       t.string :name
     end
 
-    create_table :roles_users, :id => false do |t|
+    create_table :roles_users, id: false do |t|
       t.references :role
       t.references :user
     end

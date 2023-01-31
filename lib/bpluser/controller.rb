@@ -45,10 +45,7 @@ module Bpluser
 
         guest_user.folders.with_folder_items.find_each do |folder|
           target_folder = current_user.folders.where(title: folder.title).first
-
-          if target_folder.blank?
-            target_folder = current_user.folders.create!(title: folder.title, description: folder.description, visibility: folder.visibility)
-          end
+          target_folder ||= current_user.folders.create!(title: folder.title, description: folder.description, visibility: folder.visibility)
 
           folder.folder_items.find_each do |item_to_add|
             next if target_folder.folder_item?(item_to_add.document_id)

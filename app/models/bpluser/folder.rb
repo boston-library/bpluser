@@ -4,7 +4,7 @@ module Bpluser
   class Folder < ApplicationRecord
     MAX_TITLE_LENGTH = 65
     MAX_DESC_LENGTH = 250
-    VALID_VISIBILITY_OPTS = %w(public private).freeze
+    VALID_VISIBILITY_OPTS = %w[public private].freeze
 
     belongs_to :user, inverse_of: :folders, class_name: '::User'
     has_many :folder_items, inverse_of: :folder, dependent: :destroy, class_name: 'Bpluser::FolderItem'
