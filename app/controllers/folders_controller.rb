@@ -5,6 +5,7 @@ class FoldersController < CatalogController
   # Give Bookmarks access to the CatalogController configuration
   include Blacklight::Configurable
   include Blacklight::TokenBasedUser
+  include Bpluser::FoldersVerifyUser
 
   copy_blacklight_config_from(CatalogController)
 
@@ -51,31 +52,6 @@ class FoldersController < CatalogController
     end
   end
 
-  # create a folder in a modal window in the item show view
-  # def create_folder_catalog
-  #  if request.post?
-  #    unless params[:title].empty?
-  #      @folder = current_user.folders.build(:title => params[:title], :description => params[:description])
-  #      if @folder.save
-  #        flash[:success] = "Folder created; " + t('blacklight.folder_items.add.success')
-  #        current_user.folders.first.folder_items.create!(:document_id => params['id'].first)
-  #        redirect_to solr_document_path(params['id']) unless request.xhr?
-  #      else
-  #        flash[:error] = t('blacklight.folders.create.error.no_save')
-  #      end
-  #    else
-  #      flash[:error] = t('blacklight.folders.create.error.no_title')
-  #    end
-  #  end
-
-  #  unless !request.xhr? && flash[:success]
-  #    respond_to do |format|
-  #      format.js { render :layout => false }
-  #      format.html { redirect_to :action => "new" }
-  #    end
-  #  end
-  # end
-
   def update
     # @folder is set by correct_user_for_folder
     if @folder.update(folder_params)
@@ -102,10 +78,6 @@ class FoldersController < CatalogController
 
   def folder_params
     params.require(:folder).permit(:title, :description, :visibility)
-  end
-
-  def verify_user
-    flash[:notice] = t('blacklight.folders.need_login') and raise Blacklight::Exceptions::AccessDenied unless current_user
   end
 
   def check_visibility

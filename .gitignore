@@ -57,6 +57,7 @@ ehthumbs.db
 /.idea/*
 Gemfile.lock
 .ruby-version
+scratch.rb
 
 # Directories to ignore #
 #########################

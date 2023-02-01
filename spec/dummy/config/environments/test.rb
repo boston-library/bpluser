@@ -9,6 +9,39 @@ require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:polaris] = OmniAuth::AuthHash.new({
+    provider: 'polaris',
+    uid: '299999999999',
+    info: {
+      barcode: '299999999999',
+      valid_patron: 'true',
+      assigned_branch_id: '1',
+      assigned_branch_name: 'My Awesome Library - Central',
+      first_name: 'Test',
+      last_name: 'Testerson',
+      middle_name: 'T',
+      phone_number: '555-555-5555',
+      email: 'test.testerson@example.com'
+    },
+    extra: {
+      raw_info: {
+        'Barcode': '299999999999',
+        'ValidPatron': 'true',
+        'PatronID': '111111111',
+        'PatronCodeID': '1',
+        'AssignedBranchID': '1',
+        'AssignedBracnhName': 'My Awesome Library - Central',
+        'PatronBarcode': '299999999999',
+        'ExpirationDate': '2026-02-19T00:00:00',
+        'NameFirst': 'Test',
+        'NameLast': 'Testerson',
+        'NameMiddle': 'T',
+        'PhoneNumber': '555-555-5555',
+        'EmailAddress': 'test.testerson@example.com'
+      }
+    }
+  })
 
   config.cache_classes = true
 

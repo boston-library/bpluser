@@ -6,17 +6,19 @@ module Bpluser
 
     included do
       include InstanceMethods
+
+      skip_before_action :verify_authenticity_token, only: [:polaris]
     end
 
     module InstanceMethods
       def polaris
-        @user = User.find_for_polaris_oauth(request.env['omniauth.auth'], current_user)
+        @user = User.find_for_polaris_oauth(request.env['omniauth.auth'])
 
         if @user.persisted?
-          flash[:notice] = t('devise.omniauth_callbacks.success', kind: 'Polaris')
           sign_in_and_redirect @user, event: :authentication
+          set_flash_message(:notice, :success, kind: 'Polaris') if is_navigational_format?
         else
-          session['devise.polaris_data'] = request.env['omniauth.auth']
+          session['devise.polaris_data'] = request.env['omniauth.auth'].except(:extra)
           redirect_to new_user_registration_url
         end
       end

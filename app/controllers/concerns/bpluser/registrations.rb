@@ -11,24 +11,32 @@ module Bpluser
 
     module InstanceMethods
       def update_sanitized_params
-        devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :uid) }
-        devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :uid, :current_password) }
+        case params['action']
+        when 'create'
+          devise_parameter_sanitizer.permit(:sign_up) do |u|
+            u.permit(:username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name)
+              .with_defaults(username: params.dig(:user, :email), display_name: default_display_name)
+          end
+        when 'update'
+          devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :current_password) }
+        end
       end
 
       # POST /resource
       def create
-        if User.exists?(provider: resource_params[:provider], uid: resource_params[:email])
+        if User.exists?(email: sign_up_params[:email])
           flash[:error] = "An account with that email (#{resource_params[:email]}) already exists. Please sign in or click the \"Forgot your password?\" link below."
           redirect_to new_user_session_path
         end
+
         super
       end
 
       def resource_params
         params
           .require(:user)
-          .permit(:username, :email, :first_name, :last_name, :provider, :display_name, :password, :password_confirmation, :uid)
-          .with_defaults(provider: 'local', uid: params.dig(:user, :email), username: params.dig(:user, :email), display_name: default_display_name)
+          .permit(:username, :email, :first_name, :last_name, :display_name, :password, :password_confirmation)
+          .with_defaults
       end
 
       def default_display_name

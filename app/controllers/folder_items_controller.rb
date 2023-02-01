@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class FolderItemsController < CatalogController
+  include Bpluser::FoldersVerifyUser
+
   before_action :verify_user
 
   def create
@@ -91,9 +93,5 @@ class FolderItemsController < CatalogController
 
   def folder_items_params
     params.require(:folder_items).map { |fi_params| fi_params.permit(:document_id, :folder_id) }
-  end
-
-  def verify_user
-    flash[:notice] = t('blacklight.folders.need_login') and raise Blacklight::Exceptions::AccessDenied unless current_user
   end
 end

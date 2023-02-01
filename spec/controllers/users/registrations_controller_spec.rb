@@ -14,13 +14,13 @@ RSpec.describe Users::RegistrationsController do
 
     context 'when successful' do
       it 'is expected to redirect to after_sign_in_path' do
-        post :create, params: { user: user_attributes }
+        post :create, params: { sign_up: user_attributes }
         expect(response).to be_redirect
       end
 
       it 'is expected to create a new user' do
         expect do
-          post :create, params: { user: user_attributes }
+          post :create, params: { sign_up: user_attributes }
         end.to change(User, :count).by(1)
       end
     end
