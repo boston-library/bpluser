@@ -59,16 +59,20 @@ RSpec.describe Users::OmniauthCallbacksController do
     end
 
     context 'when failure' do
-      context 'when invalid credentials' do
-        before do
-          request.env['devise.mapping'] = Devise.mappings[:user]
-          request.env['omniauth.auth'] = OmniAuth::AuthHash.new({ uid: nil, provider: 'polaris', info: {}, extra: {} })
-        end
+      before do
+        request.env['devise.mapping'] = Devise.mappings[:user]
+        request.env['omniauth.auth'] = OmniAuth::AuthHash.new({ uid: nil, provider: 'polaris', info: {}, extra: {} })
+      end
 
-        it 'is expected to redirect to failure app' do
-          post :polaris
-          binding.pry
-        end
+      it 'is expected to redirect to new_user_session_path' do
+        post :polaris
+        expect(response).to redirect_to(new_user_registration_url)
+      end
+
+      it 'is expected to have devise.polaris_data in the session' do
+        post :polaris
+        expect(session).to have_key('devise.polaris_data')
+        expect(session['devise.polaris_data']).to be_a_kind_of(OmniAuth::AuthHash)
       end
     end
   end

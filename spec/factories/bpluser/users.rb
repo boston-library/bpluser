@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user, class: 'User' do
-    email { 'testy@example.com' }
+    email { generate(:bpluser_email) }
     password { 'password' }
     password_confirmation { 'password' }
 
@@ -11,6 +11,7 @@ FactoryBot.define do
       uid { '299999999999' }
       email { 'test.testerson@example.com' }
       password { Devise.friendly_token[0, 20] }
+      password_confirmation { nil }
     end
   end
 end

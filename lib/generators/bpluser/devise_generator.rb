@@ -12,11 +12,11 @@ module Bpluser
 
     def keys
       gsub_file(devise_initializer, /^[\s#]*config.authentication_keys[^\n]*/,
-                '  config.authentication_keys = [:uid]')
+                '  config.authentication_keys = [:email, :uid]')
       gsub_file(devise_initializer, /^[\s#]*config.case_insensitive_keys[^\n]*/,
-                '  config.case_insensitive_keys = [:uid]')
+                '  config.case_insensitive_keys = [:email, :uid]')
       gsub_file(devise_initializer, /^[\s#]*config.strip_whitespace_keys[^\n]*/,
-                '  config.strip_whitespace_keys = [:uid]')
+                '  config.strip_whitespace_keys = [:email, :uid]')
     end
 
     def sign_out

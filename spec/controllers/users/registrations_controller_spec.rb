@@ -13,7 +13,7 @@ RSpec.describe Users::RegistrationsController do
     end
 
     context 'when successful' do
-      it 'is expected to redirect to after_sign_in_path' do
+      it 'is expected to be redirect' do
         post :create, params: { sign_up: user_attributes }
         expect(response).to be_redirect
       end
@@ -21,8 +21,18 @@ RSpec.describe Users::RegistrationsController do
       it 'is expected to create a new user' do
         expect do
           post :create, params: { sign_up: user_attributes }
+          binding.pry
         end.to change(User, :count).by(1)
       end
+
+      it 'is expected to have flash message and current_user' do
+        post :create, params: { sign_up: user_attributes }
+        expect(flash[:notice]).to be_an_instance_of(String)
+        expect(controller.current_user).to be_truthy.and be_a_kind_of(User)
+      end
+    end
+
+    skip 'when failure' do
     end
   end
 end

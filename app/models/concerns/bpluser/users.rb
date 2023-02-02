@@ -7,12 +7,14 @@ module Bpluser
 
     included do
       include InstanceMethods
-      include Validatable
+      include Bpluser::Validatable
 
-      devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable, omniauth_providers: [:polaris]
+      devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: [:polaris]
 
       has_many :folders, inverse_of: :user, dependent: :destroy, class_name: 'Bpluser::Folder'
       has_many :folder_items, through: :folders, class_name: 'Bpluser::FolderItem'
+
+      before_create :set_default_display_name
     end
 
     module InstanceMethods
@@ -34,6 +36,16 @@ module Bpluser
       def get_folder_item(document_id)
         folder_items.where(document_id: document_id).first if folder_items.exists?(document_id: document_id)
       end
+
+      private
+
+      def set_default_display_name
+        return if display_name.present?
+
+        return if first_name.blank? && last_name.blank?
+
+        self.display_name = "#{first_name} #{last_name}".strip
+      end
       # END INSTANCE METHODS
     end
 
@@ -46,7 +58,7 @@ module Bpluser
           user.provider = auth_response.provider
           user.uid = auth_response.uid
           user.username = polaris_info_details[:first_name]
-          user.email = polaris_info_details[:email] || ''
+          user.email = polaris_info_details[:email].presence || ''
           user.password = Devise.friendly_token[0, 20]
           user.display_name = "#{polaris_info_details[:first_name]} #{polaris_info_details[:last_name]}"
           user.first_name = polaris_info_details[:first_name]
