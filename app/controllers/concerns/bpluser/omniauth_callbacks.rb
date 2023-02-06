@@ -7,7 +7,7 @@ module Bpluser
     included do
       include InstanceMethods
 
-      skip_before_action :verify_authenticity_token, only: [:polaris]
+      skip_before_action :verify_authenticity_token, only: :polaris
     end
 
     module InstanceMethods

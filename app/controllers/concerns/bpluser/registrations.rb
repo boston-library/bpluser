@@ -17,7 +17,13 @@ module Bpluser
           redirect_to new_user_session_path and return
         end
 
-        super
+        super do |user|
+          unless user.persisted?
+            clean_up_passwords user
+            set_minimum_password_length
+            respond_with user, location: new_registration_path(user) and return
+          end
+        end
       end
 
       protected

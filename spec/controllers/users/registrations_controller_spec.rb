@@ -27,14 +27,14 @@ RSpec.describe Users::RegistrationsController do
       it 'is expected to have flash message and current_user' do
         post :create, params: { user: user_attributes }
         expect(flash[:notice]).to be_an_instance_of(String).and eql(I18n.t('devise.registrations.signed_up'))
-        expect(controller.current_user).to be_truthy.and be_a_kind_of(User)
+        expect(controller.current_user).to be_truthy.and be_an_instance_of(User)
       end
     end
 
     context 'when failure' do
-      context 'user already exists' do
+      context 'when user already exists' do
         let!(:existing_user) { create(:user) }
-        let!(:expected_error_message) { "An account with that email (#{existing_user.email}) already exists. Please sign in or click the \"Forgot your password?\" link below."}
+        let!(:expected_error_message) { "An account with that email (#{existing_user.email}) already exists. Please sign in or click the \"Forgot your password?\" link below." }
         let!(:existing_user_params) do
           {
             email: existing_user.email,
@@ -57,7 +57,7 @@ RSpec.describe Users::RegistrationsController do
 
         it 'is expected not to have a current user' do
           post :create, params: { user: existing_user_params }
-          expect(controller.current_user).to be(nil)
+          expect(controller.current_user).to be_nil
         end
       end
 
@@ -66,18 +66,18 @@ RSpec.describe Users::RegistrationsController do
 
         it 'is expected to have error details in body' do
           post :create, params: { user: bad_user_params }
-          expect(response.body).to have_selector("div[id=error_explanation]")
+          expect(response.body).to have_selector('div[id=error_explanation]')
           expect(response.body).to have_content('1 error prohibited this user from being saved:')
           expect(response.body).to have_content("Email can't be blank")
         end
 
         it 'is expected to have the partial user attributes in the form' do
           post :create, params: { user: bad_user_params }
-          expect(response.body).to have_field('user_first_name', with: bad_user_params[:first_name], visible: false)
-          expect(response.body).to have_field('user_last_name', with: bad_user_params[:last_name], visible: false)
-          expect(response.body).to have_field('user_password', visible: false)
-          expect(response.body).to have_field('user_password_confirmation', visible: false)
-          expect(response.body).to have_field('user_email', with: '', visible: false)
+          expect(response.body).to have_field('user_first_name', with: bad_user_params[:first_name], visible: :all)
+          expect(response.body).to have_field('user_last_name', with: bad_user_params[:last_name], visible: :all)
+          expect(response.body).to have_field('user_password', visible: :all)
+          expect(response.body).to have_field('user_password_confirmation', visible: :all)
+          expect(response.body).to have_field('user_email', with: '', visible: :all)
         end
       end
     end

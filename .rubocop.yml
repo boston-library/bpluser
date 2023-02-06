@@ -1,9 +1,9 @@
 AllCops:
   NewCops: enable
   TargetRubyVersion: 2.7
-
-Gemspec/OrderedDependencies:
-  Enabled: true
+  Exclude:
+    - 'scratch.rb'
+    - 'spec/dummy/db/schema.rb'
 
 Gemspec/RequireMFA:
   Enabled: false
@@ -14,6 +14,10 @@ Gemspec/RequiredRubyVersion:
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'spec/dummy/db/schema.rb'
+
+Layout/FirstHashElementIndentation:
+  Exclude:
+    - 'spec/dummy/config/environments/test.rb'
 
 Layout/LineLength:
   Max: 312
@@ -33,10 +37,22 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 22
 
+Performance/RegexpMatch:
+  Exclude:
+    - 'bin/rspec'
+
+Performance/StringInclude:
+  Exclude:
+    - 'bin/rspec'
+
 Rails/CreateTableWithTimestamps:
   Exclude:
     - 'db/migrate/20130628143444_user_roles.rb'
     - 'db/migrate/20130628144126_user_institutions.rb'
+
+Rails/LexicallyScopedActionFilter:
+  Exclude:
+    - 'app/controllers/concerns/bpluser/omniauth_callbacks.rb'
 
 Rails/ReversibleMigration:
   Exclude:
@@ -46,7 +62,7 @@ RSpec/ExampleLength:
   Max: 12
 
 RSpec/MultipleExpectations:
-  Max: 3
+  Max: 6
 
 RSpec/NestedGroups:
   Max: 4
@@ -57,18 +73,6 @@ Style/BlockComments:
 
 Style/Documentation:
   Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - 'spec/dummy/db/schema.rb'
-
-Style/NumericLiterals:
-  Exclude:
-    - 'spec/dummy/db/schema.rb'
-
-Style/StringLiterals:
-  Exclude:
-    - 'spec/dummy/db/schema.rb'
 
 Style/SymbolArray:
   EnforcedStyle: percent

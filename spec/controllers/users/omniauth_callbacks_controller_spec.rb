@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Users::OmniauthCallbacksController do
-  before(:all) do
-    OmniAuth.config.on_failure = Proc.new { |env| OmniAuth::FailureEndpoint.new(env).redirect_to_failure }
+  before do
+    OmniAuth.config.on_failure = proc { |env| OmniAuth::FailureEndpoint.new(env).redirect_to_failure }
   end
 
   describe 'POST #polaris' do
@@ -28,7 +28,7 @@ RSpec.describe Users::OmniauthCallbacksController do
 
       it 'is expected to have current user' do
         post :polaris
-        expect(subject.current_user).to be_truthy.and be_an_instance_of(User)
+        expect(controller.current_user).to be_truthy.and be_an_instance_of(User)
       end
     end
 
@@ -54,7 +54,7 @@ RSpec.describe Users::OmniauthCallbacksController do
 
       it 'is expected for the current user to equal the user' do
         post :polaris
-        expect(subject.current_user).to eql(user)
+        expect(controller.current_user).to eql(user)
       end
     end
 
@@ -72,7 +72,7 @@ RSpec.describe Users::OmniauthCallbacksController do
       it 'is expected to have devise.polaris_data in the session' do
         post :polaris
         expect(session).to have_key('devise.polaris_data')
-        expect(session['devise.polaris_data']).to be_a_kind_of(OmniAuth::AuthHash)
+        expect(session['devise.polaris_data']).to be_a(OmniAuth::AuthHash)
       end
     end
   end

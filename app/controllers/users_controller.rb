@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html # show.html.erb.bak
+      format.html
       format.xml { render xml: @user }
     end
   end
