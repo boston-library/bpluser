@@ -26,13 +26,13 @@ module Bpluser
       # TODO figure out why it doesn't work for Polaris
       def store_location
         # Don't store if ajax call or fullpath doesn't include segments in EXCLUDE_PATHS const
-        return if request.xhr? || EXCLUDE_PATHS.any? { |exclude_path| request.fullpath.include?(exclude_path) }
+        return if !request.get? || request.xhr? || EXCLUDE_PATHS.any? { |exclude_path| request.fullpath.include?(exclude_path) }
 
-        session[:previous_url] = request.fullpath
+        store_location_for(:user, request.fullpath)
       end
 
-      def after_sign_in_path_for(_resource)
-        session[:previous_url] || root_path
+      def after_sign_in_path_for(resource_or_scope)
+        stored_location_for(resource_or_scope) || root_path
       end
 
       private

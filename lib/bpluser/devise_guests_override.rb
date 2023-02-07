@@ -2,6 +2,7 @@
 
 module Bpluser
   module DeviseGuestsOverride
+    # DEPRECATED changing devise to use email keys instead of uid authentication keys makes this no longer needed
     extend ActiveSupport::Concern
 
     included do
