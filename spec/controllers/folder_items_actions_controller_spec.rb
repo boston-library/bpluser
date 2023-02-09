@@ -45,6 +45,7 @@ RSpec.describe FolderItemsActionsController do
               selected: %w[bpl-dev:h702q6403 bpl-dev:g445cd14k]
             }
             expect(response).to be_redirect
+            expect(response).to redirect_to("/folders/#{folder.id}")
           end.to change(folder2.folder_items, :count).by(2)
         end
       end

@@ -3,10 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Users::OmniauthCallbacksController do
-  before do
-    OmniAuth.config.on_failure = proc { |env| OmniAuth::FailureEndpoint.new(env).redirect_to_failure }
-  end
-
   describe 'POST #polaris' do
     context 'when user does not exist' do
       before do

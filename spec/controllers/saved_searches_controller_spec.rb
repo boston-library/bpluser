@@ -21,7 +21,7 @@ RSpec.describe SavedSearchesController do
     it 'lets you save a search' do
       session[:history] = [one.id]
       post :save, params: { id: one.id }
-      expect(response).to redirect_to 'where_i_came_from'
+      expect(response).to redirect_to('where_i_came_from')
     end
 
     it "does not let you save a search that isn't in your search history" do

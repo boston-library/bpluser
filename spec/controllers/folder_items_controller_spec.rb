@@ -22,6 +22,7 @@ RSpec.describe FolderItemsController do
           request.env['HTTP_REFERER'] = '/folder_items/new'
           post :create, params: { id: document_id, folder_id: folder.id.to_s }
           expect(response).to be_redirect
+          expect(response).to redirect_to('/folder_items/new')
           expect(test_user.existing_folder_item_for(document_id)).not_to be_nil
         end.to change(Bpluser::FolderItem, :count).by(1)
       end
@@ -49,6 +50,7 @@ RSpec.describe FolderItemsController do
           request.env['HTTP_REFERER'] = '/folder_items'
           delete :destroy, params: { id: document_id }
           expect(response).to be_redirect
+          expect(response).to redirect_to('/folder_items')
         end.to change(Bpluser::FolderItem, :count).by(-1)
       end
 

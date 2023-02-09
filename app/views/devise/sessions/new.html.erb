@@ -12,7 +12,7 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label" for="user_uid">Email</label>
           <div class="col-sm-4">
-            <%= f.text_field :uid, class: 'form-control' %>
+            <%= f.text_field :email, class: 'form-control' %>
           </div>
         </div>
         <div class="form-group row">
@@ -52,7 +52,7 @@
         <%= link_to(image_tag('commonwealth-vlr-engine/bplLoginButton.png',
                               alt: 'Log in with your BPL library card',
                               class: 'alt_signin_btn'),
-                     user_polaris_omniauth_authorize_path) %>
+                     user_polaris_omniauth_authorize_path, method: :post) %>
       </div>
 
       <%= render 'devise/shared/links' %>

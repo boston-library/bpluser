@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :folder_items
 
   # user account management (not login/auth)
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show]
 
   # saved searches -- no longer provided by blacklight >= 7
   get 'saved_searches', to: 'saved_searches#index', as: 'saved_searches'
