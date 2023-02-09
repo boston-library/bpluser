@@ -13,6 +13,7 @@ gem 'bootsnap', require: false
 group :development, :test do
   gem 'bootstrap', '~> 4'
   gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine'
+  gem 'coveralls', require: false
   gem 'dotenv-rails', '~> 2.8', require: 'dotenv/rails-now'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 3.1'
@@ -34,6 +35,8 @@ end
 
 group :test do
   gem 'capybara', '~> 3.38', '< 4'
+  gem 'climate_control', '~> 1.1'
+  gem 'coveralls_reborn', '~> 0.26.0', require: false
   gem 'database_cleaner-active_record', '~> 2'
   gem 'launchy', '~> 2.5'
   gem 'shoulda-matchers', '~> 5.2'

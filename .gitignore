@@ -70,6 +70,11 @@ scratch.rb
 /*jetty*
 /pkg/*
 
+# Ignore coverage reports #
+###########################
+coverage/*
+
+
 # Ignore edited Linux files #
 #############################
 
