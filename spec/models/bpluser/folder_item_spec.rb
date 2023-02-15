@@ -1,37 +1,36 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe Bpluser::FolderItem do
+require 'rails_helper'
 
-  before(:each) do
-    @test_user_attr = {
-        #:username => "Testy McGee",
-        :email => "testy@example.com",
-        :password => "password"
-    }
-    @test_user = User.create!(@test_user_attr)
-    @folder = @test_user.folders.create!(:title => "Test Folder Title")
-    @folder_item = @folder.folder_items.build(:document_id => "bpl-development:107")
+RSpec.describe Bpluser::FolderItem do
+  subject!(:folder_item) { build(:bpluser_folder_item, folder: folder) }
+
+  let!(:test_user) { create(:user) }
+  let!(:folder) { create(:bpluser_folder, user: test_user) }
+
+  describe 'instance methods' do
+    it { is_expected.to respond_to(:folder, :folder_id, :document, :document_id, :created_at, :updated_at).with(0).arguments }
   end
 
-  it "should create a new folder_item given valid attributes" do
-    @folder_item.save!
+  describe 'database' do
+    describe 'columns' do
+      it { is_expected.to have_db_column(:folder_id).of_type(:integer) }
+      it { is_expected.to have_db_column(:document_id).of_type(:string) }
+      it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
+      it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
+    end
+
+    describe 'indexes' do
+      it { is_expected.to have_db_index(:folder_id) }
+      it { is_expected.to have_db_index(:document_id) }
+    end
   end
 
-  describe "methods" do
-
-    before(:each) do
-      @folder_item.save!
-    end
-
-    it "should have a folder attribute" do
-      @folder_item.should respond_to(:folder)
-    end
-
-    it "should have a document attribute" do
-      @folder_item.should respond_to(:document)
-    end
-
+  describe 'relations' do
+    it { is_expected.to belong_to(:folder).inverse_of(:folder_items).class_name('Bpluser::Folder').touch(true) }
   end
 
-
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:document_id) }
+  end
 end

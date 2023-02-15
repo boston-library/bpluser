@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 class UserInstitutions < ActiveRecord::Migration[4.2]
   def up
     create_table :institutions do |t|
       t.string :name
       t.string :pid
     end
-    create_table :institutions_users, :id => false do |t|
+
+    create_table :institutions_users, id: false do |t|
       t.references :institution
       t.references :user
     end

@@ -1,9 +1,8 @@
-<% @page_title = @folder.title + " - " + application_name %>
+<% @page_title = "{@folder.title}-#{application_name}" %>
 
 <%= javascript_include_tag 'bpluser/folder_tools' %>
 
 <div id="content" class="folder_show_container col-sm-9">
-
   <div id="breadcrumb">
     <ul class="breadcrumb">
       <% if current_user %>
@@ -30,10 +29,10 @@
 
   <h2>
     <%= @folder.title %>
-    <% if current_user && folder_belongs_to_user %>
+    <% if current_user && folder_belongs_to_user(@folder) %>
         <small id="folder_tools">
           <div class="folder_visibility">
-            <% if @folder.visibility == 'public' %>
+            <% if @folder.public? %>
                 <%= icon('fas', 'eye', aria: { hidden: true }) %>
                 <span class="visibility_public"><%= @folder.visibility %></span>
             <% else %>
@@ -63,14 +62,14 @@
   <% end %>
 
   <% unless @folder_items.empty? %>
-      <%= render 'catalog/sort_and_per_page' %>
+      <%= render partial: 'catalog/sort_and_per_page' %>
 
       <%= form_tag selected_folder_items_actions_path, method: :put, id: "item_actions_form" do %>
         <%= render partial: 'shared/folder_item_actions' %>
         <%= render_document_index %>
       <% end %>
 
-      <%= render 'catalog/results_pagination' %>
+      <%= render partial: 'catalog/results_pagination' %>
   <% else %>
     <div id="empty_folder" class="well">
       <h5><%= t('blacklight.folders.empty') %></h5>

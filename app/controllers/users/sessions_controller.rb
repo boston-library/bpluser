@@ -1,3 +1,6 @@
-class Users::SessionsController < Devise::SessionsController
-  include Bpluser::Sessions
+# frozen_string_literal: true
+
+module Users
+  class SessionsController < Devise::SessionsController
+  end
 end

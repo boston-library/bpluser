@@ -10,6 +10,10 @@ capybara-*.html
 /log/*
 /tmp/*
 /db/*.sqlite3
+/spec/dummy/db/*.sqlite3
+/spec/dummy/db/*.sqlite3-*
+/spec/dummy/log/*.log
+/spec/dummy/tmp/
 /public/system/*
 /coverage/
 /spec/tmp/*
@@ -19,7 +23,6 @@ pickle-email-*.html
 
 # Specific configuration files #
 ################################
-database.yml
 fedora.yml
 solr.yml
 role_map_cucumber.yml
@@ -53,6 +56,7 @@ ehthumbs.db
 /.idea/*
 Gemfile.lock
 .ruby-version
+scratch.rb
 
 # Directories to ignore #
 #########################
@@ -64,6 +68,11 @@ Gemfile.lock
 /hydra-jetty/*
 /*jetty*
 /pkg/*
+
+# Ignore coverage reports #
+###########################
+coverage/*
+
 
 # Ignore edited Linux files #
 #############################

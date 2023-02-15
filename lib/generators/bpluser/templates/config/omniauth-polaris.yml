@@ -3,7 +3,7 @@ default: &default
   http_uri: <%= ENV.fetch('POLARIS_URI', '') %>
   access_key: <%= ENV.fetch('POLARIS_KEY', '') %>
   access_id: <%= ENV.fetch('POLARIS_ID', '') %>
-  method: GET
+  method: POST
 
 development:
   <<: *default

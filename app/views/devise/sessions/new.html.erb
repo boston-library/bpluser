@@ -6,13 +6,13 @@
 
       <%= form_for(resource,
                    as: resource_name,
-                   url: session_path(resource_name),
-                   html: { role: 'form' }) do |f| %>
+                   url: user_session_path,
+                   html: { method: :post, role: 'form' }) do |f| %>
 
         <div class="form-group row">
           <label class="col-sm-2 col-form-label" for="user_uid">Email</label>
           <div class="col-sm-4">
-            <%= f.text_field :uid, class: 'form-control' %>
+            <%= f.text_field :email, class: 'form-control' %>
           </div>
         </div>
         <div class="form-group row">
@@ -49,15 +49,10 @@
       <% end %>
 
       <div id="alt_signins">
-        <%= link_to(image_tag('commonwealth-vlr-engine/facebookLoginButton.png',
-                              alt: 'Log in with Facebook',
-                              class: 'alt_signin_btn'),
-                    omniauth_authorize_path(resource_name, 'facebook')) %>
         <%= link_to(image_tag('commonwealth-vlr-engine/bplLoginButton.png',
                               alt: 'Log in with your BPL library card',
                               class: 'alt_signin_btn'),
-                    omniauth_authorize_path(resource_name, 'polaris')) %>
-        <%# omniauth_authorize_path(resource_name, provider) %>
+                     user_polaris_omniauth_authorize_path, method: :post) %>
       </div>
 
       <%= render 'devise/shared/links' %>

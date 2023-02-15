@@ -1,0 +1,14 @@
+default: &default
+  url: <%= ENV.fetch('AZURE_STORAGE_ACCOUNT_ENDPOINT', 'http://localhost:8888') %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

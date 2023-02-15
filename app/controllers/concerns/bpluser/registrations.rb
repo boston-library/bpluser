@@ -1,34 +1,34 @@
+# frozen_string_literal: true
+
 module Bpluser
   module Registrations
-    def self.included(base)
-      base.send :before_action, :update_sanitized_params, :if => :devise_controller?
-      base.send :include, InstanceMethods
+    extend ActiveSupport::Concern
+
+    included do
+      include InstanceMethods
+      before_action :configure_permitted_parameters, only: [:create, :update], if: :devise_controller?
     end
 
     module InstanceMethods
-      def update_sanitized_params
-        devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :uid)}
-        devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:provider, :username, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :display_name, :uid, :current_password)}
-      end
-
       # POST /resource
       def create
-        #devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :first_name, :last_name, :provider, :display_name, :password, :password_confirmation, :uid) }
-        params[:user][:provider] = "local"
-        params[:user][:uid] = params[:user][:email]
-        params[:user][:username] = params[:user][:uid]
-        params[:user][:display_name] = params[:user][:first_name] + " " + params[:user][:last_name]
-        if User.where(:provider => params[:user][:provider], :uid => params[:user][:email]).exists?
-          flash[:error] = "An account with that email (#{params[:user][:email]}) already exists. Please sign in or click the \"Forgot your password?\" link below."
-          redirect_to new_user_session_path
-        else
-          super
+        if User.exists?(email: sign_up_params[:email])
+          flash[:error] = "An account with that email (#{sign_up_params[:email]}) already exists. Please sign in or click the \"Forgot your password?\" link below."
+          redirect_to new_user_session_path and return
         end
+
+        super
       end
 
+      protected
 
-      def resource_params
-        params.require(:user).permit(:username, :email, :first_name, :last_name, :provider, :display_name, :password, :password_confirmation, :uid)
+      def configure_permitted_parameters
+        case params[:action]
+        when 'create'
+          devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])
+        when 'update'
+          devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name])
+        end
       end
     end
   end

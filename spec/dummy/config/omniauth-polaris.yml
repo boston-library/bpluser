@@ -1,0 +1,15 @@
+default: &default
+  title: BPL Polaris Login
+  http_uri: <%= ENV.fetch('POLARIS_URI', 'https://blah.org/some_service/api/v1') %>
+  access_key: <%= ENV.fetch('POLARIS_KEY', '1234-5678-9012-559033') %>
+  access_id: <%= ENV.fetch('POLARIS_ID', 'SomeID') %>
+  method: POST
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

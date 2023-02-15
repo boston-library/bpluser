@@ -5,11 +5,11 @@
 
   <%= form_for(resource,
                as: resource_name,
-               url: password_path(resource_name),
+               url: user_password_path,
                html: { method: :post,
                        id: 'password_reset_request',
                        role: 'form' }) do |f| %>
-    <%= devise_error_messages! %>
+    <%= render partial: 'devise/shared/error_messages', resource: resource %>
 
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="inputEmail">Email</label>

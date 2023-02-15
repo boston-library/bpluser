@@ -1,32 +1,34 @@
 # frozen_string_literal: true
 
-describe SavedSearchesController do
-  routes { Blacklight::Engine.routes }
+require 'rails_helper'
 
-  before(:all) do
-    @one = Search.create
-    @two = Search.create
-    @three = Search.create
+RSpec.describe SavedSearchesController do
+  let!(:user) { create(:user, email: 'test@example.com', password: 'abcd12345', password_confirmation: 'abcd12345') }
+  let!(:searches) { create_list(:search, 3, user: user) }
+  let!(:one) { searches[0] }
+  let!(:two) { searches[1] }
+  let(:three) { searches[2] }
+
+  before do
+    sign_in user
   end
 
-  before(:each) do
-    @user = User.create! :email => 'test@example.com', :password => 'abcd12345', :password_confirmation => 'abcd12345'
-    sign_in @user
-  end
+  describe 'save' do
+    before do
+      request.env['HTTP_REFERER'] = 'where_i_came_from'
+    end
 
-  describe "save" do
-    it "lets you save a search" do
-      request.env["HTTP_REFERER"] = "where_i_came_from"
-      session[:history] = [@one.id]
-      post :save, params: { id: @one.id }
-      expect(response).to redirect_to "where_i_came_from"
+    it 'lets you save a search' do
+      session[:history] = [one.id]
+      post :save, params: { id: one.id }
+      expect(response).to redirect_to('where_i_came_from')
     end
 
     it "does not let you save a search that isn't in your search history" do
-      session[:history] = [@one.id]
-      expect {
-        post :save, params: { id: @two.id }
-      }.to raise_error ActiveRecord::RecordNotFound
+      session[:history] = [one.id]
+      expect do
+        post :save, params: { id: two.id }
+      end.to raise_error ActiveRecord::RecordNotFound
     end
   end
 end

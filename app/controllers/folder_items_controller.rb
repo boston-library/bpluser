@@ -1,39 +1,45 @@
-class FolderItemsController < CatalogController
+# frozen_string_literal: true
 
-  # give controller access to useful BL/Solr methods
-  #include Blacklight::Configurable
-  #include Blacklight::SearchHelper
+class FolderItemsController < CatalogController
+  include Bpluser::FoldersVerifyUser
 
   before_action :verify_user
 
-  def update
-    create
-  end
-
   def create
     @response, @document = search_service.fetch(params[:id])
-    if params[:folder_items]
-      @folder_items = params[:folder_items]
-    else
-      @folder_items = [{ :document_id => params[:id], :folder_id => params[:folder_id] }]
-    end
+
+    @folder_items = params[:folder_items].present? ? folder_items_params : default_folder_item_params
 
     success = @folder_items.all? do |f_item|
       folder_to_update = current_user.folders.find(f_item[:folder_id])
-      folder_to_update.folder_items.create!(:document_id => f_item[:document_id]) and folder_to_update.touch unless folder_to_update.has_folder_item(f_item[:document_id])
+
+      next true if folder_to_update.folder_item?(f_item[:document_id])
+
+      begin
+        folder_to_update.folder_items.create!(document_id: f_item[:document_id])
+        next true
+      rescue ActiveRecord::RecordInvalid
+        break false
+      end
     end
 
     unless request.xhr?
-      flash[:notice] = t('blacklight.folder_items.add.success')
+      if success
+        flash[:notice] = t('blacklight.folder_items.add.success')
+      else
+        flash[:error] = t('blacklight.folder_items.add.failure')
+      end
     end
 
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
       format.js
     end
-
   end
 
+  def update
+    create
+  end
 
   # Beware, :id is the Solr document_id, not the actual Bookmark id.
   # idempotent, as DELETE is supposed to be.
@@ -42,49 +48,50 @@ class FolderItemsController < CatalogController
     @response, @document = search_service.fetch(params[:id])
     folder_item = current_user.existing_folder_item_for(params[:id])
 
-    # success = (!folder_item) || FolderItem.find(folder_item).destroy
-
-    Bpluser::Folder.find(folder_item.folder_id).touch
     Bpluser::FolderItem.find(folder_item.id).destroy
 
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
       format.js
     end
-
   end
 
   def clear
-    @folder = Bpluser::Folder.find(params[:id])
-    if current_user.folders.find(@folder.id).folder_items.clear
-      @folder.touch
-      flash[:notice] = I18n.t('blacklight.folder_items.clear.success')
+    @folder = current_user.folders.find(params[:id])
+
+    if @folder.folder_items.clear && @folder.save
+      flash[:notice] = t('blacklight.folder_items.clear.success')
     else
-      flash[:error] = I18n.t('blacklight.folder_items.clear.failure')
+      flash[:error] = t('blacklight.folder_items.clear.failure')
     end
-    redirect_to :controller => "folders", :action => "show", :id => @folder
+    redirect_to folders_path(@folder)
   end
 
   # PRETTY SURE THIS METHOD IS NEVER USED!
   def delete_selected
     @folder = Bpluser::Folder.find(params[:id])
+
     if params[:selected]
-      if @folder.folder_items.where(:document_id => params[:selected]).delete_all
-        @folder.touch
+      if @folder.folder_items.destroy_by(document_id: params[:selected])
         flash[:notice] = t('blacklight.folders.update_items.remove.success')
       else
         flash[:error] = t('blacklight.folders.update_items.remove.failure')
       end
-      redirect_to :controller => "folders", :action => "show", :id => @folder
+
+      redirect_to folders_path(@folder)
     else
-      redirect_to :back
       flash[:error] = t('blacklight.folders.update_items.remove.no_items')
+      redirect_back(fallback_location: root_path)
     end
   end
 
   protected
-  def verify_user
-    flash[:notice] = I18n.t('blacklight.folders.need_login') and raise Blacklight::Exceptions::AccessDenied unless current_user
+
+  def default_folder_item_params
+    [{ document_id: params[:id], folder_id: params[:folder_id] }]
   end
 
+  def folder_items_params
+    params.require(:folder_items).map { |fi_params| fi_params.permit(:document_id, :folder_id) }
+  end
 end

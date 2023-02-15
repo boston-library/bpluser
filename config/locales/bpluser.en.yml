@@ -1,7 +1,5 @@
 en:
-
   blacklight:
-
     bookmarks:
       collection:
         add:
@@ -38,9 +36,15 @@ en:
       no_folders: 'You do not currently have any folders.'
       need_login: 'Please log in to create and view folders.'
       create:
+        success: 'Folder created.'
         error:
           no_title: 'Title cannot be blank.'
           no_save: 'The folder could not be created. Please try again later.'
+      update:
+        success: 'Folder updated.'
+        error:
+            no_title: 'Title cannot be blank.'
+            no_save: 'The folder could not be updated. Please try again later.'
       delete:
         delete: 'Delete folder'
         success: 'Folder deleted.'

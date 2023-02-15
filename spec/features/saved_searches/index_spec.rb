@@ -1,47 +1,82 @@
 # frozen_string_literal: true
 
-describe "Saved Searches" do
-  before do
-    sign_in 'user1'
-    visit root_path
-  end
+require 'rails_helper'
 
-  it "is empty" do
-    click_link 'Saved Searches'
-    expect(page).to have_content 'You have no saved searches'
-  end
+RSpec.describe 'Saved Searches', js: true do
+  let!(:test_user) { create(:user, email: 'test@example.com', password: 'password', password_confirmation: 'password') }
 
-  describe "with a saved search 'book'" do
+  context 'with no saved searches' do
     before do
-      fill_in "q", with: 'book'
-      click_button 'search'
-      click_link "History"
-      click_button "save"
-      click_link 'Saved Searches'
+      sign_in test_user
+      visit root_path
     end
-    it "shows saved searches" do
+
+    it 'is empty' do
+      within '#user-nav-btn' do
+        click_button(class: 'dropdown-toggle')
+        click_on 'Saved Searches'
+      end
+
+      expect(page).to have_content "You don't have any saved searches at the moment"
+    end
+  end
+
+  context "with a saved search 'book'" do
+    before do
+      sign_in test_user
+      visit root_path
+      within '.search-query-form' do
+        fill_in 'Search...', with: 'book'
+        click_button 'search'
+      end
+
+      within '#user-nav-btn' do
+        click_button(class: 'dropdown-toggle')
+        click_on 'Search History'
+      end
+
+      click_button 'save'
+    end
+
+    it 'is expected to show saved searches' do
+      visit saved_searches_path
       expect(page).to have_content 'Your saved searches'
       expect(page).to have_content 'book'
     end
-    it "deletes saved searches" do
-      click_button 'delete'
-      expect(page).to have_content 'Successfully removed that saved search.'
+
+    it 'is expected to delete saved searches individually' do
+      visit saved_searches_path
+      find('a.delete_search').click
+      expect(page).to have_content 'Search removed.'
+    end
+  end
+
+  context "with a saved search 'dang'" do
+    before do
+      sign_in test_user
+      visit root_path
+      within '.search-query-form' do
+        fill_in 'Search...', with: 'dang'
+        click_button 'search'
+      end
+
+      within '#user-nav-btn' do
+        click_button(class: 'dropdown-toggle')
+        click_on 'Search History'
+      end
+
+      click_button 'save'
     end
 
-    describe "and a saved search 'dang'" do
-      before do
-        visit root_path
-        fill_in "q", with: 'dang'
-        click_button 'search'
-        click_link "History"
-        click_button "save"
-        click_link 'Saved Searches'
+    it 'is expected to clear all saved searches' do
+      visit saved_searches_path
+
+      accept_confirm do
+        click_on 'Clear All'
       end
-      it "clears the searhes" do
-        click_link "Clear Saved Searches"
-        expect(page).to have_content 'Cleared your saved searches.'
-        expect(page).to have_content 'You have no saved searches'
-      end
+
+      expect(page).to have_content 'Cleared your saved searches.'
+      expect(page).to have_content "You don't have any saved searches at the moment"
     end
   end
 end

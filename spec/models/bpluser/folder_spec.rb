@@ -1,73 +1,114 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
-describe Bpluser::Folder do
+require 'rails_helper'
 
-  before(:each) do
-    @user_attr = {
-        #:username => "Testy McGee",
-        :email => "testy@example.com",
-        :password => "password"
-    }
-    @user = User.create!(@user_attr)
+RSpec.describe Bpluser::Folder do
+  subject!(:folder) { build(:bpluser_folder, folder_attrs) }
 
-    @folder_attr = { :title => "Test Folder Title", :description => "Test description."}
+  let!(:test_user) { create(:user) }
+  let!(:folder_attrs) { attributes_for(:bpluser_folder, user: test_user) }
+
+  describe 'class constants' do
+    subject { described_class }
+
+    it { is_expected.to be_const_defined(:MAX_TITLE_LENGTH) }
+    it { is_expected.to be_const_defined(:MAX_DESC_LENGTH) }
+    it { is_expected.to be_const_defined(:VALID_VISIBILITY_OPTS) }
+
+    describe ':MAX_TITLE_LENGTH' do
+      subject { described_class.const_get(:MAX_TITLE_LENGTH) }
+
+      it { is_expected.to be_an_instance_of(Integer) }
+    end
+
+    describe ':MAX_DESC_LENGTH' do
+      subject { described_class.const_get(:MAX_DESC_LENGTH) }
+
+      it { is_expected.to be_an_instance_of(Integer) }
+    end
+
+    describe ':VALID_VISIBILITY_OPTS' do
+      subject { described_class.const_get(:VALID_VISIBILITY_OPTS) }
+
+      it { is_expected.to be_an_instance_of(Array).and all(be_an_instance_of(String)).and be_frozen }
+    end
   end
 
-  it "should create a new folder given valid attributes" do
-    @user.folders.create!(@folder_attr)
+  describe 'instance methods' do
+    it { is_expected.to respond_to(:user, :user_id, :title, :description, :created_at, :updated_at, :visibility, :folder_items, :public?, :private?).with(0).arguments }
+    it { is_expected.to respond_to(:folder_item?).with(1).argument }
+
+    describe '#public?' do
+      before do
+        folder.visibility = 'public'
+      end
+
+      it 'is expected to be public' do
+        expect(folder).to be_public
+        expect(folder).not_to be_private
+      end
+    end
+
+    describe '#private?' do
+      before do
+        folder.visibility = 'private'
+      end
+
+      it 'is expected to be private' do
+        expect(folder).to be_private
+        expect(folder).not_to be_public
+      end
+    end
   end
 
-  describe "user associations" do
+  describe 'database' do
+    describe 'columns' do
+      it { is_expected.to have_db_column(:title).of_type(:string) }
+      it { is_expected.to have_db_column(:description).of_type(:string) }
+      it { is_expected.to have_db_column(:visibility).of_type(:string) }
 
-    before(:each) do
-      @folder = @user.folders.create(@folder_attr)
+      it { is_expected.to have_db_column(:user_id).of_type(:integer).with_options(null: false) }
+
+      it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
+      it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
     end
 
-    it "should have a user attribute" do
-      @folder.should respond_to(:user)
+    describe 'indexes' do
+      it { is_expected.to have_db_index(:user_id) }
     end
-
-    it "should have the right associated user" do
-      @folder.user_id.should == @user.id
-      @folder.user.should == @user
-    end
-
   end
 
-  describe "validations" do
+  describe 'relations' do
+    it { is_expected.to belong_to(:user).inverse_of(:folders).class_name('::User') }
 
-    it "should require a user id" do
-      Folder.new(@folder_attr).should_not be_valid
-    end
-
-    it "should require a title" do
-      @user.folders.build(:title => "").should_not be_valid
-    end
-
-    it "should reject titles that are too long" do
-      @user.folders.build(:title => "a" * 41).should_not be_valid
-    end
-
-    it "should reject descriptions that are too long" do
-      @user.folders.build(:title => "Test Title", :description => "a" * 255).should_not be_valid
-    end
-
+    it { is_expected.to have_many(:folder_items).inverse_of(:folder).dependent(:destroy).class_name('Bpluser::FolderItem') }
   end
 
-  describe "folder_items" do
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:title) }
+    it { is_expected.to validate_presence_of(:visibility) }
 
-    before(:each) do
-      @folder = @user.folders.create!(@folder_attr)
-      @folder_item = @folder.folder_items.create!(:document_id => "bpl-development:106")
+    it { is_expected.to validate_length_of(:title).is_at_most(described_class.const_get(:MAX_TITLE_LENGTH)) }
+    it { is_expected.to validate_length_of(:description).is_at_most(described_class.const_get(:MAX_DESC_LENGTH)) }
+
+    it { is_expected.to validate_inclusion_of(:visibility).in_array(described_class.const_get(:VALID_VISIBILITY_OPTS)) }
+  end
+
+  describe 'scopes' do
+    describe '.with_folder_items' do
+      subject { described_class.with_folder_items.to_sql }
+
+      let(:expected_sql) { described_class.includes(:folder_items).to_sql }
+
+      it { is_expected.to eql(expected_sql) }
     end
 
-    it "should have a folder_items method" do
-      @folder.should respond_to(:folder_items)
-    end
+    describe '.public_list' do
+      subject { described_class.public_list.to_sql }
 
-    it "should include the item in the folder_items array" do
-      @folder.folder_items.should include(@folder_item)
-    end
+      let(:expected_sql) { described_class.includes(:folder_items).where(visibility: 'public').order(updated_at: :desc).to_sql }
 
+      it { is_expected.to eql(expected_sql) }
+    end
   end
 end

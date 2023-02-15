@@ -1,102 +1,82 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe FolderItemsActionsController do
-
+RSpec.describe FolderItemsActionsController do
   render_views
 
-  before(:each) do
-    @test_user_attr = {
-        :email => "testy@example.com",
-        :password => "password"
-    }
-    @test_user = User.create!(@test_user_attr)
-    sign_in @test_user
-    @test_folder_attr = {:title => "Test Folder Title",:visibility => 'private'}
-    @folder = @test_user.folders.create!(@test_folder_attr)
-    @folder.folder_items.create!(:document_id => "bpl-dev:h702q6403")
-    @folder.folder_items.create!(:document_id => "bpl-dev:g445cd14k")
-    @folder.folder_items.create!(:document_id => "bpl-dev:df65v790j")
+  let!(:test_user) { create(:user) }
+  let!(:folder) { create(:bpluser_folder, title: 'Test Folder Title', visibility: 'private', user: test_user) }
+  let!(:document_ids) { %w[bpl-dev:h702q6403 bpl-dev:g445cd14k bpl-dev:df65v790j] }
+
+  before do
+    document_ids.each { |doc_id| create(:bpluser_folder_item, document_id: doc_id, folder: folder) }
+    sign_in test_user
   end
 
-  describe "folder_item_actions: remove" do
-
-    describe "success" do
-
-      it "should remove the selected items" do
-        expect {
-          put :folder_item_actions, params: {
-              :commit => "Remove",
-              :origin => "folders",
-              :id => @folder,
-              :selected => ["bpl-dev:h702q6403", "bpl-dev:g445cd14k"]
+  describe 'folder_item_actions' do
+    context 'when :remove' do
+      context 'when successful' do
+        it 'is expected remove the selected items' do
+          expect do
+            put :folder_item_actions, params: {
+              commit: 'Remove',
+              origin: 'folders',
+              id: folder,
+              selected: %w[bpl-dev:h702q6403 bpl-dev:g445cd14k]
             }
-          expect(response).to be_redirect
-        }.to change(@folder.folder_items, :count).by(-2)
+            expect(response).to be_redirect
+          end.to change(folder.folder_items, :count).by(-2)
+        end
       end
-
     end
 
-  end
+    context 'when :copy' do
+      let(:folder2) { create(:bpluser_folder, title: 'Other Test Folder Title', visibility: 'private', user: test_user) }
 
-  describe "folder_item_actions: copy" do
-
-    before(:each) do
-      @test_folder2_attr = {:title => "Other Test Folder Title", :visibility => 'private'}
-      @folder2 = @test_user.folders.create!(@test_folder2_attr)
-    end
-
-    describe "success" do
-
-      it "should copy the selected items to folder2" do
-        expect {
-          @request.env['HTTP_REFERER'] = '/folders/' + @folder.id.to_s
-          put :folder_item_actions, params: {
-              :commit => "Copy to " + @folder2.id.to_s,
-              :origin => "folders",
-              :id => @folder,
-              :selected => ["bpl-dev:h702q6403", "bpl-dev:g445cd14k"] }
-          expect(response).to be_redirect
-        }.to change(@folder2.folder_items, :count).by(2)
-      end
-
-    end
-
-  end
-
-  describe "folder_item_actions: cite" do
-
-    describe "success" do
-
-      it "should redirect to the cite url" do
-        put :folder_item_actions, params: {
-              :commit => "Cite",
-              :origin => "folders",
-              :id => @folder,
-              :selected => ["bpl-dev:g445cd14k"]
+      context 'when successful' do
+        it 'is expected to copy the selected items to folder2' do
+          expect do
+            request.env['HTTP_REFERER'] = "/folders/#{folder.id}"
+            put :folder_item_actions, params: {
+              commit: "Copy to #{folder2.id}",
+              origin: 'folders',
+              id: folder,
+              selected: %w[bpl-dev:h702q6403 bpl-dev:g445cd14k]
             }
-          expect(response).to redirect_to(citation_solr_document_path(:id => ["bpl-dev:g445cd14k"]))
+            expect(response).to be_redirect
+            expect(response).to redirect_to("/folders/#{folder.id}")
+          end.to change(folder2.folder_items, :count).by(2)
+        end
       end
-
     end
 
-  end
-
-  describe "folder_item_actions: email" do
-
-    describe "success" do
-
-      it "should redirect to the email url" do
-        put :folder_item_actions, params: {
-            :commit => "Email",
-            :origin => "folders",
-            :id => @folder,
-            :selected => ["bpl-dev:g445cd14k"]
+    context 'when :cite' do
+      context 'when successful' do
+        it 'is expected to redirect to the cite url' do
+          put :folder_item_actions, params: {
+            commit: 'Cite',
+            origin: 'folders',
+            id: folder,
+            selected: %w[bpl-dev:g445cd14k]
           }
-        expect(response).to redirect_to(email_solr_document_path(:id => ["bpl-dev:g445cd14k"]))
+          expect(response).to redirect_to(citation_solr_document_path(id: %w[bpl-dev:g445cd14k]))
+        end
       end
-
     end
 
+    context 'when :email' do
+      context 'when successful' do
+        it 'is expected to redirect to the email url' do
+          put :folder_item_actions, params: {
+            commit: 'Email',
+            origin: 'folders',
+            id: folder,
+            selected: %w[bpl-dev:g445cd14k]
+          }
+          expect(response).to redirect_to(email_solr_document_path(id: %w[bpl-dev:g445cd14k]))
+        end
+      end
+    end
   end
-
 end

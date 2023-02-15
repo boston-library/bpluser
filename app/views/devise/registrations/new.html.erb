@@ -2,19 +2,14 @@
 <h2>Sign up</h2>
 
   <div id="signup_wrapper">
-
-<%= form_for(resource,
-             as: resource_name,
-             url: registration_path(resource_name),
-             html: { role: 'form' }) do |f| %>
-    <%= devise_error_messages! %>
-
-        <div class="form-group row">
-          <label class="col-sm-2 col-form-label" for="inputFirstName">First name</label>
-          <div class="col-sm-4">
-            <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
-          </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :post, role: 'form' }) do |f| %>
+      <%= render partial: 'devise/shared/error_messages', resource: resource %>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="inputFirstName">First name</label>
+        <div class="col-sm-4">
+          <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
         </div>
+      </div>
       <div class="form-group row">
         <label class="col-sm-2 col-form-label" for="inputLastName">Last name</label>
         <div class="col-sm-4">
@@ -45,9 +40,6 @@
           <%= link_to 'Cancel', root_path, class: 'btn btn-secondary' %>
         </div>
       </div>
-
-<% end %>
-
-<%# render "devise/shared/links" %>
-    </div>
+    <% end %>
+  </div>
 </div>

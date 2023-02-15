@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class AddFoldersToUser < ActiveRecord::Migration[4.2]
   def self.up
     create_table :bpluser_folders do |t|
       t.string :title
-      t.integer :user_id, :null=>false
+      t.integer :user_id, null: false
       t.string :description
       t.timestamps
     end
