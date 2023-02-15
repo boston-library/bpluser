@@ -23,7 +23,6 @@ pickle-email-*.html
 
 # Specific configuration files #
 ################################
-database.yml
 fedora.yml
 solr.yml
 role_map_cucumber.yml
