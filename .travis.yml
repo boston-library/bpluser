@@ -23,7 +23,7 @@ before_install:
   - google-chrome-stable --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost &
 
 before_script:
-  - RAILS_ENV=test bundle exec rails db:prepare
+  - RAILS_ENV=test bundle exec rails app:db:prepare
 
 rvm:
   - 2.7.7
