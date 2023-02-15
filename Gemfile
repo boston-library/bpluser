@@ -19,6 +19,7 @@ group :development, :test do
   gem 'faker', '~> 3.1'
   gem 'font-awesome-sass', '~> 5.0'
   gem 'jquery-rails', '~> 4.5'
+  gem 'panolint' # Needed for travis tests
   gem 'pry', '~> 0.14'
   gem 'puma', '~> 5.6.5'
   gem 'rails-controller-testing', '~> 1.0'
