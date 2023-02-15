@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - 'scratch.rb'
     - 'spec/dummy/db/schema.rb'
+    - 'vendor/bundle/**/*'
 
 Gemspec/RequireMFA:
   Enabled: false

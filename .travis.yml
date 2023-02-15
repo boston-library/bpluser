@@ -20,7 +20,7 @@ before_install:
   - sudo pg_ctlcluster 12 main restart
   - gem update --system --no-document
   - gem install bundler:2.3.26 --no-document
-  - google-chrome-stable --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost &
+  - google-chrome-stable --headless --disable-gpu --disable-software-rasterizer --no-sandbox --remote-debugging-port=9222 http://localhost &
 
 before_script:
   - RAILS_ENV=test bundle exec rails app:db:prepare
