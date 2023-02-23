@@ -42,7 +42,7 @@ module Bpluser
     end
 
     def copy_update_migrations
-      rake 'bpluser:install:update_migrations'
+      rake 'bpluser:update:migrations'
     end
 
     def configure_devise
