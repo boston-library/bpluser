@@ -8,9 +8,9 @@
 # APP_ROOT = File.expand_path("../..", __FILE__)
 
 namespace :bpluser do
-  namespace :install do
+  namespace :update do
     desc 'Copy over the updated migrations needed for new version'
-    task update_migrations: :environment do
+    task migrations: :environment do
       ENV['MIGRATIONS_PATH'] = 'db/update_migrate'
 
       if Rake::Task.task_defined?('bpluser:install:migrations')
