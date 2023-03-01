@@ -4,19 +4,19 @@ module Bpluser
   class Engine < ::Rails::Engine
     isolate_namespace Bpluser
 
-    config.generators do |g|
-      g.orm :active_record
-      g.test_framework :rspec, fixture: true
-      g.fixture_replacement :factory_bot
-      g.factory_bot dir: 'spec/factories'
-    end
-
-    if Rails.env.development? || Rails.env.test?
+    if %w[development test].member?(Rails.env) && Dir[File.expand_path('../../spec/**', __dir__)].any? { |d| d.include?('dummy') }
       begin
         require 'factory_bot_rails'
         config.factory_bot.definition_file_paths << File.expand_path('../../spec/factories/bpluser', __dir__)
       rescue LoadError
         warn 'Factory Bot Rails Not installed!'
+      end
+
+      config.generators do |g|
+        g.orm :active_record
+        g.test_framework :rspec, fixture: true
+        g.fixture_replacement :factory_bot
+        g.factory_bot dir: 'spec/factories'
       end
     end
 
