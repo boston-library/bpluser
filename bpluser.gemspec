@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'devise', '~> 4.8.1'
   s.add_dependency 'devise-guests', '~> 0.8.1'
   s.add_dependency 'omniauth', '~> 2.1'
-  s.add_dependency 'omniauth-polaris', '~> 1.1'
+  s.add_dependency 'omniauth-polaris', '~> 1.1.1'
   s.add_dependency 'omniauth-rails_csrf_protection', '~> 1.0'
   s.add_dependency 'rails', '~> 6.0.6'
 
