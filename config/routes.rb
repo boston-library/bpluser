@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations', sessions: 'users/sessions' }
 
   # folders
-  resources :folders
-  get 'folders/public', to: 'folders#public_list', as: 'public_folders'
+  resources :folders do
+    get 'public', on: :collection, action: :public_list
+  end
+
   delete 'folder/:id/clear', to: 'folder_items#clear', as: 'clear_folder_items'
   put 'folder/:id/item_actions', to: 'folder_items_actions#folder_item_actions', as: 'selected_folder_items_actions'
 
