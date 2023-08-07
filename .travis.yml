@@ -26,7 +26,7 @@ before_script:
   - RAILS_ENV=test bundle exec rails app:db:prepare
 
 rvm:
-  - 2.7.7
+  - 3.0.6
 
 env:
   global:
@@ -36,4 +36,4 @@ env:
     - PGPORT=5432
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
   matrix:
-    - RAILS_VERSION=6.0.6
+    - RAILS_VERSION=6.1.7.4

@@ -18,15 +18,15 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.required_ruby_version = '>= 2.6.10'
+  s.required_ruby_version = '>= 3.0.6', '< 3.1'
 
-  s.add_dependency 'blacklight', '~> 7.13.2'
+  s.add_dependency 'blacklight', '~> 7.19.0'
   s.add_dependency 'devise', '~> 4.8.1'
   s.add_dependency 'devise-guests', '~> 0.8.1'
   s.add_dependency 'omniauth', '~> 2.1'
   s.add_dependency 'omniauth-polaris', '~> 1.1.1'
   s.add_dependency 'omniauth-rails_csrf_protection', '~> 1.0'
-  s.add_dependency 'rails', '~> 6.0.6'
+  s.add_dependency 'rails', '~> 6.1.7.4'
 
   s.add_development_dependency 'awesome_print', '~> 1.9'
   s.add_development_dependency 'pg', '>= 0.18', '< 2.0'

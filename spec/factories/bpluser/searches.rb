@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :search, class: 'Search' do
-    association :user, factory: :user
+    user
   end
 end

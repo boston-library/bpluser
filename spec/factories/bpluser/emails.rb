@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   sequence :bpluser_email do |n|
-    Faker::Internet.free_email(name: "Test Testerson #{n}")
+    Faker::Internet.email(name: "Test Testerson #{n}")
   end
 end
