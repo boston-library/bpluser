@@ -12,8 +12,7 @@ gem 'bootsnap', require: false
 # jquery-rails is used by the dummy application
 group :development, :test do
   gem 'bootstrap', '~> 4'
-  gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine', branch: 'update-rails-6-1'
-  # gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine'
+  gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine'
   gem 'coveralls', require: false
   gem 'dotenv-rails', '~> 2.8', require: 'dotenv/rails-now'
   gem 'factory_bot_rails', '~> 6.2'
