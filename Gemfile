@@ -39,8 +39,8 @@ group :test do
   gem 'coveralls_reborn', '~> 0.26.0', require: false
   gem 'database_cleaner-active_record', '~> 2'
   gem 'launchy', '~> 2.5'
+  gem 'selenium-webdriver', '~> 4.11'
   gem 'shoulda-matchers', '~> 5.2'
-  gem 'webdrivers', '~> 5.2'
   gem 'webmock', '~> 3.18'
 end
 

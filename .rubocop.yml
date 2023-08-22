@@ -12,6 +12,9 @@ Gemspec/RequireMFA:
 Gemspec/RequiredRubyVersion:
   Enabled: false
 
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'spec/dummy/db/schema.rb'

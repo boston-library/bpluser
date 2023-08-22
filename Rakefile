@@ -19,6 +19,8 @@ begin
     task.requires << 'rubocop-rspec'
     task.requires << 'rubocop-performance'
     task.requires << 'rubocop-rails'
+    task.requires << 'rubocop-capybara'
+    task.requires << 'rubocop-factory_bot'
     task.fail_on_error = true
   end
 rescue LoadError

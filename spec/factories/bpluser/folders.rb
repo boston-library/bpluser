@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :bpluser_folder, class: 'Bpluser::Folder' do
-    association :user, factory: :user
+    user
     title { 'Test Title' }
     description { 'Test Description' }
     visibility { Bpluser::Folder::VALID_VISIBILITY_OPTS.sample }
