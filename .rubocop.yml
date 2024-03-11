@@ -1,6 +1,11 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.1
   Exclude:
     - 'scratch.rb'
     - 'spec/dummy/db/schema.rb'
@@ -77,6 +82,9 @@ Style/BlockComments:
 
 Style/Documentation:
   Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: either
 
 Style/SymbolArray:
   EnforcedStyle: percent

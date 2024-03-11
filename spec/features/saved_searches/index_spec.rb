@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Saved Searches', js: true do
+RSpec.describe 'Saved Searches', :js do
   let!(:test_user) { create(:user, email: 'test@example.com', password: 'password', password_confirmation: 'password') }
 
   context 'with no saved searches' do
@@ -13,7 +13,7 @@ RSpec.describe 'Saved Searches', js: true do
 
     it 'is empty' do
       within '#user-nav-btn' do
-        click_button(class: 'dropdown-toggle')
+        click_on(class: 'dropdown-toggle')
         click_on 'Saved Searches'
       end
 
@@ -27,15 +27,15 @@ RSpec.describe 'Saved Searches', js: true do
       visit root_path
       within '.search-query-form' do
         fill_in 'Search...', with: 'book'
-        click_button 'search'
+        click_on 'search'
       end
 
       within '#user-nav-btn' do
-        click_button(class: 'dropdown-toggle')
+        click_on(class: 'dropdown-toggle')
         click_on 'Search History'
       end
 
-      click_button 'save'
+      click_on 'save'
     end
 
     it 'is expected to show saved searches' do
@@ -57,15 +57,15 @@ RSpec.describe 'Saved Searches', js: true do
       visit root_path
       within '.search-query-form' do
         fill_in 'Search...', with: 'dang'
-        click_button 'search'
+        click_on 'search'
       end
 
       within '#user-nav-btn' do
-        click_button(class: 'dropdown-toggle')
+        click_on(class: 'dropdown-toggle')
         click_on 'Search History'
       end
 
-      click_button 'save'
+      click_on 'save'
     end
 
     it 'is expected to clear all saved searches' do

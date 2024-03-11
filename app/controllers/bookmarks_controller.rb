@@ -22,7 +22,7 @@ class BookmarksController < CatalogController
 
     if request.xhr?
       # success ? render(json: { bookmarks: { count: current_or_guest_user.bookmarks.count }}) : render(:text => "", :status => "500")
-      success ? render(:update) : render(plain: '', status: '500')
+      success ? render(:update) : render(plain: '', status: :internal_server_error)
     else
       if @bookmarks.any? && success
         flash[:notice] = I18n.t('blacklight.bookmarks.add.success', count: @bookmarks.count)

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Logging in User', js: true do
+RSpec.describe 'Logging in User', :js do
   before do
     visit new_user_session_path
   end
@@ -17,7 +17,7 @@ RSpec.describe 'Logging in User', js: true do
         within 'form.new_user' do
           fill_in 'user_email', with: test_user.email
           fill_in 'user_password', with: test_user_password
-          click_button 'Sign in'
+          click_on 'Sign in'
         end
         test_user.reload
       end
@@ -37,7 +37,7 @@ RSpec.describe 'Logging in User', js: true do
           fill_in 'user_email', with: test_user.email
           fill_in 'user_password', with: test_user_password
           check 'user_remember_me'
-          click_button 'Sign in'
+          click_on 'Sign in'
         end
         test_user.reload
       end
@@ -53,7 +53,7 @@ RSpec.describe 'Logging in User', js: true do
         within 'form.new_user' do
           fill_in 'user_email', with: 'foo@bar.com'
           fill_in 'user_password', with: 'foobar'
-          click_button 'Sign in'
+          click_on 'Sign in'
         end
       end
 
