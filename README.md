@@ -8,8 +8,8 @@ Rails engine for providing Devise-based user models and functionality for digita
 This includes bookmarks (Blacklight default), custom folders, and saved searches.
 
 # Requirements
-- `ruby >= 2.6.10`
-- `rails ~> 6.0.6`
+- `ruby >= 3.1, < 3.2`
+- `rails ~> 6.1.7`
 - `postgres v12 or higher`
 
 To install, add the following to your Gemfile:
@@ -31,3 +31,23 @@ rails bpluser:install:update_migrations
 ```
 
 (Note that the installer will ask to overwrite your local `config/locales/devise.en.yml`).
+
+### Running tests
+
+Start Solr from project root:
+```
+$ solr_wrapper --config .solr_wrapper_test.yml 
+```
+Index the sample Solr documents (run from `./spec/dummy`):
+```
+# Solr must be running
+$ RAILS_ENV=test bundle exec rake bpluser:test_index:seed
+```
+Run specs
+```
+# run all tests
+$ bundle exec rake spec
+
+# run a single spec
+$ bundle exec rake spec SPEC=./spec/models/some_model_spec.rb
+```

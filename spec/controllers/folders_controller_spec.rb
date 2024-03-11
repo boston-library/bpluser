@@ -40,7 +40,7 @@ RSpec.describe FoldersController do
 
         it 'is expected to show the users folders' do
           get :index
-          expect(response.body).to have_selector("ul[id='user_folder_list']")
+          expect(response.body).to have_css("ul[id='user_folder_list']")
         end
       end
     end
@@ -89,7 +89,7 @@ RSpec.describe FoldersController do
 
     it 'is expected to display the form' do
       get :new
-      expect(response.body).to have_selector("form[id='edit_folder_form']")
+      expect(response.body).to have_css("form[id='edit_folder_form']")
     end
   end
 
@@ -110,7 +110,7 @@ RSpec.describe FoldersController do
 
         it 'is expected to show the folder' do
           get :show, params: { id: public_folder.id }
-          expect(response.body).to have_selector('h2', text: public_folder.title)
+          expect(response.body).to have_css('h2', text: public_folder.title)
         end
       end
     end
@@ -124,7 +124,7 @@ RSpec.describe FoldersController do
 
       it 'is expected to show the folder title' do
         get :show, params: { id: show_folder.id }
-        expect(response.body).to have_selector('h2', text: show_folder.title)
+        expect(response.body).to have_css('h2', text: show_folder.title)
       end
 
       describe 'user has folder with items' do
@@ -137,7 +137,7 @@ RSpec.describe FoldersController do
 
         it 'is expected to show a link to the folder item' do
           get :show, params: { id: show_folder.id }
-          expect(response.body).to have_selector("a[href='/search/#{document_id}']")
+          expect(response.body).to have_css("a[href='/search/#{document_id}']")
         end
       end
     end
@@ -281,7 +281,7 @@ RSpec.describe FoldersController do
 
     it 'is expected to show the public folder in the list' do
       get :public_list
-      expect(response.body).to have_selector('a', text: public_list_folder.title)
+      expect(response.body).to have_css('a', text: public_list_folder.title)
     end
   end
 end

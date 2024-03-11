@@ -37,7 +37,7 @@ RSpec.describe UsersController do
         it 'is expected to show the user#show page' do
           get :show, params: { id: test_user.id }
           expect(response).to be_successful
-          expect(response.body).to have_selector('#user_account_links_list')
+          expect(response.body).to have_css('#user_account_links_list')
         end
       end
     end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Registering a new User', js: true do
+RSpec.describe 'Registering a new User', :js do
   context 'when new User' do
     let!(:new_user_attributes) { attributes_for(:user) }
     let!(:successful_sign_up_message) { I18n.t('devise.registrations.signed_up') }
@@ -24,7 +24,7 @@ RSpec.describe 'Registering a new User', js: true do
           fill_in 'user_email', with: new_user_attributes[:email]
           fill_in 'user_password', with: new_user_attributes[:password]
           fill_in 'user_password_confirmation', with: new_user_attributes[:password_confirmation]
-          click_button 'Sign up'
+          click_on 'Sign up'
         end
       end
 
@@ -50,7 +50,7 @@ RSpec.describe 'Registering a new User', js: true do
           within 'form.new_user' do
             fill_in 'user_first_name', with: 'Foo'
             fill_in 'user_last_name', with: 'Bar'
-            click_button 'Sign up'
+            click_on 'Sign up'
           end
         end
 
@@ -78,7 +78,7 @@ RSpec.describe 'Registering a new User', js: true do
             fill_in 'user_email', with: new_user_attributes[:email]
             fill_in 'user_password', with: new_user_attributes[:password]
             fill_in 'user_password_confirmation', with: 'notmatchingpassword'
-            click_button 'Sign up'
+            click_on 'Sign up'
           end
         end
 
@@ -111,7 +111,7 @@ RSpec.describe 'Registering a new User', js: true do
         fill_in 'user_email', with: existing_user.email
         fill_in 'user_password', with: 'password'
         fill_in 'user_password_confirmation', with: 'password'
-        click_button 'Sign up'
+        click_on 'Sign up'
       end
     end
 

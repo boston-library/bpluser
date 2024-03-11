@@ -66,7 +66,7 @@ RSpec.describe Users::RegistrationsController do
 
         it 'is expected to have error details in body' do
           post :create, params: { user: bad_user_params }
-          expect(response.body).to have_selector('div[id=error_explanation]')
+          expect(response.body).to have_css('div[id=error_explanation]')
           expect(response.body).to have_content('1 error prohibited this user from being saved:')
           expect(response.body).to have_content("Email can't be blank")
         end
