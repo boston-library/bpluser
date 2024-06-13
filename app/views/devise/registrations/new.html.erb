@@ -36,6 +36,11 @@
       </div>
       <div class="form-group row">
         <div class="offset-sm-2 col-sm-4">
+          <%# recaptcha_tags(id: 'registrations_recaptcha') %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-4">
           <%= f.submit 'Sign up', class: 'btn btn-primary' %>
           <%= link_to 'Cancel', root_path, class: 'btn btn-secondary' %>
         </div>

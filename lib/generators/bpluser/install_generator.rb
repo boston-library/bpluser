@@ -53,6 +53,10 @@ module Bpluser
       generate 'bpluser:controller'
     end
 
+    def add_initializers
+      template 'config/initializers/recaptcha.rb'
+    end
+
     def bundle_install
       Bundler.with_clean_env do
         run 'bundle install'

@@ -45,6 +45,7 @@ bpl_config.yml
 *.sql
 *.sqlite3
 *.log
+*.gem
 # Specific Files to ignore #
 ############################
 Thumbs.db
