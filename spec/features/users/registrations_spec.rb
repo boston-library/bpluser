@@ -5,17 +5,16 @@ require 'rails_helper'
 RSpec.describe 'Registering a new User', :js do
   context 'when new User' do
     let!(:new_user_attributes) { attributes_for(:user) }
-    let!(:successful_sign_up_message) { I18n.t('devise.registrations.signed_up') }
 
     before do
       visit root_path
-      click_on 'Sign Up / Log In'
+      click_link 'Sign Up / Log In'
     end
 
     context 'when form is filled out correctly' do
       before do
         within 'div#signin_wrapper' do
-          click_on 'Sign Up'
+          click_link 'Sign Up'
         end
 
         within 'form.new_user' do
@@ -24,12 +23,12 @@ RSpec.describe 'Registering a new User', :js do
           fill_in 'user_email', with: new_user_attributes[:email]
           fill_in 'user_password', with: new_user_attributes[:password]
           fill_in 'user_password_confirmation', with: new_user_attributes[:password_confirmation]
-          click_on 'Sign up'
+          click_button 'Sign up'
         end
       end
 
-      it 'expects the page to have the successful_sign_up_message' do
-        expect(page).to have_content(successful_sign_up_message)
+      it 'expects the page to have the successful sign up message' do
+        expect(page).to have_content(I18n.t('devise.registrations.signed_up'))
       end
 
       it 'expects the page to be at the root path' do
@@ -44,13 +43,13 @@ RSpec.describe 'Registering a new User', :js do
 
         before do
           within 'div#signin_wrapper' do
-            click_on 'Sign Up'
+            click_link 'Sign Up'
           end
 
           within 'form.new_user' do
             fill_in 'user_first_name', with: 'Foo'
             fill_in 'user_last_name', with: 'Bar'
-            click_on 'Sign up'
+            click_button 'Sign up'
           end
         end
 
@@ -69,7 +68,7 @@ RSpec.describe 'Registering a new User', :js do
 
         before do
           within 'div#signin_wrapper' do
-            click_on 'Sign Up'
+            click_link 'Sign Up'
           end
 
           within 'form.new_user' do
@@ -78,7 +77,7 @@ RSpec.describe 'Registering a new User', :js do
             fill_in 'user_email', with: new_user_attributes[:email]
             fill_in 'user_password', with: new_user_attributes[:password]
             fill_in 'user_password_confirmation', with: 'notmatchingpassword'
-            click_on 'Sign up'
+            click_button 'Sign up'
           end
         end
 
@@ -87,7 +86,7 @@ RSpec.describe 'Registering a new User', :js do
         end
 
         it 'expects the page to be at the sign up path' do
-          expect(page).to have_current_path(user_registration_path) # Investigate why the path is /users instead of /users/sign_up
+          expect(page).to have_current_path(user_registration_path)
         end
       end
     end
@@ -95,14 +94,13 @@ RSpec.describe 'Registering a new User', :js do
 
   context 'when User already exists' do
     let!(:existing_user) { create(:user) }
-    let!(:expected_error_message) { "An account with that email (#{existing_user.email}) already exists. Please sign in or click the \"Forgot your password?\" link below." }
 
     before do
       visit root_path
-      click_on 'Sign Up / Log In'
+      click_link 'Sign Up / Log In'
 
       within 'div#signin_wrapper' do
-        click_on 'Sign Up'
+        click_link 'Sign Up'
       end
 
       within 'form.new_user' do
@@ -111,16 +109,16 @@ RSpec.describe 'Registering a new User', :js do
         fill_in 'user_email', with: existing_user.email
         fill_in 'user_password', with: 'password'
         fill_in 'user_password_confirmation', with: 'password'
-        click_on 'Sign up'
+        click_button 'Sign up'
       end
     end
 
     it 'expects the page to be at the sign in path' do
-      expect(page).to have_current_path(new_user_session_path)
+      expect(page).to have_current_path(user_registration_path)
     end
 
     it 'expects the page to have the expected error message' do
-      expect(page).to have_content(expected_error_message)
+      expect(page).to have_content('Email has already been taken')
     end
   end
 end

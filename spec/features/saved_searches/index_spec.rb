@@ -13,8 +13,8 @@ RSpec.describe 'Saved Searches', :js do
 
     it 'is empty' do
       within '#user-nav-btn' do
-        click_on(class: 'dropdown-toggle')
-        click_on 'Saved Searches'
+        click_button(class: 'dropdown-toggle')
+        click_link 'Saved Searches'
       end
 
       expect(page).to have_content "You don't have any saved searches at the moment"
@@ -27,15 +27,15 @@ RSpec.describe 'Saved Searches', :js do
       visit root_path
       within '.search-query-form' do
         fill_in 'Search...', with: 'book'
-        click_on 'search'
+        click_button 'search'
       end
 
       within '#user-nav-btn' do
-        click_on(class: 'dropdown-toggle')
-        click_on 'Search History'
+        click_button(class: 'dropdown-toggle')
+        click_link 'Search History'
       end
 
-      click_on 'save'
+      click_button 'save'
     end
 
     it 'is expected to show saved searches' do
@@ -57,22 +57,22 @@ RSpec.describe 'Saved Searches', :js do
       visit root_path
       within '.search-query-form' do
         fill_in 'Search...', with: 'dang'
-        click_on 'search'
+        click_button 'search'
       end
 
       within '#user-nav-btn' do
-        click_on(class: 'dropdown-toggle')
-        click_on 'Search History'
+        click_button(class: 'dropdown-toggle')
+        click_link 'Search History'
       end
 
-      click_on 'save'
+      click_button 'save'
     end
 
     it 'is expected to clear all saved searches' do
       visit saved_searches_path
 
       accept_confirm do
-        click_on 'Clear All'
+        click_link 'Clear All'
       end
 
       expect(page).to have_content 'Cleared your saved searches.'

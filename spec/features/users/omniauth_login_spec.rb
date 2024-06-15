@@ -11,14 +11,14 @@ RSpec.describe 'User Registration/Log in with Omniauth Polaris', :js do
     context 'when new User' do
       it 'expects a new user to be created on sign in' do
         expect do
-          click_on 'Log in with your BPL library card'
+          click_link 'Log in with your BPL library card'
           expect(page).to have_content('Successfully authenticated from Polaris account.')
           expect(page).to have_current_path(root_path)
         end.to change(User, :count).by(1)
       end
 
       it 'expects the new User to have a polaris provider and uid set' do
-        click_on 'Log in with your BPL library card'
+        click_link 'Log in with your BPL library card'
         expect(User.last.provider).to be_a(String).and eql('polaris')
         expect(User.last.uid).to be_a(String)
       end
@@ -28,7 +28,7 @@ RSpec.describe 'User Registration/Log in with Omniauth Polaris', :js do
       it 'expects the existing user to not be created on sign in' do
         create(:user, :polaris_user)
         expect do
-          click_on 'Log in with your BPL library card'
+          click_link 'Log in with your BPL library card'
           expect(page).to have_content('Successfully authenticated from Polaris account.')
           expect(page).to have_current_path(root_path)
         end.not_to change(User, :count)

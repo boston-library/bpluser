@@ -130,4 +130,4 @@ en:
 
   devise:
     registrations:
-      recaptcha_error: 'Please click the "I am not a robot" verification.'
+      recaptcha_error: ' - Please click the "I am not a robot" verification.'

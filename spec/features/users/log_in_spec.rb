@@ -17,7 +17,7 @@ RSpec.describe 'Logging in User', :js do
         within 'form.new_user' do
           fill_in 'user_email', with: test_user.email
           fill_in 'user_password', with: test_user_password
-          click_on 'Sign in'
+          click_button 'Sign in'
         end
         test_user.reload
       end
@@ -37,7 +37,7 @@ RSpec.describe 'Logging in User', :js do
           fill_in 'user_email', with: test_user.email
           fill_in 'user_password', with: test_user_password
           check 'user_remember_me'
-          click_on 'Sign in'
+          click_button 'Sign in'
         end
         test_user.reload
       end
@@ -53,7 +53,7 @@ RSpec.describe 'Logging in User', :js do
         within 'form.new_user' do
           fill_in 'user_email', with: 'foo@bar.com'
           fill_in 'user_password', with: 'foobar'
-          click_on 'Sign in'
+          click_button 'Sign in'
         end
       end
 
