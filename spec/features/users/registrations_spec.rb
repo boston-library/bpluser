@@ -8,13 +8,13 @@ RSpec.describe 'Registering a new User', :js do
 
     before do
       visit root_path
-      click_link 'Sign Up / Log In'
+      click_on 'Sign Up / Log In'
     end
 
     context 'when form is filled out correctly' do
       before do
         within 'div#signin_wrapper' do
-          click_link 'Sign Up'
+          click_on 'Sign Up'
         end
 
         within 'form.new_user' do
@@ -23,7 +23,7 @@ RSpec.describe 'Registering a new User', :js do
           fill_in 'user_email', with: new_user_attributes[:email]
           fill_in 'user_password', with: new_user_attributes[:password]
           fill_in 'user_password_confirmation', with: new_user_attributes[:password_confirmation]
-          click_button 'Sign up'
+          click_on 'Sign up'
         end
       end
 
@@ -43,13 +43,13 @@ RSpec.describe 'Registering a new User', :js do
 
         before do
           within 'div#signin_wrapper' do
-            click_link 'Sign Up'
+            click_on 'Sign Up'
           end
 
           within 'form.new_user' do
             fill_in 'user_first_name', with: 'Foo'
             fill_in 'user_last_name', with: 'Bar'
-            click_button 'Sign up'
+            click_on 'Sign up'
           end
         end
 
@@ -68,7 +68,7 @@ RSpec.describe 'Registering a new User', :js do
 
         before do
           within 'div#signin_wrapper' do
-            click_link 'Sign Up'
+            click_on 'Sign Up'
           end
 
           within 'form.new_user' do
@@ -77,7 +77,7 @@ RSpec.describe 'Registering a new User', :js do
             fill_in 'user_email', with: new_user_attributes[:email]
             fill_in 'user_password', with: new_user_attributes[:password]
             fill_in 'user_password_confirmation', with: 'notmatchingpassword'
-            click_button 'Sign up'
+            click_on 'Sign up'
           end
         end
 
@@ -97,10 +97,10 @@ RSpec.describe 'Registering a new User', :js do
 
     before do
       visit root_path
-      click_link 'Sign Up / Log In'
+      click_on 'Sign Up / Log In'
 
       within 'div#signin_wrapper' do
-        click_link 'Sign Up'
+        click_on 'Sign Up'
       end
 
       within 'form.new_user' do
@@ -109,7 +109,7 @@ RSpec.describe 'Registering a new User', :js do
         fill_in 'user_email', with: existing_user.email
         fill_in 'user_password', with: 'password'
         fill_in 'user_password_confirmation', with: 'password'
-        click_button 'Sign up'
+        click_on 'Sign up'
       end
     end
 
