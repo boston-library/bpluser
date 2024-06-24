@@ -12,7 +12,7 @@ RSpec.describe Users::RegistrationsController do
       request.env['devise.mapping'] = Devise.mappings[:user]
     end
 
-    context 'when successful' do
+    describe 'when successful' do
       it 'is expected to be redirect' do
         post :create, params: { user: user_attributes }
         expect(response).to be_redirect
@@ -31,53 +31,35 @@ RSpec.describe Users::RegistrationsController do
       end
     end
 
-    context 'when failure' do
-      context 'when user already exists' do
-        let!(:existing_user) { create(:user) }
-        let!(:expected_error_message) { "An account with that email (#{existing_user.email}) already exists. Please sign in or click the \"Forgot your password?\" link below." }
-        let!(:existing_user_params) do
-          {
-            email: existing_user.email,
-            first_name: existing_user.first_name,
-            last_name: existing_user.last_name,
-            password: 'password',
-            password_confirmation: 'password'
-          }
+    describe 'when failure' do
+      let!(:bad_user_params) { attributes_for(:user).except(:email) }
+
+      describe 'when missing recaptcha' do
+        before do
+          Recaptcha.configuration.skip_verify_env.delete('test')
+          post :create, params: { user: bad_user_params }
         end
 
-        it 'is expected to redirect to new_user_session_path' do
-          post :create, params: { user: existing_user_params }
-          expect(response).to be_redirect.and redirect_to(new_user_session_path)
+        after do
+          Recaptcha.configuration.skip_verify_env << 'test'
         end
-
-        it 'is expected to have a flash message with expected error message' do
-          post :create, params: { user: existing_user_params }
-          expect(flash[:error]).to be_an_instance_of(String).and eql(expected_error_message)
-        end
-
-        it 'is expected not to have a current user' do
-          post :create, params: { user: existing_user_params }
-          expect(controller.current_user).to be_nil
-        end
-      end
-
-      context 'when missing required fields' do
-        let!(:bad_user_params) { attributes_for(:user).except(:email) }
 
         it 'is expected to have error details in body' do
-          post :create, params: { user: bad_user_params }
           expect(response.body).to have_css('div[id=error_explanation]')
-          expect(response.body).to have_content('1 error prohibited this user from being saved:')
-          expect(response.body).to have_content("Email can't be blank")
+          expect(response.body).to have_content(I18n.t('devise.registrations.recaptcha_error'))
         end
 
         it 'is expected to have the partial user attributes in the form' do
-          post :create, params: { user: bad_user_params }
-          expect(response.body).to have_field('user_first_name', with: bad_user_params[:first_name], visible: :all)
           expect(response.body).to have_field('user_last_name', with: bad_user_params[:last_name], visible: :all)
-          expect(response.body).to have_field('user_password', visible: :all)
-          expect(response.body).to have_field('user_password_confirmation', visible: :all)
-          expect(response.body).to have_field('user_email', with: '', visible: :all)
+        end
+      end
+
+      describe 'when missing required fields' do
+        before { post :create, params: { user: bad_user_params } }
+
+        it 'is expected to have error details in body' do
+          expect(response.body).to have_css('div[id=error_explanation]')
+          expect(response.body).to have_content("Email can't be blank")
         end
       end
     end

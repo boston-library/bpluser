@@ -127,3 +127,7 @@ en:
 
     users:
       account_heading: 'My Account'
+
+  devise:
+    registrations:
+      recaptcha_error: ' - Please click the "I am not a robot" verification.'

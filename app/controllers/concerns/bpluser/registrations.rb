@@ -10,14 +10,30 @@ module Bpluser
     end
 
     module InstanceMethods
-      # POST /resource
+      # override #create from Devise::RegistrationsController to add verify_captcha and logic for error handling
+      # this is the best way to preserve and re-render any submitted params when verify_recaptcha fails
       def create
-        if User.exists?(email: sign_up_params[:email])
-          flash[:error] = "An account with that email (#{sign_up_params[:email]}) already exists. Please sign in or click the \"Forgot your password?\" link below."
-          redirect_to new_user_session_path and return
-        end
+        build_resource(sign_up_params)
 
-        super
+        resource.save if verify_recaptcha
+
+        yield resource if block_given?
+        if resource.persisted?
+          if resource.active_for_authentication?
+            set_flash_message! :notice, :signed_up
+            sign_up(resource_name, resource)
+            respond_with resource, location: after_sign_up_path_for(resource)
+          else
+            set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+            expire_data_after_sign_in!
+            respond_with resource, location: after_inactive_sign_up_path_for(resource)
+          end
+        else
+          resource.errors.add(:errors, message: t('devise.registrations.recaptcha_error')) unless verify_recaptcha
+          clean_up_passwords resource
+          set_minimum_password_length
+          respond_with resource
+        end
       end
 
       protected

@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+begin
+  require 'recaptcha'
+rescue LoadError => e
+  puts "A Gem Dependency is Missing....#{e.message}"
+end
+
 module Bpluser
   class Engine < ::Rails::Engine
     isolate_namespace Bpluser

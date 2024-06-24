@@ -2,6 +2,8 @@ require:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-capybara
+  - rubocop-factory_bot
 
 AllCops:
   NewCops: enable
@@ -62,6 +64,11 @@ Rails/CreateTableWithTimestamps:
 Rails/LexicallyScopedActionFilter:
   Exclude:
     - 'app/controllers/concerns/bpluser/omniauth_callbacks.rb'
+
+Rails/Output:
+  Enabled: true
+  Exclude:
+    - 'lib/bpluser/engine.rb'
 
 Rails/ReversibleMigration:
   Exclude:

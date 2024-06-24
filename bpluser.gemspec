@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'omniauth-polaris', '~> 1.1.1'
   s.add_dependency 'omniauth-rails_csrf_protection', '~> 1.0'
   s.add_dependency 'rails', '~> 6.1.7.4'
+  s.add_dependency 'recaptcha', '~> 5.12'
 
   s.add_development_dependency 'awesome_print', '~> 1.9'
   s.add_development_dependency 'pg', '>= 0.18', '< 2.0'

@@ -14,7 +14,7 @@ This includes bookmarks (Blacklight default), custom folders, and saved searches
 
 To install, add the following to your Gemfile:
 ```ruby
-gem 'bpluser', '~> 0.1.0'
+gem 'bpluser', '~> 0.5.0'
 # OR
 gem 'bpluser', git: 'https://github.com/boston-library/bpluser'
 ```
@@ -31,6 +31,25 @@ rails bpluser:install:update_migrations
 ```
 
 (Note that the installer will ask to overwrite your local `config/locales/devise.en.yml`).
+
+### Local development
+
+In one console, start Solr from project root:
+```
+$ solr_wrapper --config .solr_wrapper.yml 
+```
+In a second console, index the sample Solr documents (run from `./spec/dummy`):
+```
+# Solr must be running
+$ bundle exec rake bpluser:test_index:seed
+```
+Run the migrations and start the app (in second console, run from `./spec/dummy`):
+```
+bundle exec rake db:create
+bundle exec rake db:migrate
+rails s
+# app should be accessible at 127.0.0.1:3000
+```
 
 ### Running tests
 
