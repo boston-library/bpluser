@@ -18,20 +18,19 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.required_ruby_version = '>= 3.1', '< 3.2'
+  s.required_ruby_version = '>= 3.2', '< 3.5'
 
-  s.add_dependency 'blacklight', '~> 7.19.0'
-  s.add_dependency 'devise', '~> 4.8.1'
-  s.add_dependency 'devise-guests', '~> 0.8.1'
+  s.add_dependency 'blacklight', '8.11.0'
+  s.add_dependency 'devise', '~> 4.9'
+  s.add_dependency 'devise-guests', '~> 0.8'
   s.add_dependency 'omniauth', '~> 2.1'
-  s.add_dependency 'omniauth-polaris', '~> 1.1.1'
+  s.add_dependency 'omniauth-polaris', '~> 1.2'
   s.add_dependency 'omniauth-rails_csrf_protection', '~> 1.0'
-  s.add_dependency 'rails', '~> 6.1.7.4'
-  s.add_dependency 'recaptcha', '~> 5.12'
+  s.add_dependency 'rails', '~> 7.2'
+  s.add_dependency 'recaptcha', '~> 5.20'
 
-  s.add_development_dependency 'awesome_print', '~> 1.9'
   s.add_development_dependency 'pg', '>= 0.18', '< 2.0'
-  s.add_development_dependency 'rsolr', '~> 2.5'
-  s.add_development_dependency 'rspec-rails', '~> 5', '< 6'
-  s.add_development_dependency 'solr_wrapper', '~> 4'
+  s.add_development_dependency 'rsolr', '~> 2.6'
+  s.add_development_dependency 'rspec-rails', '>= 6.1', '< 8'
+  s.add_development_dependency 'solr_wrapper', '~> 4.1'
 end
