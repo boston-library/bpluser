@@ -2,10 +2,6 @@
 
 class CatalogController < ApplicationController
   include Blacklight::Catalog
-
-  # CatalogController-scope behavior and configuration for BlacklightIiifSearch
-  include BlacklightIiifSearch::Controller
-
   # CatalogController-scope behavior and configuration for CommonwealthVlrEngine
   include CommonwealthVlrEngine::ControllerOverride
 
@@ -95,10 +91,5 @@ class CatalogController < ApplicationController
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
-
-    # advanced search facet limits
-    config.advanced_search[:form_solr_parameters]['facet.field'] = ['genre_basic_ssim', 'physical_location_ssim']
-    config.advanced_search[:form_solr_parameters]['f.physical_location_ssim.facet.limit'] = -1
-    config.advanced_search[:form_solr_parameters]['f.physical_location_ssim.facet.sort'] = 'index'
   end
 end

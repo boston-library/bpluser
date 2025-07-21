@@ -59,6 +59,7 @@ ehthumbs.db
 Gemfile.lock
 .ruby-version
 scratch.rb
+.env
 
 # Directories to ignore #
 #########################
