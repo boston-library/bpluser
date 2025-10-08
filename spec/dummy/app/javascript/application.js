@@ -8,7 +8,7 @@ import Blacklight from "blacklight"
 
 import 'jquery'
 // // universalviewer MUST be after jquery and before blacklight-gallery
-// import "universalviewer"
+import "universalviewer"
 import 'blacklight-gallery'
 
 import "openseadragon"

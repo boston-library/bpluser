@@ -10,7 +10,7 @@ gemspec
 
 # jquery-rails is used by the dummy application
 group :development, :test do
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'debug', platforms: %i[mri windows]
   gem 'dotenv-rails', '~> 2.8', require: 'dotenv/rails-now'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 3.1'
@@ -40,6 +40,9 @@ gem 'cssbundling-rails'
 
 gem 'importmap-rails'
 gem 'propshaft'
+
+gem "turbo-rails"
+gem "stimulus-rails"
 
 gem 'puma', '>= 5.0'
 

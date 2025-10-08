@@ -25,7 +25,9 @@ require 'bpluser'
 module Dummy
   class Application < Rails::Application
     config.load_defaults 7.2
+    config.assets.pipeline = :propshaft
 
+    config.autoload_lib(ignore: %w[assets tasks])
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

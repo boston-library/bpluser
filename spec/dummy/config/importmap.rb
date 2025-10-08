@@ -22,9 +22,9 @@ pin "@github/auto-complete-element", to: "https://cdn.skypack.dev/@github/auto-c
 pin "chart.js", to: "https://ga.jspm.io/npm:chart.js@4.2.0/dist/chart.js"
 # single dependency of chart.js:
 pin "@kurkle/color", to: "https://ga.jspm.io/npm:@kurkle/color@0.3.2/dist/color.esm.js"
+
 pin "@fortawesome/fontawesome-free", to: "@fortawesome--fontawesome-free.js"
 
-#pin "openseadragon"
+pin "openseadragon"
 
-# pin "universalviewer", to: "https://cdn.jsdelivr.net/npm/universalviewer@4.2.0/dist/esm/index.js", preload: false
-pin "bootstrap", to: "bootstrap.bundle.min.js"
+pin "universalviewer", to: "https://cdn.jsdelivr.net/npm/universalviewer@4.2.0/dist/esm/index.js", preload: false
