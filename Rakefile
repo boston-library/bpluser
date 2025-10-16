@@ -37,7 +37,7 @@ RSpec::Core::RakeTask.new
 
 desc 'Lint, spin up Solr, index test docs, run test suite'
 task ci: [:environment, :rubocop] do
-  SolrWrapper.wrap(port: 8984, version: '8.11.4', persist: false) do |solr|
+  SolrWrapper.wrap(port: 8984, version: '9.7.0', persist: false) do |solr|
     solr.with_collection(name: 'blacklight-core', dir: 'spec/dummy/solr/conf/') do
       system 'RAILS_ENV=test rake app:bpluser:test_index:seed'
       Rake::Task['spec'].invoke

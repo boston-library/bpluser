@@ -22,13 +22,13 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '~> 3.38', '< 4'
+  gem 'capybara', '~> 3.40', '< 4'
   gem 'climate_control', '~> 1.1'
   gem 'coveralls_reborn', '~> 0.28.0', require: false
   gem 'database_cleaner-active_record', '~> 2.1'
   gem 'launchy', '~> 2.5'
   gem 'rails-controller-testing', '~> 1.0'
-  gem 'selenium-webdriver', '~> 4.26'
+  gem 'selenium-webdriver', '~> 4.36'
   gem 'shoulda-matchers', '~> 5.2'
   gem 'webmock', '~> 3.23'
 end
@@ -43,6 +43,8 @@ gem 'propshaft'
 
 gem "turbo-rails"
 gem "stimulus-rails"
+
+gem "jbuilder"
 
 gem 'puma', '>= 5.0'
 

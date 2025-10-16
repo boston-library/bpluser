@@ -7,7 +7,7 @@ require:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.4
+  TargetRubyVersion: 3.3
   Exclude:
     - 'scratch.rb'
     - 'spec/dummy/db/schema.rb'
