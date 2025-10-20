@@ -21,7 +21,7 @@ class FoldersController < CatalogController
   before_action :correct_user_for_folder, only: [:update, :edit, :destroy]
 
   # blacklight_config.track_search_session = false
-  blacklight_config.http_method = Blacklight::Engine.config.blacklight.bookmarks_http_method
+  # blacklight_config.http_method = Blacklight::Engine.config.blacklight.bookmarks_http_method
 
   def index
     @folders = current_or_guest_user.folders.with_folder_items if current_or_guest_user

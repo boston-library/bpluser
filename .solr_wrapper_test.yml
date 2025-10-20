@@ -1,5 +1,5 @@
 port: 8984
-version: 8.11.2
+version: 8.11.4
 instance_dir: ./spec/dummy/tmp/solr-test
 collection:
   persist: false

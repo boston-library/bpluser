@@ -32,5 +32,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pg', '>= 0.18', '< 2.0'
   s.add_development_dependency 'rsolr', '~> 2.6'
   s.add_development_dependency 'rspec-rails', '>= 6.1', '< 8'
-  s.add_development_dependency 'solr_wrapper', '~> 4.1'
+  s.add_development_dependency 'solr_wrapper', '~> 4.2'
 end
