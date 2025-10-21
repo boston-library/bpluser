@@ -4,14 +4,16 @@ require:
   - rubocop-rspec
   - rubocop-capybara
   - rubocop-factory_bot
+  - rubocop-rspec_rails
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
   Exclude:
     - 'scratch.rb'
     - 'spec/dummy/db/schema.rb'
     - 'vendor/bundle/**/*'
+    - 'spec/dummy/**/*'
 
 Gemspec/RequireMFA:
   Enabled: false

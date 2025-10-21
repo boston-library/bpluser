@@ -14,10 +14,10 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.8', require: 'dotenv/rails-now'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 3.1'
-  gem 'rubocop', '~> 1.61.0', require: false
+  gem 'rubocop', '~> 1.66.0', require: false
   gem 'rubocop-capybara', require: false
-  gem 'rubocop-performance', '~> 1.19.1', require: false
-  gem 'rubocop-rails', '~> 2.22.1', require: false
+  gem 'rubocop-performance', '~> 1.22', require: false
+  gem 'rubocop-rails', '~> 2.26', require: false
   gem 'rubocop-rspec', '~> 2.31.0', require: false
 end
 
@@ -33,18 +33,18 @@ group :test do
   gem 'webmock', '~> 3.23'
 end
 
-gem 'bootstrap', "~> 5.3"
 gem 'bootsnap', require: false
+gem 'bootstrap', '~> 5.3'
 gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine', branch: 'blacklight-8'
 gem 'cssbundling-rails'
 
 gem 'importmap-rails'
 gem 'propshaft'
 
-gem "turbo-rails"
-gem "stimulus-rails"
+gem 'stimulus-rails'
+gem 'turbo-rails'
 
-gem "jbuilder"
+gem 'jbuilder'
 
 gem 'puma', '>= 5.0'
 

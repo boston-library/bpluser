@@ -10,7 +10,7 @@
 
       <% unless bookmarked? document || existing_folder_item %>
         <% if existing_folders.empty? %>
-          <%= form_tag( bookmark_path( document ), method: :put, remote: true) do %>
+          <%= form_tag(bookmark_path(document), method: :put, remote: true) do %>
             <button class="btn btn-outline-secondary" type="submit">
                 <%= icon('fas', 'folder-plus', class: 'show-tools-icon', aria: { hidden: true }) + ' ' + t('blacklight.folder_items.add.button') %>
             </button>

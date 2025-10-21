@@ -11,10 +11,10 @@ class FoldersController < CatalogController
 
   # Blacklight uses #search_action_url to figure out the right URL for
   # the global search box
-  # def search_action_url(options = {})
-  #   search_catalog_url(options.except(:controller, :action))
-  # end
-  #helper_method :search_action_url
+  def search_action_url(options = {})
+    search_catalog_url(options.except(:controller, :action))
+  end
+  helper_method :search_action_url
 
   before_action :verify_user, except: [:index, :show, :public_list]
   before_action :check_visibility, only: [:show]
