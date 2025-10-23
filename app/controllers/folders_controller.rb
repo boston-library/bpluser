@@ -29,10 +29,11 @@ class FoldersController < CatalogController
 
   def show
     # @folder is set by correct_user_for_folder
+    Rails.logger.info @folder
     @folder_items = @folder.folder_items
     folder_items_ids = @folder_items.pluck(:document_id)
     params[:sort] ||= 'title_info_primary_ssort asc, date_start_dtsi asc'
-    @response, @document_list = search_service.fetch(folder_items_ids)
+    @response = search_service.fetch(folder_items_ids)
   end
 
   def new

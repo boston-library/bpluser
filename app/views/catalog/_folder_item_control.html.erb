@@ -3,7 +3,7 @@
     <div id="folder_item_toggle">
       <% if current_user %>
           <% existing_folders = current_user.folders %>
-          <% existing_folder_item = current_user.existing_folder_item_for(document.id) %>
+          <% existing_folder_item = current_user.existing_folder_item_for(document&.id) %>
       <% else %>
           <% existing_folders = [] %>
       <% end %>

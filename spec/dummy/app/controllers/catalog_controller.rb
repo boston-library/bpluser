@@ -15,8 +15,8 @@ class CatalogController < ApplicationController
     config.add_results_collection_tool(:view_type_group)
 
     config.add_show_tools_partial(:folder_items, partial: 'folder_item_control')
-    config.add_show_tools_partial(:email, partial: 'show_email_tools', callback: :email_action, validator: :validate_email_params)
-    config.add_show_tools_partial(:citation, partial: 'show_cite_tools')
+    # config.add_show_tools_partial(:email, partial: 'show_email_tools', callback: :email_action, validator: :validate_email_params)
+    # config.add_show_tools_partial(:citation, partial: 'show_cite_tools')
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -91,5 +91,6 @@ class CatalogController < ApplicationController
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
+
   end
 end

@@ -1,7 +1,5 @@
 <% @page_title = t('blacklight.bookmarks.page_title', application_name: application_name) %>
 
-<%= javascript_include_tag 'bpluser/folder_tools' %>
-
 <div id="content" class="folder_show_container col-sm-9">
 
   <div id="breadcrumb">
@@ -23,9 +21,8 @@
   </div>
 
 <h2><%= t('blacklight.bookmarks.title') %>
-  <% unless !current_or_guest_user || @document_list.blank? %>
-      <small id="folder_tools">
-      </small>
+  <% unless !current_or_guest_user || @response.blank? %>
+      <small id="folder_tools"></small>
   <% end %>
 </h2>
 
@@ -37,7 +34,7 @@
       <div id="empty_folder" class="well">
         <h5><%= t('blacklight.bookmarks.need_login') %></h5>
       </div>
-<%- elsif @document_list.blank? -%>
+<%- elsif @response&.documents.blank? -%>
       <div id="empty_folder" class="well">
         <h4><%= t('blacklight.bookmarks.no_bookmarks') %></h4>
         <p><%= t('blacklight.folders.help.add_items') %></p>
@@ -45,14 +42,14 @@
 <% else %>
 
     <%= render 'sort_and_per_page' %>
-
-    <%= form_tag selected_bookmarks_actions_path, :method => :put, :id => "item_actions_form" do %>
-
-        <%= render :partial => 'shared/folder_item_actions' %>
-
-        <%= render_document_index %>
-
-    <% end %>
+    <%= render Bpluser::BookmarksToolbarComponent.new(document_ids: @response.documents.map(&:id)) %>
+    <%#= form_tag selected_bookmarks_actions_path, :method => :put, :id => "item_actions_form" do %>
+        <%#= render partial: 'shared/folder_item_actions' %>
+        <%#= render_document_index %>
+    <%# end %>
+    <%#= render partial: 'tools', locals: { document_list: @response.documents } %>
+    <h2 class='section-heading sr-only visually-hidden'><%= t('blacklight.bookmarks.list_title') %></h2>
+    <%= render_document_index @response.documents %>
     <%= render 'results_pagination' %>
 <% end %>
 </div>
