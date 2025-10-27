@@ -30,7 +30,7 @@ class BookmarksController < CatalogController
         flash[:error] = I18n.t('blacklight.bookmarks.add.failure', count: @bookmarks.count)
       end
 
-      redirect_back fallback_location: bookmarks_path
+      redirect_back_or_to(bookmarks_path)
     end
   end
 

@@ -10,13 +10,13 @@
 
       <% unless bookmarked? document || existing_folder_item %>
         <% if existing_folders.empty? %>
-          <%= form_tag(bookmark_path(document), method: :put, remote: true) do %>
+          <%= form_tag(bookmark_path(document), method: :put) do %>
             <button class="btn btn-outline-secondary" type="submit">
                 <%= icon('fas', 'folder-plus', class: 'show-tools-icon', aria: { hidden: true }) + ' ' + t('blacklight.folder_items.add.button') %>
             </button>
           <% end %>
         <% else %>
-              <%= form_tag(bookmark_path(document), method: :put, remote: true) do %>
+              <%= form_tag(bookmark_path(document), method: :put) do %>
 
                 <div class="btn-group folder-item-control">
                     <button class="btn btn-outline-secondary" type="submit">
@@ -29,15 +29,13 @@
                         <%= link_to t('blacklight.bookmarks.title'),
                                     bookmark_path(document),
                                     method: :put,
-                                    class: 'folder_item_add dropdown-item',
-                                    remote: true %>
+                                    class: 'folder_item_add dropdown-item'%>
 
                         <% existing_folders.each do |folder| %>
                             <%= link_to folder.title,
                                         folder_item_path(document, folder_id: folder.id),
                                         method: :put,
-                                        class: 'folder_item_add dropdown-item',
-                                        remote: true %>
+                                        class: 'folder_item_add dropdown-item' %>
 
                         <% end %>
                     </div>

@@ -2,7 +2,6 @@
 
 module Bpluser
   class BookmarksToolbarComponent < ViewComponent::Base
-
     attr_reader :document_ids
 
     def initialize(document_ids:)

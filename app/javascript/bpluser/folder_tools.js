@@ -1,5 +1,5 @@
 // see app/javascripts/bpluser/folder_tools.js.bak for original jqeury version
-
+// Can this
 const addCheckedToURL = () => {
   let checkboxValues = new URLSearchParams(
     Array.from(document.querySelectorAll('[name="selected[]"]:checked'))
