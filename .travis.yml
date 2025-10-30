@@ -1,5 +1,5 @@
 language: ruby
-dist: bionic
+dist: jammy
 
 cache:
   bundler: true
@@ -19,7 +19,7 @@ before_install:
   - sudo cp /etc/postgresql/{9.3,12}/main/pg_hba.conf
   - sudo pg_ctlcluster 12 main restart
   - gem update --system --no-document
-  - gem install bundler:2.3.26 --no-document
+  - gem install bundler:2.7.2 --no-document
   - google-chrome-stable --headless --disable-gpu --disable-software-rasterizer --no-sandbox --remote-debugging-port=9222 http://localhost &
 
 before_script:
@@ -35,6 +35,6 @@ env:
 
 matrix:
   include:
-    - rvm: 3.1.4
-      env: "RAILS_VERSION=6.1.7.7"
-  fast_finish: true    
+    - rvm: 3.4.4
+      env: "RAILS_VERSION=7.2.3"
+  fast_finish: true

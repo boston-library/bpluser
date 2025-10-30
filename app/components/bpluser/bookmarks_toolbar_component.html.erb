@@ -1,4 +1,4 @@
-<nav class="bookmark-toolbar d-flex justify-content-end flex-column flex-md-row mb-4 gap-4" data-controller="analytics" aria-label="Tools" data-analytics-category-value="bookmark-toolbar">
+<nav class="bookmark-toolbar d-flex justify-content-end flex-column flex-md-row mb-4 gap-4" aria-label="Tools">
   <ul class="nav navbar justify-content-start d-inline-flex gap-2 px-1 py-0">
     <li>
       <%= link_to citation_href,
@@ -15,8 +15,9 @@
       <% end %>
     </li>
     <li>
-      <%= button_to clear_bookmarks_path(type: bookmark_type),
+      <%= button_to clear_bookmarks_path,
                     method: :delete,
+                    data: { turbo_confirm: 'Are you sure you want to remove all items?' },
                     class: 'toggle-bookmark-remove-all bookmark-toggle btn btn-link lh-1' do %>
           <span class="action-button blacklight-icons">
             <i class="bi bi-trash me 1"></i>Remove All

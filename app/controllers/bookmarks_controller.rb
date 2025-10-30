@@ -3,21 +3,22 @@
 class BookmarksController < CatalogController
   include Blacklight::Bookmarks
 
-  # LOCAL OVERRIDE to render update.js.erb partial when bookmark created
+  # rubocop:disable Rails/LexicallyScopedActionFilter
+  before_action :index_config, only: [:index]
+  # rubocop:enable Rails/LexicallyScopedActionFilter
+
+  # LOCAL OVERRIDE to render create/update.turbo_stream.erb partial when bookmark created
   def create
-    @bookmarks = params[:bookmarks].present? ? bookmark_params : default_bookmark_params
+    @bookmarks = params[:bookmarks].present? ? permit_bookmarks : default_bookmark_params
 
     current_or_guest_user.save! unless current_or_guest_user.persisted?
 
-    success = @bookmarks.all? do |bookmark|
-      next true if current_or_guest_user.bookmarks.exists?(bookmark)
+    bookmarks_to_add = @bookmarks.reject { |bookmark| current_or_guest_user.bookmarks.where(bookmark).exists? }
 
-      begin
-        current_or_guest_user.bookmarks.create!(bookmark)
-        next true
-      rescue ActiveRecord::RecordInvalid
-        break false
-      end
+    success = ActiveRecord::Base.transaction do
+      current_or_guest_user.bookmarks.create!(bookmarks_to_add)
+    rescue ActiveRecord::RecordInvalid
+      false
     end
 
     if request.xhr?
@@ -44,7 +45,7 @@ class BookmarksController < CatalogController
     [{ document_id: params[:id], document_type: blacklight_config.document_model.to_s }]
   end
 
-  def bookmark_params
-    params.require(:bookmarks).map { |item_params| item_params.permit(:document_id, :document_type) }
+  def index_config
+    blacklight_config.index.collection_actions.delete(:clear_bookmarks_widget)
   end
 end

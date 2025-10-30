@@ -59,15 +59,15 @@
       </div>
   <% end %>
 
-  <% unless @folder_items.empty? %>
-      <%= render partial: 'catalog/sort_and_per_page' %>
+  <% if @folder_items.present? && @response&.documents.present? %>
+      <%= render 'sort_and_per_page' %>
 
       <%= form_tag selected_folder_items_actions_path, method: :put, id: "item_actions_form" do %>
         <%= render partial: 'shared/folder_item_actions' %>
-        <%= render_document_index %>
+        <%= render_document_index @response.documents %>
       <% end %>
 
-      <%= render partial: 'catalog/results_pagination' %>
+    <%= render 'results_pagination' %>
   <% else %>
     <div id="empty_folder" class="well">
       <h5><%= t('blacklight.folders.empty') %></h5>
