@@ -42,7 +42,7 @@
 <% else %>
 
     <%= render 'sort_and_per_page' %>
-    <%= render Bpluser::BookmarksToolbarComponent.new(document_ids: @response.documents.map(&:id)) %>
+    <%= render Bpluser::FoldersToolbarComponent.new(document_ids: @response.documents.map(&:id)) %>
     <%#= form_tag selected_bookmarks_actions_path, :method => :put, :id => "item_actions_form" do %>
         <%#= render partial: 'shared/folder_item_actions' %>
         <%#= render_document_index %>

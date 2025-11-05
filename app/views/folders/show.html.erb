@@ -46,7 +46,7 @@
                       @folder,
                       class: 'btn btn-outline-secondary btn-sm',
                       method: :delete,
-                      data: { confirm: t('blacklight.folders.delete.confirm') },
+                      data: { turbo_method: :delete, turbo_confirm: t('blacklight.folders.delete.confirm') },
                       title: t('blacklight.folders.delete.delete')) %>
         </small>
     <% end %>
@@ -62,11 +62,12 @@
   <% if @folder_items.present? && @response&.documents.present? %>
       <%= render 'sort_and_per_page' %>
 
-      <%= form_tag selected_folder_items_actions_path, method: :put, id: "item_actions_form" do %>
-        <%= render partial: 'shared/folder_item_actions' %>
-        <%= render_document_index @response.documents %>
-      <% end %>
-
+      <%#= form_tag selected_folder_items_actions_path, method: :put, id: "item_actions_form" do %>
+        <%#= render partial: 'shared/folder_item_actions' %>
+        <%#= render_document_index @response.documents %>
+      <%# end %>
+    <%= render Bpluser::FoldersToolbarComponent.new(document_ids: @response.documents.map(&:id)) %>
+    <%= render_document_index @response.documents %>
     <%= render 'results_pagination' %>
   <% else %>
     <div id="empty_folder" class="well">

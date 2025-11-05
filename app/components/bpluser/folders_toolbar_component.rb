@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Bpluser
-  class BookmarksToolbarComponent < ViewComponent::Base
+  class FoldersToolbarComponent < ViewComponent::Base
     attr_reader :document_ids
 
     def initialize(document_ids:)
