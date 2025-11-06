@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   put 'folder/:id/item_actions', to: 'folder_items_actions#folder_item_actions', as: 'selected_folder_items_actions'
 
   # folder items
-  resources :folder_items
+  resources :folder_items, only: [:create, :update, :destroy]
 
   # user account management (not login/auth)
   resources :users, only: [:show]

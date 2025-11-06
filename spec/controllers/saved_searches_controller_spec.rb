@@ -15,7 +15,7 @@ RSpec.describe SavedSearchesController do
 
   describe 'save' do
     before do
-      request.env['HTTP_REFERER'] = 'where_i_came_from'
+      request.headers['HTTP_REFERER'] = 'where_i_came_from'
     end
 
     it 'lets you save a search' do
