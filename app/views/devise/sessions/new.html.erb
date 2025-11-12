@@ -7,7 +7,7 @@
       <%= form_for(resource,
                    as: resource_name,
                    url: user_session_path,
-                   html: { method: :post, role: 'form' }) do |f| %>
+                   html: { method: :post, role: 'form' , data: { turbo: false } }) do |f| %>
 
         <div class="form-group row">
           <label class="col-sm-2 col-form-label" for="user_uid">Email</label>
@@ -49,10 +49,10 @@
       <% end %>
 
       <div id="alt_signins">
-        <%= link_to(image_tag('commonwealth-vlr-engine/bplLoginButton.png',
+        <%= button_to(image_tag('commonwealth-vlr-engine/bplLoginButton.png',
                               alt: 'Log in with your BPL library card',
                               class: 'alt_signin_btn'),
-                     user_polaris_omniauth_authorize_path, method: :post) %>
+                     user_polaris_omniauth_authorize_path, data: { turbo: false } ) %>
       </div>
 
       <%= render 'devise/shared/links' %>

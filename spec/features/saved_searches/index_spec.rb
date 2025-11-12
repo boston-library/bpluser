@@ -34,8 +34,7 @@ RSpec.describe 'Saved Searches', :js do
         click_on(class: 'dropdown-toggle')
         click_on 'Search History'
       end
-
-      click_on 'save'
+      click_link_or_button 'save'
     end
 
     it 'is expected to show saved searches' do
@@ -65,7 +64,7 @@ RSpec.describe 'Saved Searches', :js do
         click_on 'Search History'
       end
 
-      click_on 'save'
+      click_link_or_button 'save'
     end
 
     it 'is expected to clear all saved searches' do

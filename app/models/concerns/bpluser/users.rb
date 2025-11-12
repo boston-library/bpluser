@@ -34,7 +34,7 @@ module Bpluser
       end
 
       def get_folder_item(document_id)
-        folder_items.where(document_id: document_id).first if folder_items.exists?(document_id: document_id)
+        folder_items.find_sole_by(document_id: document_id) if folder_items.exists?(document_id: document_id)
       end
 
       private

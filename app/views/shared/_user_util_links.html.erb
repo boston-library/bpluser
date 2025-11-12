@@ -5,16 +5,16 @@
       <div id="user-nav-btn" class="btn-group btn-group-xs">
         <%= link_to(icon('fas', 'user', aria: { hidden: true }) + ' ' + current_user.first_name,
                     current_user, class: 'btn btn-outline-secondary btn-sm') if current_user %>
-        <button class="btn btn-xs btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
+        <button class="btn btn-xs btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
         </button>
-        <div id="user-util-links-list" class="dropdown-menu">
+        <ul id="user-util-links-list" class="dropdown-menu">
           <%= link_to t('blacklight.header_links.folders'), folders_path, class: 'dropdown-item' %>
           <%= link_to t('blacklight.header_links.saved_searches'), saved_searches_path, class: 'dropdown-item' %>
           <%= link_to t('blacklight.header_links.search_history'), blacklight.search_history_path, class: 'dropdown-item' %>
           <%= link_to t('devise.registrations.edit'), edit_user_registration_path, class: 'dropdown-item' %>
           <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'dropdown-item' %>
-        </div>
+        </ul>
       </div>
 
   <% else %>

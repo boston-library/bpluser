@@ -12,9 +12,9 @@ RSpec.describe 'Logging in User', :js do
     let!(:test_user_password) { attributes_for(:user)[:password] }
     let!(:successful_sign_in_message) { I18n.t('devise.sessions.signed_in') }
 
-    context 'with remeber me unchecked' do
+    context 'with remember me unchecked' do
       before do
-        within 'form.new_user' do
+        within 'form#new_user' do
           fill_in 'user_email', with: test_user.email
           fill_in 'user_password', with: test_user_password
           click_on 'Sign in'
@@ -33,7 +33,7 @@ RSpec.describe 'Logging in User', :js do
 
     context 'with remember me checked' do
       before do
-        within 'form.new_user' do
+        within 'form#new_user' do
           fill_in 'user_email', with: test_user.email
           fill_in 'user_password', with: test_user_password
           check 'user_remember_me'
@@ -50,7 +50,7 @@ RSpec.describe 'Logging in User', :js do
 
     context 'when sign in is unsucessful' do
       before do
-        within 'form.new_user' do
+        within 'form#new_user' do
           fill_in 'user_email', with: 'foo@bar.com'
           fill_in 'user_password', with: 'foobar'
           click_on 'Sign in'

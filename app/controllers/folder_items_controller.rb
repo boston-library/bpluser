@@ -48,6 +48,7 @@ class FolderItemsController < CatalogController
     Bpluser::FolderItem.find(folder_item.id).destroy
 
     respond_to do |format|
+      format.turbo_stream
       format.html { redirect_back_or_to(root_path) }
     end
   end
