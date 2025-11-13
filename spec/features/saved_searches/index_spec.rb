@@ -25,16 +25,17 @@ RSpec.describe 'Saved Searches', :js do
     before do
       sign_in test_user
       visit root_path
-      within '.search-query-form' do
+      within 'form.search-query-form' do
         fill_in 'Search...', with: 'book'
         click_on 'search'
       end
 
       within '#user-nav-btn' do
-        click_on(class: 'dropdown-toggle')
+        find('button.dropdown-toggle-split').click
         click_on 'Search History'
       end
-      click_link_or_button 'save'
+
+      click_on 'save'
     end
 
     it 'is expected to show saved searches' do
@@ -60,11 +61,11 @@ RSpec.describe 'Saved Searches', :js do
       end
 
       within '#user-nav-btn' do
-        click_on(class: 'dropdown-toggle')
+        find('button.dropdown-toggle-split').click
         click_on 'Search History'
       end
 
-      click_link_or_button 'save'
+      click_on 'save'
     end
 
     it 'is expected to clear all saved searches' do

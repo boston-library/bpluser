@@ -10,7 +10,7 @@
                    html: { method: :post, role: 'form' , data: { turbo: false } }) do |f| %>
 
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label" for="user_uid">Email</label>
+          <label class="col-sm-2 col-form-label" for="user_email">Email</label>
           <div class="col-sm-4">
             <%= f.text_field :email, class: 'form-control' %>
           </div>
@@ -30,7 +30,7 @@
           <div class="form-group row">
             <div class="form-check offset-sm-2 col-sm-6">
               <%= f.check_box :remember_me, class: 'form-check-input' %>
-              <label id="remember_me" class="form-check-label">
+              <label id="user_remember_me" class="form-check-label" for="user_remember_me">
                 Remember me on this device
               </label>
             </div>

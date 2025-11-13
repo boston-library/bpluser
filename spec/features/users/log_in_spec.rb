@@ -15,8 +15,8 @@ RSpec.describe 'Logging in User', :js do
     context 'with remember me unchecked' do
       before do
         within 'form#new_user' do
-          fill_in 'user_email', with: test_user.email
-          fill_in 'user_password', with: test_user_password
+          fill_in 'Email', with: test_user.email
+          fill_in 'Password', with: test_user_password
           click_on 'Sign in'
         end
         test_user.reload
@@ -34,15 +34,15 @@ RSpec.describe 'Logging in User', :js do
     context 'with remember me checked' do
       before do
         within 'form#new_user' do
-          fill_in 'user_email', with: test_user.email
-          fill_in 'user_password', with: test_user_password
-          check 'user_remember_me'
+          fill_in 'Email', with: test_user.email
+          fill_in 'Password', with: test_user_password
+          check 'Remember me on this device'
           click_on 'Sign in'
         end
-        test_user.reload
       end
 
       it 'expects test user to have remember_created_at set' do
+        test_user.reload
         expect(test_user.remember_created_at).to be_truthy.and be_a(ActiveSupport::TimeWithZone)
         expect(test_user.remember_created_at.utc.to_f).to be_within(1.minute.ago.utc.to_f).of(Time.now.utc.to_f)
       end
@@ -51,8 +51,8 @@ RSpec.describe 'Logging in User', :js do
     context 'when sign in is unsucessful' do
       before do
         within 'form#new_user' do
-          fill_in 'user_email', with: 'foo@bar.com'
-          fill_in 'user_password', with: 'foobar'
+          fill_in 'Email', with: 'foo@bar.com'
+          fill_in 'Password', with: 'foobar'
           click_on 'Sign in'
         end
       end
