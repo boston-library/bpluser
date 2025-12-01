@@ -3,13 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Logging in User', :js do
+  let!(:test_user) { create(:user) }
+  let!(:test_user_password) { attributes_for(:user)[:password] }
+
   before do
     visit new_user_session_path
   end
 
   context 'when successful sign in' do
-    let!(:test_user) { create(:user) }
-    let!(:test_user_password) { attributes_for(:user)[:password] }
     let!(:successful_sign_in_message) { I18n.t('devise.sessions.signed_in') }
 
     context 'with remember me unchecked' do
@@ -17,9 +18,12 @@ RSpec.describe 'Logging in User', :js do
         within 'form#new_user' do
           fill_in 'Email', with: test_user.email
           fill_in 'Password', with: test_user_password
-          click_on 'Sign in'
         end
-        test_user.reload
+        click_on 'Sign in'
+      end
+
+      after do
+        sign_out test_user
       end
 
       it 'expects the user to have been signed in' do
@@ -37,8 +41,12 @@ RSpec.describe 'Logging in User', :js do
           fill_in 'Email', with: test_user.email
           fill_in 'Password', with: test_user_password
           check 'Remember me on this device'
-          click_on 'Sign in'
         end
+        click_on 'Sign in'
+      end
+
+      after do
+        sign_out test_user
       end
 
       it 'expects test user to have remember_created_at set' do

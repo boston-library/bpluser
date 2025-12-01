@@ -25,4 +25,3 @@ BlacklightRangeLimit.init({onLoadHandler: Blacklight.onLoad});
 import "@fortawesome/fontawesome-free"
 
 import 'commonwealth-vlr-engine'
-import 'bpluser'

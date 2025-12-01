@@ -5,31 +5,31 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :post, role: 'form', data: { turbo: false } }) do |f| %>
       <%= render partial: 'devise/shared/error_messages', resource: resource %>
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="inputFirstName">First name</label>
+        <%= f.label :first_name, class: "col-sm-2 col-form-label" %>
         <div class="col-sm-4">
           <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="inputLastName">Last name</label>
+        <%= f.label :last_name, class: "col-sm-2 col-form-label" %>
         <div class="col-sm-4">
           <%= f.text_field :last_name, class: 'form-control' %>
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="inputEmail">Email</label>
+       <%= f.label :email, class: "col-sm-2 col-form-label"  %>
         <div class="col-sm-4">
-          <%= f.text_field :email, class: 'form-control' %>
+          <%= f.email_field :email, class: 'form-control' %>
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="inputPassword">Password</label>
+        <%= f.label :password, class: "col-sm-2 col-form-label" %>
         <div class="col-sm-4">
           <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label" for="inputPassword">Re-enter password</label>
+        <%= f.label :password_confirmation, 'Re-enter password', class: "col-sm-2 col-form-label" %>
         <div class="col-sm-4">
           <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
         </div>
