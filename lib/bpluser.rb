@@ -11,6 +11,7 @@ require 'omniauth'
 require 'omniauth-polaris'
 require 'omniauth/rails_csrf_protection'
 require 'openssl'
+require 'recaptcha'
 require 'rsolr'
 
 require 'bpluser/version'

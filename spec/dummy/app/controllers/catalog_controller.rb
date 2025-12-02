@@ -2,10 +2,6 @@
 
 class CatalogController < ApplicationController
   include Blacklight::Catalog
-
-  # CatalogController-scope behavior and configuration for BlacklightIiifSearch
-  include BlacklightIiifSearch::Controller
-
   # CatalogController-scope behavior and configuration for CommonwealthVlrEngine
   include CommonwealthVlrEngine::ControllerOverride
 
@@ -19,8 +15,8 @@ class CatalogController < ApplicationController
     config.add_results_collection_tool(:view_type_group)
 
     config.add_show_tools_partial(:folder_items, partial: 'folder_item_control')
-    config.add_show_tools_partial(:email, partial: 'show_email_tools', callback: :email_action, validator: :validate_email_params)
-    config.add_show_tools_partial(:citation, partial: 'show_cite_tools')
+    # config.add_show_tools_partial(:email, partial: 'show_email_tools', callback: :email_action, validator: :validate_email_params)
+    # config.add_show_tools_partial(:citation, partial: 'show_cite_tools')
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -96,9 +92,5 @@ class CatalogController < ApplicationController
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
 
-    # advanced search facet limits
-    config.advanced_search[:form_solr_parameters]['facet.field'] = ['genre_basic_ssim', 'physical_location_ssim']
-    config.advanced_search[:form_solr_parameters]['f.physical_location_ssim.facet.limit'] = -1
-    config.advanced_search[:form_solr_parameters]['f.physical_location_ssim.facet.sort'] = 'index'
   end
 end

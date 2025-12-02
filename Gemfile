@@ -8,41 +8,45 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem 'bootsnap', require: false
 # jquery-rails is used by the dummy application
 group :development, :test do
-  gem 'bootstrap', '~> 4'
-  gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine'
-  gem 'coveralls', require: false
+  gem 'debug', platforms: %i[mri windows]
   gem 'dotenv-rails', '~> 2.8', require: 'dotenv/rails-now'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 3.1'
-  gem 'font-awesome-sass', '~> 6.5'
-  gem 'jquery-rails', '~> 4.5'
-  gem 'pry', '~> 0.14'
-  gem 'puma', '~> 5.6.5'
-  gem 'rails-controller-testing', '~> 1.0'
-  gem 'rubocop', '~> 1.64', require: false
-  gem 'rubocop-performance', '~> 1.21', require: false
-  gem 'rubocop-rails', '~> 2.25', require: false
-  gem 'rubocop-rspec', '~> 2.31', require: false
-  gem 'sass-rails', '> 5.0'
-  gem 'sprockets', '> 4'
-  gem 'sprockets-rails', '~> 3.4'
-  gem 'turbolinks', '~> 5'
-  gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
+  gem 'rubocop', '~> 1.66.0', require: false
+  gem 'rubocop-capybara', require: false
+  gem 'rubocop-performance', '~> 1.22', require: false
+  gem 'rubocop-rails', '~> 2.26', require: false
+  gem 'rubocop-rspec', '~> 2.31.0', require: false
 end
 
 group :test do
-  gem 'capybara', '~> 3.38', '< 4'
+  gem 'capybara', '~> 3.40', '< 4'
   gem 'climate_control', '~> 1.1'
-  gem 'coveralls_reborn', '~> 0.26.0', require: false
-  gem 'database_cleaner-active_record', '~> 2'
+  gem 'coveralls_reborn', '~> 0.28.0', require: false
+  gem 'database_cleaner-active_record', '~> 2.1'
   gem 'launchy', '~> 2.5'
-  gem 'selenium-webdriver', '~> 4.11'
+  gem 'rails-controller-testing', '~> 1.0'
+  gem 'selenium-webdriver', '~> 4.36'
   gem 'shoulda-matchers', '~> 5.2'
-  gem 'webmock', '~> 3.18'
+  gem 'webmock', '~> 3.23'
 end
+
+gem 'bootsnap', require: false
+gem 'bootstrap', '~> 5.3'
+gem 'commonwealth-vlr-engine', github: 'boston-library/commonwealth-vlr-engine', branch: 'blacklight-8'
+gem 'cssbundling-rails'
+
+gem 'importmap-rails'
+gem 'propshaft'
+
+gem 'stimulus-rails'
+gem 'turbo-rails'
+
+gem 'jbuilder'
+
+gem 'puma', '>= 5.0'
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or
@@ -50,4 +54,3 @@ end
 # your gem to rubygems.org.
 
 # To use debugger
-# gem 'debugger'

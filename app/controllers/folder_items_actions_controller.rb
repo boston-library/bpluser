@@ -8,7 +8,7 @@ class FolderItemsActionsController < ApplicationController
 
     unless params[:selected]
       flash[:error] = t('blacklight.folders.update_items.remove.no_items')
-      redirect_back(fallback_location: root_path)
+      redirect_back_or_to(root_path)
     end
 
     items = params[:selected]
@@ -65,7 +65,7 @@ class FolderItemsActionsController < ApplicationController
       else
         flash[:error] = t('blacklight.folders.update_items.copy.failure')
       end
-      redirect_back(fallback_location: root_path)
+      redirect_back_or_to(root_path)
     end
   end
 

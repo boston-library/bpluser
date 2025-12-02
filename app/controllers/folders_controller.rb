@@ -20,19 +20,26 @@ class FoldersController < CatalogController
   before_action :check_visibility, only: [:show]
   before_action :correct_user_for_folder, only: [:update, :edit, :destroy]
 
-  blacklight_config.track_search_session = false
-  blacklight_config.http_method = Blacklight::Engine.config.bookmarks_http_method
+  # blacklight_config.track_search_session = false
+  # blacklight_config.http_method = Blacklight::Engine.config.blacklight.bookmarks_http_method
+
+  def search_service_context
+    { bookmarks: @folder_items }
+  end
 
   def index
-    @folders = current_or_guest_user.folders.with_folder_items if current_or_guest_user
+    @folders = token_or_current_or_guest_user.folders.with_folder_items if token_or_current_or_guest_user
   end
 
   def show
+    blacklight_config.show.metadata_component = Blacklight::DocumentMetadataComponent
+    blacklight_config.search_builder_class = Blacklight::BookmarksSearchBuilder
     # @folder is set by correct_user_for_folder
     @folder_items = @folder.folder_items
-    folder_items_ids = @folder_items.pluck(:document_id)
+    # folder_items_ids = @folder_items.pluck(:document_id)
     params[:sort] ||= 'title_info_primary_ssort asc, date_start_dtsi asc'
-    @response, @document_list = search_service.fetch(folder_items_ids)
+    # @documents = search_service.fetch(folder_items_ids)
+    @response = search_service.search_results
   end
 
   def new
@@ -91,8 +98,8 @@ class FoldersController < CatalogController
   def correct_user_for_folder
     @folder ||= Bpluser::Folder.with_folder_items.find(params[:id])
 
-    if current_or_guest_user
-      flash[:notice] = t('blacklight.folders.private') and redirect_to root_path unless current_or_guest_user.folders.include?(@folder)
+    if token_or_current_or_guest_user
+      flash[:notice] = t('blacklight.folders.private') and redirect_to root_path unless token_or_current_or_guest_user.folders.include?(@folder)
     else
       flash[:notice] = t('blacklight.folders.private') and redirect_to root_path
     end

@@ -2,7 +2,7 @@
 <% if current_or_guest_user %>
   <%= link_to t('blacklight.saved_searches.save'),
               save_search_path(session[:history].first),
-              method: :put,
+              data: { turbo_method: :put },
               id: 'saveSearchLink',
               class: 'catalog_saveSearchLink btn btn-sm btn-outline-secondary' %>
 <% end %>

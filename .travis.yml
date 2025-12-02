@@ -1,40 +1,36 @@
 language: ruby
-dist: bionic
+dist: jammy
 
 cache:
   bundler: true
   apt: true
 
 addons:
-  postgresql: "12"
   chrome: stable
-  apt:
-    update: true
-    packages:
-      - postgresql-12
-      - postgresql-client-12
+
+services:
+  - postgresql
 
 before_install:
-  - sudo sed -i 's/port = 5433/port = 5432/' /etc/postgresql/12/main/postgresql.conf
-  - sudo cp /etc/postgresql/{9.3,12}/main/pg_hba.conf
-  - sudo pg_ctlcluster 12 main restart
   - gem update --system --no-document
-  - gem install bundler:2.3.26 --no-document
+  - gem install bundler:2.7.2 --no-document
+  - nvm install --lts
   - google-chrome-stable --headless --disable-gpu --disable-software-rasterizer --no-sandbox --remote-debugging-port=9222 http://localhost &
 
 before_script:
   - RAILS_ENV=test bundle exec rails app:db:prepare
+  - cd ./spec/dummy && yarn install && yarn build:css && cd ../..
 
 env:
   global:
-    - PGVER=12
     - PGHOST=127.0.0.1
     - PGUSER=postgres
     - PGPORT=5432
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+    - VLR_SITE_ID=commonwealth
 
 matrix:
   include:
-    - rvm: 3.1.4
-      env: "RAILS_VERSION=6.1.7.7"
-  fast_finish: true    
+    - rvm: 3.4.4
+      env: "RAILS_VERSION=7.2.3"
+  fast_finish: true

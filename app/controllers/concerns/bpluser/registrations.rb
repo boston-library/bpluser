@@ -38,6 +38,10 @@ module Bpluser
 
       protected
 
+      def after_sign_up_path_for(_resource)
+        root_path
+      end
+
       def configure_permitted_parameters
         case params[:action]
         when 'create'

@@ -7,6 +7,7 @@ module Bpluser
 
     included do
       include Blacklight::Configurable
+      include Blacklight::SearchContext
       copy_blacklight_config_from(CatalogController)
       # before_action :require_user_authentication_provider This is deprecated
       before_action :verify_user
@@ -25,7 +26,7 @@ module Bpluser
         flash[:error] = t('blacklight.saved_searches.add.failure')
       end
 
-      redirect_back fallback_location: saved_searches_path
+      redirect_back_or_to(saved_searches_path)
     end
 
     # Only dereferences the user rather than removing the item in case it
@@ -39,7 +40,7 @@ module Bpluser
         flash[:error] = t('blacklight.saved_searches.remove.failure')
       end
 
-      redirect_back fallback_location: saved_searches_path
+      redirect_back_or_to(saved_searches_path)
     end
 
     # Only dereferences the user rather than removing the items in case they

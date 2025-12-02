@@ -14,6 +14,8 @@ capybara-*.html
 /spec/dummy/db/*.sqlite3-*
 /spec/dummy/log/*.log
 /spec/dummy/tmp/
+/spec/dummy/node_modules
+/spec/dummy/app/assets/builds/*.css
 /public/system/*
 /coverage/
 /spec/tmp/*
@@ -58,6 +60,7 @@ ehthumbs.db
 Gemfile.lock
 .ruby-version
 scratch.rb
+.env
 
 # Directories to ignore #
 #########################

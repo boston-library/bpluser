@@ -17,12 +17,12 @@ RSpec.describe 'Registering a new User', :js do
           click_on 'Sign Up'
         end
 
-        within 'form.new_user' do
-          fill_in 'user_first_name', with: new_user_attributes[:first_name]
-          fill_in 'user_last_name', with: new_user_attributes[:last_name]
-          fill_in 'user_email', with: new_user_attributes[:email]
-          fill_in 'user_password', with: new_user_attributes[:password]
-          fill_in 'user_password_confirmation', with: new_user_attributes[:password_confirmation]
+        within 'form#new_user' do
+          fill_in 'First name', with: new_user_attributes[:first_name]
+          fill_in 'Last name', with: new_user_attributes[:last_name]
+          fill_in 'Email', with: new_user_attributes[:email]
+          fill_in 'Password', with: new_user_attributes[:password]
+          fill_in 'Re-enter password', with: new_user_attributes[:password_confirmation]
           click_on 'Sign up'
         end
       end

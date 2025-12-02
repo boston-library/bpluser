@@ -10,17 +10,14 @@ class FolderItemsController < CatalogController
 
     @folder_items = params[:folder_items].present? ? folder_items_params : default_folder_item_params
 
-    success = @folder_items.all? do |f_item|
-      folder_to_update = current_user.folders.find(f_item[:folder_id])
+    folder_items_to_add = @folder_items.reject { |folder_item| current_user.folder_items.where(folder_item).exists? }.group_by { |fi| fi[:folder_id].to_i }
 
-      next true if folder_to_update.folder_item?(f_item[:document_id])
-
-      begin
-        folder_to_update.folder_items.create!(document_id: f_item[:document_id])
-        next true
-      rescue ActiveRecord::RecordInvalid
-        break false
+    success = ActiveRecord::Base.transaction do
+      current_user.folders.where(id: folder_items_to_add.keys).find_each do |folder|
+        folder.folder_items.create!(folder_items_to_add[folder.id].map { |fi| fi.slice(:document_id) })
       end
+    rescue ActiveRecord::RecordInvalid
+      false
     end
 
     unless request.xhr?
@@ -32,8 +29,8 @@ class FolderItemsController < CatalogController
     end
 
     respond_to do |format|
-      format.html { redirect_back(fallback_location: root_path) }
-      format.js
+      format.turbo_stream
+      format.html { redirect_back_or_to(folders_path) }
     end
   end
 
@@ -51,8 +48,8 @@ class FolderItemsController < CatalogController
     Bpluser::FolderItem.find(folder_item.id).destroy
 
     respond_to do |format|
-      format.html { redirect_back(fallback_location: root_path) }
-      format.js
+      format.turbo_stream
+      format.html { redirect_back_or_to(root_path) }
     end
   end
 
@@ -92,6 +89,6 @@ class FolderItemsController < CatalogController
   end
 
   def folder_items_params
-    params.require(:folder_items).map { |fi_params| fi_params.permit(:document_id, :folder_id) }
+    params.permit(folder_items: [:document_id, :folder_id])
   end
 end

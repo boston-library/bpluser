@@ -14,7 +14,6 @@ require 'action_mailer/railtie'
 # require "action_text/engine"
 require 'action_view/railtie'
 # require "action_cable/engine"
-require 'sprockets/railtie'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -25,16 +24,10 @@ require 'bpluser'
 
 module Dummy
   class Application < Rails::Application
-    config.load_defaults 6.1
+    config.load_defaults 7.2
+    config.assets.pipeline = :propshaft
 
-    if Rails.env.development?
-      console do
-        require 'pry' unless defined?(Pry)
-        require 'awesome_print' unless defined?(AwesomePrint)
-        AwesomePrint.pry!
-        config.console = Pry
-      end
-    end
+    config.autoload_lib(ignore: %w[assets tasks])
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -46,6 +39,6 @@ module Dummy
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.active_record.yaml_column_permitted_classes = [Symbol, Hash, Array, ActiveSupport::HashWithIndifferentAccess]
+    # config.active_record.yaml_column_permitted_classes = [Symbol, Hash, Array, ActiveSupport::HashWithIndifferentAccess]
   end
 end

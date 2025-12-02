@@ -1,0 +1,28 @@
+<nav class="d-flex justify-content-end flex-column flex-md-row mb-4 gap-4" aria-label="Tools">
+  <ul class="nav navbar justify-content-start d-inline-flex gap-2 px-1 py-0">
+    <li>
+      <%= link_to citation_href,
+                  class: 'btn nav-link',
+                  data: { blacklight_modal: "trigger" } do %>
+        <i class="bi bi-quote me-1"></i>Cite
+      <% end %>
+    </li>
+    <li>
+      <%= link_to email_href,
+                  class: 'btn nav-link',
+                  data: { blacklight_modal: "trigger" } do %>
+        <i class="bi bi-envelope me-1"></i>Email
+      <% end %>
+    </li>
+    <li>
+      <%= button_to clear_bookmarks_path,
+                    method: :delete,
+                    data: { turbo_confirm: 'Are you sure you want to remove all items?' },
+                    class: 'btn btn-link lh-1' do %>
+          <span class="action-button blacklight-icons">
+            <i class="bi bi-trash me 1"></i>Remove All
+          </span>
+      <% end %>
+    </li>
+  </ul>
+</nav>

@@ -29,7 +29,7 @@ RSpec.describe FolderItemsController do
 
       it 'is expected to create a new folder item using ajax' do
         expect do
-          post :create, xhr: true, params: { id: ajax_document_id, folder_id: folder.id.to_s }
+          post :create, format: :turbo_stream, params: { id: ajax_document_id, folder_id: folder.id.to_s }
           expect(response).to be_successful
           expect(test_user.existing_folder_item_for(ajax_document_id)).not_to be_nil
         end.to change(Bpluser::FolderItem, :count).by(1)
@@ -54,9 +54,9 @@ RSpec.describe FolderItemsController do
         end.to change(Bpluser::FolderItem, :count).by(-1)
       end
 
-      it 'is expected to delete a folder item using ajax' do
+      it 'is expected to delete a folder item using js' do
         expect do
-          delete :destroy, xhr: true, params: { id: document_id }
+          delete :destroy, format: :turbo_stream, params: { id: document_id }
           expect(response).to be_successful
         end.to change(Bpluser::FolderItem, :count).by(-1)
       end
