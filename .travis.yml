@@ -27,6 +27,7 @@ env:
     - PGUSER=postgres
     - PGPORT=5432
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+    - VLR_SITE_ID=commonwealth
 
 matrix:
   include:
