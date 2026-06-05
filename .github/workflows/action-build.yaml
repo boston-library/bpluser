@@ -19,3 +19,9 @@ jobs:
         with:
           ruby-version: 3.4.4
           bundler-cache: true
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+          cache-dependency-path: './spec/internal/yarn.lock'
