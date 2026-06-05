@@ -6,6 +6,16 @@ jobs:
   build:
     runs-on: ubuntu-22.04
 
+    strategy:
+      matrix:
+        rails_version: ['7.2.3']
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: browser-actions/setup-chrome@v2
+      - run: chrome --version
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.4.4
+          bundler-cache: true
