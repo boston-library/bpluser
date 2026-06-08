@@ -35,3 +35,8 @@ jobs:
         run: yarn install
         # working-directory: ./spec/internal
         working-directory: ./spec/dummy
+
+      - name: Compile CSS
+        run: yarn build:css
+        # working-directory: ./spec/internal
+        working-directory: ./spec/dummy
