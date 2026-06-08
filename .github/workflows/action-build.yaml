@@ -67,6 +67,9 @@ jobs:
         # working-directory: ./spec/internal
         working-directory: ./spec/dummy
 
+      - name: run browsers data update:
+        run: npx update-browserslist-db@latest
+        
       - name: Create test database
         run: RAILS_ENV=test bundle exec rails db:test:prepare
         # run: RAILS_ENV=test bundle exec rails app:db:prepare
