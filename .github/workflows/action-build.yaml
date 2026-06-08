@@ -80,9 +80,9 @@ jobs:
           # Give Chromium a couple of seconds to spin up before next steps
           sleep 3
 
-      - name: run browsers data update
-        run: npx update-browserslist-db@latest
-        working-directory: ./spec/dummy
+      # - name: run browsers data update
+      #   run: npx update-browserslist-db@latest
+      #   working-directory: ./spec/dummy
 
       - name: Create test database
         run: RAILS_ENV=test bundle exec rails db:test:prepare
