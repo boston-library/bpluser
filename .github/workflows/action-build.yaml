@@ -37,8 +37,8 @@ jobs:
 
 
     steps:
-      # - uses: browser-actions/setup-chrome@v2
-      # - run: chrome --version
+      - uses: browser-actions/setup-chrome@v2
+      - run: chrome --version
 
       - uses: actions/checkout@v4
 
