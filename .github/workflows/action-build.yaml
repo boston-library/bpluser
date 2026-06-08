@@ -6,9 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-22.04
 
-    # strategy:
-    #   matrix:
-    #     rails_version: ['7.2.3']
+    strategy:
+      matrix:
+        rails_version: ['7.2.3']
 
 
     # Define environment variables globally for the job
