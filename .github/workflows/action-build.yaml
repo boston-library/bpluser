@@ -54,15 +54,15 @@ jobs:
           # cache-dependency-path: './spec/internal/yarn.lock'
           cache-dependency-path: './spec/dummy/yarn.lock'
 
-      - name: Install packages
+      - name: Install bundle packages
         run: bundle install
 
-      - name: Install packages
+      - name: Install yarn packages
         run: yarn install
         # working-directory: ./spec/internal
         working-directory: ./spec/dummy
 
-      - name: Compile CSS
+      - name: Compile yarn CSS
         run: yarn build:css
         # working-directory: ./spec/internal
         working-directory: ./spec/dummy
