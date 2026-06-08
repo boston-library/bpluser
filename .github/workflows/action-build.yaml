@@ -73,3 +73,6 @@ jobs:
         # working-directory: ./spec/internal
         working-directory: ./spec/dummy
 
+      - name: Run linter and tests
+        run: RAILS_ENV=test bundle exec rake ci
+        working-directory: ./spec/dummy
