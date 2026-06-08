@@ -92,4 +92,4 @@ jobs:
 
       - name: Run linter and tests
         run: RAILS_ENV=test bundle exec rake
-        #not working-directory: ./spec/dummy
+        working-directory: ./spec/dummy
