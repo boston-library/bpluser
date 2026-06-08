@@ -40,3 +40,15 @@ jobs:
         run: yarn build:css
         # working-directory: ./spec/internal
         working-directory: ./spec/dummy
+
+      - name: Create test database
+        run: RAILS_ENV=test bundle exec rails db:test:prepare
+        # working-directory: ./spec/internal
+        working-directory: ./spec/dummy
+
+
+      - name: Create test database
+        run: RAILS_ENV=test bundle exec rails db:test:prepare
+        # working-directory: ./spec/internal
+        working-directory: ./spec/dummy
+
