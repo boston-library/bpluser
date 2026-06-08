@@ -19,6 +19,14 @@ jobs:
         with:
           ruby-version: 3.4.4
           bundler-cache: true
+
+      - name: Install packages
+        run: bundle install
+
+      - name: Install packages
+        run: yarn install
+        working-directory: ./spec/internal
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
