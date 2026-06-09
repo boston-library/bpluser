@@ -3,113 +3,102 @@
 
 
 +++++++++++++++++++++++++++++++++++++++
-I wrote this script but it is failed at 
-Run RAILS_ENV=test bundle exec rake
-rake aborted!
-Don't know how to build task 'default' (See the list of available tasks with `rake --tasks`)
-/home/runner/work/bpluser/bpluser/vendor/bundle/ruby/3.4.0/gems/rake-13.4.2/exe/rake:27:in '<top (required)>'
-/opt/hostedtoolcache/Ruby/3.4.4/x64/bin/bundle:25:in 'Kernel#load'
-/opt/hostedtoolcache/Ruby/3.4.4/x64/bin/bundle:25:in '<main>'
-(See full trace by running task with --trace)
+Chatgpt rewrites a workable Jenkins bpluser_branch shell script:
+https://jenkins.bpl.org/view/Mic/job/bpluser_branch/2657/
 
 +++++++++++++++++++++++++++++++++++++++
-name: Build branches
+name: Rails CI
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-22.04
+  test:
+    runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        rails_version: ['7.2.3']
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
 
-
-    # Define environment variables globally for the job
     env:
-      RAILS_ENV: test
-      PGHOST: localhost
+      PGVER: 15
+      PGHOST: 127.0.0.1
       PGUSER: postgres
       PGPASSWORD: postgres
       PGPORT: 5432
 
-    # Services start sidecar containers (Postgres) automatically
-    services:
-      postgres:
-        image: postgres:12
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        ports:
-          - 5432:5432
-        # Health check ensures Postgres is ready before the script runs
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
+      LD_PRELOAD: /lib/x86_64-linux-gnu/libjemalloc.so.2
+      BUNDLE_GEMFILE: ${{ github.workspace }}/Gemfile
 
     steps:
-      - uses: browser-actions/setup-chrome@v2
-      - run: chrome --version
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v4
+      - name: Determine Ruby version from .travis.yml
+        id: ruby-version
+        run: |
+          RUBY_VER=$(grep -r 'rvm' .travis.yml | cut -d ':' -f2 | xargs)
+          echo "ruby_version=$RUBY_VER" >> $GITHUB_OUTPUT
+          echo "$RUBY_VER" > .ruby-version
 
-      - name: Set up Ruby
+      - name: Determine Rails version
+        run: |
+          RAILS_VER=$(grep -r 'RAILS_VERSION' .travis.yml | cut -d"=" -f2 | rev | cut -c2- | rev | xargs)
+          echo "Rails version: $RAILS_VER"
+
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.4.4
-          bundler-cache: true
+          ruby-version: ${{ steps.ruby-version.outputs.ruby_version }}
+          bundler-cache: false
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: yarn
-          # cache-dependency-path: './spec/internal/yarn.lock'
-          cache-dependency-path: './spec/dummy/yarn.lock'
-
-      - name: Install bundle packages
-        run: bundle install
-
-      - name: Install yarn packages
-        run: yarn install
-        # working-directory: ./spec/internal
-        working-directory: ./spec/dummy
-
-      - name: Compile yarn CSS
-        run: yarn build:css
-        # working-directory: ./spec/internal
-        working-directory: ./spec/dummy
-
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-
-      - name: Start Chromium in Headless Mode
+      - name: Show versions
         run: |
-          chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost &
-          # Give Chromium a couple of seconds to spin up before next steps
-          sleep 3
+          ruby --version
+          gem --version
+          bundler --version
 
-      # - name: run browsers data update
-      #   run: npx update-browserslist-db@latest
-      #   working-directory: ./spec/dummy
+      - name: Remove Gemfile.lock
+        run: rm -f Gemfile.lock
 
-      - name: Create test database
-        run: RAILS_ENV=test bundle exec rails db:test:prepare
-        # run: RAILS_ENV=test bundle exec rails app:db:prepare
-        # working-directory: ./spec/internal
-        working-directory: ./spec/dummy
+      - name: Install Chromium
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
 
-      - name: Run linter and tests
-        run: RAILS_ENV=test bundle exec rake
-        working-directory: ./spec/dummy
+      - name: Install gems
+        run: bundle install --jobs 4 --retry 3
 
+      - name: Start headless Chromium
+        run: |
+          chromium-browser \
+            --headless \
+            --disable-gpu \
+            --no-sandbox \
+            --remote-debugging-port=9222 \
+            http://localhost &
+          sleep 5
 
+      - name: Prepare database
+        run: |
+          RAILS_ENV=test bin/rails app:db:drop
+          RAILS_ENV=test bin/rails app:db:prepare
+
+      - name: Run CI
+        run: |
+          RAILS_ENV=test bin/rails ci
 
 
 

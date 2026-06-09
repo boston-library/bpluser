@@ -74,15 +74,15 @@ jobs:
         with:
           chrome-version: stable
 
+      - name: run browsers data update
+        run: npx update-browserslist-db@latest
+        working-directory: ./spec/dummy
+
       - name: Start Chromium in Headless Mode
         run: |
           chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost &
           # Give Chromium a couple of seconds to spin up before next steps
           sleep 3
-
-      # - name: run browsers data update
-      #   run: npx update-browserslist-db@latest
-      #   working-directory: ./spec/dummy
 
       - name: Create test database
         run: RAILS_ENV=test bundle exec rails db:test:prepare
