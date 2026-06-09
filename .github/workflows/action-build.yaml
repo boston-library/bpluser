@@ -18,7 +18,7 @@ jobs:
       PGUSER: postgres
       PGPASSWORD: postgres
       PGPORT: 5432
-      # NOKOGIRI_USE_SYSTEM_LIBRARIES: true
+      NOKOGIRI_USE_SYSTEM_LIBRARIES: true
       VLR_SITE_ID: commonwealth
 
     # Services start sidecar containers (Postgres) automatically
