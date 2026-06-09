@@ -10,7 +10,6 @@ jobs:
       matrix:
         rails_version: ['7.2.3']
 
-
     # Define environment variables globally for the job
     env:
       RAILS_ENV: test
@@ -37,12 +36,12 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
-
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - uses: browser-actions/setup-chrome@v2
       - run: chrome --version
-
-      - uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
