@@ -81,13 +81,6 @@ jobs:
         with:
           chrome-version: stable
 
-      # - name: Verify Chrome
-      #   run: |
-      #     chrome --version || true
-      #     google-chrome --version || true
-      #     which chrome || true
-      #     which google-chrome || true
-
       - name: Start headless Chrome
         run: |
           CHROME_BIN=$(which chrome || which google-chrome)
@@ -105,7 +98,6 @@ jobs:
       - name: Check Chrome debugging endpoint
         run: |
           curl http://127.0.0.1:9222/json/version
-
 
       - name: Create test database
         run: RAILS_ENV=test bundle exec rails db:test:prepare
