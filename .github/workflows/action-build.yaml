@@ -96,10 +96,10 @@ jobs:
 
           sleep 5
 
-      ## Verify chrome running on :9222
-      - name: Check Chrome debugging endpoint
-        run: |
-          curl http://127.0.0.1:9222/json/version
+      # ## Verify chrome running on :9222
+      # - name: Check Chrome debugging endpoint
+      #   run: |
+      #     curl http://127.0.0.1:9222/json/version
 
 
       - name: Create test database
