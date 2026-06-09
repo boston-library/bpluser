@@ -22,7 +22,7 @@ Then run:
 ```
 $ bundle install
 $ rails generate bpluser:install
-```
+``` 
 
 When updating run
 
