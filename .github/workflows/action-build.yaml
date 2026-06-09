@@ -74,15 +74,51 @@ jobs:
         with:
           chrome-version: stable
 
-      - name: run browsers data update
-        run: npx update-browserslist-db@latest
-        working-directory: ./spec/dummy
-
-      - name: Start Chromium in Headless Mode
+      - name: Verify Chrome
         run: |
-          chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost &
-          # Give Chromium a couple of seconds to spin up before next steps
-          sleep 3
+          chrome --version || true
+          google-chrome --version || true
+          which chrome || true
+          which google-chrome || true
+
+      # - name: run browsers data update
+      #   run: npx update-browserslist-db@latest
+      #   working-directory: ./spec/dummy
+
+      # - name: Start Chromium in Headless Mode
+      #   run: |
+      #     chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost &
+      #     # Give Chromium a couple of seconds to spin up before next steps
+      #     sleep 3
+
+      # - name: Start headless Chromium
+      #   run: |
+      #     chromium-browser \
+      #       --headless \
+      #       --disable-gpu \
+      #       --no-sandbox \
+      #       --remote-debugging-port=9222 \
+      #       http://localhost &
+      #     sleep 5
+
+      - name: Start headless Chrome
+        run: |
+          CHROME_BIN=$(which chrome || which google-chrome)
+
+          $CHROME_BIN \
+            --headless=new \
+            --disable-gpu \
+            --no-sandbox \
+            --remote-debugging-port=9222 \
+            about:blank &
+
+          sleep 5
+
+      ## Verify chrome running on :9222
+      - name: Check Chrome debugging endpoint
+        run: |
+          curl http://127.0.0.1:9222/json/version
+
 
       - name: Create test database
         run: RAILS_ENV=test bundle exec rails db:test:prepare
