@@ -81,12 +81,12 @@ jobs:
         with:
           chrome-version: stable
 
-      - name: Verify Chrome
-        run: |
-          chrome --version || true
-          google-chrome --version || true
-          which chrome || true
-          which google-chrome || true
+      # - name: Verify Chrome
+      #   run: |
+      #     chrome --version || true
+      #     google-chrome --version || true
+      #     which chrome || true
+      #     which google-chrome || true
 
       - name: Start headless Chrome
         run: |
