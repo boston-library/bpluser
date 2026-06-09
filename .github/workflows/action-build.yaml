@@ -18,7 +18,7 @@ jobs:
       PGUSER: postgres
       PGPASSWORD: postgres
       PGPORT: 5432
-      NOKOGIRI_USE_SYSTEM_LIBRARIES: true
+      # NOKOGIRI_USE_SYSTEM_LIBRARIES: true
       VLR_SITE_ID: commonwealth
 
     # Services start sidecar containers (Postgres) automatically
@@ -82,26 +82,6 @@ jobs:
           google-chrome --version || true
           which chrome || true
           which google-chrome || true
-
-      # - name: run browsers data update
-      #   run: npx update-browserslist-db@latest
-      #   working-directory: ./spec/dummy
-
-      # - name: Start Chromium in Headless Mode
-      #   run: |
-      #     chrome --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost &
-      #     # Give Chromium a couple of seconds to spin up before next steps
-      #     sleep 3
-
-      # - name: Start headless Chromium
-      #   run: |
-      #     chromium-browser \
-      #       --headless \
-      #       --disable-gpu \
-      #       --no-sandbox \
-      #       --remote-debugging-port=9222 \
-      #       http://localhost &
-      #     sleep 5
 
       - name: Start headless Chrome
         run: |
