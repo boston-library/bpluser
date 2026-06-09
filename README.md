@@ -1,6 +1,6 @@
 # Bpluser
- 
-[![Build Status](https://travis-ci.com/boston-library/bpluser.svg?branch=master)](https://travis-ci.com/boston-library/bpluser) [![Coverage Status](https://coveralls.io/repos/github/boston-library/bpluser/badge.svg?branch=master)](https://coveralls.io/github/boston-library/bpluser?branch=master)
+
+![Build Status](https://github.com/boston-library/bpluser/actions/workflows/action-build.yaml/badge.svg)
 
 Rails engine for providing Devise-based user models and functionality for digital repository applications using
  [CommonwealthVlrEngine](https://github.com/boston-library/commonwealth-vlr-engine).
