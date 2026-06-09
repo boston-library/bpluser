@@ -50,6 +50,12 @@ jobs:
           ruby-version: 3.4.4
           bundler-cache: true
 
+      - name: Update RubyGems
+        run: gem update --system --no-document
+
+      - name: Install Bundler 2.7.2
+        run: gem install bundler -v 2.7.2 --no-document
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
