@@ -48,7 +48,6 @@ RSpec.describe 'Logging in User', :js do
       after do
         sign_out test_user
       end
-
       # it 'expects test user to have remember_created_at set' do
       #   test_user.reload
       #   expect(test_user.remember_created_at).to be_truthy.and be_a(ActiveSupport::TimeWithZone)
