@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 3.2', '< 3.5'
 
-  # s.add_dependency 'blacklight', '~> 8.11.0'
   s.add_dependency 'blacklight', '~> 8.12.0'
   s.add_dependency 'devise', '~> 4.9'
   s.add_dependency 'devise-guests', '~> 0.8'
