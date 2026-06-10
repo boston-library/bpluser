@@ -23,7 +23,7 @@ jobs:
     # Services start sidecar containers (Postgres) automatically
     services:
       postgres:
-        image: postgres:12
+        image: postgres:15
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
