@@ -101,7 +101,6 @@ jobs:
 
       - name: Create test database
         run: RAILS_ENV=test bundle exec rails db:test:prepare
-        # run: RAILS_ENV=test bundle exec rails app:db:prepare
         # working-directory: ./spec/internal
         working-directory: ./spec/dummy
 
