@@ -40,27 +40,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - uses: browser-actions/setup-chrome@v2
-      - run: chrome --version
-
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.4.4
           bundler-cache: true
 
-      - name: Update RubyGems
-        run: gem update --system --no-document
-
-      - name: Install Bundler 2.7.2
-        run: gem install bundler -v 2.7.2 --no-document
-
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: yarn
-          # cache-dependency-path: './spec/internal/yarn.lock'
           cache-dependency-path: './spec/dummy/yarn.lock'
 
       - name: Install bundle packages
@@ -68,12 +58,10 @@ jobs:
 
       - name: Install yarn packages
         run: yarn install
-        # working-directory: ./spec/internal
         working-directory: ./spec/dummy
 
       - name: Compile yarn CSS
         run: yarn build:css
-        # working-directory: ./spec/internal
         working-directory: ./spec/dummy
 
       - name: Setup Chrome
@@ -101,9 +89,7 @@ jobs:
 
       - name: Create test database
         run: RAILS_ENV=test bundle exec rails db:test:prepare
-        # working-directory: ./spec/internal
         working-directory: ./spec/dummy
 
       - name: Run linter and tests
         run: RAILS_ENV=test bundle exec rake
-        # working-directory: ./spec/dummy
